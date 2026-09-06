@@ -32,7 +32,8 @@ jobs:
           # A tag pushed again (after a fix) refreshes the release rather than failing on it.
           if gh release view "$GITHUB_REF_NAME" >/dev/null 2>&1; then
             gh release upload "$GITHUB_REF_NAME" dist/TheNightWindow.softn dist/SHA256SUMS.txt --clobber
-            gh release edit "$GITHUB_REF_NAME" --title "The Night Window $GITHUB_REF_NAME" --notes-file dist/RELEASE_NOTES.md
+            # Deleting and re-pushing a tag turns its release into a draft; publish it again.
+            gh release edit "$GITHUB_REF_NAME" --draft=false --title "The Night Window $GITHUB_REF_NAME" --notes-file dist/RELEASE_NOTES.md
           else
             gh release create "$GITHUB_REF_NAME" \
               dist/TheNightWindow.softn dist/SHA256SUMS.txt \
