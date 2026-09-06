@@ -1,0 +1,6 @@
+{
+  "kind": "Constrained static DOM approximation, not native runtime",
+  "layouts": 65,
+  "controls": 1536,
+  "failures": []
+}

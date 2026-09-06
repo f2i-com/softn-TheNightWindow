@@ -1,0 +1,487 @@
+// Pure, deterministic model. This file has no host calls and runs in ZIPP and Node tests.
+// Mutations are confined to the explicitly supplied session. UI projection is separate.
+let NW_VERSION = 1;
+let NW_EVIDENCE = ["film", "reference", "player", "learning", "transfers", "order", "carbon", "broadcast", "protocol", "consent", "garden", "circuit", "room", "self"];
+let NW_MEMORY = ["boats", "lighthouse", "blue-sun", "seven-stars", "wooden-bird", "keep-chair", "window-tram", "archive-bells", "stop-nine", "bent-badge"];
+function nwClone(v) { return JSON.parse(JSON.stringify(v)); }
+function nwHas(a, v) { return a.indexOf(v) >= 0; }
+function nwAdd(a, v) { if (v && !nwHas(a, v)) {
+    a.push(v);
+} }
+function nwClamp(v, lo, hi) { return Math.max(lo, Math.min(hi, v)); }
+function nwResident(id) { for (let i = 0; i < NW_RESIDENTS.length; i++) {
+    if (NW_RESIDENTS[i].id === id) {
+        return NW_RESIDENTS[i];
+    }
+} return null; }
+function nwAnomaly(id) { for (let i = 0; i < NW_ANOMALIES.length; i++) {
+    if (NW_ANOMALIES[i].id === id) {
+        return NW_ANOMALIES[i];
+    }
+} return null; }
+// ── The order of the queue ──
+// Every campaign deals the queue afresh from its seed: nights keep their order,
+// each night's opener (and night seven's closer) stays put, pairs that refer to
+// one another keep their authored order, and the first visitor of the campaign
+// is always a genuine resident. Seed 198917 is the authored order itself.
+let NW_AUTHORED_SEED = 198917;
+// Both openers are genuine and carry clean paperwork, so the guided shift never opens on a difference.
+let NW_FIRST_VISITORS = ["n1-01-ada", "n1-06-ruth"];
+let NW_ORDER_FIRST = { 2: "n2-01-tomas", 3: "n3-01-micah", 4: "n4-01-anja", 5: "n5-01-victor", 6: "n6-01-orin", 7: "n7-01-tomas" };
+let NW_ORDER_LAST = { 7: "n7-07-orin" };
+let NW_ORDER_BEFORE = [["n1-03-tomas", "n1-04-ivo"], ["n2-02-celia", "n2-05-nessa"], ["n2-02-celia", "n2-06-lio"], ["n2-05-nessa", "n2-06-lio"],
+    ["n3-06-pavel", "n3-07-ada"], ["n4-02-mara", "n4-03-mara"], ["n4-02-mara", "n4-06-leon"], ["n4-03-mara", "n4-06-leon"], ["n4-06-leon", "n4-07-hadi"],
+    ["n5-04-nessa", "n5-05-june"], ["n5-02-bea", "n5-05-june"], ["n5-02-bea", "n5-06-emil"], ["n5-03-selene", "n5-07-dalia"],
+    ["n6-05-pavel", "n6-07-ada"], ["n6-04-ruth", "n6-07-ada"], ["n7-04-hadi", "n7-05-leon"]];
+let nwOrderCache = { seed: 0, order: null };
+function nwCampaignIndex(id) { for (let i = 0; i < NW_CAMPAIGN.length; i++) {
+    if (NW_CAMPAIGN[i].id === id) {
+        return i;
+    }
+} return -1; }
+function nwCampaignOrder(seed) {
+    if (nwOrderCache.order && nwOrderCache.seed === seed) {
+        return nwOrderCache.order;
+    }
+    let order = [];
+    if (seed === NW_AUTHORED_SEED) {
+        for (let i = 0; i < NW_CAMPAIGN.length; i++) {
+            order.push(i);
+        }
+    }
+    else {
+        let g = { n: (seed % 2147483646) + 1 };
+        nwRandom(g);
+        nwRandom(g);
+        for (let night = 1; night <= 7; night++) {
+            let first = -1, last = -1, middle = [];
+            if (night === 1) {
+                first = nwCampaignIndex(NW_FIRST_VISITORS[Math.floor(nwRandom(g) * NW_FIRST_VISITORS.length)]);
+            }
+            else if (NW_ORDER_FIRST[night]) {
+                first = nwCampaignIndex(NW_ORDER_FIRST[night]);
+            }
+            if (NW_ORDER_LAST[night]) {
+                last = nwCampaignIndex(NW_ORDER_LAST[night]);
+            }
+            for (let i = 0; i < NW_CAMPAIGN.length; i++) {
+                if (NW_CAMPAIGN[i].night === night && i !== first && i !== last) {
+                    middle.push(i);
+                }
+            }
+            for (let i = middle.length - 1; i > 0; i--) {
+                let j = Math.floor(nwRandom(g) * (i + 1)), t = middle[i];
+                middle[i] = middle[j];
+                middle[j] = t;
+            }
+            // Pairs that refer to one another keep their authored order: move the
+            // earlier one back in front of the later one until nothing is out of place.
+            for (let pass = 0; pass < 20; pass++) {
+                let moved = false;
+                for (let k = 0; k < NW_ORDER_BEFORE.length; k++) {
+                    let a = middle.indexOf(nwCampaignIndex(NW_ORDER_BEFORE[k][0])), b = middle.indexOf(nwCampaignIndex(NW_ORDER_BEFORE[k][1]));
+                    if (a >= 0 && b >= 0 && a > b) {
+                        let item = middle.splice(a, 1)[0];
+                        middle.splice(b, 0, item);
+                        moved = true;
+                    }
+                }
+                if (!moved) {
+                    break;
+                }
+            }
+            if (first >= 0) {
+                order.push(first);
+            }
+            for (let i = 0; i < middle.length; i++) {
+                order.push(middle[i]);
+            }
+            if (last >= 0) {
+                order.push(last);
+            }
+        }
+    }
+    nwOrderCache = { seed: seed, order: order };
+    return order;
+}
+function nwCampaignCase(s, cursor) { let order = nwCampaignOrder(s.seed); return cursor >= 0 && cursor < order.length ? NW_CAMPAIGN[order[cursor]] : null; }
+function nwCaseAt(s) { if (s.mode === "arcade") {
+    return nwArcade(s.seed, s.cursor);
+} return nwCampaignCase(s, s.cursor); }
+function nwCaseId(id) { for (let i = 0; i < NW_CAMPAIGN.length; i++) {
+    if (NW_CAMPAIGN[i].id === id) {
+        return NW_CAMPAIGN[i];
+    }
+} return null; }
+function nwNew(mode, seed) {
+    let s = { version: NW_VERSION, mode: mode, seed: seed || 198917, cursor: 0, night: 1, phase: mode === "arcade" ? "desk" : "brief", turn: null,
+        flags: [], evidence: [], memories: [], journal: [], decisions: [], relationships: {}, presence: {}, notes: "", residents: 60, authority: 60,
+        harm: 0, breaches: 0, contained: 0, holds: 2, scans: 2, score: 0, streak: 0, bestStreak: 0, correctAdmissions: 0, correctDetections: 0,
+        falsePositives: 0, echoesAdmitted: 0, humansDenied: 0, investigations: 0, resolved: 0, appealed: [], finale: "", endingStep: 0, ending: "" };
+    for (let i = 0; i < NW_RESIDENTS.length; i++) {
+        let id = NW_RESIDENTS[i].id;
+        s.relationships[id] = 0;
+        s.presence[id] = "inside";
+    }
+    if (mode === "arcade") {
+        nwEnter(s);
+    }
+    return s;
+}
+function nwBlankTurn(c) {
+    return { id: c.id, asked: [], approach: "", held: false, call: false, scan: false, camera: false, archive: false, register: false, rewritten: false,
+        lamp: false, seen: [], pins: [], selected: [], transcript: [], reaction: "", closed: false, choice: "", result: "", scanText: "", checklist: {}, checklistSent: false };
+}
+function nwEnter(s) {
+    let c = nwCaseAt(s);
+    if (!c) {
+        s.phase = "finale";
+        return false;
+    }
+    s.turn = nwBlankTurn(c);
+    s.phase = "desk";
+    let r = nwResident(c.resident), p = s.presence[r.id], relation = s.relationships[r.id] || 0;
+    if (s.mode === "campaign") {
+        if (p === "quarantine" && c.truth !== "hostile") {
+            s.turn.reaction = "An escort stands beside " + r.name + ". This is an appeal of your earlier containment order, not a new arrival. Admission releases custody; denial keeps the resident in the ward.";
+        }
+        else if (p === "outside" && c.truth !== "hostile") {
+            s.turn.reaction = "The outer shelter has sent " + r.name + " back for reconsideration. Your earlier denial has not been forgotten.";
+        }
+        else if (relation <= -2) {
+            s.turn.reaction = "They stop at the painted line. ‘I remember what happened at this window. Do you?’";
+        }
+        else if (relation >= 2) {
+            s.turn.reaction = "They recognize you before looking at the nameplate. ‘You listened last time, Ellis. That matters.’";
+        }
+        if (r.id === "lio" && s.presence.nessa === "quarantine") {
+            s.turn.reaction += " Lio holds a ward visiting slip: ‘Is Mum still behind the other glass?’";
+        }
+        if (r.id === "leon" && s.presence.mara === "dead") {
+            s.turn.reaction += " Leon lays down an unused green thermos. ‘The clinic said she never reached the ward. I know whose window she reached.’";
+        }
+        if (r.id === "ivo" && s.presence.tomas === "quarantine") {
+            s.turn.reaction += " Ivo asks whether the pencil in his father's ward can be sharpened. He is trying not to ask anything else.";
+        }
+    }
+    return true;
+}
+function nwStartShift(s) { if (s.phase !== "brief") {
+    return false;
+} return nwEnter(s); }
+function nwQuestionVisible(t, n) { if (nwHas(t.asked, n.id)) {
+    return false;
+} if (n.group && t.approach) {
+    return false;
+} let req = n.requires || []; for (let i = 0; i < req.length; i++) {
+    if (!nwHas(t.asked, req[i])) {
+        return false;
+    }
+} return true; }
+function nwRemember(s, c) { if (c.memoryKey && !nwHas(s.memories, c.memoryKey)) {
+    nwAdd(s.memories, c.memoryKey);
+    nwJournal(s, "MEMORY / " + nwResident(c.resident).name, c.memoryText);
+} }
+function nwJournal(s, title, text) { s.journal.push({ night: s.night, title: title, text: text }); if (s.journal.length > 160) {
+    s.journal = s.journal.slice(s.journal.length - 160);
+} }
+function nwDiscover(s, c) { if (c.evidence && !nwHas(s.evidence, c.evidence)) {
+    nwAdd(s.evidence, c.evidence);
+    nwJournal(s, c.evidenceLabel, c.evidenceText);
+} }
+function nwAsk(s, id) {
+    if (s.phase !== "desk" || !s.turn || s.turn.closed) {
+        return false;
+    }
+    let c = nwCaseAt(s), n = null;
+    for (let i = 0; i < c.nodes.length; i++) {
+        if (c.nodes[i].id === id) {
+            n = c.nodes[i];
+        }
+    }
+    if (!n || !nwQuestionVisible(s.turn, n)) {
+        return false;
+    }
+    nwAdd(s.turn.asked, id);
+    if (n.group) {
+        s.turn.approach = n.tone;
+    }
+    s.turn.transcript.push({ q: n.q, a: n.a, mood: n.mood || "neutral" });
+    s.investigations++;
+    if (id === "follow" || id === "memory") {
+        nwRemember(s, c);
+    }
+    if (n.evidence) {
+        nwDiscover(s, c);
+    }
+    if (n.tone === "gentle") {
+        s.relationships[c.resident] = nwClamp(s.relationships[c.resident] + 1, -10, 10);
+    }
+    if (n.tone === "press") {
+        s.relationships[c.resident] = nwClamp(s.relationships[c.resident] - 1, -10, 10);
+    }
+    return true;
+}
+function nwInspect(s, source) {
+    if (s.phase !== "desk" || !s.turn || s.turn.closed) {
+        return false;
+    }
+    if (!nwHas(["card", "permit", "live", "register", "archive", "counterfoil", "reports", "comms", "notes", "directory"], source)) {
+        return false;
+    }
+    if (source === "archive" && s.mode !== "arcade" && s.night < 3) {
+        return false;
+    }
+    if (!nwHas(s.turn.seen, source)) {
+        nwAdd(s.turn.seen, source);
+        s.investigations++;
+    }
+    let c = nwCaseAt(s);
+    if (source === "register") {
+        s.turn.register = true;
+        if (c.event === "rewrite" && !s.turn.rewritten) {
+            s.turn.rewritten = true;
+            nwJournal(s, "TERMINAL CHANGE", nwResident(c.resident).name + "’s census entry changed during this interview. The attached card and independently kept paper were not amended. Keep the carbon.");
+        }
+    }
+    if (source === "archive") {
+        s.turn.archive = true;
+        nwDiscover(s, c);
+    }
+    return true;
+}
+function nwHold(s) {
+    if (s.phase !== "desk" || s.turn.held || s.turn.closed || s.holds < 1) {
+        return false;
+    }
+    s.turn.held = true;
+    s.holds--;
+    s.investigations++;
+    let c = nwCaseAt(s);
+    s.turn.transcript.push({ q: "HOLD / Independent outer-desk check", a: c.hold, mood: "waiting" });
+    nwJournal(s, "HELD / " + nwResident(c.resident).name, "The outer desk supplied an independent follow-up. Holding is not a final disposition.");
+    return true;
+}
+function nwWitness(s, c) {
+    if (s.mode === "arcade") {
+        return c.call;
+    }
+    let r = nwResident(c.resident), out = [];
+    for (let i = 0; i < r.relations.length; i++) {
+        let id = r.relations[i], p = s.presence[id];
+        if (p === "quarantine" || p === "outside" || p === "dead") {
+            out.push(nwResident(id).name + ": " + p);
+        }
+    }
+    if (out.length) {
+        return "[Apartment routing notice: " + out.join("; ") + ".] The live extension is unavailable. The switchboard instead plays a dated message filed before this shift: “" + c.call + "” Treat this as historical testimony, not proof of who is upstairs now.";
+    }
+    return c.call;
+}
+function nwCall(s) {
+    if (s.phase !== "desk" || s.turn.call || s.turn.closed || (s.mode !== "arcade" && s.night < 2)) {
+        return false;
+    }
+    s.turn.call = true;
+    s.investigations++;
+    s.turn.transcript.push({ q: "INTERCOM / " + nwResident(nwCaseAt(s).resident).apartment, a: nwWitness(s, nwCaseAt(s)), mood: "line noise" });
+    return true;
+}
+function nwScan(s) {
+    if (s.phase !== "desk" || s.turn.scan || s.turn.closed || s.scans < 1 || (s.mode !== "arcade" && s.night < 4)) {
+        return false;
+    }
+    s.scans--;
+    s.turn.scan = true;
+    s.investigations++;
+    let c = nwCaseAt(s), r = nwResident(c.resident);
+    // Deliberately overlapping evidence. No threshold classifies a visitor.
+    let value = 18 + ((r.visual * 17 + s.cursor * 11 + s.seed) % 68);
+    if (c.resident === "pavel" || c.resident === "orin") {
+        value = 82;
+    }
+    if (c.id === "n4-02-mara") {
+        value = 23;
+    }
+    s.turn.scanText = "PHASE " + value + " / 100 · uncertainty ±18. " + (value > 65 ? "Elevated reading; fever, conductive dressings and interference can give this result." : "Within the instrument’s broad baseline. Coherent Reproductions can give this result.") + " Calibration compares a signal, not a conscience.";
+    s.turn.transcript.push({ q: "SIGNAL SCAN / cartridge consumed", a: s.turn.scanText, mood: "instrument" });
+    return true;
+}
+function nwPhotograph(s) { if (s.phase !== "desk" || s.turn.camera || s.turn.closed || (s.mode !== "arcade" && s.night < 4)) {
+    return false;
+} s.turn.camera = true; s.investigations++; nwJournal(s, "CAMERA / " + nwResident(nwCaseAt(s).resident).name, nwDocuments(nwCaseAt(s), s.turn).live.feature + ". " + nwDocuments(nwCaseAt(s), s.turn).live.shadow + ". Still held beside original intake portrait."); return true; }
+function nwLamp(s) { if (s.phase !== "desk" || s.turn.closed || nwCaseAt(s).event !== "blackout") {
+    return false;
+} s.turn.lamp = !s.turn.lamp; return true; }
+function nwAppeal(s, id) {
+    if (s.mode !== "campaign" || s.night < 5 || s.phase !== "desk" || s.presence[id] !== "quarantine" || nwHas(s.appealed, id)) {
+        return false;
+    }
+    // Presence only records genuine residents, never a contained impersonator.
+    s.presence[id] = "inside";
+    nwAdd(s.appealed, id);
+    s.relationships[id] = nwClamp(s.relationships[id] + 1, -10, 10);
+    s.residents = nwClamp(s.residents + 3, 0, 100);
+    s.authority = nwClamp(s.authority - 3, 0, 100);
+    nwJournal(s, "APPEAL / " + nwResident(id).name, "Independent clinical review released a living resident. The ward is a place, not a verdict. Earlier harm is not erased.");
+    return true;
+}
+function nwResolve(s, choice) {
+    if (s.phase !== "desk" || !s.turn || s.turn.closed || !nwHas(["admit", "deny", "quarantine"], choice)) {
+        return false;
+    }
+    let c = nwCaseAt(s), r = nwResident(c.resident), human = c.truth === "human", peace = c.truth === "peaceful", hostile = c.truth === "hostile";
+    let old = s.presence[r.id], good = false, feedback = "", explained = s.turn.archive || s.turn.held;
+    if (choice === "admit") {
+        feedback = "The inner bolts retract. " + r.name + " passes beneath the fluorescent strip. The ledger keeps your signature.";
+        if (hostile) {
+            s.breaches++;
+            s.echoesAdmitted++;
+            s.authority -= 3;
+            feedback += " The corridor camera drops a frame. It does that sometimes.";
+        }
+        else {
+            s.presence[r.id] = "inside";
+            s.relationships[r.id] += 2;
+            s.residents += 3;
+            s.correctAdmissions++;
+            good = true;
+            if (c.onAdmitFlag) {
+                nwAdd(s.flags, c.onAdmitFlag);
+            }
+        }
+        if (peace && !nwHas(s.evidence, "consent") && s.night >= 6) {
+            s.residents -= 2;
+            feedback += " No supervision agreement was retained; the kitchen asks you to follow up.";
+        }
+    }
+    else if (choice === "deny") {
+        feedback = "The outer door opens to the rain. The resident does not receive a copy of your reason.";
+        if (hostile) {
+            s.correctDetections++;
+            good = true;
+            s.authority += 1;
+            feedback += " The outer patrol will keep watch; this has not removed whoever is already inside.";
+        }
+        else if (old === "quarantine") {
+            s.harm++;
+            s.presence[r.id] = "quarantine";
+            s.residents -= 3;
+            s.relationships[r.id] -= 2;
+            feedback = "The appeal is denied. The escort takes " + r.name + " back to the containment ward.";
+        }
+        else {
+            s.presence[r.id] = "outside";
+            s.humansDenied++;
+            s.harm++;
+            s.residents -= 4;
+            s.relationships[r.id] -= 2;
+            if (c.lethalDeny) {
+                s.presence[r.id] = "dead";
+                s.harm += 2;
+                feedback += " The shelter later reports that the clinic transfer came too late. Mara Quill will not return.";
+            }
+        }
+        if (c.onDenyFlag) {
+            nwAdd(s.flags, c.onDenyFlag);
+        }
+    }
+    else {
+        feedback = "The amber shutters descend. A human voice asks for the visitor’s name before the containment team enters. You give it.";
+        if (hostile) {
+            s.correctDetections++;
+            s.contained++;
+            good = true;
+            s.authority += 3;
+        }
+        else {
+            s.falsePositives++;
+            s.harm += 2;
+            s.residents -= 7;
+            s.relationships[r.id] -= 3;
+            s.presence[r.id] = "quarantine";
+            s.authority += 1;
+        }
+    }
+    if (c.resident === "victor" && choice !== "admit") {
+        s.authority -= 12;
+    }
+    s.residents = nwClamp(s.residents, 0, 100);
+    s.authority = nwClamp(s.authority, 0, 100);
+    s.relationships[r.id] = nwClamp(s.relationships[r.id], -10, 10);
+    s.resolved++;
+    if (good) {
+        s.streak++;
+    }
+    else {
+        s.streak = 0;
+    }
+    s.bestStreak = Math.max(s.bestStreak, s.streak);
+    let efforts = s.turn.asked.length + (s.turn.call ? 1 : 0) + (s.turn.scan ? 1 : 0) + (s.turn.held ? 1 : 0) + (s.turn.camera ? 1 : 0) + s.turn.seen.length;
+    let delta = good ? 100 + Math.max(0, 20 - efforts * 3) + Math.min(s.streak, 20) * 5 : -75;
+    s.score = Math.max(0, s.score + delta);
+    s.turn.closed = true;
+    s.turn.choice = choice;
+    s.turn.result = s.mode === "arcade" ? (good ? "DECISION SUPPORTED. " : "REVIEW REQUIRED. ") + c.resolution + " Score " + (delta >= 0 ? "+" : "") + delta : feedback;
+    s.decisions.push({ id: c.id, night: s.night, resident: r.id, choice: choice, truth: c.truth, investigated: explained });
+    if (s.decisions.length > 500) {
+        s.decisions = s.decisions.slice(s.decisions.length - 500);
+    }
+    nwJournal(s, "N" + s.night + " / " + r.name + " / " + choice.toUpperCase(), feedback);
+    s.phase = "receipt";
+    return true;
+}
+function nwAdvance(s) {
+    if (s.phase !== "receipt") {
+        return false;
+    }
+    s.cursor++;
+    if (s.mode === "arcade") {
+        if (s.cursor % 7 === 0) {
+            s.holds = 2;
+            s.scans = 2;
+            s.night++;
+        }
+        nwEnter(s);
+        return true;
+    }
+    if (s.cursor >= NW_CAMPAIGN.length) {
+        s.phase = "finale";
+        s.turn = null;
+        return true;
+    }
+    let next = nwCampaignCase(s, s.cursor);
+    if (next.night !== s.night) {
+        s.phase = "shiftEnd";
+        s.turn = null;
+    }
+    else {
+        nwEnter(s);
+    }
+    return true;
+}
+function nwNextNight(s) { if (s.phase !== "shiftEnd") {
+    return false;
+} s.night = nwCampaignCase(s, s.cursor).night; s.holds = 2; s.scans = 2; s.phase = "brief"; return true; }
+function nwConsequences(s) {
+    let text = "The clinic logs " + s.harm + " accumulated harm markers. The council records " + s.residents + " / 100 confidence in your window. Administration records " + s.authority + " / 100 compliance. These are different judgements.";
+    if (s.breaches >= 3) {
+        text += " An internal patrol reports multiple occupied apartments without an exit trail. Some trace back to recent admissions. Others are older than your shift.";
+    }
+    else if (s.breaches > 0) {
+        text += " A corridor witness reports someone answering to two names. Your signatures are being checked against the camera roll.";
+    }
+    else {
+        text += " No new corridor breach has been linked to your admissions. That does not explain the residents who predate the building.";
+    }
+    if (s.presence.mara === "dead") {
+        text += " Mara’s thermos remains on the clinic trolley. Leon has refused the incident summary.";
+    }
+    if (s.presence.orin === "quarantine") {
+        text += " The kitchen’s oranges stop arriving. Ruth leaves a blank square in the garden ledger.";
+    }
+    if (nwHas(s.flags, "kitchen-open")) {
+        text += " Ruth sends warm soup to the outer shelter; residents you denied have somewhere to wait.";
+    }
+    return text;
+}

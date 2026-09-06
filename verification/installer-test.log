@@ -1,0 +1,1930 @@
+$ node install.cjs <isolated fixture> --dry-run
+Target: /tmp/night-window-install-NWAWzY
+New/additive source files: 362
+Shared metadata: index.json, seed.php, apps/demo/package.json
+Dry run passed. Nothing changed.
+
+$ node install.cjs <isolated fixture> 
+Target: /tmp/night-window-install-NWAWzY
+New/additive source files: 362
+Shared metadata: index.json, seed.php, apps/demo/package.json
+Updated shared files: 3 (originals retained in .night-window-backup)
+Building TheNightWindow.softn bundle...
+Served copy:    demos/TheNightWindow.softn
+Served icon:    demos/icons/TheNightWindow.svg
+Bundle created: /tmp/night-window-install-NWAWzY/apps/demo/bundles/TheNightWindow.softn
+Size: 3668.05 KB
+Contents:
+  - manifest.json
+  - permission.json
+  - ui/main.ui
+  - ui/menu.ui
+  - ui/desk.ui
+  - ui/terminal.ui
+  - ui/story.ui
+  - ui/settings.ui
+  - logic/residents.logic
+  - logic/anomalies.logic
+  - logic/nights.logic
+  - logic/campaign.logic
+  - logic/rules.logic
+  - logic/documents.logic
+  - logic/arcade.logic
+  - logic/endings.logic
+  - logic/save.logic
+  - logic/main.logic
+  - assets/icon.svg
+  - assets/portraits/ada/anxious.svg
+  - assets/portraits/ada/bandage.svg
+  - assets/portraits/ada/base.svg
+  - assets/portraits/ada/defensive.svg
+  - assets/portraits/ada/ear.svg
+  - assets/portraits/ada/eye.svg
+  - assets/portraits/ada/hand.svg
+  - assets/portraits/ada/mole.svg
+  - assets/portraits/ada/open.svg
+  - assets/portraits/ada/pupil.svg
+  - assets/portraits/ada/reflection.svg
+  - assets/portraits/ada/scar.svg
+  - assets/portraits/ada/shadow.svg
+  - assets/portraits/ada/teeth.svg
+  - assets/portraits/ada/temperature.svg
+  - assets/portraits/anja/anxious.svg
+  - assets/portraits/anja/bandage.svg
+  - assets/portraits/anja/base.svg
+  - assets/portraits/anja/defensive.svg
+  - assets/portraits/anja/ear.svg
+  - assets/portraits/anja/eye.svg
+  - assets/portraits/anja/hand.svg
+  - assets/portraits/anja/mole.svg
+  - assets/portraits/anja/open.svg
+  - assets/portraits/anja/pupil.svg
+  - assets/portraits/anja/reflection.svg
+  - assets/portraits/anja/scar.svg
+  - assets/portraits/anja/shadow.svg
+  - assets/portraits/anja/teeth.svg
+  - assets/portraits/anja/temperature.svg
+  - assets/portraits/bea/anxious.svg
+  - assets/portraits/bea/bandage.svg
+  - assets/portraits/bea/base.svg
+  - assets/portraits/bea/defensive.svg
+  - assets/portraits/bea/ear.svg
+  - assets/portraits/bea/eye.svg
+  - assets/portraits/bea/hand.svg
+  - assets/portraits/bea/mole.svg
+  - assets/portraits/bea/open.svg
+  - assets/portraits/bea/pupil.svg
+  - assets/portraits/bea/reflection.svg
+  - assets/portraits/bea/scar.svg
+  - assets/portraits/bea/shadow.svg
+  - assets/portraits/bea/teeth.svg
+  - assets/portraits/bea/temperature.svg
+  - assets/portraits/celia/anxious.svg
+  - assets/portraits/celia/bandage.svg
+  - assets/portraits/celia/base.svg
+  - assets/portraits/celia/defensive.svg
+  - assets/portraits/celia/ear.svg
+  - assets/portraits/celia/eye.svg
+  - assets/portraits/celia/hand.svg
+  - assets/portraits/celia/mole.svg
+  - assets/portraits/celia/open.svg
+  - assets/portraits/celia/pupil.svg
+  - assets/portraits/celia/reflection.svg
+  - assets/portraits/celia/scar.svg
+  - assets/portraits/celia/shadow.svg
+  - assets/portraits/celia/teeth.svg
+  - assets/portraits/celia/temperature.svg
+  - assets/portraits/dalia/anxious.svg
+  - assets/portraits/dalia/bandage.svg
+  - assets/portraits/dalia/base.svg
+  - assets/portraits/dalia/defensive.svg
+  - assets/portraits/dalia/ear.svg
+  - assets/portraits/dalia/eye.svg
+  - assets/portraits/dalia/hand.svg
+  - assets/portraits/dalia/mole.svg
+  - assets/portraits/dalia/open.svg
+  - assets/portraits/dalia/pupil.svg
+  - assets/portraits/dalia/reflection.svg
+  - assets/portraits/dalia/scar.svg
+  - assets/portraits/dalia/shadow.svg
+  - assets/portraits/dalia/teeth.svg
+  - assets/portraits/dalia/temperature.svg
+  - assets/portraits/emil/anxious.svg
+  - assets/portraits/emil/bandage.svg
+  - assets/portraits/emil/base.svg
+  - assets/portraits/emil/defensive.svg
+  - assets/portraits/emil/ear.svg
+  - assets/portraits/emil/eye.svg
+  - assets/portraits/emil/hand.svg
+  - assets/portraits/emil/mole.svg
+  - assets/portraits/emil/open.svg
+  - assets/portraits/emil/pupil.svg
+  - assets/portraits/emil/reflection.svg
+  - assets/portraits/emil/scar.svg
+  - assets/portraits/emil/shadow.svg
+  - assets/portraits/emil/teeth.svg
+  - assets/portraits/emil/temperature.svg
+  - assets/portraits/hadi/anxious.svg
+  - assets/portraits/hadi/bandage.svg
+  - assets/portraits/hadi/base.svg
+  - assets/portraits/hadi/defensive.svg
+  - assets/portraits/hadi/ear.svg
+  - assets/portraits/hadi/eye.svg
+  - assets/portraits/hadi/hand.svg
+  - assets/portraits/hadi/mole.svg
+  - assets/portraits/hadi/open.svg
+  - assets/portraits/hadi/pupil.svg
+  - assets/portraits/hadi/reflection.svg
+  - assets/portraits/hadi/scar.svg
+  - assets/portraits/hadi/shadow.svg
+  - assets/portraits/hadi/teeth.svg
+  - assets/portraits/hadi/temperature.svg
+  - assets/portraits/ivo/anxious.svg
+  - assets/portraits/ivo/bandage.svg
+  - assets/portraits/ivo/base.svg
+  - assets/portraits/ivo/defensive.svg
+  - assets/portraits/ivo/ear.svg
+  - assets/portraits/ivo/eye.svg
+  - assets/portraits/ivo/hand.svg
+  - assets/portraits/ivo/mole.svg
+  - assets/portraits/ivo/open.svg
+  - assets/portraits/ivo/pupil.svg
+  - assets/portraits/ivo/reflection.svg
+  - assets/portraits/ivo/scar.svg
+  - assets/portraits/ivo/shadow.svg
+  - assets/portraits/ivo/teeth.svg
+  - assets/portraits/ivo/temperature.svg
+  - assets/portraits/june/anxious.svg
+  - assets/portraits/june/bandage.svg
+  - assets/portraits/june/base.svg
+  - assets/portraits/june/defensive.svg
+  - assets/portraits/june/ear.svg
+  - assets/portraits/june/eye.svg
+  - assets/portraits/june/hand.svg
+  - assets/portraits/june/mole.svg
+  - assets/portraits/june/open.svg
+  - assets/portraits/june/pupil.svg
+  - assets/portraits/june/reflection.svg
+  - assets/portraits/june/scar.svg
+  - assets/portraits/june/shadow.svg
+  - assets/portraits/june/teeth.svg
+  - assets/portraits/june/temperature.svg
+  - assets/portraits/leon/anxious.svg
+  - assets/portraits/leon/bandage.svg
+  - assets/portraits/leon/base.svg
+  - assets/portraits/leon/defensive.svg
+  - assets/portraits/leon/ear.svg
+  - assets/portraits/leon/eye.svg
+  - assets/portraits/leon/hand.svg
+  - assets/portraits/leon/mole.svg
+  - assets/portraits/leon/open.svg
+  - assets/portraits/leon/pupil.svg
+  - assets/portraits/leon/reflection.svg
+  - assets/portraits/leon/scar.svg
+  - assets/portraits/leon/shadow.svg
+  - assets/portraits/leon/teeth.svg
+  - assets/portraits/leon/temperature.svg
+  - assets/portraits/lio/anxious.svg
+  - assets/portraits/lio/bandage.svg
+  - assets/portraits/lio/base.svg
+  - assets/portraits/lio/defensive.svg
+  - assets/portraits/lio/ear.svg
+  - assets/portraits/lio/eye.svg
+  - assets/portraits/lio/hand.svg
+  - assets/portraits/lio/mole.svg
+  - assets/portraits/lio/open.svg
+  - assets/portraits/lio/pupil.svg
+  - assets/portraits/lio/reflection.svg
+  - assets/portraits/lio/scar.svg
+  - assets/portraits/lio/shadow.svg
+  - assets/portraits/lio/teeth.svg
+  - assets/portraits/lio/temperature.svg
+  - assets/portraits/mara/anxious.svg
+  - assets/portraits/mara/bandage.svg
+  - assets/portraits/mara/base.svg
+  - assets/portraits/mara/defensive.svg
+  - assets/portraits/mara/ear.svg
+  - assets/portraits/mara/eye.svg
+  - assets/portraits/mara/hand.svg
+  - assets/portraits/mara/mole.svg
+  - assets/portraits/mara/open.svg
+  - assets/portraits/mara/pupil.svg
+  - assets/portraits/mara/reflection.svg
+  - assets/portraits/mara/scar.svg
+  - assets/portraits/mara/shadow.svg
+  - assets/portraits/mara/teeth.svg
+  - assets/portraits/mara/temperature.svg
+  - assets/portraits/micah/anxious.svg
+  - assets/portraits/micah/bandage.svg
+  - assets/portraits/micah/base.svg
+  - assets/portraits/micah/defensive.svg
+  - assets/portraits/micah/ear.svg
+  - assets/portraits/micah/eye.svg
+  - assets/portraits/micah/hand.svg
+  - assets/portraits/micah/mole.svg
+  - assets/portraits/micah/open.svg
+  - assets/portraits/micah/pupil.svg
+  - assets/portraits/micah/reflection.svg
+  - assets/portraits/micah/scar.svg
+  - assets/portraits/micah/shadow.svg
+  - assets/portraits/micah/teeth.svg
+  - assets/portraits/micah/temperature.svg
+  - assets/portraits/nessa/anxious.svg
+  - assets/portraits/nessa/bandage.svg
+  - assets/portraits/nessa/base.svg
+  - assets/portraits/nessa/defensive.svg
+  - assets/portraits/nessa/ear.svg
+  - assets/portraits/nessa/eye.svg
+  - assets/portraits/nessa/hand.svg
+  - assets/portraits/nessa/mole.svg
+  - assets/portraits/nessa/open.svg
+  - assets/portraits/nessa/pupil.svg
+  - assets/portraits/nessa/reflection.svg
+  - assets/portraits/nessa/scar.svg
+  - assets/portraits/nessa/shadow.svg
+  - assets/portraits/nessa/teeth.svg
+  - assets/portraits/nessa/temperature.svg
+  - assets/portraits/orin/anxious.svg
+  - assets/portraits/orin/bandage.svg
+  - assets/portraits/orin/base.svg
+  - assets/portraits/orin/defensive.svg
+  - assets/portraits/orin/ear.svg
+  - assets/portraits/orin/eye.svg
+  - assets/portraits/orin/hand.svg
+  - assets/portraits/orin/mole.svg
+  - assets/portraits/orin/open.svg
+  - assets/portraits/orin/pupil.svg
+  - assets/portraits/orin/reflection.svg
+  - assets/portraits/orin/scar.svg
+  - assets/portraits/orin/shadow.svg
+  - assets/portraits/orin/teeth.svg
+  - assets/portraits/orin/temperature.svg
+  - assets/portraits/pavel/anxious.svg
+  - assets/portraits/pavel/bandage.svg
+  - assets/portraits/pavel/base.svg
+  - assets/portraits/pavel/defensive.svg
+  - assets/portraits/pavel/ear.svg
+  - assets/portraits/pavel/eye.svg
+  - assets/portraits/pavel/hand.svg
+  - assets/portraits/pavel/mole.svg
+  - assets/portraits/pavel/open.svg
+  - assets/portraits/pavel/pupil.svg
+  - assets/portraits/pavel/reflection.svg
+  - assets/portraits/pavel/scar.svg
+  - assets/portraits/pavel/shadow.svg
+  - assets/portraits/pavel/teeth.svg
+  - assets/portraits/pavel/temperature.svg
+  - assets/portraits/ruth/anxious.svg
+  - assets/portraits/ruth/bandage.svg
+  - assets/portraits/ruth/base.svg
+  - assets/portraits/ruth/defensive.svg
+  - assets/portraits/ruth/ear.svg
+  - assets/portraits/ruth/eye.svg
+  - assets/portraits/ruth/hand.svg
+  - assets/portraits/ruth/mole.svg
+  - assets/portraits/ruth/open.svg
+  - assets/portraits/ruth/pupil.svg
+  - assets/portraits/ruth/reflection.svg
+  - assets/portraits/ruth/scar.svg
+  - assets/portraits/ruth/shadow.svg
+  - assets/portraits/ruth/teeth.svg
+  - assets/portraits/ruth/temperature.svg
+  - assets/portraits/selene/anxious.svg
+  - assets/portraits/selene/bandage.svg
+  - assets/portraits/selene/base.svg
+  - assets/portraits/selene/defensive.svg
+  - assets/portraits/selene/ear.svg
+  - assets/portraits/selene/eye.svg
+  - assets/portraits/selene/hand.svg
+  - assets/portraits/selene/mole.svg
+  - assets/portraits/selene/open.svg
+  - assets/portraits/selene/pupil.svg
+  - assets/portraits/selene/reflection.svg
+  - assets/portraits/selene/scar.svg
+  - assets/portraits/selene/shadow.svg
+  - assets/portraits/selene/teeth.svg
+  - assets/portraits/selene/temperature.svg
+  - assets/portraits/tomas/anxious.svg
+  - assets/portraits/tomas/bandage.svg
+  - assets/portraits/tomas/base.svg
+  - assets/portraits/tomas/defensive.svg
+  - assets/portraits/tomas/ear.svg
+  - assets/portraits/tomas/eye.svg
+  - assets/portraits/tomas/hand.svg
+  - assets/portraits/tomas/mole.svg
+  - assets/portraits/tomas/open.svg
+  - assets/portraits/tomas/pupil.svg
+  - assets/portraits/tomas/reflection.svg
+  - assets/portraits/tomas/scar.svg
+  - assets/portraits/tomas/shadow.svg
+  - assets/portraits/tomas/teeth.svg
+  - assets/portraits/tomas/temperature.svg
+  - assets/portraits/victor/anxious.svg
+  - assets/portraits/victor/bandage.svg
+  - assets/portraits/victor/base.svg
+  - assets/portraits/victor/defensive.svg
+  - assets/portraits/victor/ear.svg
+  - assets/portraits/victor/eye.svg
+  - assets/portraits/victor/hand.svg
+  - assets/portraits/victor/mole.svg
+  - assets/portraits/victor/open.svg
+  - assets/portraits/victor/pupil.svg
+  - assets/portraits/victor/reflection.svg
+  - assets/portraits/victor/scar.svg
+  - assets/portraits/victor/shadow.svg
+  - assets/portraits/victor/teeth.svg
+  - assets/portraits/victor/temperature.svg
+  - assets/scenes/dawn.svg
+  - assets/scenes/garden.svg
+  - assets/scenes/radio.svg
+  - assets/scenes/rain.svg
+  - assets/scenes/sealed.svg
+  - assets/scenes/title.svg
+  - assets/scenes/ward.svg
+  - assets/sfx/alarm.wav
+  - assets/sfx/arrival.wav
+  - assets/sfx/camera.wav
+  - assets/sfx/click.wav
+  - assets/sfx/contain.wav
+  - assets/sfx/dawn.wav
+  - assets/sfx/door.wav
+  - assets/sfx/hold.wav
+  - assets/sfx/intercom.wav
+  - assets/sfx/knock.wav
+  - assets/sfx/outage.wav
+  - assets/sfx/paper.wav
+  - assets/sfx/rain.wav
+  - assets/sfx/ring.wav
+  - assets/sfx/scan.wav
+  - assets/sfx/terminal.wav
+  - assets/thumbnail.svg
+
+TAP version 13
+# Subtest: manifest enumerates every deployed asset and imports only existing relative source files
+ok 1 - manifest enumerates every deployed asset and imports only existing relative source files
+  ---
+  duration_ms: 10.95223
+  type: 'test'
+  ...
+# Subtest: all 300 resident portrait variants and six ending scenes resolve locally
+ok 2 - all 300 resident portrait variants and six ending scenes resolve locally
+  ---
+  duration_ms: 4.601602
+  type: 'test'
+  ...
+# Subtest: SVG assets are self-contained and have no executable or external content
+ok 3 - SVG assets are self-contained and have no executable or external content
+  ---
+  duration_ms: 7.82677
+  type: 'test'
+  ...
+# Subtest: sixteen original WAVs have valid PCM headers, bounded peaks and a loopable rain bed
+ok 4 - sixteen original WAVs have valid PCM headers, bounded peaks and a loopable rain bed
+  ---
+  duration_ms: 19.470478
+  type: 'test'
+  ...
+# Subtest: every UI action names a real function; no per-frame VM or external network game path
+ok 5 - every UI action names a real function; no per-frame VM or external network game path
+  ---
+  duration_ms: 9.285567
+  type: 'test'
+  ...
+# Subtest: resident lookup tolerates apartment punctuation and never exposes secrets
+ok 6 - resident lookup tolerates apartment punctuation and never exposes secrets
+  ---
+  duration_ms: 1.090224
+  type: 'test'
+  ...
+# Subtest: backup recovery also works with a missing primary key, and saves stay bounded
+ok 7 - backup recovery also works with a missing primary key, and saves stay bounded
+  ---
+  duration_ms: 4.336873
+  type: 'test'
+  ...
+# Subtest: returning from menu preserves unsaved campaign and arcade decisions after quota failure
+ok 8 - returning from menu preserves unsaved campaign and arcade decisions after quota failure
+  ---
+  duration_ms: 6.188528
+  type: 'test'
+  ...
+# Subtest: roster has 20 unique, fully authored residents and valid relationships
+ok 9 - roster has 20 unique, fully authored residents and valid relationships
+  ---
+  duration_ms: 3.996863
+  type: 'test'
+  ...
+# Subtest: 49 curated encounters, exactly seven per night, and valid dialogue graph
+ok 10 - 49 curated encounters, exactly seven per night, and valid dialogue graph
+  ---
+  duration_ms: 11.218492
+  type: 'test'
+  ...
+# Subtest: anomalies: 36 unique types, detection routes and mundane exceptions
+ok 11 - anomalies: 36 unique types, detection routes and mundane exceptions
+  ---
+  duration_ms: 0.384196
+  type: 'test'
+  ...
+# Subtest: new game, tutorial and initially gated tools
+ok 12 - new game, tutorial and initially gated tools
+  ---
+  duration_ms: 3.175814
+  type: 'test'
+  ...
+# Subtest: follow-up prerequisites and exclusive dialogue tone branches
+ok 13 - follow-up prerequisites and exclusive dialogue tone branches
+  ---
+  duration_ms: 1.286484
+  type: 'test'
+  ...
+# Subtest: document comparison uses independent fields and cannot issue a verdict
+ok 14 - document comparison uses independent fields and cannot issue a verdict
+  ---
+  duration_ms: 2.081914
+  type: 'test'
+  ...
+# Subtest: paper originals cannot be mutated by a terminal rewrite
+ok 15 - paper originals cannot be mutated by a terminal rewrite
+  ---
+  duration_ms: 1.23023
+  type: 'test'
+  ...
+# Subtest: holding consumes a limited slot, supplies testimony, and does not finalize
+ok 16 - holding consumes a limited slot, supplies testimony, and does not finalize
+  ---
+  duration_ms: 1.477264
+  type: 'test'
+  ...
+# Subtest: human admission is safe; repeated final clicks cannot double-count
+ok 17 - human admission is safe; repeated final clicks cannot double-count
+  ---
+  duration_ms: 0.902178
+  type: 'test'
+  ...
+# Subtest: hostile admission increments breach; hostile quarantine leaves real resident alive
+ok 18 - hostile admission increments breach; hostile quarantine leaves real resident alive
+  ---
+  duration_ms: 1.34493
+  type: 'test'
+  ...
+# Subtest: wrong quarantine harms residents; denial is not a universal safe button
+ok 19 - wrong quarantine harms residents; denial is not a universal safe button
+  ---
+  duration_ms: 1.730487
+  type: 'test'
+  ...
+# Subtest: detained humans return under escort and denial retains custody
+ok 20 - detained humans return under escort and denial retains custody
+  ---
+  duration_ms: 0.642425
+  type: 'test'
+  ...
+# Subtest: relationships and consequences affect later dialogue, not only final score
+ok 21 - relationships and consequences affect later dialogue, not only final score
+  ---
+  duration_ms: 0.731147
+  type: 'test'
+  ...
+# Subtest: absent witnesses become explicitly dated testimony
+ok 22 - absent witnesses become explicitly dated testimony
+  ---
+  duration_ms: 0.48254
+  type: 'test'
+  ...
+# Subtest: appeal mechanism opens night five, cannot farm trust, and never erases harm
+ok 23 - appeal mechanism opens night five, cannot farm trust, and never erases harm
+  ---
+  duration_ms: 0.70639
+  type: 'test'
+  ...
+# Subtest: scanner readings overlap; no threshold is a species test
+ok 24 - scanner readings overlap; no threshold is a species test
+  ---
+  duration_ms: 1.118776
+  type: 'test'
+  ...
+# Subtest: camera and blackout lamp are gated, captioned and non-timed
+ok 25 - camera and blackout lamp are gated, captioned and non-timed
+  ---
+  duration_ms: 1.079499
+  type: 'test'
+  ...
+# Subtest: full 49-case protective campaign traverses every phase with save roundtrips
+ok 26 - full 49-case protective campaign traverses every phase with save roundtrips
+  ---
+  duration_ms: 89.798993
+  type: 'test'
+  ...
+# Subtest: reachable ending: survivor has three scenes and a durable unlock
+ok 27 - reachable ending: survivor has three scenes and a durable unlock
+  ---
+  duration_ms: 94.489041
+  type: 'test'
+  ...
+# Subtest: reachable ending: purge has three scenes and a durable unlock
+ok 28 - reachable ending: purge has three scenes and a durable unlock
+  ---
+  duration_ms: 92.13397
+  type: 'test'
+  ...
+# Subtest: reachable ending: whistleblower has three scenes and a durable unlock
+ok 29 - reachable ending: whistleblower has three scenes and a durable unlock
+  ---
+  duration_ms: 92.362446
+  type: 'test'
+  ...
+# Subtest: reachable ending: coexistence has three scenes and a durable unlock
+ok 30 - reachable ending: coexistence has three scenes and a durable unlock
+  ---
+  duration_ms: 88.734616
+  type: 'test'
+  ...
+# Subtest: reachable ending: truth has three scenes and a durable unlock
+ok 31 - reachable ending: truth has three scenes and a durable unlock
+  ---
+  duration_ms: 88.828835
+  type: 'test'
+  ...
+# Subtest: breach is reachable through harmful admissions; other routes are closed
+ok 32 - breach is reachable through harmful admissions; other routes are closed
+  ---
+  duration_ms: 86.326282
+  type: 'test'
+  ...
+# Subtest: wrong circuit changes the actual final scene to evacuation
+ok 33 - wrong circuit changes the actual final scene to evacuation
+  ---
+  duration_ms: 85.257528
+  type: 'test'
+  ...
+# Subtest: all-deny and all-quarantine campaigns reach an ending but carry substantial harm
+ok 34 - all-deny and all-quarantine campaigns reach an ending but carry substantial harm
+  ---
+  duration_ms: 168.984925
+  type: 'test'
+  ...
+# Subtest: save preserves mid-interview selections, journal, questions, notes and resources
+ok 35 - save preserves mid-interview selections, journal, questions, notes and resources
+  ---
+  duration_ms: 1.224673
+  type: 'test'
+  ...
+# Subtest: checksum/version/shape corruption is contained rather than crashing
+ok 36 - checksum/version/shape corruption is contained rather than crashing
+  ---
+  duration_ms: 2.88723
+  type: 'test'
+  ...
+# Subtest: backup recovery, quota error and reset are app-local
+ok 37 - backup recovery, quota error and reset are app-local
+  ---
+  duration_ms: 2.394504
+  type: 'test'
+  ...
+# Subtest: menu confirmations, continue, settings and input events
+ok 38 - menu confirmations, continue, settings and input events
+  ---
+  duration_ms: 3.507152
+  type: 'test'
+  ...
+# Subtest: procedural cases: 10,000 deterministic valid, applicable, detectable encounters
+ok 39 - procedural cases: 10,000 deterministic valid, applicable, detectable encounters
+  ---
+  duration_ms: 576.584231
+  type: 'test'
+  ...
+# Subtest: arcade scoring, resource renewal, independent save and >500-case bounded history
+ok 40 - arcade scoring, resource renewal, independent save and >500-case bounded history
+  ---
+  duration_ms: 34.92167
+  type: 'test'
+  ...
+# Subtest: no omniscient campaign truth crosses the UI projection
+ok 41 - no omniscient campaign truth crosses the UI projection
+  ---
+  duration_ms: 0.724276
+  type: 'test'
+  ...
+# Subtest: catalogue registration is idempotent and preserves unrelated entries, tags and tests
+ok 42 - catalogue registration is idempotent and preserves unrelated entries, tags and tests
+  ---
+  duration_ms: 6.322216
+  type: 'test'
+  ...
+# Subtest: registration refuses schema changes without partially editing shared files
+ok 43 - registration refuses schema changes without partially editing shared files
+  ---
+  duration_ms: 1.863854
+  type: 'test'
+  ...
+# Subtest: registration refuses conflicting identifiers, category and test commands
+ok 44 - registration refuses conflicting identifiers, category and test commands
+  ---
+  duration_ms: 2.306515
+  type: 'test'
+  ...
+# Subtest: registration records built size without deleting custom game metadata
+ok 45 - registration records built size without deleting custom game metadata
+  ---
+  duration_ms: 3.100703
+  type: 'test'
+  ...
+1..45
+# tests 45
+# suites 0
+# pass 45
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1608.108423
+
+Installed and rebuilt. No remote repository or site was modified.
+Next full-checkout checks: npm test -w @softn/demo && npm run build:packages && npm run build:site
+Native runtime smoke test: follow apps/demo/bundles/TheNightWindow/TESTING.md.
+
+$ node install.cjs <isolated fixture> 
+Target: /tmp/night-window-install-NWAWzY
+New/additive source files: 362
+Shared metadata: index.json, seed.php, apps/demo/package.json
+Updated shared files: 0 (originals retained in .night-window-backup)
+Building TheNightWindow.softn bundle...
+Served copy:    demos/TheNightWindow.softn
+Served icon:    demos/icons/TheNightWindow.svg
+Bundle created: /tmp/night-window-install-NWAWzY/apps/demo/bundles/TheNightWindow.softn
+Size: 3668.05 KB
+Contents:
+  - manifest.json
+  - permission.json
+  - ui/main.ui
+  - ui/menu.ui
+  - ui/desk.ui
+  - ui/terminal.ui
+  - ui/story.ui
+  - ui/settings.ui
+  - logic/residents.logic
+  - logic/anomalies.logic
+  - logic/nights.logic
+  - logic/campaign.logic
+  - logic/rules.logic
+  - logic/documents.logic
+  - logic/arcade.logic
+  - logic/endings.logic
+  - logic/save.logic
+  - logic/main.logic
+  - assets/icon.svg
+  - assets/portraits/ada/anxious.svg
+  - assets/portraits/ada/bandage.svg
+  - assets/portraits/ada/base.svg
+  - assets/portraits/ada/defensive.svg
+  - assets/portraits/ada/ear.svg
+  - assets/portraits/ada/eye.svg
+  - assets/portraits/ada/hand.svg
+  - assets/portraits/ada/mole.svg
+  - assets/portraits/ada/open.svg
+  - assets/portraits/ada/pupil.svg
+  - assets/portraits/ada/reflection.svg
+  - assets/portraits/ada/scar.svg
+  - assets/portraits/ada/shadow.svg
+  - assets/portraits/ada/teeth.svg
+  - assets/portraits/ada/temperature.svg
+  - assets/portraits/anja/anxious.svg
+  - assets/portraits/anja/bandage.svg
+  - assets/portraits/anja/base.svg
+  - assets/portraits/anja/defensive.svg
+  - assets/portraits/anja/ear.svg
+  - assets/portraits/anja/eye.svg
+  - assets/portraits/anja/hand.svg
+  - assets/portraits/anja/mole.svg
+  - assets/portraits/anja/open.svg
+  - assets/portraits/anja/pupil.svg
+  - assets/portraits/anja/reflection.svg
+  - assets/portraits/anja/scar.svg
+  - assets/portraits/anja/shadow.svg
+  - assets/portraits/anja/teeth.svg
+  - assets/portraits/anja/temperature.svg
+  - assets/portraits/bea/anxious.svg
+  - assets/portraits/bea/bandage.svg
+  - assets/portraits/bea/base.svg
+  - assets/portraits/bea/defensive.svg
+  - assets/portraits/bea/ear.svg
+  - assets/portraits/bea/eye.svg
+  - assets/portraits/bea/hand.svg
+  - assets/portraits/bea/mole.svg
+  - assets/portraits/bea/open.svg
+  - assets/portraits/bea/pupil.svg
+  - assets/portraits/bea/reflection.svg
+  - assets/portraits/bea/scar.svg
+  - assets/portraits/bea/shadow.svg
+  - assets/portraits/bea/teeth.svg
+  - assets/portraits/bea/temperature.svg
+  - assets/portraits/celia/anxious.svg
+  - assets/portraits/celia/bandage.svg
+  - assets/portraits/celia/base.svg
+  - assets/portraits/celia/defensive.svg
+  - assets/portraits/celia/ear.svg
+  - assets/portraits/celia/eye.svg
+  - assets/portraits/celia/hand.svg
+  - assets/portraits/celia/mole.svg
+  - assets/portraits/celia/open.svg
+  - assets/portraits/celia/pupil.svg
+  - assets/portraits/celia/reflection.svg
+  - assets/portraits/celia/scar.svg
+  - assets/portraits/celia/shadow.svg
+  - assets/portraits/celia/teeth.svg
+  - assets/portraits/celia/temperature.svg
+  - assets/portraits/dalia/anxious.svg
+  - assets/portraits/dalia/bandage.svg
+  - assets/portraits/dalia/base.svg
+  - assets/portraits/dalia/defensive.svg
+  - assets/portraits/dalia/ear.svg
+  - assets/portraits/dalia/eye.svg
+  - assets/portraits/dalia/hand.svg
+  - assets/portraits/dalia/mole.svg
+  - assets/portraits/dalia/open.svg
+  - assets/portraits/dalia/pupil.svg
+  - assets/portraits/dalia/reflection.svg
+  - assets/portraits/dalia/scar.svg
+  - assets/portraits/dalia/shadow.svg
+  - assets/portraits/dalia/teeth.svg
+  - assets/portraits/dalia/temperature.svg
+  - assets/portraits/emil/anxious.svg
+  - assets/portraits/emil/bandage.svg
+  - assets/portraits/emil/base.svg
+  - assets/portraits/emil/defensive.svg
+  - assets/portraits/emil/ear.svg
+  - assets/portraits/emil/eye.svg
+  - assets/portraits/emil/hand.svg
+  - assets/portraits/emil/mole.svg
+  - assets/portraits/emil/open.svg
+  - assets/portraits/emil/pupil.svg
+  - assets/portraits/emil/reflection.svg
+  - assets/portraits/emil/scar.svg
+  - assets/portraits/emil/shadow.svg
+  - assets/portraits/emil/teeth.svg
+  - assets/portraits/emil/temperature.svg
+  - assets/portraits/hadi/anxious.svg
+  - assets/portraits/hadi/bandage.svg
+  - assets/portraits/hadi/base.svg
+  - assets/portraits/hadi/defensive.svg
+  - assets/portraits/hadi/ear.svg
+  - assets/portraits/hadi/eye.svg
+  - assets/portraits/hadi/hand.svg
+  - assets/portraits/hadi/mole.svg
+  - assets/portraits/hadi/open.svg
+  - assets/portraits/hadi/pupil.svg
+  - assets/portraits/hadi/reflection.svg
+  - assets/portraits/hadi/scar.svg
+  - assets/portraits/hadi/shadow.svg
+  - assets/portraits/hadi/teeth.svg
+  - assets/portraits/hadi/temperature.svg
+  - assets/portraits/ivo/anxious.svg
+  - assets/portraits/ivo/bandage.svg
+  - assets/portraits/ivo/base.svg
+  - assets/portraits/ivo/defensive.svg
+  - assets/portraits/ivo/ear.svg
+  - assets/portraits/ivo/eye.svg
+  - assets/portraits/ivo/hand.svg
+  - assets/portraits/ivo/mole.svg
+  - assets/portraits/ivo/open.svg
+  - assets/portraits/ivo/pupil.svg
+  - assets/portraits/ivo/reflection.svg
+  - assets/portraits/ivo/scar.svg
+  - assets/portraits/ivo/shadow.svg
+  - assets/portraits/ivo/teeth.svg
+  - assets/portraits/ivo/temperature.svg
+  - assets/portraits/june/anxious.svg
+  - assets/portraits/june/bandage.svg
+  - assets/portraits/june/base.svg
+  - assets/portraits/june/defensive.svg
+  - assets/portraits/june/ear.svg
+  - assets/portraits/june/eye.svg
+  - assets/portraits/june/hand.svg
+  - assets/portraits/june/mole.svg
+  - assets/portraits/june/open.svg
+  - assets/portraits/june/pupil.svg
+  - assets/portraits/june/reflection.svg
+  - assets/portraits/june/scar.svg
+  - assets/portraits/june/shadow.svg
+  - assets/portraits/june/teeth.svg
+  - assets/portraits/june/temperature.svg
+  - assets/portraits/leon/anxious.svg
+  - assets/portraits/leon/bandage.svg
+  - assets/portraits/leon/base.svg
+  - assets/portraits/leon/defensive.svg
+  - assets/portraits/leon/ear.svg
+  - assets/portraits/leon/eye.svg
+  - assets/portraits/leon/hand.svg
+  - assets/portraits/leon/mole.svg
+  - assets/portraits/leon/open.svg
+  - assets/portraits/leon/pupil.svg
+  - assets/portraits/leon/reflection.svg
+  - assets/portraits/leon/scar.svg
+  - assets/portraits/leon/shadow.svg
+  - assets/portraits/leon/teeth.svg
+  - assets/portraits/leon/temperature.svg
+  - assets/portraits/lio/anxious.svg
+  - assets/portraits/lio/bandage.svg
+  - assets/portraits/lio/base.svg
+  - assets/portraits/lio/defensive.svg
+  - assets/portraits/lio/ear.svg
+  - assets/portraits/lio/eye.svg
+  - assets/portraits/lio/hand.svg
+  - assets/portraits/lio/mole.svg
+  - assets/portraits/lio/open.svg
+  - assets/portraits/lio/pupil.svg
+  - assets/portraits/lio/reflection.svg
+  - assets/portraits/lio/scar.svg
+  - assets/portraits/lio/shadow.svg
+  - assets/portraits/lio/teeth.svg
+  - assets/portraits/lio/temperature.svg
+  - assets/portraits/mara/anxious.svg
+  - assets/portraits/mara/bandage.svg
+  - assets/portraits/mara/base.svg
+  - assets/portraits/mara/defensive.svg
+  - assets/portraits/mara/ear.svg
+  - assets/portraits/mara/eye.svg
+  - assets/portraits/mara/hand.svg
+  - assets/portraits/mara/mole.svg
+  - assets/portraits/mara/open.svg
+  - assets/portraits/mara/pupil.svg
+  - assets/portraits/mara/reflection.svg
+  - assets/portraits/mara/scar.svg
+  - assets/portraits/mara/shadow.svg
+  - assets/portraits/mara/teeth.svg
+  - assets/portraits/mara/temperature.svg
+  - assets/portraits/micah/anxious.svg
+  - assets/portraits/micah/bandage.svg
+  - assets/portraits/micah/base.svg
+  - assets/portraits/micah/defensive.svg
+  - assets/portraits/micah/ear.svg
+  - assets/portraits/micah/eye.svg
+  - assets/portraits/micah/hand.svg
+  - assets/portraits/micah/mole.svg
+  - assets/portraits/micah/open.svg
+  - assets/portraits/micah/pupil.svg
+  - assets/portraits/micah/reflection.svg
+  - assets/portraits/micah/scar.svg
+  - assets/portraits/micah/shadow.svg
+  - assets/portraits/micah/teeth.svg
+  - assets/portraits/micah/temperature.svg
+  - assets/portraits/nessa/anxious.svg
+  - assets/portraits/nessa/bandage.svg
+  - assets/portraits/nessa/base.svg
+  - assets/portraits/nessa/defensive.svg
+  - assets/portraits/nessa/ear.svg
+  - assets/portraits/nessa/eye.svg
+  - assets/portraits/nessa/hand.svg
+  - assets/portraits/nessa/mole.svg
+  - assets/portraits/nessa/open.svg
+  - assets/portraits/nessa/pupil.svg
+  - assets/portraits/nessa/reflection.svg
+  - assets/portraits/nessa/scar.svg
+  - assets/portraits/nessa/shadow.svg
+  - assets/portraits/nessa/teeth.svg
+  - assets/portraits/nessa/temperature.svg
+  - assets/portraits/orin/anxious.svg
+  - assets/portraits/orin/bandage.svg
+  - assets/portraits/orin/base.svg
+  - assets/portraits/orin/defensive.svg
+  - assets/portraits/orin/ear.svg
+  - assets/portraits/orin/eye.svg
+  - assets/portraits/orin/hand.svg
+  - assets/portraits/orin/mole.svg
+  - assets/portraits/orin/open.svg
+  - assets/portraits/orin/pupil.svg
+  - assets/portraits/orin/reflection.svg
+  - assets/portraits/orin/scar.svg
+  - assets/portraits/orin/shadow.svg
+  - assets/portraits/orin/teeth.svg
+  - assets/portraits/orin/temperature.svg
+  - assets/portraits/pavel/anxious.svg
+  - assets/portraits/pavel/bandage.svg
+  - assets/portraits/pavel/base.svg
+  - assets/portraits/pavel/defensive.svg
+  - assets/portraits/pavel/ear.svg
+  - assets/portraits/pavel/eye.svg
+  - assets/portraits/pavel/hand.svg
+  - assets/portraits/pavel/mole.svg
+  - assets/portraits/pavel/open.svg
+  - assets/portraits/pavel/pupil.svg
+  - assets/portraits/pavel/reflection.svg
+  - assets/portraits/pavel/scar.svg
+  - assets/portraits/pavel/shadow.svg
+  - assets/portraits/pavel/teeth.svg
+  - assets/portraits/pavel/temperature.svg
+  - assets/portraits/ruth/anxious.svg
+  - assets/portraits/ruth/bandage.svg
+  - assets/portraits/ruth/base.svg
+  - assets/portraits/ruth/defensive.svg
+  - assets/portraits/ruth/ear.svg
+  - assets/portraits/ruth/eye.svg
+  - assets/portraits/ruth/hand.svg
+  - assets/portraits/ruth/mole.svg
+  - assets/portraits/ruth/open.svg
+  - assets/portraits/ruth/pupil.svg
+  - assets/portraits/ruth/reflection.svg
+  - assets/portraits/ruth/scar.svg
+  - assets/portraits/ruth/shadow.svg
+  - assets/portraits/ruth/teeth.svg
+  - assets/portraits/ruth/temperature.svg
+  - assets/portraits/selene/anxious.svg
+  - assets/portraits/selene/bandage.svg
+  - assets/portraits/selene/base.svg
+  - assets/portraits/selene/defensive.svg
+  - assets/portraits/selene/ear.svg
+  - assets/portraits/selene/eye.svg
+  - assets/portraits/selene/hand.svg
+  - assets/portraits/selene/mole.svg
+  - assets/portraits/selene/open.svg
+  - assets/portraits/selene/pupil.svg
+  - assets/portraits/selene/reflection.svg
+  - assets/portraits/selene/scar.svg
+  - assets/portraits/selene/shadow.svg
+  - assets/portraits/selene/teeth.svg
+  - assets/portraits/selene/temperature.svg
+  - assets/portraits/tomas/anxious.svg
+  - assets/portraits/tomas/bandage.svg
+  - assets/portraits/tomas/base.svg
+  - assets/portraits/tomas/defensive.svg
+  - assets/portraits/tomas/ear.svg
+  - assets/portraits/tomas/eye.svg
+  - assets/portraits/tomas/hand.svg
+  - assets/portraits/tomas/mole.svg
+  - assets/portraits/tomas/open.svg
+  - assets/portraits/tomas/pupil.svg
+  - assets/portraits/tomas/reflection.svg
+  - assets/portraits/tomas/scar.svg
+  - assets/portraits/tomas/shadow.svg
+  - assets/portraits/tomas/teeth.svg
+  - assets/portraits/tomas/temperature.svg
+  - assets/portraits/victor/anxious.svg
+  - assets/portraits/victor/bandage.svg
+  - assets/portraits/victor/base.svg
+  - assets/portraits/victor/defensive.svg
+  - assets/portraits/victor/ear.svg
+  - assets/portraits/victor/eye.svg
+  - assets/portraits/victor/hand.svg
+  - assets/portraits/victor/mole.svg
+  - assets/portraits/victor/open.svg
+  - assets/portraits/victor/pupil.svg
+  - assets/portraits/victor/reflection.svg
+  - assets/portraits/victor/scar.svg
+  - assets/portraits/victor/shadow.svg
+  - assets/portraits/victor/teeth.svg
+  - assets/portraits/victor/temperature.svg
+  - assets/scenes/dawn.svg
+  - assets/scenes/garden.svg
+  - assets/scenes/radio.svg
+  - assets/scenes/rain.svg
+  - assets/scenes/sealed.svg
+  - assets/scenes/title.svg
+  - assets/scenes/ward.svg
+  - assets/sfx/alarm.wav
+  - assets/sfx/arrival.wav
+  - assets/sfx/camera.wav
+  - assets/sfx/click.wav
+  - assets/sfx/contain.wav
+  - assets/sfx/dawn.wav
+  - assets/sfx/door.wav
+  - assets/sfx/hold.wav
+  - assets/sfx/intercom.wav
+  - assets/sfx/knock.wav
+  - assets/sfx/outage.wav
+  - assets/sfx/paper.wav
+  - assets/sfx/rain.wav
+  - assets/sfx/ring.wav
+  - assets/sfx/scan.wav
+  - assets/sfx/terminal.wav
+  - assets/thumbnail.svg
+
+TAP version 13
+# Subtest: manifest enumerates every deployed asset and imports only existing relative source files
+ok 1 - manifest enumerates every deployed asset and imports only existing relative source files
+  ---
+  duration_ms: 8.888042
+  type: 'test'
+  ...
+# Subtest: all 300 resident portrait variants and six ending scenes resolve locally
+ok 2 - all 300 resident portrait variants and six ending scenes resolve locally
+  ---
+  duration_ms: 3.566649
+  type: 'test'
+  ...
+# Subtest: SVG assets are self-contained and have no executable or external content
+ok 3 - SVG assets are self-contained and have no executable or external content
+  ---
+  duration_ms: 7.541059
+  type: 'test'
+  ...
+# Subtest: sixteen original WAVs have valid PCM headers, bounded peaks and a loopable rain bed
+ok 4 - sixteen original WAVs have valid PCM headers, bounded peaks and a loopable rain bed
+  ---
+  duration_ms: 18.636401
+  type: 'test'
+  ...
+# Subtest: every UI action names a real function; no per-frame VM or external network game path
+ok 5 - every UI action names a real function; no per-frame VM or external network game path
+  ---
+  duration_ms: 9.890737
+  type: 'test'
+  ...
+# Subtest: resident lookup tolerates apartment punctuation and never exposes secrets
+ok 6 - resident lookup tolerates apartment punctuation and never exposes secrets
+  ---
+  duration_ms: 1.067902
+  type: 'test'
+  ...
+# Subtest: backup recovery also works with a missing primary key, and saves stay bounded
+ok 7 - backup recovery also works with a missing primary key, and saves stay bounded
+  ---
+  duration_ms: 4.685877
+  type: 'test'
+  ...
+# Subtest: returning from menu preserves unsaved campaign and arcade decisions after quota failure
+ok 8 - returning from menu preserves unsaved campaign and arcade decisions after quota failure
+  ---
+  duration_ms: 6.697117
+  type: 'test'
+  ...
+# Subtest: roster has 20 unique, fully authored residents and valid relationships
+ok 9 - roster has 20 unique, fully authored residents and valid relationships
+  ---
+  duration_ms: 2.356028
+  type: 'test'
+  ...
+# Subtest: 49 curated encounters, exactly seven per night, and valid dialogue graph
+ok 10 - 49 curated encounters, exactly seven per night, and valid dialogue graph
+  ---
+  duration_ms: 13.96856
+  type: 'test'
+  ...
+# Subtest: anomalies: 36 unique types, detection routes and mundane exceptions
+ok 11 - anomalies: 36 unique types, detection routes and mundane exceptions
+  ---
+  duration_ms: 0.42839
+  type: 'test'
+  ...
+# Subtest: new game, tutorial and initially gated tools
+ok 12 - new game, tutorial and initially gated tools
+  ---
+  duration_ms: 3.623683
+  type: 'test'
+  ...
+# Subtest: follow-up prerequisites and exclusive dialogue tone branches
+ok 13 - follow-up prerequisites and exclusive dialogue tone branches
+  ---
+  duration_ms: 1.376091
+  type: 'test'
+  ...
+# Subtest: document comparison uses independent fields and cannot issue a verdict
+ok 14 - document comparison uses independent fields and cannot issue a verdict
+  ---
+  duration_ms: 1.634947
+  type: 'test'
+  ...
+# Subtest: paper originals cannot be mutated by a terminal rewrite
+ok 15 - paper originals cannot be mutated by a terminal rewrite
+  ---
+  duration_ms: 1.196211
+  type: 'test'
+  ...
+# Subtest: holding consumes a limited slot, supplies testimony, and does not finalize
+ok 16 - holding consumes a limited slot, supplies testimony, and does not finalize
+  ---
+  duration_ms: 1.808893
+  type: 'test'
+  ...
+# Subtest: human admission is safe; repeated final clicks cannot double-count
+ok 17 - human admission is safe; repeated final clicks cannot double-count
+  ---
+  duration_ms: 1.436275
+  type: 'test'
+  ...
+# Subtest: hostile admission increments breach; hostile quarantine leaves real resident alive
+ok 18 - hostile admission increments breach; hostile quarantine leaves real resident alive
+  ---
+  duration_ms: 1.370878
+  type: 'test'
+  ...
+# Subtest: wrong quarantine harms residents; denial is not a universal safe button
+ok 19 - wrong quarantine harms residents; denial is not a universal safe button
+  ---
+  duration_ms: 1.480349
+  type: 'test'
+  ...
+# Subtest: detained humans return under escort and denial retains custody
+ok 20 - detained humans return under escort and denial retains custody
+  ---
+  duration_ms: 0.667392
+  type: 'test'
+  ...
+# Subtest: relationships and consequences affect later dialogue, not only final score
+ok 21 - relationships and consequences affect later dialogue, not only final score
+  ---
+  duration_ms: 0.67204
+  type: 'test'
+  ...
+# Subtest: absent witnesses become explicitly dated testimony
+ok 22 - absent witnesses become explicitly dated testimony
+  ---
+  duration_ms: 0.499214
+  type: 'test'
+  ...
+# Subtest: appeal mechanism opens night five, cannot farm trust, and never erases harm
+ok 23 - appeal mechanism opens night five, cannot farm trust, and never erases harm
+  ---
+  duration_ms: 0.67272
+  type: 'test'
+  ...
+# Subtest: scanner readings overlap; no threshold is a species test
+ok 24 - scanner readings overlap; no threshold is a species test
+  ---
+  duration_ms: 0.904151
+  type: 'test'
+  ...
+# Subtest: camera and blackout lamp are gated, captioned and non-timed
+ok 25 - camera and blackout lamp are gated, captioned and non-timed
+  ---
+  duration_ms: 1.516361
+  type: 'test'
+  ...
+# Subtest: full 49-case protective campaign traverses every phase with save roundtrips
+ok 26 - full 49-case protective campaign traverses every phase with save roundtrips
+  ---
+  duration_ms: 92.396947
+  type: 'test'
+  ...
+# Subtest: reachable ending: survivor has three scenes and a durable unlock
+ok 27 - reachable ending: survivor has three scenes and a durable unlock
+  ---
+  duration_ms: 93.705103
+  type: 'test'
+  ...
+# Subtest: reachable ending: purge has three scenes and a durable unlock
+ok 28 - reachable ending: purge has three scenes and a durable unlock
+  ---
+  duration_ms: 91.762964
+  type: 'test'
+  ...
+# Subtest: reachable ending: whistleblower has three scenes and a durable unlock
+ok 29 - reachable ending: whistleblower has three scenes and a durable unlock
+  ---
+  duration_ms: 90.095069
+  type: 'test'
+  ...
+# Subtest: reachable ending: coexistence has three scenes and a durable unlock
+ok 30 - reachable ending: coexistence has three scenes and a durable unlock
+  ---
+  duration_ms: 89.267159
+  type: 'test'
+  ...
+# Subtest: reachable ending: truth has three scenes and a durable unlock
+ok 31 - reachable ending: truth has three scenes and a durable unlock
+  ---
+  duration_ms: 89.833564
+  type: 'test'
+  ...
+# Subtest: breach is reachable through harmful admissions; other routes are closed
+ok 32 - breach is reachable through harmful admissions; other routes are closed
+  ---
+  duration_ms: 88.450489
+  type: 'test'
+  ...
+# Subtest: wrong circuit changes the actual final scene to evacuation
+ok 33 - wrong circuit changes the actual final scene to evacuation
+  ---
+  duration_ms: 86.995977
+  type: 'test'
+  ...
+# Subtest: all-deny and all-quarantine campaigns reach an ending but carry substantial harm
+ok 34 - all-deny and all-quarantine campaigns reach an ending but carry substantial harm
+  ---
+  duration_ms: 173.26225
+  type: 'test'
+  ...
+# Subtest: save preserves mid-interview selections, journal, questions, notes and resources
+ok 35 - save preserves mid-interview selections, journal, questions, notes and resources
+  ---
+  duration_ms: 1.244161
+  type: 'test'
+  ...
+# Subtest: checksum/version/shape corruption is contained rather than crashing
+ok 36 - checksum/version/shape corruption is contained rather than crashing
+  ---
+  duration_ms: 2.976581
+  type: 'test'
+  ...
+# Subtest: backup recovery, quota error and reset are app-local
+ok 37 - backup recovery, quota error and reset are app-local
+  ---
+  duration_ms: 2.570013
+  type: 'test'
+  ...
+# Subtest: menu confirmations, continue, settings and input events
+ok 38 - menu confirmations, continue, settings and input events
+  ---
+  duration_ms: 3.802496
+  type: 'test'
+  ...
+# Subtest: procedural cases: 10,000 deterministic valid, applicable, detectable encounters
+ok 39 - procedural cases: 10,000 deterministic valid, applicable, detectable encounters
+  ---
+  duration_ms: 578.535007
+  type: 'test'
+  ...
+# Subtest: arcade scoring, resource renewal, independent save and >500-case bounded history
+ok 40 - arcade scoring, resource renewal, independent save and >500-case bounded history
+  ---
+  duration_ms: 34.153149
+  type: 'test'
+  ...
+# Subtest: no omniscient campaign truth crosses the UI projection
+ok 41 - no omniscient campaign truth crosses the UI projection
+  ---
+  duration_ms: 0.773719
+  type: 'test'
+  ...
+# Subtest: catalogue registration is idempotent and preserves unrelated entries, tags and tests
+ok 42 - catalogue registration is idempotent and preserves unrelated entries, tags and tests
+  ---
+  duration_ms: 12.055685
+  type: 'test'
+  ...
+# Subtest: registration refuses schema changes without partially editing shared files
+ok 43 - registration refuses schema changes without partially editing shared files
+  ---
+  duration_ms: 1.930512
+  type: 'test'
+  ...
+# Subtest: registration refuses conflicting identifiers, category and test commands
+ok 44 - registration refuses conflicting identifiers, category and test commands
+  ---
+  duration_ms: 2.254909
+  type: 'test'
+  ...
+# Subtest: registration records built size without deleting custom game metadata
+ok 45 - registration records built size without deleting custom game metadata
+  ---
+  duration_ms: 3.244685
+  type: 'test'
+  ...
+1..45
+# tests 45
+# suites 0
+# pass 45
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1623.322641
+
+Installed and rebuilt. No remote repository or site was modified.
+Next full-checkout checks: npm test -w @softn/demo && npm run build:packages && npm run build:site
+Native runtime smoke test: follow apps/demo/bundles/TheNightWindow/TESTING.md.
+
+$ node install.cjs <isolated fixture> 
+
+Installation stopped: Existing files differ; nothing was changed. Review them, then use --replace to retain backups and replace this game:
+apps/demo/bundles/TheNightWindow/README.md
+
+$ node install.cjs <isolated fixture> --replace
+Target: /tmp/night-window-install-NWAWzY
+New/additive source files: 362
+Shared metadata: index.json, seed.php, apps/demo/package.json
+Updated shared files: 0 (originals retained in .night-window-backup)
+Building TheNightWindow.softn bundle...
+Served copy:    demos/TheNightWindow.softn
+Served icon:    demos/icons/TheNightWindow.svg
+Bundle created: /tmp/night-window-install-NWAWzY/apps/demo/bundles/TheNightWindow.softn
+Size: 3668.05 KB
+Contents:
+  - manifest.json
+  - permission.json
+  - ui/main.ui
+  - ui/menu.ui
+  - ui/desk.ui
+  - ui/terminal.ui
+  - ui/story.ui
+  - ui/settings.ui
+  - logic/residents.logic
+  - logic/anomalies.logic
+  - logic/nights.logic
+  - logic/campaign.logic
+  - logic/rules.logic
+  - logic/documents.logic
+  - logic/arcade.logic
+  - logic/endings.logic
+  - logic/save.logic
+  - logic/main.logic
+  - assets/icon.svg
+  - assets/portraits/ada/anxious.svg
+  - assets/portraits/ada/bandage.svg
+  - assets/portraits/ada/base.svg
+  - assets/portraits/ada/defensive.svg
+  - assets/portraits/ada/ear.svg
+  - assets/portraits/ada/eye.svg
+  - assets/portraits/ada/hand.svg
+  - assets/portraits/ada/mole.svg
+  - assets/portraits/ada/open.svg
+  - assets/portraits/ada/pupil.svg
+  - assets/portraits/ada/reflection.svg
+  - assets/portraits/ada/scar.svg
+  - assets/portraits/ada/shadow.svg
+  - assets/portraits/ada/teeth.svg
+  - assets/portraits/ada/temperature.svg
+  - assets/portraits/anja/anxious.svg
+  - assets/portraits/anja/bandage.svg
+  - assets/portraits/anja/base.svg
+  - assets/portraits/anja/defensive.svg
+  - assets/portraits/anja/ear.svg
+  - assets/portraits/anja/eye.svg
+  - assets/portraits/anja/hand.svg
+  - assets/portraits/anja/mole.svg
+  - assets/portraits/anja/open.svg
+  - assets/portraits/anja/pupil.svg
+  - assets/portraits/anja/reflection.svg
+  - assets/portraits/anja/scar.svg
+  - assets/portraits/anja/shadow.svg
+  - assets/portraits/anja/teeth.svg
+  - assets/portraits/anja/temperature.svg
+  - assets/portraits/bea/anxious.svg
+  - assets/portraits/bea/bandage.svg
+  - assets/portraits/bea/base.svg
+  - assets/portraits/bea/defensive.svg
+  - assets/portraits/bea/ear.svg
+  - assets/portraits/bea/eye.svg
+  - assets/portraits/bea/hand.svg
+  - assets/portraits/bea/mole.svg
+  - assets/portraits/bea/open.svg
+  - assets/portraits/bea/pupil.svg
+  - assets/portraits/bea/reflection.svg
+  - assets/portraits/bea/scar.svg
+  - assets/portraits/bea/shadow.svg
+  - assets/portraits/bea/teeth.svg
+  - assets/portraits/bea/temperature.svg
+  - assets/portraits/celia/anxious.svg
+  - assets/portraits/celia/bandage.svg
+  - assets/portraits/celia/base.svg
+  - assets/portraits/celia/defensive.svg
+  - assets/portraits/celia/ear.svg
+  - assets/portraits/celia/eye.svg
+  - assets/portraits/celia/hand.svg
+  - assets/portraits/celia/mole.svg
+  - assets/portraits/celia/open.svg
+  - assets/portraits/celia/pupil.svg
+  - assets/portraits/celia/reflection.svg
+  - assets/portraits/celia/scar.svg
+  - assets/portraits/celia/shadow.svg
+  - assets/portraits/celia/teeth.svg
+  - assets/portraits/celia/temperature.svg
+  - assets/portraits/dalia/anxious.svg
+  - assets/portraits/dalia/bandage.svg
+  - assets/portraits/dalia/base.svg
+  - assets/portraits/dalia/defensive.svg
+  - assets/portraits/dalia/ear.svg
+  - assets/portraits/dalia/eye.svg
+  - assets/portraits/dalia/hand.svg
+  - assets/portraits/dalia/mole.svg
+  - assets/portraits/dalia/open.svg
+  - assets/portraits/dalia/pupil.svg
+  - assets/portraits/dalia/reflection.svg
+  - assets/portraits/dalia/scar.svg
+  - assets/portraits/dalia/shadow.svg
+  - assets/portraits/dalia/teeth.svg
+  - assets/portraits/dalia/temperature.svg
+  - assets/portraits/emil/anxious.svg
+  - assets/portraits/emil/bandage.svg
+  - assets/portraits/emil/base.svg
+  - assets/portraits/emil/defensive.svg
+  - assets/portraits/emil/ear.svg
+  - assets/portraits/emil/eye.svg
+  - assets/portraits/emil/hand.svg
+  - assets/portraits/emil/mole.svg
+  - assets/portraits/emil/open.svg
+  - assets/portraits/emil/pupil.svg
+  - assets/portraits/emil/reflection.svg
+  - assets/portraits/emil/scar.svg
+  - assets/portraits/emil/shadow.svg
+  - assets/portraits/emil/teeth.svg
+  - assets/portraits/emil/temperature.svg
+  - assets/portraits/hadi/anxious.svg
+  - assets/portraits/hadi/bandage.svg
+  - assets/portraits/hadi/base.svg
+  - assets/portraits/hadi/defensive.svg
+  - assets/portraits/hadi/ear.svg
+  - assets/portraits/hadi/eye.svg
+  - assets/portraits/hadi/hand.svg
+  - assets/portraits/hadi/mole.svg
+  - assets/portraits/hadi/open.svg
+  - assets/portraits/hadi/pupil.svg
+  - assets/portraits/hadi/reflection.svg
+  - assets/portraits/hadi/scar.svg
+  - assets/portraits/hadi/shadow.svg
+  - assets/portraits/hadi/teeth.svg
+  - assets/portraits/hadi/temperature.svg
+  - assets/portraits/ivo/anxious.svg
+  - assets/portraits/ivo/bandage.svg
+  - assets/portraits/ivo/base.svg
+  - assets/portraits/ivo/defensive.svg
+  - assets/portraits/ivo/ear.svg
+  - assets/portraits/ivo/eye.svg
+  - assets/portraits/ivo/hand.svg
+  - assets/portraits/ivo/mole.svg
+  - assets/portraits/ivo/open.svg
+  - assets/portraits/ivo/pupil.svg
+  - assets/portraits/ivo/reflection.svg
+  - assets/portraits/ivo/scar.svg
+  - assets/portraits/ivo/shadow.svg
+  - assets/portraits/ivo/teeth.svg
+  - assets/portraits/ivo/temperature.svg
+  - assets/portraits/june/anxious.svg
+  - assets/portraits/june/bandage.svg
+  - assets/portraits/june/base.svg
+  - assets/portraits/june/defensive.svg
+  - assets/portraits/june/ear.svg
+  - assets/portraits/june/eye.svg
+  - assets/portraits/june/hand.svg
+  - assets/portraits/june/mole.svg
+  - assets/portraits/june/open.svg
+  - assets/portraits/june/pupil.svg
+  - assets/portraits/june/reflection.svg
+  - assets/portraits/june/scar.svg
+  - assets/portraits/june/shadow.svg
+  - assets/portraits/june/teeth.svg
+  - assets/portraits/june/temperature.svg
+  - assets/portraits/leon/anxious.svg
+  - assets/portraits/leon/bandage.svg
+  - assets/portraits/leon/base.svg
+  - assets/portraits/leon/defensive.svg
+  - assets/portraits/leon/ear.svg
+  - assets/portraits/leon/eye.svg
+  - assets/portraits/leon/hand.svg
+  - assets/portraits/leon/mole.svg
+  - assets/portraits/leon/open.svg
+  - assets/portraits/leon/pupil.svg
+  - assets/portraits/leon/reflection.svg
+  - assets/portraits/leon/scar.svg
+  - assets/portraits/leon/shadow.svg
+  - assets/portraits/leon/teeth.svg
+  - assets/portraits/leon/temperature.svg
+  - assets/portraits/lio/anxious.svg
+  - assets/portraits/lio/bandage.svg
+  - assets/portraits/lio/base.svg
+  - assets/portraits/lio/defensive.svg
+  - assets/portraits/lio/ear.svg
+  - assets/portraits/lio/eye.svg
+  - assets/portraits/lio/hand.svg
+  - assets/portraits/lio/mole.svg
+  - assets/portraits/lio/open.svg
+  - assets/portraits/lio/pupil.svg
+  - assets/portraits/lio/reflection.svg
+  - assets/portraits/lio/scar.svg
+  - assets/portraits/lio/shadow.svg
+  - assets/portraits/lio/teeth.svg
+  - assets/portraits/lio/temperature.svg
+  - assets/portraits/mara/anxious.svg
+  - assets/portraits/mara/bandage.svg
+  - assets/portraits/mara/base.svg
+  - assets/portraits/mara/defensive.svg
+  - assets/portraits/mara/ear.svg
+  - assets/portraits/mara/eye.svg
+  - assets/portraits/mara/hand.svg
+  - assets/portraits/mara/mole.svg
+  - assets/portraits/mara/open.svg
+  - assets/portraits/mara/pupil.svg
+  - assets/portraits/mara/reflection.svg
+  - assets/portraits/mara/scar.svg
+  - assets/portraits/mara/shadow.svg
+  - assets/portraits/mara/teeth.svg
+  - assets/portraits/mara/temperature.svg
+  - assets/portraits/micah/anxious.svg
+  - assets/portraits/micah/bandage.svg
+  - assets/portraits/micah/base.svg
+  - assets/portraits/micah/defensive.svg
+  - assets/portraits/micah/ear.svg
+  - assets/portraits/micah/eye.svg
+  - assets/portraits/micah/hand.svg
+  - assets/portraits/micah/mole.svg
+  - assets/portraits/micah/open.svg
+  - assets/portraits/micah/pupil.svg
+  - assets/portraits/micah/reflection.svg
+  - assets/portraits/micah/scar.svg
+  - assets/portraits/micah/shadow.svg
+  - assets/portraits/micah/teeth.svg
+  - assets/portraits/micah/temperature.svg
+  - assets/portraits/nessa/anxious.svg
+  - assets/portraits/nessa/bandage.svg
+  - assets/portraits/nessa/base.svg
+  - assets/portraits/nessa/defensive.svg
+  - assets/portraits/nessa/ear.svg
+  - assets/portraits/nessa/eye.svg
+  - assets/portraits/nessa/hand.svg
+  - assets/portraits/nessa/mole.svg
+  - assets/portraits/nessa/open.svg
+  - assets/portraits/nessa/pupil.svg
+  - assets/portraits/nessa/reflection.svg
+  - assets/portraits/nessa/scar.svg
+  - assets/portraits/nessa/shadow.svg
+  - assets/portraits/nessa/teeth.svg
+  - assets/portraits/nessa/temperature.svg
+  - assets/portraits/orin/anxious.svg
+  - assets/portraits/orin/bandage.svg
+  - assets/portraits/orin/base.svg
+  - assets/portraits/orin/defensive.svg
+  - assets/portraits/orin/ear.svg
+  - assets/portraits/orin/eye.svg
+  - assets/portraits/orin/hand.svg
+  - assets/portraits/orin/mole.svg
+  - assets/portraits/orin/open.svg
+  - assets/portraits/orin/pupil.svg
+  - assets/portraits/orin/reflection.svg
+  - assets/portraits/orin/scar.svg
+  - assets/portraits/orin/shadow.svg
+  - assets/portraits/orin/teeth.svg
+  - assets/portraits/orin/temperature.svg
+  - assets/portraits/pavel/anxious.svg
+  - assets/portraits/pavel/bandage.svg
+  - assets/portraits/pavel/base.svg
+  - assets/portraits/pavel/defensive.svg
+  - assets/portraits/pavel/ear.svg
+  - assets/portraits/pavel/eye.svg
+  - assets/portraits/pavel/hand.svg
+  - assets/portraits/pavel/mole.svg
+  - assets/portraits/pavel/open.svg
+  - assets/portraits/pavel/pupil.svg
+  - assets/portraits/pavel/reflection.svg
+  - assets/portraits/pavel/scar.svg
+  - assets/portraits/pavel/shadow.svg
+  - assets/portraits/pavel/teeth.svg
+  - assets/portraits/pavel/temperature.svg
+  - assets/portraits/ruth/anxious.svg
+  - assets/portraits/ruth/bandage.svg
+  - assets/portraits/ruth/base.svg
+  - assets/portraits/ruth/defensive.svg
+  - assets/portraits/ruth/ear.svg
+  - assets/portraits/ruth/eye.svg
+  - assets/portraits/ruth/hand.svg
+  - assets/portraits/ruth/mole.svg
+  - assets/portraits/ruth/open.svg
+  - assets/portraits/ruth/pupil.svg
+  - assets/portraits/ruth/reflection.svg
+  - assets/portraits/ruth/scar.svg
+  - assets/portraits/ruth/shadow.svg
+  - assets/portraits/ruth/teeth.svg
+  - assets/portraits/ruth/temperature.svg
+  - assets/portraits/selene/anxious.svg
+  - assets/portraits/selene/bandage.svg
+  - assets/portraits/selene/base.svg
+  - assets/portraits/selene/defensive.svg
+  - assets/portraits/selene/ear.svg
+  - assets/portraits/selene/eye.svg
+  - assets/portraits/selene/hand.svg
+  - assets/portraits/selene/mole.svg
+  - assets/portraits/selene/open.svg
+  - assets/portraits/selene/pupil.svg
+  - assets/portraits/selene/reflection.svg
+  - assets/portraits/selene/scar.svg
+  - assets/portraits/selene/shadow.svg
+  - assets/portraits/selene/teeth.svg
+  - assets/portraits/selene/temperature.svg
+  - assets/portraits/tomas/anxious.svg
+  - assets/portraits/tomas/bandage.svg
+  - assets/portraits/tomas/base.svg
+  - assets/portraits/tomas/defensive.svg
+  - assets/portraits/tomas/ear.svg
+  - assets/portraits/tomas/eye.svg
+  - assets/portraits/tomas/hand.svg
+  - assets/portraits/tomas/mole.svg
+  - assets/portraits/tomas/open.svg
+  - assets/portraits/tomas/pupil.svg
+  - assets/portraits/tomas/reflection.svg
+  - assets/portraits/tomas/scar.svg
+  - assets/portraits/tomas/shadow.svg
+  - assets/portraits/tomas/teeth.svg
+  - assets/portraits/tomas/temperature.svg
+  - assets/portraits/victor/anxious.svg
+  - assets/portraits/victor/bandage.svg
+  - assets/portraits/victor/base.svg
+  - assets/portraits/victor/defensive.svg
+  - assets/portraits/victor/ear.svg
+  - assets/portraits/victor/eye.svg
+  - assets/portraits/victor/hand.svg
+  - assets/portraits/victor/mole.svg
+  - assets/portraits/victor/open.svg
+  - assets/portraits/victor/pupil.svg
+  - assets/portraits/victor/reflection.svg
+  - assets/portraits/victor/scar.svg
+  - assets/portraits/victor/shadow.svg
+  - assets/portraits/victor/teeth.svg
+  - assets/portraits/victor/temperature.svg
+  - assets/scenes/dawn.svg
+  - assets/scenes/garden.svg
+  - assets/scenes/radio.svg
+  - assets/scenes/rain.svg
+  - assets/scenes/sealed.svg
+  - assets/scenes/title.svg
+  - assets/scenes/ward.svg
+  - assets/sfx/alarm.wav
+  - assets/sfx/arrival.wav
+  - assets/sfx/camera.wav
+  - assets/sfx/click.wav
+  - assets/sfx/contain.wav
+  - assets/sfx/dawn.wav
+  - assets/sfx/door.wav
+  - assets/sfx/hold.wav
+  - assets/sfx/intercom.wav
+  - assets/sfx/knock.wav
+  - assets/sfx/outage.wav
+  - assets/sfx/paper.wav
+  - assets/sfx/rain.wav
+  - assets/sfx/ring.wav
+  - assets/sfx/scan.wav
+  - assets/sfx/terminal.wav
+  - assets/thumbnail.svg
+
+TAP version 13
+# Subtest: manifest enumerates every deployed asset and imports only existing relative source files
+ok 1 - manifest enumerates every deployed asset and imports only existing relative source files
+  ---
+  duration_ms: 18.042637
+  type: 'test'
+  ...
+# Subtest: all 300 resident portrait variants and six ending scenes resolve locally
+ok 2 - all 300 resident portrait variants and six ending scenes resolve locally
+  ---
+  duration_ms: 5.534406
+  type: 'test'
+  ...
+# Subtest: SVG assets are self-contained and have no executable or external content
+ok 3 - SVG assets are self-contained and have no executable or external content
+  ---
+  duration_ms: 9.502105
+  type: 'test'
+  ...
+# Subtest: sixteen original WAVs have valid PCM headers, bounded peaks and a loopable rain bed
+ok 4 - sixteen original WAVs have valid PCM headers, bounded peaks and a loopable rain bed
+  ---
+  duration_ms: 21.766688
+  type: 'test'
+  ...
+# Subtest: every UI action names a real function; no per-frame VM or external network game path
+ok 5 - every UI action names a real function; no per-frame VM or external network game path
+  ---
+  duration_ms: 10.412676
+  type: 'test'
+  ...
+# Subtest: resident lookup tolerates apartment punctuation and never exposes secrets
+ok 6 - resident lookup tolerates apartment punctuation and never exposes secrets
+  ---
+  duration_ms: 1.206706
+  type: 'test'
+  ...
+# Subtest: backup recovery also works with a missing primary key, and saves stay bounded
+ok 7 - backup recovery also works with a missing primary key, and saves stay bounded
+  ---
+  duration_ms: 3.56049
+  type: 'test'
+  ...
+# Subtest: returning from menu preserves unsaved campaign and arcade decisions after quota failure
+ok 8 - returning from menu preserves unsaved campaign and arcade decisions after quota failure
+  ---
+  duration_ms: 6.718889
+  type: 'test'
+  ...
+# Subtest: roster has 20 unique, fully authored residents and valid relationships
+ok 9 - roster has 20 unique, fully authored residents and valid relationships
+  ---
+  duration_ms: 2.224404
+  type: 'test'
+  ...
+# Subtest: 49 curated encounters, exactly seven per night, and valid dialogue graph
+ok 10 - 49 curated encounters, exactly seven per night, and valid dialogue graph
+  ---
+  duration_ms: 12.779931
+  type: 'test'
+  ...
+# Subtest: anomalies: 36 unique types, detection routes and mundane exceptions
+ok 11 - anomalies: 36 unique types, detection routes and mundane exceptions
+  ---
+  duration_ms: 0.43501
+  type: 'test'
+  ...
+# Subtest: new game, tutorial and initially gated tools
+ok 12 - new game, tutorial and initially gated tools
+  ---
+  duration_ms: 3.791801
+  type: 'test'
+  ...
+# Subtest: follow-up prerequisites and exclusive dialogue tone branches
+ok 13 - follow-up prerequisites and exclusive dialogue tone branches
+  ---
+  duration_ms: 1.573816
+  type: 'test'
+  ...
+# Subtest: document comparison uses independent fields and cannot issue a verdict
+ok 14 - document comparison uses independent fields and cannot issue a verdict
+  ---
+  duration_ms: 1.703758
+  type: 'test'
+  ...
+# Subtest: paper originals cannot be mutated by a terminal rewrite
+ok 15 - paper originals cannot be mutated by a terminal rewrite
+  ---
+  duration_ms: 1.231903
+  type: 'test'
+  ...
+# Subtest: holding consumes a limited slot, supplies testimony, and does not finalize
+ok 16 - holding consumes a limited slot, supplies testimony, and does not finalize
+  ---
+  duration_ms: 2.239707
+  type: 'test'
+  ...
+# Subtest: human admission is safe; repeated final clicks cannot double-count
+ok 17 - human admission is safe; repeated final clicks cannot double-count
+  ---
+  duration_ms: 1.181429
+  type: 'test'
+  ...
+# Subtest: hostile admission increments breach; hostile quarantine leaves real resident alive
+ok 18 - hostile admission increments breach; hostile quarantine leaves real resident alive
+  ---
+  duration_ms: 1.760541
+  type: 'test'
+  ...
+# Subtest: wrong quarantine harms residents; denial is not a universal safe button
+ok 19 - wrong quarantine harms residents; denial is not a universal safe button
+  ---
+  duration_ms: 2.10636
+  type: 'test'
+  ...
+# Subtest: detained humans return under escort and denial retains custody
+ok 20 - detained humans return under escort and denial retains custody
+  ---
+  duration_ms: 0.86284
+  type: 'test'
+  ...
+# Subtest: relationships and consequences affect later dialogue, not only final score
+ok 21 - relationships and consequences affect later dialogue, not only final score
+  ---
+  duration_ms: 3.29539
+  type: 'test'
+  ...
+# Subtest: absent witnesses become explicitly dated testimony
+ok 22 - absent witnesses become explicitly dated testimony
+  ---
+  duration_ms: 1.287616
+  type: 'test'
+  ...
+# Subtest: appeal mechanism opens night five, cannot farm trust, and never erases harm
+ok 23 - appeal mechanism opens night five, cannot farm trust, and never erases harm
+  ---
+  duration_ms: 1.062594
+  type: 'test'
+  ...
+# Subtest: scanner readings overlap; no threshold is a species test
+ok 24 - scanner readings overlap; no threshold is a species test
+  ---
+  duration_ms: 1.181309
+  type: 'test'
+  ...
+# Subtest: camera and blackout lamp are gated, captioned and non-timed
+ok 25 - camera and blackout lamp are gated, captioned and non-timed
+  ---
+  duration_ms: 1.320704
+  type: 'test'
+  ...
+# Subtest: full 49-case protective campaign traverses every phase with save roundtrips
+ok 26 - full 49-case protective campaign traverses every phase with save roundtrips
+  ---
+  duration_ms: 101.203614
+  type: 'test'
+  ...
+# Subtest: reachable ending: survivor has three scenes and a durable unlock
+ok 27 - reachable ending: survivor has three scenes and a durable unlock
+  ---
+  duration_ms: 91.513277
+  type: 'test'
+  ...
+# Subtest: reachable ending: purge has three scenes and a durable unlock
+ok 28 - reachable ending: purge has three scenes and a durable unlock
+  ---
+  duration_ms: 107.03003
+  type: 'test'
+  ...
+# Subtest: reachable ending: whistleblower has three scenes and a durable unlock
+ok 29 - reachable ending: whistleblower has three scenes and a durable unlock
+  ---
+  duration_ms: 104.442937
+  type: 'test'
+  ...
+# Subtest: reachable ending: coexistence has three scenes and a durable unlock
+ok 30 - reachable ending: coexistence has three scenes and a durable unlock
+  ---
+  duration_ms: 89.05661
+  type: 'test'
+  ...
+# Subtest: reachable ending: truth has three scenes and a durable unlock
+ok 31 - reachable ending: truth has three scenes and a durable unlock
+  ---
+  duration_ms: 93.979186
+  type: 'test'
+  ...
+# Subtest: breach is reachable through harmful admissions; other routes are closed
+ok 32 - breach is reachable through harmful admissions; other routes are closed
+  ---
+  duration_ms: 87.117746
+  type: 'test'
+  ...
+# Subtest: wrong circuit changes the actual final scene to evacuation
+ok 33 - wrong circuit changes the actual final scene to evacuation
+  ---
+  duration_ms: 94.268882
+  type: 'test'
+  ...
+# Subtest: all-deny and all-quarantine campaigns reach an ending but carry substantial harm
+ok 34 - all-deny and all-quarantine campaigns reach an ending but carry substantial harm
+  ---
+  duration_ms: 170.89084
+  type: 'test'
+  ...
+# Subtest: save preserves mid-interview selections, journal, questions, notes and resources
+ok 35 - save preserves mid-interview selections, journal, questions, notes and resources
+  ---
+  duration_ms: 1.19623
+  type: 'test'
+  ...
+# Subtest: checksum/version/shape corruption is contained rather than crashing
+ok 36 - checksum/version/shape corruption is contained rather than crashing
+  ---
+  duration_ms: 2.708777
+  type: 'test'
+  ...
+# Subtest: backup recovery, quota error and reset are app-local
+ok 37 - backup recovery, quota error and reset are app-local
+  ---
+  duration_ms: 2.736027
+  type: 'test'
+  ...
+# Subtest: menu confirmations, continue, settings and input events
+ok 38 - menu confirmations, continue, settings and input events
+  ---
+  duration_ms: 3.638977
+  type: 'test'
+  ...
+# Subtest: procedural cases: 10,000 deterministic valid, applicable, detectable encounters
+ok 39 - procedural cases: 10,000 deterministic valid, applicable, detectable encounters
+  ---
+  duration_ms: 581.136752
+  type: 'test'
+  ...
+# Subtest: arcade scoring, resource renewal, independent save and >500-case bounded history
+ok 40 - arcade scoring, resource renewal, independent save and >500-case bounded history
+  ---
+  duration_ms: 36.12381
+  type: 'test'
+  ...
+# Subtest: no omniscient campaign truth crosses the UI projection
+ok 41 - no omniscient campaign truth crosses the UI projection
+  ---
+  duration_ms: 0.712328
+  type: 'test'
+  ...
+# Subtest: catalogue registration is idempotent and preserves unrelated entries, tags and tests
+ok 42 - catalogue registration is idempotent and preserves unrelated entries, tags and tests
+  ---
+  duration_ms: 9.170558
+  type: 'test'
+  ...
+# Subtest: registration refuses schema changes without partially editing shared files
+ok 43 - registration refuses schema changes without partially editing shared files
+  ---
+  duration_ms: 2.763247
+  type: 'test'
+  ...
+# Subtest: registration refuses conflicting identifiers, category and test commands
+ok 44 - registration refuses conflicting identifiers, category and test commands
+  ---
+  duration_ms: 2.998924
+  type: 'test'
+  ...
+# Subtest: registration records built size without deleting custom game metadata
+ok 45 - registration records built size without deleting custom game metadata
+  ---
+  duration_ms: 4.483239
+  type: 'test'
+  ...
+1..45
+# tests 45
+# suites 0
+# pass 45
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1673.805867
+
+Installed and rebuilt. No remote repository or site was modified.
+Next full-checkout checks: npm test -w @softn/demo && npm run build:packages && npm run build:site
+Native runtime smoke test: follow apps/demo/bundles/TheNightWindow/TESTING.md.

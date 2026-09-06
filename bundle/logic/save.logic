@@ -1,0 +1,267 @@
+// Persistence adapter. LocalStorage is scoped by SoftN's app identity. No server,
+// account, network request, permissions escalation or host-global storage is used.
+let NW_SAVE_KEY = "night-window/campaign-v1";
+let NW_ARCADE_KEY = "night-window/arcade-v1";
+let NW_META_KEY = "night-window/settings-v1";
+function nwChecksum(text) { let h = 7; for (let i = 0; i < text.length; i++) {
+    h = (h * 31 + text.charCodeAt(i)) % 2147483647;
+} return h; }
+function nwEncode(s) { let text = JSON.stringify(s); return JSON.stringify({ version: NW_VERSION, payload: text, check: nwChecksum(text) }); }
+function nwText(v, limit) { return typeof v === "string" ? v.slice(0, limit) : ""; }
+function nwInt(v, lo, hi) { return typeof v === "number" && isFinite(v) && Math.floor(v) === v && v >= lo && v <= hi; }
+function nwSafeList(v, allowed, limit) { let a = []; if (!Array.isArray(v)) {
+    return a;
+} for (let i = 0; i < v.length && i < limit; i++) {
+    if (typeof v[i] === "string" && nwHas(allowed, v[i])) {
+        nwAdd(a, v[i]);
+    }
+} return a; }
+function nwDecode(raw) {
+    try {
+        if (typeof raw !== "string" || raw.length > 750000) {
+            return null;
+        }
+        let wrap = JSON.parse(raw);
+        if (!wrap || wrap.version !== NW_VERSION || typeof wrap.payload !== "string" || wrap.check !== nwChecksum(wrap.payload)) {
+            return null;
+        }
+        let v = JSON.parse(wrap.payload);
+        if (!v || v.version !== NW_VERSION || !nwHas(["campaign", "arcade"], v.mode) || !nwInt(v.seed, 1, 2147483646)) {
+            return null;
+        }
+        if (!nwInt(v.cursor, 0, v.mode === "campaign" ? NW_CAMPAIGN.length : 1000000) || !nwInt(v.night, 1, 150000)) {
+            return null;
+        }
+        if (!nwHas(["brief", "desk", "receipt", "shiftEnd", "finale", "ending", "credits"], v.phase)) {
+            return null;
+        }
+        let s = nwNew(v.mode, v.seed), numbers = ["cursor", "night", "harm", "breaches", "contained", "score", "streak", "bestStreak", "correctAdmissions", "correctDetections", "falsePositives", "echoesAdmitted", "humansDenied", "investigations", "resolved"];
+        for (let i = 0; i < numbers.length; i++) {
+            let key = numbers[i];
+            if (!nwInt(v[key], 0, 2000000000)) {
+                return null;
+            }
+            s[key] = v[key];
+        }
+        let limited = ["residents", "authority", "holds", "scans"];
+        for (let i = 0; i < limited.length; i++) {
+            let key = limited[i], max = key === "holds" || key === "scans" ? 2 : 100;
+            if (!nwInt(v[key], 0, max)) {
+                return null;
+            }
+            s[key] = v[key];
+        }
+        s.phase = v.phase;
+        s.notes = nwText(v.notes, 4000);
+        let flags = [];
+        for (let i = 0; i < NW_CAMPAIGN.length; i++) {
+            nwAdd(flags, NW_CAMPAIGN[i].onAdmitFlag);
+            nwAdd(flags, NW_CAMPAIGN[i].onDenyFlag);
+        }
+        s.flags = nwSafeList(v.flags, flags, 100);
+        s.evidence = nwSafeList(v.evidence, NW_EVIDENCE, 40);
+        s.memories = nwSafeList(v.memories, NW_MEMORY, 30);
+        let residentIds = [];
+        for (let i = 0; i < NW_RESIDENTS.length; i++) {
+            let id = NW_RESIDENTS[i].id;
+            residentIds.push(id);
+            if (!v.relationships || !nwInt(v.relationships[id], -10, 10) || !v.presence || !nwHas(["inside", "outside", "quarantine", "dead"], v.presence[id])) {
+                return null;
+            }
+            s.relationships[id] = v.relationships[id];
+            s.presence[id] = v.presence[id];
+        }
+        s.appealed = nwSafeList(v.appealed, residentIds, 20);
+        s.journal = [];
+        if (!Array.isArray(v.journal) || v.journal.length > 160) {
+            return null;
+        }
+        for (let i = 0; i < v.journal.length; i++) {
+            let j = v.journal[i];
+            if (!j || !nwInt(j.night, 1, 150000)) {
+                return null;
+            }
+            s.journal.push({ night: j.night, title: nwText(j.title, 180), text: nwText(j.text, 5000) });
+        }
+        s.decisions = [];
+        if (!Array.isArray(v.decisions) || v.decisions.length > 500) {
+            return null;
+        }
+        let ids = [];
+        for (let i = 0; i < v.decisions.length; i++) {
+            let d = v.decisions[i];
+            if (!d || !nwHas(residentIds, d.resident) || !nwHas(["admit", "deny", "quarantine"], d.choice) || !nwHas(["human", "hostile", "peaceful"], d.truth) || !nwInt(d.night, 1, 150000) || typeof d.id !== "string" || nwHas(ids, d.id)) {
+                return null;
+            }
+            if (s.mode === "campaign") {
+                let c = nwCaseId(d.id);
+                if (!c || c.resident !== d.resident || c.truth !== d.truth) {
+                    return null;
+                }
+            }
+            ids.push(d.id);
+            s.decisions.push({ id: nwText(d.id, 90), night: d.night, resident: d.resident, choice: d.choice, truth: d.truth, investigated: d.investigated === true });
+        }
+        s.turn = null;
+        if (s.phase === "desk" || s.phase === "receipt") {
+            let c = nwCaseAt(s), t = v.turn;
+            if (!c || !t || t.id !== c.id || t.closed !== (s.phase === "receipt")) {
+                return null;
+            }
+            let nt = nwBlankTurn(c), nodeIds = [];
+            for (let i = 0; i < c.nodes.length; i++) {
+                nodeIds.push(c.nodes[i].id);
+            }
+            nt.asked = nwSafeList(t.asked, nodeIds, 20);
+            nt.approach = nwHas(["gentle", "press"], t.approach) ? t.approach : "";
+            let bools = ["held", "call", "scan", "camera", "archive", "register", "rewritten", "lamp", "closed"];
+            for (let i = 0; i < bools.length; i++) {
+                nt[bools[i]] = t[bools[i]] === true;
+            }
+            nt.seen = nwSafeList(t.seen, ["card", "permit", "live", "register", "archive", "counterfoil", "reports", "comms", "notes", "directory"], 20);
+            nt.choice = nwHas(["admit", "deny", "quarantine"], t.choice) ? t.choice : "";
+            if (nt.closed && !nt.choice) {
+                return null;
+            }
+            nt.reaction = nwText(t.reaction, 3000);
+            nt.result = nwText(t.result, 7000);
+            nt.scanText = nwText(t.scanText, 1200);
+            nt.pins = [];
+            if (Array.isArray(t.pins)) {
+                for (let i = 0; i < t.pins.length && i < 30; i++) {
+                    nt.pins.push(nwText(t.pins[i], 1200));
+                }
+            }
+            nt.selected = [];
+            if (Array.isArray(t.selected)) {
+                for (let i = 0; i < t.selected.length && i < 2; i++) {
+                    if (typeof t.selected[i] === "string" && nwFact(c, nt, t.selected[i])) {
+                        nt.selected.push(t.selected[i]);
+                    }
+                }
+            }
+            nt.checklist = {};
+            if (t.checklist && typeof t.checklist === "object") {
+                for (let i = 0; i < NW_CHECKLIST.length; i++) {
+                    let id = NW_CHECKLIST[i].id;
+                    if (nwHas(NW_CHECK_MARKS, t.checklist[id])) {
+                        nt.checklist[id] = t.checklist[id];
+                    }
+                }
+            }
+            nt.checklistSent = t.checklistSent === true && nwChecklistReady(nt);
+            nt.transcript = [];
+            if (!Array.isArray(t.transcript) || t.transcript.length > 30) {
+                return null;
+            }
+            for (let i = 0; i < t.transcript.length; i++) {
+                let line = t.transcript[i];
+                if (!line) {
+                    return null;
+                }
+                nt.transcript.push({ q: nwText(line.q, 300), a: nwText(line.a, 7000), mood: nwText(line.mood, 50) });
+            }
+            s.turn = nt;
+        }
+        let ends = ["survivor", "purge", "breach", "whistleblower", "coexistence", "truth"];
+        s.finale = nwHas(ends, v.finale) ? v.finale : "";
+        s.ending = nwHas(ends, v.ending) ? v.ending : "";
+        s.endingStep = nwInt(v.endingStep, 0, 2) ? v.endingStep : 0;
+        if ((s.phase === "ending" || s.phase === "credits") && !s.finale) {
+            return null;
+        }
+        if (s.mode === "campaign") {
+            if (s.cursor === NW_CAMPAIGN.length && !nwHas(["finale", "ending", "credits"], s.phase)) {
+                return null;
+            }
+            if (s.cursor < NW_CAMPAIGN.length) {
+                let cn = nwCampaignCase(s, s.cursor).night;
+                if (s.phase === "shiftEnd") {
+                    if (cn !== s.night + 1) {
+                        return null;
+                    }
+                }
+                else if (cn !== s.night) {
+                    return null;
+                }
+            }
+            if (s.phase === "credits" && !s.ending) {
+                return null;
+            }
+        }
+        else if (!nwHas(["desk", "receipt"], s.phase)) {
+            return null;
+        }
+        return s;
+    }
+    catch (e) {
+        return null;
+    }
+}
+function nwDefaultMeta() { return { version: 1, volume: 45, voice: 90, muted: false, reduced: false, endings: [], arcadeBest: 0, arcadeSeed: 198917, tutorialDone: false, tipsSeen: [] }; }
+function nwReadMeta(store) { let meta = nwDefaultMeta(); try {
+    let v = JSON.parse(store.getItem(NW_META_KEY) || "null");
+    if (!v || v.version !== 1) {
+        return meta;
+    }
+    if (nwInt(v.volume, 0, 100)) {
+        meta.volume = v.volume;
+    }
+    if (nwInt(v.voice, 0, 100)) {
+        meta.voice = v.voice;
+    }
+    meta.muted = v.muted === true;
+    meta.reduced = v.reduced === true;
+    meta.tutorialDone = v.tutorialDone === true;
+    let tipIds = [];
+    for (let i = 0; i < NW_TIPS.length; i++) {
+        tipIds.push(NW_TIPS[i].id);
+    }
+    meta.tipsSeen = nwSafeList(v.tipsSeen, tipIds, 40);
+    meta.endings = nwSafeList(v.endings, ["survivor", "purge", "breach", "whistleblower", "coexistence", "truth"], 6);
+    if (nwInt(v.arcadeBest, 0, 2000000000)) {
+        meta.arcadeBest = v.arcadeBest;
+    }
+    if (nwInt(v.arcadeSeed, 1, 2147483646)) {
+        meta.arcadeSeed = v.arcadeSeed;
+    }
+}
+catch (e) { } return meta; }
+function nwLoadSlot(store, key) {
+    let raw = null;
+    try {
+        raw = store.getItem(key);
+    }
+    catch (e) {
+        return { session: null, message: "Local saves are unavailable. This session still works, but will not survive a reload." };
+    }
+    let s = nwDecode(raw);
+    if (s) {
+        return { session: s, message: "" };
+    }
+    try {
+        s = nwDecode(store.getItem(key + "/backup"));
+    }
+    catch (e) { }
+    if (s) {
+        return { session: s, message: "Recovered the last valid backup. The newest save was missing or damaged." };
+    }
+    if (raw) {
+        return { session: null, message: "The stored session is damaged. Your settings and unlocked endings are separate; a new game is safe." };
+    }
+    return { session: null, message: "" };
+}
+function nwWriteSlot(store, key, s) { try {
+    let old = store.getItem(key);
+    if (old && nwDecode(old)) {
+        store.setItem(key + "/backup", old);
+    }
+    store.setItem(key, nwEncode(s));
+    return "Saved locally";
+}
+catch (e) {
+    return "SAVE FAILED — storage is full or unavailable. Keep this tab open; progress remains in memory.";
+} }
+function nwDeleteSaves(store) { let keys = [NW_SAVE_KEY, NW_SAVE_KEY + "/backup", NW_ARCADE_KEY, NW_ARCADE_KEY + "/backup", NW_META_KEY]; for (let i = 0; i < keys.length; i++) {
+    store.removeItem(keys[i]);
+} }

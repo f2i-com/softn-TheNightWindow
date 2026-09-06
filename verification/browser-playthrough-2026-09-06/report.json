@@ -1,0 +1,192 @@
+{
+  "console_errors": [],
+  "page_errors": [],
+  "steps": [
+    {
+      "name": "menu",
+      "t": 1788675705.9848397
+    },
+    {
+      "name": "guide",
+      "t": 1788675706.2986689
+    },
+    {
+      "name": "brief",
+      "t": 1788675708.0574718
+    },
+    {
+      "name": "desk-tutorial-1",
+      "t": 1788675710.0030618
+    },
+    {
+      "name": "desk-form-minimised",
+      "t": 1788675711.6552603
+    },
+    {
+      "name": "desk-tutorial-3",
+      "t": 1788675712.1083422
+    },
+    {
+      "name": "desk-answer",
+      "t": 1788675714.097623
+    },
+    {
+      "name": "desk-filed",
+      "t": 1788675717.6026056
+    },
+    {
+      "name": "confirm",
+      "t": 1788675717.7961383
+    },
+    {
+      "name": "receipt",
+      "t": 1788675717.9789338
+    },
+    {
+      "name": "visitor2",
+      "t": 1788675719.1387906
+    },
+    {
+      "name": "settings",
+      "t": 1788675719.51883
+    },
+    {
+      "name": "mobile-window",
+      "t": 1788675721.0168188
+    },
+    {
+      "name": "mobile-papers",
+      "t": 1788675721.868793
+    },
+    {
+      "name": "mobile-terminal",
+      "t": 1788675722.5244007
+    },
+    {
+      "name": "reloaded",
+      "t": 1788675725.8141518
+    },
+    {
+      "name": "continued",
+      "t": 1788675726.2259502
+    }
+  ],
+  "audio": [
+    {
+      "src": "blob:http://localhost:1420/83380702-b99a-4e0d-9663-1deecda81",
+      "loop": true,
+      "volume": 0.2025,
+      "duration": 19.5,
+      "result": "played",
+      "t": 1788675724920
+    },
+    {
+      "src": "blob:http://localhost:1420/83380702-b99a-4e0d-9663-1deecda81",
+      "loop": true,
+      "volume": 0.2025,
+      "duration": 19.5,
+      "result": "played",
+      "t": 1788675726168
+    }
+  ],
+  "requests": [
+    "http://localhost:1420/?open=/demos/TheNightWindow.softn",
+    "http://localhost:1420/demos/TheNightWindow.softn",
+    "http://localhost:1420/demos/index.json",
+    "http://localhost:1420/demos/TheNightWindow.softn"
+  ],
+  "contrast": {
+    "menu": {
+      "buttons": 10,
+      "low": []
+    },
+    "brief": {
+      "buttons": 13,
+      "low": []
+    },
+    "desk": {
+      "buttons": 78,
+      "low": []
+    },
+    "settings": {
+      "buttons": 20,
+      "low": []
+    },
+    "mobile": {
+      "buttons": 61,
+      "low": []
+    }
+  },
+  "first_visitor": "Pavel Arden",
+  "audio_after_signin": [
+    {
+      "src": "blob:http://localhost:1420/39085b12-a4c8-4971-a22f-0a06556bc",
+      "loop": false,
+      "volume": 0.9,
+      "duration": 8.916463,
+      "result": "played",
+      "t": 1788675708397
+    },
+    {
+      "src": "blob:http://localhost:1420/c2f4bc82-0125-4117-8170-db47fb8c2",
+      "loop": false,
+      "volume": 0.45,
+      "duration": 2,
+      "result": "played",
+      "t": 1788675708466
+    }
+  ],
+  "form_fixed_while_scrolling": true,
+  "form_minimised": true,
+  "audio_after_question": [
+    {
+      "src": "blob:http://localhost:1420/dcec489d-e2c2-4278-8477-8257e33ba",
+      "loop": false,
+      "volume": 0.9,
+      "duration": 8.823583,
+      "result": "played",
+      "t": 1788675712533
+    },
+    {
+      "src": "blob:http://localhost:1420/764175af-92b0-4061-bf76-2f0f66542",
+      "loop": false,
+      "volume": 0.45,
+      "duration": 0.6,
+      "result": "played",
+      "t": 1788675712557
+    },
+    {
+      "src": "blob:http://localhost:1420/764175af-92b0-4061-bf76-2f0f66542",
+      "loop": false,
+      "volume": 0.45,
+      "duration": 0.6,
+      "result": "played",
+      "t": 1788675712570
+    }
+  ],
+  "gate_blocked": true,
+  "form_pages_seen": [
+    "1 REGISTER \u00b7 2/4",
+    "1 REGISTER \u00b7 3/4",
+    "2 PERSON \u00b7 0/3",
+    "2 PERSON \u00b7 1/3",
+    "2 PERSON \u00b7 2/3",
+    "3 PAPERS & FILE \u00b7 0/1",
+    "3 PAPERS & FILE \u2713"
+  ],
+  "second_visitor": "Ruth Sable",
+  "second_differs": true,
+  "voicebar_present": 1,
+  "voicebar_text": "\u25cf SPEAKING / Narrator\nReplay line\nEvery spoken line is also written on screen.",
+  "url_before_reload": "http://localhost:1420/app/The%20Night%20Window",
+  "reload": {
+    "url": "http://localhost:1420/app/The%20Night%20Window",
+    "new_console_errors": [],
+    "api_requests": [],
+    "demo_requests": [
+      "http://localhost:1420/demos/index.json",
+      "http://localhost:1420/demos/TheNightWindow.softn"
+    ]
+  },
+  "audio_error": "Event loop is closed! Is Playwright already stopped?"
+}

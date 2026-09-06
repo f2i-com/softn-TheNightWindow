@@ -1,0 +1,39 @@
+<Box if={nwSettings} className="nw-settings">
+  <Text className="nw-kicker">Checkpoint preferences / saved locally</Text>
+  <Text className="nw-title">Keep the room comfortable.</Text>
+  <Box className="nw-stack">
+    <Text className="nw-section-title">{"Effects and ambience / " + nwView.volume + "%"}</Text>
+    <Box className="nw-toolbar">
+      <Button className="nw-btn" ariaLabel="Decrease effects volume by ten percent" disabled={nwView.volume <= 0} @click={nwVolume(-10)}>Quieter −10</Button>
+      <Button className="nw-btn" ariaLabel="Increase effects volume by ten percent" disabled={nwView.volume >= 100} @click={nwVolume(10)}>Louder +10</Button>
+      <Button className="nw-btn" @click={nwToggleMute}>{nwView.muted ? "Sound is muted / unmute" : "Mute all sound"}</Button>
+    </Box>
+    <Text className="nw-small">Rain, the terminal, doors, shutters and the arrival bell. Important sounds always have written captions.</Text>
+  </Box>
+  <Box className="nw-stack">
+    <Text className="nw-section-title">{"Voices / " + nwView.voice + "%"}</Text>
+    <Box className="nw-toolbar">
+      <Button className="nw-btn" ariaLabel="Decrease voice volume by ten percent" disabled={nwView.voice <= 0} @click={nwVoiceVolume(-10)}>Quieter −10</Button>
+      <Button className="nw-btn" ariaLabel="Increase voice volume by ten percent" disabled={nwView.voice >= 100} @click={nwVoiceVolume(10)}>Louder +10</Button>
+    </Box>
+    <Text className="nw-small">{"Residents, the narrator and the previous guard are voiced (" + nwView.voiced + " recorded lines). Set voices to 0% to read in silence; every line is on screen and can be replayed from the bar under the header."}</Text>
+  </Box>
+  <Box className="nw-stack">
+    <Text className="nw-section-title">Motion</Text>
+    <Button className="nw-btn" @click={nwReduced}>{nwView.reduced ? "Reduced motion on / enable animation" : "Reduce motion and disable transitions"}</Button>
+    <Text className="nw-small">Your device’s reduced-motion preference is also respected. No rapid flashes, automatic dialogue timers or reflex tests.</Text>
+  </Box>
+  <Box className="nw-stack">
+    <Text className="nw-section-title">Learning the desk</Text>
+    <Box className="nw-toolbar">
+      <Button className="nw-btn" @click={nwToggleGuide}>Open the guide</Button>
+      <Button className="nw-btn" disabled={!nwView.tutorialDone} @click={nwTutorialReset}>{nwView.tutorialDone ? "Run the guided first shift again" : "Guided first shift runs on the next new game"}</Button>
+    </Box>
+    <Text className="nw-body">Select two labeled facts to compare. The selected facts appear on the comparison rail and remain selected when you change tabs. In Observe, left and right always refer to the visitor’s own body. Follow-up questions unlock after the related question; your approach changes the response. HOLD adds evidence but still requires a final disposition.</Text>
+    <Text className="nw-small">Your personal notebook saves when you leave its text field or perform another saving action. New Game keeps unlocked endings and settings. Reset Save removes everything.</Text>
+  </Box>
+  <Box className="nw-toolbar">
+    <Button className="nw-primary" @click={nwOpenSettings}>Return to the game</Button>
+    <Button className="nw-danger" @click={nwRequestReset}>Reset save…</Button>
+  </Box>
+</Box>

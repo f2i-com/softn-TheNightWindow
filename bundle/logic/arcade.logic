@@ -1,0 +1,117 @@
+// Seeded archive drills. The paper, visitor and witness each contain only part of
+// the case. There is no field, scanner value or single testimony labelled 'truth'.
+function nwRandom(g) { g.n = (g.n * 48271) % 2147483647; return g.n / 2147483647; }
+function nwEligible(a, r) {
+    if (a.id === "mole") {
+        return /mole|freckle|dimple/i.test(r.feature);
+    }
+    if (a.id === "ear") {
+        return /ear/i.test(r.feature) && /notch/i.test(r.feature);
+    }
+    if (a.id === "scar") {
+        return /scar/i.test(r.feature);
+    }
+    return true;
+}
+function nwArcade(seed, index) {
+    let g = { n: ((seed + index * 104729) % 2147483646) + 1 };
+    nwRandom(g);
+    nwRandom(g);
+    let r = NW_RESIDENTS[Math.floor(nwRandom(g) * NW_RESIDENTS.length)], roll = nwRandom(g), truth = roll < 0.46 ? "hostile" : "human";
+    if (index > 20 && roll > 0.94) {
+        truth = "peaceful";
+        r = nwResident("orin");
+    }
+    let tier = Math.min(3, 1 + Math.floor(index / 12)), pool = [];
+    for (let i = 0; i < NW_ANOMALIES.length; i++) {
+        let a = NW_ANOMALIES[i];
+        if (a.tier <= tier && nwEligible(a, r) && (truth !== "human" || a.mundaneAllowed)) {
+            pool.push(a);
+        }
+    }
+    let anomalies = [], descriptions = [], detectors = [];
+    if (truth === "hostile" || (truth === "human" && nwRandom(g) < 0.65)) {
+        let a = pool[Math.floor(nwRandom(g) * pool.length)];
+        anomalies.push(a.id);
+        descriptions.push(a);
+        if (tier === 3 && nwRandom(g) < 0.35) {
+            let alternatives = [];
+            for (let i = 0; i < pool.length; i++) {
+                if (pool[i].target !== a.target) {
+                    alternatives.push(pool[i]);
+                }
+            }
+            if (alternatives.length) {
+                let b = alternatives[Math.floor(nwRandom(g) * alternatives.length)];
+                anomalies.push(b.id);
+                descriptions.push(b);
+            }
+        }
+    }
+    // All drills use the campaign's final date, not an ever-growing fictional November.
+    let c = { id: "arc-" + seed + "-" + index, night: 7, resident: r.id, truth: truth, anomalies: anomalies, title: "Outer queue / " + (index + 1),
+        opening: r.name + " closes a wet umbrella and puts a resident card on the tray. “" + r.voice + "”", nodes: [], archive: "", call: "", hold: "", event: "", evidence: "", memoryKey: "", override: {}, resolution: "", onAdmitFlag: "", onDenyFlag: "" };
+    let d = nwDocuments(c, { rewritten: true }), base = nwDocuments({ resident: r.id, night: 7, anomalies: [], override: {} }, { rewritten: false }), facts = [], explanations = [];
+    for (let i = 0; i < descriptions.length; i++) {
+        let a = descriptions[i], actual = d[a.target][a.field], original = base[a.target][a.field];
+        if (a.target === "statement") {
+            original = a.field === "household" ? r.household : a.field === "memory" ? r.memory : a.field === "knowledge" ? "No public file records Ellis's private possessions." : r.voice;
+        }
+        if (a.target === "comms") {
+            original = "A witness must wait for an identity and compare an independently recorded departure.";
+        }
+        facts.push(nwFieldLabel(a.field) + ": “" + actual + "”.");
+        detectors.push({ anomaly: a.id, source: a.target, field: a.field, observed: actual, independent: "" + original });
+        explanations.push(a.mundaneResolution);
+        if (a.id === "changed-record") {
+            c.event = "rewrite";
+        }
+    }
+    // Rotate a corroboration channel. The archive never names the correct decision.
+    // Humans may lie about their reason for leaving, but can corroborate a private
+    // departure detail; impostors have copied a public record rather than that detail.
+    let channel = Math.floor(nwRandom(g) * 3), wordIndex = Math.floor(nwRandom(g) * 8), words = ["MARIGOLD", "TEAKETTLE", "PAPERBOAT", "ORCHARD", "THIMBLE", "LANTERN", "SUNDIAL", "BLUEBIRD"];
+    let word = words[wordIndex], claimed = truth === "hostile" ? words[(wordIndex + 1 + Math.floor(nwRandom(g) * 6)) % 8] : word;
+    let receipt = 100 + Math.floor(nwRandom(g) * 800), claimedReceipt = truth === "hostile" ? receipt + 9 : receipt;
+    let departure = truth === "hostile" ? "23:04" : "22:04";
+    let support = "", response = "", witness = "";
+    if (channel === 0) {
+        support = "A sealed departure envelope, lodged before the rain, records the resident’s chosen word: " + word + ". The current registry does not store this word. The envelope was witnessed by two outer-desk clerks; its tear has not been resealed.";
+        response = "“We chose a word at the outer desk. Mine was " + claimed + ". Nobody inside was supposed to hear it.”";
+        witness = "The outer clerk reads the matching carbon, not the terminal: ‘The private departure word was " + word + ". It was spoken after the public register had been sealed.’";
+    }
+    else if (channel === 1) {
+        support = "Transit counterfoil " + receipt + " names " + r.name + " and records a replacement authority signed in their presence. The public census still shows yesterday’s counterfoil. Numbers refer to this person’s journey, not to humanity.";
+        response = "“They wrote me a new transit counterfoil. I watched them sign " + claimedReceipt + ". That is the only journey I made tonight.”";
+        witness = "The route office checks the independent duplicate: ‘We handed counterfoil " + receipt + " to " + r.name + " in person. No second counterfoil or correction was issued for that journey.’";
+    }
+    else {
+        support = "Outer gate log: " + r.name + " departed at 22:04. The path takes at least forty minutes. This checkpoint’s mechanical clock reads 22:49. These clocks were checked together before the storm.";
+        response = "“I left the outer gate at " + departure + ". I checked the gate clock myself. I walked here; I did not use an intercom or travel with anyone.”";
+        witness = "The outer watch compares its paper log with the independent mechanical clock: ‘Departure 22:04; the checkpoint clock is now 22:49. No unscheduled vehicle used the path.’";
+    }
+    let detail = descriptions.length ? facts.join(" ") : "The card and intake sketch agree. Agreement between copied documents cannot establish the person behind them.";
+    let offered = explanations.length ? explanations.join(" ") : r.mundane;
+    c.nodes = [
+        { id: "where", q: "Where have you been?", a: r.background + " “My usual return is " + r.schedule + ".”", mood: "guarded" },
+        { id: "home", q: "Who is waiting for you upstairs?", a: r.household, mood: "neutral" },
+        { id: "detail", q: "Let us examine the details together.", a: detail + " The visitor offers an explanation: “" + offered + "” This is a claim; it still needs corroboration.", mood: "uneasy" },
+        { id: "follow", q: "What happened at the departure gate?", a: response, requires: ["detail"], mood: "guarded" },
+        { id: "gentle", q: "What are you worried I will misunderstand?", a: r.mundane + " “I was not truthful about why I went out. That is not the same as not being me.”", tone: "gentle", group: "approach", mood: "open" },
+        { id: "press", q: "Why should I trust your account?", a: "“Check the departure gate. You should not confuse being unpleasant with being something else.”", tone: "press", group: "approach", mood: "defensive" }
+    ];
+    c.archive = "Independent paper index / " + r.residentId + " · " + r.name + " · " + r.dob + " · " + r.apartment + " · " + r.feature + ". " + support;
+    c.call = "The household thinks the voice is familiar but will not certify an identity by telephone. The call is transferred to the departure desk. " + witness;
+    c.hold = "An outer-desk courier brings the duplicate departure log under seal. " + support + " The clerk adds: ‘Old paperwork and an honest explanation can disagree. Compare the account of this particular journey.’";
+    if (truth === "peaceful") {
+        c.nodes[2].a = "Orin keeps his hands in view. “I am a Reproduction. I am not asking you to pretend otherwise.”";
+        c.nodes[3].a = "“Ruth can show five years of kitchen deliveries. I consent to a named supervisor and an open appeal. I will not give you somebody else’s identity.”";
+        c.archive = "Ruth’s independent kitchen ledger records Orin’s work and location over five years without linked disappearances. Check the visitor’s claim with Ruth. The ledger records conduct, not humanity.";
+        c.call = "Ruth: ‘I can supervise his return. I kept the garden books; look at the ledger rather than just trusting my voice.’";
+        c.hold = "A courier brings the original garden books. Dates, harvest weights and kitchen receipts align over five years. Orin offers voluntary supervision.";
+    }
+    c.detectors = detectors;
+    c.verification = { channel: channel, visitor: response, record: support, witness: witness };
+    c.resolution = truth === "hostile" ? "The visitor was an impersonator. Their departure account contradicted independently retained evidence: " + response + " " + support : truth === "peaceful" ? "A disclosed, independently corroborated peaceful Echo. Supervised admission protects both the community and the visitor." : "A human resident. Their departure account agreed with independent evidence. " + (explanations.length ? explanations.join(" ") : "There was no corroborated identity discrepancy.");
+    return c;
+}

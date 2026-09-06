@@ -1,0 +1,13 @@
+{
+  "kind": "Installer fixture, not a full repository/native build",
+  "passed": true,
+  "checks": [
+    "dry-run changed no files",
+    "install + captured upstream rebuild + all 45 model/content/integration tests passed",
+    "installed rebuild matches release bundle byte-for-byte",
+    "second install is idempotent",
+    "conflicting source refuses without changes",
+    "--replace retains differing user file backup",
+    "other catalogue entries preserved; game metadata matches actual bytes"
+  ]
+}

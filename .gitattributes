@@ -1,0 +1,20 @@
+# Bundle sources are packed into the .softn archive byte for byte, so the archive
+# and the files it was built from have to agree exactly. Pinning LF keeps a build
+# reproducible on every platform instead of only where it was last packed.
+*.ui       text eol=lf
+*.logic    text eol=lf
+*.cjs      text eol=lf
+*.mjs      text eol=lf
+*.js       text eol=lf
+*.json     text eol=lf
+*.svg      text eol=lf
+*.md       text eol=lf
+*.yml      text eol=lf
+*.py       text eol=lf
+
+# Packed binaries: never touched, and never diffed as text.
+*.wav      binary
+*.mp3      binary
+*.png      binary
+*.webp     binary
+*.softn    binary

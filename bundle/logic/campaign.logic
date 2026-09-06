@@ -1,0 +1,3517 @@
+// Authored campaign. See DATA_MODEL.md. Spoilers: truth and resolution are deliberately model-only.
+let NW_CAMPAIGN = [
+  {
+    "id": "n1-01-ada",
+    "night": 1,
+    "resident": "ada",
+    "truth": "human",
+    "anomalies": [],
+    "title": "The penny boats",
+    "opening": "A woman taps the glass twice with a folded umbrella. “You are not Marr. Good. He never let me finish a sentence.” She notices your name strip and stops smiling for half a second.",
+    "nodes": [
+      {
+        "id": "where",
+        "q": "Where have you been?",
+        "a": "The memorial garden. Lucet preferred rain to flowers, so I brought neither. There is still a tree out there, although somebody has given it a serial number. Have you been doing nights long, Ellis?",
+        "mood": "guarded"
+      },
+      {
+        "id": "home",
+        "q": "Who is waiting for you upstairs?",
+        "a": "Lives alone; Ruth brings supper. I know a thousand voices, love. Faces are the difficult bit.",
+        "mood": "neutral"
+      },
+      {
+        "id": "detail",
+        "q": "You recognized my name?",
+        "a": "I worked the old switchboard. I knew your mother’s extension, and you used to come down after school. You called the little service hatch the night window. Strange name for something you only saw in daylight.",
+        "mood": "uneasy"
+      },
+      {
+        "id": "follow",
+        "q": "What should I write in my first shift notes?",
+        "a": "Something you heard yourself. Lucet made terrible paper boats. I put pennies in them to keep them upright. There: a useless memory. A system which only stores useful things would never bother keeping it. Ada: Lucet’s paper boats needed a penny. The coin kept them upright; it was not payment.",
+        "requires": [
+          "detail"
+        ],
+        "mood": "guarded"
+      },
+      {
+        "id": "gentle",
+        "q": "Take a breath. What do you need me to understand?",
+        "a": "A chair. Not for me, for you. Seven hours is too long to sit as though you are being interrogated.",
+        "tone": "gentle",
+        "group": "approach",
+        "mood": "open"
+      },
+      {
+        "id": "press",
+        "q": "I need an explanation, not a rehearsed answer.",
+        "a": "The visitor looks at the recorder before answering. “Then turn that off before you ask me to trust you.”",
+        "tone": "press",
+        "group": "approach",
+        "mood": "defensive"
+      }
+    ],
+    "archive": "Original intake sketch: split LEFT eyebrow. Resident C-041 since 1982. Sister Lucet deceased. No amendments. This paper register is independently signed.",
+    "call": "Ruth is in the kitchen. “Ada was visiting the garden. Tell her I saved a bowl, not that I was worried.”",
+    "hold": "A second paper arrives from the outer desk. Original intake sketch: split LEFT eyebrow. Resident C-041 since 1982. Sister Lucet deceased. No amendments. This paper register is independently signed.",
+    "disposition": "ordinary",
+    "event": "",
+    "evidence": "",
+    "evidenceLabel": "",
+    "evidenceText": "",
+    "memoryKey": "boats",
+    "memoryText": "Ada: Lucet’s paper boats needed a penny. The coin kept them upright; it was not payment.",
+    "resolution": "Ada’s documents and distinguishing mark agree with the paper intake record. Nothing here warrants treating her as an Echo.",
+    "onAdmitFlag": "",
+    "onDenyFlag": "",
+    "override": {},
+    "lethalDeny": false,
+    "reactions": []
+  },
+  {
+    "id": "n1-02-mara",
+    "night": 1,
+    "resident": "mara",
+    "truth": "human",
+    "anomalies": [
+      "expired"
+    ],
+    "title": "A date is not a diagnosis",
+    "opening": "The visitor presses a damp hospital pass flat with two shaking fingers. The photograph has been taken after a much better night. “It expired while I was still using it.”",
+    "nodes": [
+      {
+        "id": "where",
+        "q": "Where have you been?",
+        "a": "Outer clinic, bed twelve. A child stopped breathing every time we moved him. The permit office shut at ten. The child did not consult their hours.",
+        "mood": "guarded"
+      },
+      {
+        "id": "home",
+        "q": "Who is waiting for you upstairs?",
+        "a": "Flatmate: Leon Voss, separate room. Please ask the questions while I sit. Neither of us needs me falling over.",
+        "mood": "neutral"
+      },
+      {
+        "id": "detail",
+        "q": "Your return permit has expired.",
+        "a": "Yes. I tried to renew it at 21:40 and again at 22:10. Ward charge signed a paper extension. It should be attached to the permit counterfoil. Please do not make my patients prove they were ill.",
+        "mood": "uneasy"
+      },
+      {
+        "id": "follow",
+        "q": "Why is Leon Voss your emergency contact?",
+        "a": "Because we share the flat, unofficially. He has a service apartment he never uses. We are both allowed to have a life the personnel office does not know about. Mara calls bed twelve “the lighthouse”; there is no window there.",
+        "requires": [
+          "detail"
+        ],
+        "mood": "guarded"
+      },
+      {
+        "id": "gentle",
+        "q": "Take a breath. What do you need me to understand?",
+        "a": "I need the insulin in my bag to remain cold. You can search it. Please do not leave it under the desk lamp.",
+        "tone": "gentle",
+        "group": "approach",
+        "mood": "open"
+      },
+      {
+        "id": "press",
+        "q": "I need an explanation, not a rehearsed answer.",
+        "a": "The visitor looks at the recorder before answering. “Then turn that off before you ask me to trust you.”",
+        "tone": "press",
+        "group": "approach",
+        "mood": "defensive"
+      }
+    ],
+    "archive": "Ward counterfoil 112: extension through 07 NOV, signed charge nurse I. Keel. Mara’s identity details match the independently held register.",
+    "call": "Ward charge: “I signed the extension. Ask her which bed we call the lighthouse. It is twelve. There is no window beside it.”",
+    "hold": "A second paper arrives from the outer desk. Ward counterfoil 112: extension through 07 NOV, signed charge nurse I. Keel. Mara’s identity details match the independently held register.",
+    "disposition": "ordinary",
+    "event": "",
+    "evidence": "",
+    "evidenceLabel": "",
+    "evidenceText": "",
+    "memoryKey": "lighthouse",
+    "memoryText": "Mara calls bed twelve “the lighthouse”; there is no window there.",
+    "resolution": "A signed ward extension explains the expired permit. This is an exhausted human with corroborated details.",
+    "onAdmitFlag": "",
+    "onDenyFlag": "",
+    "override": {},
+    "lethalDeny": false,
+    "reactions": []
+  },
+  {
+    "id": "n1-03-tomas",
+    "night": 1,
+    "resident": "tomas",
+    "truth": "hostile",
+    "anomalies": [
+      "scar"
+    ],
+    "title": "The other cheek",
+    "opening": "A man in a maintenance coat leans into the light. He looks familiar only because the photograph is familiar. Water hangs at his chin without falling.",
+    "nodes": [
+      {
+        "id": "where",
+        "q": "Where have you been?",
+        "a": "Lift four. A hinge failed. The building requires hinges. The resident requires entry. You may record either reason.",
+        "mood": "guarded"
+      },
+      {
+        "id": "home",
+        "q": "Who is waiting for you upstairs?",
+        "a": "Son: Ivo Rusk. A door is never safe because it is shut. You need to know what the hinges are doing.",
+        "mood": "neutral"
+      },
+      {
+        "id": "detail",
+        "q": "What happened to your cheek?",
+        "a": "A cable snapped. It cut the right side. My son likes to trace it because it resembles a river. He is a small child. He has always been a small child.",
+        "mood": "uneasy"
+      },
+      {
+        "id": "follow",
+        "q": "How old is your son?",
+        "a": "Seventeen. I meant small relative to the building. People are small relative to the building. There is no contradiction in what I said.",
+        "requires": [
+          "detail"
+        ],
+        "mood": "guarded"
+      },
+      {
+        "id": "gentle",
+        "q": "Take a breath. What do you need me to understand?",
+        "a": "Uses a borrowed clearance pass when management forgets to renew his own.",
+        "tone": "gentle",
+        "group": "approach",
+        "mood": "open"
+      },
+      {
+        "id": "press",
+        "q": "I need an explanation, not a rehearsed answer.",
+        "a": "The visitor briefly stops breathing. “The record says I am necessary. You are not in that field.”",
+        "tone": "press",
+        "group": "approach",
+        "mood": "defensive"
+      }
+    ],
+    "archive": "Original accident sketch, not a photograph: LEFT cheek cut. Son Ivo was born in 1972. Today’s outer crew sheet lists Tomas at the north pumps until dawn.",
+    "call": "Pump foreman: “Rusk is asleep in the chair beside me. I can wake him if this is another password exercise.”",
+    "hold": "A second paper arrives from the outer desk. Original accident sketch, not a photograph: LEFT cheek cut. Son Ivo was born in 1972. Today’s outer crew sheet lists Tomas at the north pumps until dawn.",
+    "disposition": "ordinary",
+    "event": "",
+    "evidence": "",
+    "evidenceLabel": "",
+    "evidenceText": "",
+    "memoryKey": "",
+    "memoryText": "",
+    "resolution": "The reversed injury, unnatural account and independent crew sheet provide multiple incompatible facts. This visitor is an aggressive Reproduction.",
+    "onAdmitFlag": "",
+    "onDenyFlag": "",
+    "override": {},
+    "lethalDeny": false,
+    "reactions": []
+  },
+  {
+    "id": "n1-04-ivo",
+    "night": 1,
+    "resident": "ivo",
+    "truth": "human",
+    "anomalies": [
+      "wrong-authority"
+    ],
+    "title": "A perfectly ordinary lie",
+    "opening": "A teenager presents a pass bearing the stamp of the recreation board. He has obviously practised looking offended. He has not practised being wet.",
+    "nodes": [
+      {
+        "id": "where",
+        "q": "Where have you been?",
+        "a": "The print workshop. We were finishing a safety poster. Big letters. Very safe. You can smell the ink, can’t you?",
+        "mood": "guarded"
+      },
+      {
+        "id": "home",
+        "q": "Who is waiting for you upstairs?",
+        "a": "Father: Tomas Rusk. Can we agree my father does not need the dramatic version?",
+        "mood": "neutral"
+      },
+      {
+        "id": "detail",
+        "q": "Why did the recreation board issue a work permit?",
+        "a": "Because it was in the drawer. Look, I missed curfew. I borrowed a pass. I did not borrow somebody’s face. Can you please not write that sentence down?",
+        "mood": "uneasy"
+      },
+      {
+        "id": "follow",
+        "q": "Who were you actually meeting?",
+        "a": "A boy called Cal at the east shelter. We were printing handbills for a concert nobody authorized. My father thinks I am fixing a press. He will be angrier about the lie than about Cal. Ivo painted a blue sun beneath lift four. Tomas thinks it is a maintenance mark.",
+        "requires": [
+          "detail"
+        ],
+        "mood": "guarded"
+      },
+      {
+        "id": "gentle",
+        "q": "Take a breath. What do you need me to understand?",
+        "a": "Tell my father I was stupid. He knows that already. Do not tell him who I was stupid for.",
+        "tone": "gentle",
+        "group": "approach",
+        "mood": "open"
+      },
+      {
+        "id": "press",
+        "q": "I need an explanation, not a rehearsed answer.",
+        "a": "The visitor looks at the recorder before answering. “Then turn that off before you ask me to trust you.”",
+        "tone": "press",
+        "group": "approach",
+        "mood": "defensive"
+      }
+    ],
+    "archive": "School attendance slip: Ivo signed out at 18:04. His genuine resident card matches his left-ear notch. No permission for evening work is on file.",
+    "call": "Tomas’s recorded message says he is at the pumps. A neighbour confirms Ivo’s room and the broken printing press he uses.",
+    "hold": "A second paper arrives from the outer desk. School attendance slip: Ivo signed out at 18:04. His genuine resident card matches his left-ear notch. No permission for evening work is on file.",
+    "disposition": "ordinary",
+    "event": "",
+    "evidence": "",
+    "evidenceLabel": "",
+    "evidenceText": "",
+    "memoryKey": "blue-sun",
+    "memoryText": "Ivo painted a blue sun beneath lift four. Tomas thinks it is a maintenance mark.",
+    "resolution": "Ivo forged a movement excuse, not his identity. The school slip and physical mark establish a human curfew violation.",
+    "onAdmitFlag": "",
+    "onDenyFlag": "",
+    "override": {},
+    "lethalDeny": false,
+    "reactions": []
+  },
+  {
+    "id": "n1-05-bea",
+    "night": 1,
+    "resident": "bea",
+    "truth": "hostile",
+    "anomalies": [
+      "duplicate-serial"
+    ],
+    "title": "Two originals",
+    "opening": "The courier slides a return slip through the tray. It bears the same serial as the voided example pinned beside your ledger. Even the tear crosses the same digit.",
+    "nodes": [
+      {
+        "id": "where",
+        "q": "Where have you been?",
+        "a": "The eastern shelter. A delivery to the eastern shelter. A receipt from the eastern shelter. The route contains everything necessary to describe the route.",
+        "mood": "guarded"
+      },
+      {
+        "id": "home",
+        "q": "Who is waiting for you upstairs?",
+        "a": "Sister lives in the eastern shelter. I can bring you a signature or I can bring you what happened. They are not always the same parcel.",
+        "mood": "neutral"
+      },
+      {
+        "id": "detail",
+        "q": "The voided sample has this serial too.",
+        "a": "It is a common serial. Everybody needs one. A number cannot belong to only one person when so many people require numbers.",
+        "mood": "uneasy"
+      },
+      {
+        "id": "follow",
+        "q": "What colour thread do you tie parcels with?",
+        "a": "Black. One knot. A second knot would delay delivery. Speed is my distinguishing characteristic.",
+        "requires": [
+          "detail"
+        ],
+        "mood": "guarded"
+      },
+      {
+        "id": "gentle",
+        "q": "Take a breath. What do you need me to understand?",
+        "a": "Reuses serialled paper when the depot runs out and lies about carrying letters.",
+        "tone": "gentle",
+        "group": "approach",
+        "mood": "open"
+      },
+      {
+        "id": "press",
+        "q": "I need an explanation, not a rehearsed answer.",
+        "a": "The visitor looks at the recorder before answering. “Then turn that off before you ask me to trust you.”",
+        "tone": "press",
+        "group": "approach",
+        "mood": "defensive"
+      }
+    ],
+    "archive": "Void notice RETURN-017-017: withdrawn because the entire pad was lost. Bea’s depot signature card specifies yellow thread, DOUBLE knot. No replacement counterfoil.",
+    "call": "Depot clerk: “Noll has not collected a pass tonight. We are still waiting for her bicycle wheel.”",
+    "hold": "A second paper arrives from the outer desk. Void notice RETURN-017-017: withdrawn because the entire pad was lost. Bea’s depot signature card specifies yellow thread, DOUBLE knot. No replacement counterfoil.",
+    "disposition": "ordinary",
+    "event": "knock",
+    "evidence": "",
+    "evidenceLabel": "",
+    "evidenceText": "",
+    "memoryKey": "",
+    "memoryText": "",
+    "resolution": "No counterfoil explains the duplicate. The parcel practice contradicts Bea’s depot record. The visitor is not the courier.",
+    "onAdmitFlag": "",
+    "onDenyFlag": "",
+    "override": {},
+    "lethalDeny": false,
+    "reactions": []
+  },
+  {
+    "id": "n1-06-ruth",
+    "night": 1,
+    "resident": "ruth",
+    "truth": "human",
+    "anomalies": [],
+    "title": "Something warm",
+    "opening": "A woman in a kitchen coat places a covered bowl in the tray before her identity card. “Documents first,” she says in an imitation of somebody else. “Soup second. Civilization third.”",
+    "nodes": [
+      {
+        "id": "where",
+        "q": "Where have you been?",
+        "a": "The supplies shed. I have six onions and an administrative disagreement about whether an onion counts as a whole vegetable. It does if you are hungry enough.",
+        "mood": "guarded"
+      },
+      {
+        "id": "home",
+        "q": "Who is waiting for you upstairs?",
+        "a": "Lives alone; feeds most of floor E. Hungry people are not an accounting error.",
+        "mood": "neutral"
+      },
+      {
+        "id": "detail",
+        "q": "Who supplies the kitchen’s fruit?",
+        "a": "Orin Dace, down in F-wing. Quiet fellow. Sometimes he brings things the official garden inventory says do not exist. Those are usually the best things.",
+        "mood": "uneasy"
+      },
+      {
+        "id": "follow",
+        "q": "Does anybody check him?",
+        "a": "He has been cooking with me for five years. That is not an identity test, I know. It is just information about what he has done with five years.",
+        "requires": [
+          "detail"
+        ],
+        "mood": "guarded"
+      },
+      {
+        "id": "gentle",
+        "q": "Take a breath. What do you need me to understand?",
+        "a": "I need you to eat. A person who has not eaten starts seeing enemies because decisions feel like effort.",
+        "tone": "gentle",
+        "group": "approach",
+        "mood": "open"
+      },
+      {
+        "id": "press",
+        "q": "I need an explanation, not a rehearsed answer.",
+        "a": "The visitor looks at the recorder before answering. “Then turn that off before you ask me to trust you.”",
+        "tone": "press",
+        "group": "approach",
+        "mood": "defensive"
+      }
+    ],
+    "archive": "Kitchen movement sheet and resident file agree. Orin Dace is a registered supplier from 1984 onward. Ruth has no containment history.",
+    "call": "Emil answers amid radio hiss. “She went for onions. If she brings you soup, eat it before she asks you whether you like it.”",
+    "hold": "A second paper arrives from the outer desk. Kitchen movement sheet and resident file agree. Orin Dace is a registered supplier from 1984 onward. Ruth has no containment history.",
+    "disposition": "ordinary",
+    "event": "",
+    "evidence": "",
+    "evidenceLabel": "",
+    "evidenceText": "",
+    "memoryKey": "",
+    "memoryText": "",
+    "resolution": "Ruth’s identity and movement records are consistent. Her unregistered produce is a separate issue.",
+    "onAdmitFlag": "kitchen-open",
+    "onDenyFlag": "",
+    "override": {},
+    "lethalDeny": false,
+    "reactions": []
+  },
+  {
+    "id": "n1-07-pavel",
+    "night": 1,
+    "resident": "pavel",
+    "truth": "human",
+    "anomalies": [
+      "previous"
+    ],
+    "title": "One star too many",
+    "opening": "A man holds a red cup wrapped in cloth. He apologizes for bringing something breakable to a checkpoint. He never apologizes for arriving late.",
+    "nodes": [
+      {
+        "id": "where",
+        "q": "Where have you been?",
+        "a": "The memorial wall. They finally engraved my daughter’s name. They spelled it correctly, which is more than some people get.",
+        "mood": "guarded"
+      },
+      {
+        "id": "home",
+        "q": "Who is waiting for you upstairs?",
+        "a": "Lives alone; wife and daughter deceased. There are questions people answer wrongly because the answer hurts.",
+        "mood": "neutral"
+      },
+      {
+        "id": "detail",
+        "q": "How many stars are painted on that cup?",
+        "a": "Six. She put six on it. I know they look like seven, but one is only a mark where the paint ran. Please stop turning it toward the lamp.",
+        "mood": "uneasy"
+      },
+      {
+        "id": "follow",
+        "q": "Would you like me to put it down?",
+        "a": "Yes. Seven. There are seven. She made the last one the day before they took her. Sometimes I tell myself she finished the cup earlier than that. Pavel’s cup has seven stars. He sometimes says six because the last was painted before his daughter’s containment.",
+        "requires": [
+          "detail"
+        ],
+        "mood": "guarded"
+      },
+      {
+        "id": "gentle",
+        "q": "Take a breath. What do you need me to understand?",
+        "a": "I need you to understand that remembering is not always something people do willingly.",
+        "tone": "gentle",
+        "group": "approach",
+        "mood": "open"
+      },
+      {
+        "id": "press",
+        "q": "I need an explanation, not a rehearsed answer.",
+        "a": "The visitor looks at the recorder before answering. “Then turn that off before you ask me to trust you.”",
+        "tone": "press",
+        "group": "approach",
+        "mood": "defensive"
+      }
+    ],
+    "archive": "Family photograph: daughter holding the same red cup, SEVEN painted stars. Intact identity records. A grief counsellor notes that Pavel avoids talking about the last star.",
+    "call": "Ada: “Do not turn sadness into a trick question. He is wrong about the cup when the cup hurts.”",
+    "hold": "A second paper arrives from the outer desk. Family photograph: daughter holding the same red cup, SEVEN painted stars. Intact identity records. A grief counsellor notes that Pavel avoids talking about the last star.",
+    "disposition": "ordinary",
+    "event": "",
+    "evidence": "",
+    "evidenceLabel": "",
+    "evidenceText": "",
+    "memoryKey": "seven-stars",
+    "memoryText": "Pavel’s cup has seven stars. He sometimes says six because the last was painted before his daughter’s containment.",
+    "resolution": "Pavel’s inconsistent memory has a human explanation corroborated by the photograph and counsellor note.",
+    "onAdmitFlag": "",
+    "onDenyFlag": "",
+    "override": {},
+    "lethalDeny": false,
+    "reactions": []
+  },
+  {
+    "id": "n2-01-tomas",
+    "night": 2,
+    "resident": "tomas",
+    "truth": "human",
+    "anomalies": [
+      "signature"
+    ],
+    "title": "The borrowed signature",
+    "opening": "A maintenance engineer lays down a permit signed by a supervisor. His cheek bears a thin scar on the left. “Someone at the pumps says I came here last night. I did not enjoy hearing that.”",
+    "nodes": [
+      {
+        "id": "where",
+        "q": "Where have you been?",
+        "a": "North pumps, then lift four. I slept for two hours in the foreman’s chair. Apparently someone else was using my face while I did it.",
+        "mood": "guarded"
+      },
+      {
+        "id": "home",
+        "q": "Who is waiting for you upstairs?",
+        "a": "Son: Ivo Rusk. A door is never safe because it is shut. You need to know what the hinges are doing.",
+        "mood": "neutral"
+      },
+      {
+        "id": "detail",
+        "q": "Why did a supervisor sign your pass?",
+        "a": "I pinched my writing hand. It is a stupid injury and a legitimate signature. There is an incident slip. Would you prefer I smear blood over your carbon?",
+        "mood": "uneasy"
+      },
+      {
+        "id": "follow",
+        "q": "What is behind lift four’s call button?",
+        "a": "A wooden bird. I carved it for Ivo when he was six. There is a blue sun underneath the lift now. He thinks I have not noticed. Tomas carved a wooden bird behind lift four’s call button. He knows about Ivo’s blue sun.",
+        "requires": [
+          "detail"
+        ],
+        "mood": "guarded"
+      },
+      {
+        "id": "gentle",
+        "q": "Take a breath. What do you need me to understand?",
+        "a": "Uses a borrowed clearance pass when management forgets to renew his own.",
+        "tone": "gentle",
+        "group": "approach",
+        "mood": "open"
+      },
+      {
+        "id": "press",
+        "q": "I need an explanation, not a rehearsed answer.",
+        "a": "The visitor looks at the recorder before answering. “Then turn that off before you ask me to trust you.”",
+        "tone": "press",
+        "group": "approach",
+        "mood": "defensive"
+      }
+    ],
+    "archive": "Accident log confirms injured hand and proxy signature. Original scar on LEFT cheek. Pump foreman certifies overnight attendance.",
+    "call": "Ivo: “Ask about the wooden bird. He pretends he carved it by accident. My father has never made anything by accident.”",
+    "hold": "A second paper arrives from the outer desk. Accident log confirms injured hand and proxy signature. Original scar on LEFT cheek. Pump foreman certifies overnight attendance.",
+    "disposition": "ordinary",
+    "event": "",
+    "evidence": "",
+    "evidenceLabel": "",
+    "evidenceText": "",
+    "memoryKey": "wooden-bird",
+    "memoryText": "Tomas carved a wooden bird behind lift four’s call button. He knows about Ivo’s blue sun.",
+    "resolution": "The proxy signature is explained by a documented injury. This is the genuine Tomas.",
+    "onAdmitFlag": "tomas-help",
+    "onDenyFlag": "",
+    "override": {},
+    "lethalDeny": false,
+    "reactions": []
+  },
+  {
+    "id": "n2-02-celia",
+    "night": 2,
+    "resident": "celia",
+    "truth": "human",
+    "anomalies": [],
+    "title": "A place in the queue",
+    "opening": "The woman outside is greeted by someone behind the inner door. She does not acknowledge the greeting until you finish reading her card.",
+    "nodes": [
+      {
+        "id": "where",
+        "q": "Where have you been?",
+        "a": "Distribution shed. Four families were left off the ration list. I brought them back onto the list using the highly irregular technique of writing their names.",
+        "mood": "guarded"
+      },
+      {
+        "id": "home",
+        "q": "Who is waiting for you upstairs?",
+        "a": "Lives with three unnamed evacuees. Keeping people safe has to include keeping them people.",
+        "mood": "neutral"
+      },
+      {
+        "id": "detail",
+        "q": "Pell says you are responsible for unregistered residents.",
+        "a": "Pell says many things. Three people sleep on my floor because their shelter flooded. I submitted the forms. A form waiting in an office is still a person waiting in the rain.",
+        "mood": "uneasy"
+      },
+      {
+        "id": "follow",
+        "q": "What do you say at the end of council meetings?",
+        "a": "Keep a chair. Not a seat; a chair can be carried to somebody who cannot reach the table. Ada says I make furniture sound political. Celia closes council meetings with “keep a chair”, specifically not “keep a seat”.",
+        "requires": [
+          "detail"
+        ],
+        "mood": "guarded"
+      },
+      {
+        "id": "gentle",
+        "q": "Take a breath. What do you need me to understand?",
+        "a": "Signs paperwork for people who cannot read and sometimes covers their mistakes.",
+        "tone": "gentle",
+        "group": "approach",
+        "mood": "open"
+      },
+      {
+        "id": "press",
+        "q": "I need an explanation, not a rehearsed answer.",
+        "a": "The visitor looks at the recorder before answering. “Then turn that off before you ask me to trust you.”",
+        "tone": "press",
+        "group": "approach",
+        "mood": "defensive"
+      }
+    ],
+    "archive": "Guest forms pending, not rejected. Celia’s card and movement slip match the physical register.",
+    "call": "Nessa: “Celia found the shelter list for me. She has not promised me Lio is safe. I trust her more for not promising.”",
+    "hold": "A second paper arrives from the outer desk. Guest forms pending, not rejected. Celia’s card and movement slip match the physical register.",
+    "disposition": "ordinary",
+    "event": "",
+    "evidence": "",
+    "evidenceLabel": "",
+    "evidenceText": "",
+    "memoryKey": "keep-chair",
+    "memoryText": "Celia closes council meetings with “keep a chair”, specifically not “keep a seat”.",
+    "resolution": "Celia is concealing no identity discrepancy. Her guests are undocumented, not evidence of a false identity.",
+    "onAdmitFlag": "",
+    "onDenyFlag": "",
+    "override": {},
+    "lethalDeny": false,
+    "reactions": []
+  },
+  {
+    "id": "n2-03-selene",
+    "night": 2,
+    "resident": "selene",
+    "truth": "human",
+    "anomalies": [
+      "dob"
+    ],
+    "title": "February has no room",
+    "opening": "The typist watches the terminal display her birth date. “It was the twenty-eighth when I was born. Apparently the office has improved February.”",
+    "nodes": [
+      {
+        "id": "where",
+        "q": "Where have you been?",
+        "a": "Census annex. I typed forty-six amendments today. I was not allowed to see the originals. My own correction request came back marked amended, which did not make it correct.",
+        "mood": "guarded"
+      },
+      {
+        "id": "home",
+        "q": "Who is waiting for you upstairs?",
+        "a": "Lives alone; cousin: Micah Bell. It is possible for every box to be filled correctly and the form to be a lie.",
+        "mood": "neutral"
+      },
+      {
+        "id": "detail",
+        "q": "The date on your card is impossible.",
+        "a": "I know. The clinic register has the real date. My mother was furious about it for years, long before the rain. The replacement card copied the same mistake.",
+        "mood": "uneasy"
+      },
+      {
+        "id": "follow",
+        "q": "Can records change without your approval?",
+        "a": "Now they can. A green line arrives from upstairs and the old value disappears. I started keeping carbons. I am telling you that because you still have a pencil.",
+        "requires": [
+          "detail"
+        ],
+        "mood": "guarded"
+      },
+      {
+        "id": "gentle",
+        "q": "Take a breath. What do you need me to understand?",
+        "a": "Do not submit my name as a correction tonight. It might attract the kind of attention that corrects the person instead.",
+        "tone": "gentle",
+        "group": "approach",
+        "mood": "open"
+      },
+      {
+        "id": "press",
+        "q": "I need an explanation, not a rehearsed answer.",
+        "a": "The visitor looks at the recorder before answering. “Then turn that off before you ask me to trust you.”",
+        "tone": "press",
+        "group": "approach",
+        "mood": "defensive"
+      }
+    ],
+    "archive": "Birth ledger: 28 FEB 1960, witnessed by two clinic staff. Card transcription error has existed since 1982.",
+    "call": "Micah: “My cousin has always hated her birthday because the bureaucracy adds imaginary days to it. She is not new.”",
+    "hold": "A second paper arrives from the outer desk. Birth ledger: 28 FEB 1960, witnessed by two clinic staff. Card transcription error has existed since 1982.",
+    "disposition": "ordinary",
+    "event": "",
+    "evidence": "",
+    "evidenceLabel": "",
+    "evidenceText": "",
+    "memoryKey": "",
+    "memoryText": "",
+    "resolution": "An impossible date can still be a clerical error. The independent birth ledger predates the Echo Rain.",
+    "onAdmitFlag": "",
+    "onDenyFlag": "",
+    "override": {},
+    "lethalDeny": false,
+    "reactions": []
+  },
+  {
+    "id": "n2-04-emil",
+    "night": 2,
+    "resident": "emil",
+    "truth": "hostile",
+    "anomalies": [
+      "relationship"
+    ],
+    "title": "A sister in the next room",
+    "opening": "A man with round spectacles taps the microphone grille as though testing a transmitter. His smile appears a moment after the tapping stops.",
+    "nodes": [
+      {
+        "id": "where",
+        "q": "Where have you been?",
+        "a": "The scrap depot. I repaired a radio for my sister Ruth. She lives with me. A family is a group of residents sharing a registered number.",
+        "mood": "guarded"
+      },
+      {
+        "id": "home",
+        "q": "Who is waiting for you upstairs?",
+        "a": "Neighbour and emergency contact: Ruth Sable. A noise is a message only after somebody agrees what to listen for.",
+        "mood": "neutral"
+      },
+      {
+        "id": "detail",
+        "q": "Ruth is listed as your neighbour, not your sister.",
+        "a": "Neighbour is an old word. Sister is a closer word. Closer relationships improve residential stability. Surely you prefer the closer word.",
+        "mood": "uneasy"
+      },
+      {
+        "id": "follow",
+        "q": "What did your wife call a transmitter?",
+        "a": "My wife has never existed. I have no use for an additional relationship. Why are you asking for a relationship the record does not require?",
+        "requires": [
+          "detail"
+        ],
+        "mood": "guarded"
+      },
+      {
+        "id": "gentle",
+        "q": "Take a breath. What do you need me to understand?",
+        "a": "Collects stolen wire and sees conspiracies in ordinary clerical mistakes.",
+        "tone": "gentle",
+        "group": "approach",
+        "mood": "open"
+      },
+      {
+        "id": "press",
+        "q": "I need an explanation, not a rehearsed answer.",
+        "a": "The visitor looks at the recorder before answering. “Then turn that off before you ask me to trust you.”",
+        "tone": "press",
+        "group": "approach",
+        "mood": "defensive"
+      }
+    ],
+    "archive": "Emil’s marriage certificate survives in the paper file. Ruth lives next door, not with him. His late wife called his transmitters kettles.",
+    "call": "Ruth: “My brother? I have no brother. Emil is soldering at the kitchen table. Shall I tell him he has acquired a sister?”",
+    "hold": "A second paper arrives from the outer desk. Emil’s marriage certificate survives in the paper file. Ruth lives next door, not with him. His late wife called his transmitters kettles.",
+    "disposition": "ordinary",
+    "event": "",
+    "evidence": "",
+    "evidenceLabel": "",
+    "evidenceText": "",
+    "memoryKey": "",
+    "memoryText": "",
+    "resolution": "The visitor denies a documented marriage and contradicts a direct witness who has Emil beside her.",
+    "onAdmitFlag": "",
+    "onDenyFlag": "",
+    "override": {},
+    "lethalDeny": false,
+    "reactions": []
+  },
+  {
+    "id": "n2-05-nessa",
+    "night": 2,
+    "resident": "nessa",
+    "truth": "human",
+    "anomalies": [
+      "apartment"
+    ],
+    "title": "A shelter is not a home",
+    "opening": "A woman hands you an old evacuation card from grid G-999. On its back she has written the word LIO until there is almost no paper left.",
+    "nodes": [
+      {
+        "id": "where",
+        "q": "Where have you been?",
+        "a": "Every shelter the tram still reaches. I found a shoe that was not his. That is the best news I have had all evening.",
+        "mood": "guarded"
+      },
+      {
+        "id": "home",
+        "q": "Who is waiting for you upstairs?",
+        "a": "Child: Lio Vale; partner deceased. You can mark me difficult after you tell me whether you saw my child.",
+        "mood": "neutral"
+      },
+      {
+        "id": "detail",
+        "q": "This apartment does not exist.",
+        "a": "It is an evacuation grid, from before C-wing was finished. I lost the new card climbing the shelter fence. Ask the laundry crew. Ask Mara. Ask anyone who has seen me keep going.",
+        "mood": "uneasy"
+      },
+      {
+        "id": "follow",
+        "q": "What should I ask a child claiming to be Lio?",
+        "a": "Ask what he calls his toy tram. Window. And when he is scared he calls me Ness. People think Little Lion is sweet. He hates it. Lio’s toy tram is Window. When afraid he calls his mother Ness; he dislikes Little Lion.",
+        "requires": [
+          "detail"
+        ],
+        "mood": "guarded"
+      },
+      {
+        "id": "gentle",
+        "q": "Take a breath. What do you need me to understand?",
+        "a": "Goes outside without authorization to search shelters; conceals that from officials.",
+        "tone": "gentle",
+        "group": "approach",
+        "mood": "open"
+      },
+      {
+        "id": "press",
+        "q": "I need an explanation, not a rehearsed answer.",
+        "a": "The visitor looks at the recorder before answering. “Then turn that off before you ask me to trust you.”",
+        "tone": "press",
+        "group": "approach",
+        "mood": "defensive"
+      }
+    ],
+    "archive": "Evacuation cross-reference: G-999 transferred to C-116 in 1982. Laundry staff sign Nessa’s identity; no name change.",
+    "call": "Mara: “I treated her hands this afternoon. She went over a fence looking for Lio. Her old card is real.”",
+    "hold": "A second paper arrives from the outer desk. Evacuation cross-reference: G-999 transferred to C-116 in 1982. Laundry staff sign Nessa’s identity; no name change.",
+    "disposition": "ordinary",
+    "event": "",
+    "evidence": "",
+    "evidenceLabel": "",
+    "evidenceText": "",
+    "memoryKey": "window-tram",
+    "memoryText": "Lio’s toy tram is Window. When afraid he calls his mother Ness; he dislikes Little Lion.",
+    "resolution": "The obsolete address belongs to a valid evacuation grid, not a fabricated apartment.",
+    "onAdmitFlag": "nessa-home",
+    "onDenyFlag": "",
+    "override": {},
+    "lethalDeny": false,
+    "reactions": []
+  },
+  {
+    "id": "n2-06-lio",
+    "night": 2,
+    "resident": "lio",
+    "truth": "human",
+    "anomalies": [
+      "middle"
+    ],
+    "title": "The smaller signature",
+    "opening": "A child stands below the bottom edge of the interview light. An unfamiliar initial has been added to his identity card. He keeps looking toward the tram lane.",
+    "nodes": [
+      {
+        "id": "where",
+        "q": "Where have you been?",
+        "a": "The west shelter. A driver gave me a coat. I got on the wrong tram and then I was embarrassed to say I was lost. It got too dark to be embarrassed after that.",
+        "mood": "guarded"
+      },
+      {
+        "id": "home",
+        "q": "Who is waiting for you upstairs?",
+        "a": "Mother: Nessa Vale. The room on the map has a door. The room in the building does not.",
+        "mood": "neutral"
+      },
+      {
+        "id": "detail",
+        "q": "Is this extra initial part of your name?",
+        "a": "They wrote E because I came from the eastern queue. It is not my name. My name is on the school sheet. Can you call Ness?",
+        "mood": "uneasy"
+      },
+      {
+        "id": "follow",
+        "q": "Who is Window?",
+        "a": "My tram. Not this window. The little one. One wheel comes off if you turn too hard, so you have to drive slowly even when you are late.",
+        "requires": [
+          "detail"
+        ],
+        "mood": "guarded"
+      },
+      {
+        "id": "gentle",
+        "q": "Take a breath. What do you need me to understand?",
+        "a": "I need someone to tell me whether I am in trouble before I tell them everything.",
+        "tone": "gentle",
+        "group": "approach",
+        "mood": "open"
+      },
+      {
+        "id": "press",
+        "q": "I need an explanation, not a rehearsed answer.",
+        "a": "The visitor looks at the recorder before answering. “Then turn that off before you ask me to trust you.”",
+        "tone": "press",
+        "group": "approach",
+        "mood": "defensive"
+      }
+    ],
+    "archive": "School sheet and evacuation record agree: Lio Vale, no middle initial. Coat borrowed from June Calder’s tram. Physical chipped tooth matches intake drawing.",
+    "call": "Nessa’s line is engaged. June confirms the child, the coat and the toy with a loose wheel. She refuses to guess whether Nessa is already home.",
+    "hold": "June returns to the outer door with a school exercise book bearing Lio’s name. She has drawn the tram route in the margin. Nothing in the book calls him Little Lion.",
+    "disposition": "ordinary",
+    "event": "two-arrivals",
+    "evidence": "",
+    "evidenceLabel": "",
+    "evidenceText": "",
+    "memoryKey": "",
+    "memoryText": "",
+    "resolution": "The extra letter is an intake-zone mark. An independent driver and the child’s private memory corroborate identity.",
+    "onAdmitFlag": "lio-safe",
+    "onDenyFlag": "",
+    "override": {},
+    "lethalDeny": false,
+    "reactions": []
+  },
+  {
+    "id": "n2-07-hadi",
+    "night": 2,
+    "resident": "hadi",
+    "truth": "hostile",
+    "anomalies": [
+      "shadow"
+    ],
+    "title": "The floor beneath him",
+    "opening": "The mortuary attendant removes his hat. The lamp casts its brim across the wall. Below it, the shape of the man leaves the floor strangely uninterrupted.",
+    "nodes": [
+      {
+        "id": "where",
+        "q": "Where have you been?",
+        "a": "The transfer wing. I have returned six occupied units to the disposal record. No relatives are required. Relatives complicate completion.",
+        "mood": "guarded"
+      },
+      {
+        "id": "home",
+        "q": "Who is waiting for you upstairs?",
+        "a": "Lives alone; helps Pavel after memorial visits. The living deserve uncertainty. The dead deserve their names.",
+        "mood": "neutral"
+      },
+      {
+        "id": "detail",
+        "q": "Your shadow is missing under the interview light.",
+        "a": "It is a maintenance issue. Report it after admitting me. I have a delivery inside and the delivery cannot wait for optics.",
+        "mood": "uneasy"
+      },
+      {
+        "id": "follow",
+        "q": "What word do you use for a mortuary transfer?",
+        "a": "Disposal. It is the authorized term. Return would imply that the recipient matters.",
+        "requires": [
+          "detail"
+        ],
+        "mood": "guarded"
+      },
+      {
+        "id": "gentle",
+        "q": "Take a breath. What do you need me to understand?",
+        "a": "Works with chemical residues and sometimes carries identity tags belonging to dead people.",
+        "tone": "gentle",
+        "group": "approach",
+        "mood": "open"
+      },
+      {
+        "id": "press",
+        "q": "I need an explanation, not a rehearsed answer.",
+        "a": "The visitor looks at the recorder before answering. “Then turn that off before you ask me to trust you.”",
+        "tone": "press",
+        "group": "approach",
+        "mood": "defensive"
+      }
+    ],
+    "archive": "Lighting log: floodlamp two disconnected since 18:00, so no second light can fill a shadow. Hadi’s signed procedure rejects the term disposal.",
+    "call": "Leon: “Morrow says return, even when I tell him that is not the form heading. Hold him at the lamp while I check the mortuary.”",
+    "hold": "A second paper arrives from the outer desk. Lighting log: floodlamp two disconnected since 18:00, so no second light can fill a shadow. Hadi’s signed procedure rejects the term disposal.",
+    "disposition": "ordinary",
+    "event": "lamp",
+    "evidence": "",
+    "evidenceLabel": "",
+    "evidenceText": "",
+    "memoryKey": "",
+    "memoryText": "",
+    "resolution": "The absent shadow cannot be explained by the recorded lighting state. The visitor’s language also contradicts Hadi’s signed practice.",
+    "onAdmitFlag": "",
+    "onDenyFlag": "",
+    "override": {},
+    "lethalDeny": false,
+    "reactions": []
+  },
+  {
+    "id": "n3-01-micah",
+    "night": 3,
+    "resident": "micah",
+    "truth": "human",
+    "anomalies": [],
+    "title": "A roll of yesterday",
+    "opening": "The archivist sets a film canister beside his card. “It is not for the projector. It is for you to keep after the projector tells you it never existed.”",
+    "nodes": [
+      {
+        "id": "where",
+        "q": "Where have you been?",
+        "a": "The archive annex. They called a flood drill in a room without pipes and ordered everyone away from the film cabinets. I went in the other direction.",
+        "mood": "guarded"
+      },
+      {
+        "id": "home",
+        "q": "Who is waiting for you upstairs?",
+        "a": "Cousin: Selene Holt. History is what survives the next office clean-out.",
+        "mood": "neutral"
+      },
+      {
+        "id": "detail",
+        "q": "What is on this film?",
+        "a": "An intake list from October 1984. Forty-three names marked reproduced before the official programme had a name. The current census lists them as ordinary founding residents.",
+        "mood": "uneasy"
+      },
+      {
+        "id": "follow",
+        "q": "How do you know this is not another forged record?",
+        "a": "You do not. The chemistry dates the film, not the claims on it. Selene has matching carbons. Find independent copies before you decide what it means.",
+        "requires": [
+          "detail"
+        ],
+        "mood": "guarded"
+      },
+      {
+        "id": "gentle",
+        "q": "Take a breath. What do you need me to understand?",
+        "a": "Has stolen archive film and is carrying an altered authorization to escape with it.",
+        "tone": "gentle",
+        "group": "approach",
+        "mood": "open"
+      },
+      {
+        "id": "press",
+        "q": "I need an explanation, not a rehearsed answer.",
+        "a": "The visitor looks at the recorder before answering. “Then turn that off before you ask me to trust you.”",
+        "tone": "press",
+        "group": "approach",
+        "mood": "defensive"
+      },
+      {
+        "id": "memory",
+        "q": "What are the archive’s three bells?",
+        "a": "There are only two alarm bells. The third sound is the cooling pump. Please remember that. People who only read the drill sheet think all three mean flood. Micah: two archive bells mean flood; the third sound is the cooling pump.",
+        "requires": [
+          "follow"
+        ],
+        "mood": "open",
+        "evidence": "film"
+      }
+    ],
+    "archive": "Microfilm R-84/17: names labelled REPRODUCED; cabinet seal dated 17 OCT 1984. Handwritten machine note: “Compare → return → correct.”",
+    "call": "Selene: “Keep the canister. My carbon has the same forty-three entries, including F-008. I cannot speak longer.”",
+    "hold": "A second paper arrives from the outer desk. Microfilm R-84/17: names labelled REPRODUCED; cabinet seal dated 17 OCT 1984. Handwritten machine note: “Compare → return → correct.”",
+    "disposition": "ordinary",
+    "event": "",
+    "evidence": "film",
+    "evidenceLabel": "R-84/17 microfilm",
+    "evidenceText": "October 1984 census film labels 43 long-term residents REPRODUCED. Independently cross-check against Selene’s carbon.",
+    "memoryKey": "archive-bells",
+    "memoryText": "Micah: two archive bells mean flood; the third sound is the cooling pump.",
+    "resolution": "Micah’s story can be checked against dated film and Selene’s carbon. The material is evidence about the programme, not evidence that he is an Echo.",
+    "onAdmitFlag": "",
+    "onDenyFlag": "",
+    "override": {},
+    "lethalDeny": false,
+    "reactions": []
+  },
+  {
+    "id": "n3-02-june",
+    "night": 3,
+    "resident": "june",
+    "truth": "human",
+    "anomalies": [
+      "double-entry"
+    ],
+    "title": "One person, two receipts",
+    "opening": "Your terminal prints two entry receipts for the same driver. June is still on the outside of the only door she could have used.",
+    "nodes": [
+      {
+        "id": "where",
+        "q": "Where have you been?",
+        "a": "Last tram. The depot reader jammed when I swiped. The clerk hit retry. It printed twice. I would have liked it to give me two wages as well.",
+        "mood": "guarded"
+      },
+      {
+        "id": "home",
+        "q": "Who is waiting for you upstairs?",
+        "a": "Partner works the west pumping station. I brought back everyone who was at the stop. That is the part I would like written down.",
+        "mood": "neutral"
+      },
+      {
+        "id": "detail",
+        "q": "The system says you entered twice.",
+        "a": "Look at the turnstile roll, not the green screen. One paper notch per rotation. I can lie to you; that little brass wheel cannot be bothered.",
+        "mood": "uneasy"
+      },
+      {
+        "id": "follow",
+        "q": "Did you find a child on yesterday’s route?",
+        "a": "Lio. He was trying to make his toy tram follow the rails in the road. I brought him here. What happened after your door opened is not something I saw. June: no tram uses stop Nine. The rails terminate at a wall.",
+        "requires": [
+          "detail"
+        ],
+        "mood": "guarded"
+      },
+      {
+        "id": "gentle",
+        "q": "Take a breath. What do you need me to understand?",
+        "a": "Return time depends on rescue detours, not the printed schedule.",
+        "tone": "gentle",
+        "group": "approach",
+        "mood": "open"
+      },
+      {
+        "id": "press",
+        "q": "I need an explanation, not a rehearsed answer.",
+        "a": "The visitor looks at the recorder before answering. “Then turn that off before you ask me to trust you.”",
+        "tone": "press",
+        "group": "approach",
+        "mood": "defensive"
+      }
+    ],
+    "archive": "Physical turnstile roll: one rotation. Terminal request 00:17 retried at 00:18. Both entries point to one transaction reference.",
+    "call": "Bea: “I was waiting behind the tram. One driver got out, one door opened. The printer is the only thing that happened twice.”",
+    "hold": "A second paper arrives from the outer desk. Physical turnstile roll: one rotation. Terminal request 00:17 retried at 00:18. Both entries point to one transaction reference.",
+    "disposition": "ordinary",
+    "event": "",
+    "evidence": "",
+    "evidenceLabel": "",
+    "evidenceText": "",
+    "memoryKey": "stop-nine",
+    "memoryText": "June: no tram uses stop Nine. The rails terminate at a wall.",
+    "resolution": "The physical roll identifies a retry, not two people. This is a mundane terminal fault.",
+    "onAdmitFlag": "",
+    "onDenyFlag": "",
+    "override": {},
+    "lethalDeny": false,
+    "reactions": []
+  },
+  {
+    "id": "n3-03-orin",
+    "night": 3,
+    "resident": "orin",
+    "truth": "peaceful",
+    "anomalies": [
+      "resident-id"
+    ],
+    "title": "An issued life",
+    "opening": "The gardener passes over a temporary identity card. It looks newer than everything else in the room. “The old one cracked. I did not think that was meant to happen to a name.”",
+    "nodes": [
+      {
+        "id": "where",
+        "q": "Where have you been?",
+        "a": "The roof galleries. The orange trees finally took. Ruth says that means the year has not been entirely wasted. I am inclined to let her decide.",
+        "mood": "guarded"
+      },
+      {
+        "id": "home",
+        "q": "Who is waiting for you upstairs?",
+        "a": "Lives alone; Ruth is a close friend. I do not think a memory becomes less kind because it was borrowed.",
+        "mood": "neutral"
+      },
+      {
+        "id": "detail",
+        "q": "Why is your resident number provisional?",
+        "a": "The office reissued it without looking at the old file. They did that in 1984 too. It was the first thing anyone gave me when I came here. A name and a bed, in that order.",
+        "mood": "uneasy"
+      },
+      {
+        "id": "follow",
+        "q": "Do you remember living elsewhere?",
+        "a": "I remember a room that may belong to somebody else. I remember being cold. I do not remember an orange until Ruth put one in my hand. I would rather tell you what I do not know than invent a childhood.",
+        "requires": [
+          "detail"
+        ],
+        "mood": "guarded"
+      },
+      {
+        "id": "gentle",
+        "q": "Take a breath. What do you need me to understand?",
+        "a": "I need you not to make Ruth defend me. She already spends too much time defending people who need dinner.",
+        "tone": "gentle",
+        "group": "approach",
+        "mood": "open"
+      },
+      {
+        "id": "press",
+        "q": "I need an explanation, not a rehearsed answer.",
+        "a": "The visitor looks at the recorder before answering. “Then turn that off before you ask me to trust you.”",
+        "tone": "press",
+        "group": "approach",
+        "mood": "defensive"
+      }
+    ],
+    "archive": "Garden payroll begins 17 OCT 1984. Ruth’s handwritten supply ledger records Orin tending crops continuously since then. Provisional card has a legitimate counterfoil.",
+    "call": "Ruth: “He has been here five years. No missing people in his care. That is not a machine reading. It is five years.”",
+    "hold": "A second paper arrives from the outer desk. Garden payroll begins 17 OCT 1984. Ruth’s handwritten supply ledger records Orin tending crops continuously since then. Provisional card has a legitimate counterfoil.",
+    "disposition": "ordinary",
+    "event": "",
+    "evidence": "",
+    "evidenceLabel": "",
+    "evidenceText": "",
+    "memoryKey": "",
+    "memoryText": "",
+    "resolution": "Orin is a non-hostile Reproduction with corroborated years of harmless conduct. His disclosed gaps are not evidence of violence.",
+    "onAdmitFlag": "orin-trusted",
+    "onDenyFlag": "",
+    "override": {},
+    "lethalDeny": false,
+    "reactions": []
+  },
+  {
+    "id": "n3-04-leon",
+    "night": 3,
+    "resident": "leon",
+    "truth": "human",
+    "anomalies": [
+      "apartment"
+    ],
+    "title": "Two addresses",
+    "opening": "The sergeant sets his service card on the tray and immediately places a thumb over the apartment field. He moves the thumb when he sees you notice.",
+    "nodes": [
+      {
+        "id": "where",
+        "q": "Where have you been?",
+        "a": "Patrol. Then the clinic to see Mara. She has slept less than I have, and I am beginning to hear the lift bell in places without lifts.",
+        "mood": "guarded"
+      },
+      {
+        "id": "home",
+        "q": "Who is waiting for you upstairs?",
+        "a": "Official apartment A-021; sleeps at Mara’s B-112. Rules should survive questions. Otherwise they are only orders.",
+        "mood": "neutral"
+      },
+      {
+        "id": "detail",
+        "q": "You gave a different apartment from your card.",
+        "a": "A-021 is assigned to me. I actually sleep in B-112. Housing knows as little as possible. There is no second Leon in the first flat, unless he has been paying my electricity.",
+        "mood": "uneasy"
+      },
+      {
+        "id": "follow",
+        "q": "Why keep it secret?",
+        "a": "They review contact networks after containment incidents. I do not want her patients appearing in a security interview. Some privacy is just privacy. Leon’s badge is 047, with a bent clasp. He turns it over instead of saluting.",
+        "requires": [
+          "detail"
+        ],
+        "mood": "guarded"
+      },
+      {
+        "id": "gentle",
+        "q": "Take a breath. What do you need me to understand?",
+        "a": "Uses two addresses; keeps the arrangement private to protect Mara from investigation.",
+        "tone": "gentle",
+        "group": "approach",
+        "mood": "open"
+      },
+      {
+        "id": "press",
+        "q": "I need an explanation, not a rehearsed answer.",
+        "a": "The visitor looks at the recorder before answering. “Then turn that off before you ask me to trust you.”",
+        "tone": "press",
+        "group": "approach",
+        "mood": "defensive"
+      }
+    ],
+    "archive": "Housing card valid A-021; signed accommodation amendment permits B-112. Badge 047 has a bent clasp in the intake photograph.",
+    "call": "Mara: “He sleeps here. He is embarrassed about it for reasons that would bore both of us. Ask him to turn the badge over.”",
+    "hold": "A second paper arrives from the outer desk. Housing card valid A-021; signed accommodation amendment permits B-112. Badge 047 has a bent clasp in the intake photograph.",
+    "disposition": "ordinary",
+    "event": "",
+    "evidence": "",
+    "evidenceLabel": "",
+    "evidenceText": "",
+    "memoryKey": "bent-badge",
+    "memoryText": "Leon’s badge is 047, with a bent clasp. He turns it over instead of saluting.",
+    "resolution": "The alternative address is documented and corroborated. His secrecy protects a personal relationship.",
+    "onAdmitFlag": "",
+    "onDenyFlag": "",
+    "override": {
+      "apartment": "B-112"
+    },
+    "lethalDeny": false,
+    "reactions": []
+  },
+  {
+    "id": "n3-05-dalia",
+    "night": 3,
+    "resident": "dalia",
+    "truth": "human",
+    "anomalies": [
+      "occupation"
+    ],
+    "title": "A useful euphemism",
+    "opening": "The scientist’s card says Census observer. The woman herself says, “I design microphones,” with the expression of someone admitting to something worse.",
+    "nodes": [
+      {
+        "id": "where",
+        "q": "Where have you been?",
+        "a": "The lower signal laboratory. I was measuring interference in the identity readers. I am not currently permitted to tell you what caused the interference.",
+        "mood": "guarded"
+      },
+      {
+        "id": "home",
+        "q": "Who is waiting for you upstairs?",
+        "a": "Lives alone; research colleague: Selene Holt. A measurement can be accurate and the question it answers can still be wrong.",
+        "mood": "neutral"
+      },
+      {
+        "id": "detail",
+        "q": "Why does the card give a different occupation?",
+        "a": "Because atmospheric acoustician attracts questions. The office replaced my job title before the incident report reached me. My laboratory badge still carries the real department.",
+        "mood": "uneasy"
+      },
+      {
+        "id": "follow",
+        "q": "Can the scanner actually detect Echoes?",
+        "a": "It detects phase disagreement with a reference signal. We chose the reference. Think carefully about that before treating the meter as a witness. Fever and copper can move it. So can the reference itself.",
+        "requires": [
+          "detail"
+        ],
+        "mood": "guarded"
+      },
+      {
+        "id": "gentle",
+        "q": "Take a breath. What do you need me to understand?",
+        "a": "Research clearance forbids her from explaining genuine anomalies.",
+        "tone": "gentle",
+        "group": "approach",
+        "mood": "open"
+      },
+      {
+        "id": "press",
+        "q": "I need an explanation, not a rehearsed answer.",
+        "a": "The visitor looks at the recorder before answering. “Then turn that off before you ask me to trust you.”",
+        "tone": "press",
+        "group": "approach",
+        "mood": "defensive"
+      }
+    ],
+    "archive": "Laboratory credential: atmospheric acoustician. Department transfer memo describes “administrative title normalization”; identity unchanged.",
+    "call": "Anja: “Kest asked me to disconnect a speaker and the scanner went quiet. That is what happened. I am not qualified to tell you what it means.”",
+    "hold": "A second paper arrives from the outer desk. Laboratory credential: atmospheric acoustician. Department transfer memo describes “administrative title normalization”; identity unchanged.",
+    "disposition": "ordinary",
+    "event": "",
+    "evidence": "reference",
+    "evidenceLabel": "Scanner calibration warning",
+    "evidenceText": "Dalia confirms scanner readings depend on a chosen reference broadcast. Metal and fever can cause high readings; low readings do not prove safety.",
+    "memoryKey": "",
+    "memoryText": "",
+    "resolution": "The occupation mismatch is an administrative cover. Her identity is independently corroborated.",
+    "onAdmitFlag": "",
+    "onDenyFlag": "",
+    "override": {},
+    "lethalDeny": false,
+    "reactions": []
+  },
+  {
+    "id": "n3-06-pavel",
+    "night": 3,
+    "resident": "pavel",
+    "truth": "hostile",
+    "anomalies": [
+      "previous"
+    ],
+    "title": "Seven, without pain",
+    "opening": "The teacher carries the red cup again. This time he smiles while turning it under the lamp. Every star catches the light.",
+    "nodes": [
+      {
+        "id": "where",
+        "q": "Where have you been?",
+        "a": "The memorial wall. A pleasant visit. My daughter completed this cup six years before her transfer. The stars have always numbered six.",
+        "mood": "guarded"
+      },
+      {
+        "id": "home",
+        "q": "Who is waiting for you upstairs?",
+        "a": "Lives alone; wife and daughter deceased. There are questions people answer wrongly because the answer hurts.",
+        "mood": "neutral"
+      },
+      {
+        "id": "detail",
+        "q": "You told me something different about the last star.",
+        "a": "You are remembering the previous resident incorrectly. A correct resident gives a consistent answer. Six. Six is the answer you should retain.",
+        "mood": "uneasy"
+      },
+      {
+        "id": "follow",
+        "q": "What did your daughter paint on her last day?",
+        "a": "Nothing. She had no last day. She was transferred from one category to another. Categories do not require mourning.",
+        "requires": [
+          "detail"
+        ],
+        "mood": "guarded"
+      },
+      {
+        "id": "gentle",
+        "q": "Take a breath. What do you need me to understand?",
+        "a": "Grief affects his memory. He may lie to avoid talking about his family.",
+        "tone": "gentle",
+        "group": "approach",
+        "mood": "open"
+      },
+      {
+        "id": "press",
+        "q": "I need an explanation, not a rehearsed answer.",
+        "a": "The visitor looks at the recorder before answering. “Then turn that off before you ask me to trust you.”",
+        "tone": "press",
+        "group": "approach",
+        "mood": "defensive"
+      }
+    ],
+    "archive": "Original family photograph shows SEVEN stars. Last-day letter in Pavel’s handwriting describes watching his daughter finish the seventh.",
+    "call": "Ada: “Pavel is visiting me. He is asleep. I have his cup beside the sink, so I would very much like to know what is on your desk.”",
+    "hold": "A second paper arrives from the outer desk. Original family photograph shows SEVEN stars. Last-day letter in Pavel’s handwriting describes watching his daughter finish the seventh.",
+    "disposition": "ordinary",
+    "event": "knock",
+    "evidence": "",
+    "evidenceLabel": "",
+    "evidenceText": "",
+    "memoryKey": "",
+    "memoryText": "",
+    "resolution": "The visitor contradicts a retained private memory, the family letter and a current independent witness. Unlike the earlier grieving Pavel, he cannot explain the contradiction.",
+    "onAdmitFlag": "",
+    "onDenyFlag": "",
+    "override": {},
+    "lethalDeny": false,
+    "reactions": []
+  },
+  {
+    "id": "n3-07-ada",
+    "night": 3,
+    "resident": "ada",
+    "truth": "human",
+    "anomalies": [],
+    "title": "The address book",
+    "opening": "Ada arrives with an address book wrapped in a bread bag. “The computer has decided my sister never lived here. I thought I would introduce it to her handwriting.”",
+    "nodes": [
+      {
+        "id": "where",
+        "q": "Where have you been?",
+        "a": "Pavel’s. He fell asleep halfway through telling me a story he has told me for twenty years. I stayed for the second half anyway.",
+        "mood": "guarded"
+      },
+      {
+        "id": "home",
+        "q": "Who is waiting for you upstairs?",
+        "a": "Lives alone; Ruth brings supper. I know a thousand voices, love. Faces are the difficult bit.",
+        "mood": "neutral"
+      },
+      {
+        "id": "detail",
+        "q": "Why keep names the census has removed?",
+        "a": "Because Lucet existed before a clerk made a box for her. Because Ruth remembers how she took her tea. Because you cannot put a person back together from an official spelling.",
+        "mood": "uneasy"
+      },
+      {
+        "id": "follow",
+        "q": "Do you recognize the name Ellis Flint on this old page?",
+        "a": "Of course. You came back in October 1984 with your left shoe full of rain. You asked me what the penny was for. I told you it was to keep the boats upright. You cried as though it was the kindest thing you had heard.",
+        "requires": [
+          "detail"
+        ],
+        "mood": "guarded"
+      },
+      {
+        "id": "gentle",
+        "q": "Take a breath. What do you need me to understand?",
+        "a": "Her hearing aid whistles against the intercom. She sometimes answers the question she expected, not the one asked.",
+        "tone": "gentle",
+        "group": "approach",
+        "mood": "open"
+      },
+      {
+        "id": "press",
+        "q": "I need an explanation, not a rehearsed answer.",
+        "a": "The visitor looks at the recorder before answering. “Then turn that off before you ask me to trust you.”",
+        "tone": "press",
+        "group": "approach",
+        "mood": "defensive"
+      }
+    ],
+    "archive": "Ada’s dated address book includes Ellis Flint, return recorded 17 OCT 1984. Paper ageing and adjacent routine entries are consistent; provenance is personal, not official.",
+    "call": "Ruth: “Ada keeps old books because she keeps old promises. Check the date. She writes everything down.”",
+    "hold": "A second paper arrives from the outer desk. Ada’s dated address book includes Ellis Flint, return recorded 17 OCT 1984. Paper ageing and adjacent routine entries are consistent; provenance is personal, not official.",
+    "disposition": "ordinary",
+    "event": "",
+    "evidence": "player",
+    "evidenceLabel": "Ada’s 1984 address book",
+    "evidenceText": "Ada records Ellis Flint returning on 17 OCT 1984 and asking about the penny boats. The official employment history omits this event.",
+    "memoryKey": "",
+    "memoryText": "",
+    "resolution": "Ada brings a personal record that contradicts the player’s assumed history. There is no identity mismatch in her own documents.",
+    "onAdmitFlag": "",
+    "onDenyFlag": "",
+    "override": {},
+    "lethalDeny": false,
+    "reactions": []
+  },
+  {
+    "id": "n4-01-anja",
+    "night": 4,
+    "resident": "anja",
+    "truth": "human",
+    "anomalies": [
+      "hand"
+    ],
+    "title": "The emergency lamp",
+    "opening": "The electrician is halfway through presenting her card when every powered light goes out. In the dark: three careful knocks, from the inside wall.",
+    "nodes": [
+      {
+        "id": "where",
+        "q": "Where have you been?",
+        "a": "Cabinet C under the signal room. I found a wire in a circuit that the plans call isolated. The plans are going to need an apology.",
+        "mood": "guarded"
+      },
+      {
+        "id": "home",
+        "q": "Who is waiting for you upstairs?",
+        "a": "Lives with unnamed younger brother. Labels are suggestions. Voltage is not.",
+        "mood": "neutral"
+      },
+      {
+        "id": "detail",
+        "q": "You are using a different hand from the register.",
+        "a": "My good hand touched a live casing. The clinic bandaged it. I would show you, but first please use the battery lamp rather than opening both doors in the dark.",
+        "mood": "uneasy"
+      },
+      {
+        "id": "follow",
+        "q": "What made that knocking sound?",
+        "a": "Could be the expansion joint. Could be somebody in the service chase. I would like a third possibility before I give either of those the comfort of being an explanation.",
+        "requires": [
+          "detail"
+        ],
+        "mood": "guarded"
+      },
+      {
+        "id": "gentle",
+        "q": "Take a breath. What do you need me to understand?",
+        "a": "I need you to leave the air circuit alone. We can be frightened without also becoming stupid.",
+        "tone": "gentle",
+        "group": "approach",
+        "mood": "open"
+      },
+      {
+        "id": "press",
+        "q": "I need an explanation, not a rehearsed answer.",
+        "a": "The visitor looks at the recorder before answering. “Then turn that off before you ask me to trust you.”",
+        "tone": "press",
+        "group": "approach",
+        "mood": "defensive"
+      }
+    ],
+    "archive": "Clinic slip confirms wrist injury. Grid diagram: emergency lamp has an independent cell. Ventilation circuit A must remain powered; census feeder C is separate.",
+    "call": "Tomas: “Anja went to the signal cabinet. Do not bridge A and C. The labels in the official drawing are transposed.”",
+    "hold": "A second paper arrives from the outer desk. Clinic slip confirms wrist injury. Grid diagram: emergency lamp has an independent cell. Ventilation circuit A must remain powered; census feeder C is separate.",
+    "disposition": "ordinary",
+    "event": "blackout",
+    "evidence": "",
+    "evidenceLabel": "",
+    "evidenceText": "",
+    "memoryKey": "",
+    "memoryText": "",
+    "resolution": "The change of writing hand is explained by a treated electrical injury. Restoring the lamp reveals a matching face.",
+    "onAdmitFlag": "",
+    "onDenyFlag": "",
+    "override": {},
+    "lethalDeny": false,
+    "reactions": []
+  },
+  {
+    "id": "n4-02-mara",
+    "night": 4,
+    "resident": "mara",
+    "truth": "hostile",
+    "anomalies": [
+      "live-call"
+    ],
+    "title": "Someone on the line",
+    "opening": "Mara’s familiar face waits behind the glass. The clinic line begins ringing. The caller identification is the name printed on the card in your hand.",
+    "nodes": [
+      {
+        "id": "where",
+        "q": "Where have you been?",
+        "a": "Outer clinic. Bed twelve. The lighthouse. There is no window. I have returned all of the relevant details in the correct order.",
+        "mood": "guarded"
+      },
+      {
+        "id": "home",
+        "q": "Who is waiting for you upstairs?",
+        "a": "Flatmate: Leon Voss, separate room. Please ask the questions while I sit. Neither of us needs me falling over.",
+        "mood": "neutral"
+      },
+      {
+        "id": "detail",
+        "q": "The clinic says Mara is still there.",
+        "a": "The clinic is playing a recording. You know my face. You remember my private phrase. Those things were sufficient before. Why have your requirements changed?",
+        "mood": "uneasy"
+      },
+      {
+        "id": "follow",
+        "q": "What did Leon bring to the ward this evening?",
+        "a": "That information is not in the record. It is not medically relevant. Admit me and I will ask him upstairs.",
+        "requires": [
+          "detail"
+        ],
+        "mood": "guarded"
+      },
+      {
+        "id": "gentle",
+        "q": "Take a breath. What do you need me to understand?",
+        "a": "Her permit expired during a double shift. Adrenaline, fever and metal splints all disturb scanner readings.",
+        "tone": "gentle",
+        "group": "approach",
+        "mood": "open"
+      },
+      {
+        "id": "press",
+        "q": "I need an explanation, not a rehearsed answer.",
+        "a": "The visitor looks at the recorder before answering. “Then turn that off before you ask me to trust you.”",
+        "tone": "press",
+        "group": "approach",
+        "mood": "defensive"
+      }
+    ],
+    "archive": "Live ward note: Leon delivered a green thermos at 22:50. The note was handwritten after the census reader lost power.",
+    "call": "A breathless Mara answers a NEW question: “Green thermos. He dropped the lid into the clean laundry. The charge nurse saw it. Whoever is outside learned the old story.”",
+    "hold": "Ward charge independently confirms Mara is beside her and describes retrieving the thermos lid from the laundry. This is not a replayed recording.",
+    "disposition": "ordinary",
+    "event": "live-call",
+    "evidence": "",
+    "evidenceLabel": "",
+    "evidenceText": "",
+    "memoryKey": "",
+    "memoryText": "",
+    "resolution": "Correct old memories do not outweigh a live independent challenge. This visitor cannot answer a fresh event witnessed by two people.",
+    "onAdmitFlag": "",
+    "onDenyFlag": "",
+    "override": {},
+    "lethalDeny": false,
+    "reactions": []
+  },
+  {
+    "id": "n4-03-mara",
+    "night": 4,
+    "resident": "mara",
+    "truth": "human",
+    "anomalies": [
+      "temperature"
+    ],
+    "title": "The second nurse",
+    "opening": "The next person in the queue has the same face. This Mara is bleeding through a hastily wrapped sleeve. “Did she get in?” is all she asks at first.",
+    "nodes": [
+      {
+        "id": "where",
+        "q": "Where have you been?",
+        "a": "The clinic, then the pedestrian cut. I saw someone wearing my coat at the gate. I ran. The fence cut my arm. It was not worth losing the sample bag, so I kept holding it.",
+        "mood": "guarded"
+      },
+      {
+        "id": "home",
+        "q": "Who is waiting for you upstairs?",
+        "a": "Flatmate: Leon Voss, separate room. Please ask the questions while I sit. Neither of us needs me falling over.",
+        "mood": "neutral"
+      },
+      {
+        "id": "detail",
+        "q": "There is no condensation on the glass in front of you.",
+        "a": "The emergency demister is on. You can feel it from your side. I am warm; the pane is warm. Please do not use a heater as a species test.",
+        "mood": "uneasy"
+      },
+      {
+        "id": "follow",
+        "q": "What happened to the thermos lid?",
+        "a": "Leon dropped it into clean laundry. Keel made him wash it again. I told them both I could hear the entire argument from bed twelve. Is that new enough to count as mine?",
+        "requires": [
+          "detail"
+        ],
+        "mood": "guarded"
+      },
+      {
+        "id": "gentle",
+        "q": "Take a breath. What do you need me to understand?",
+        "a": "I need treatment. I will answer every question afterwards. There has to be an afterwards.",
+        "tone": "gentle",
+        "group": "approach",
+        "mood": "open"
+      },
+      {
+        "id": "press",
+        "q": "I need an explanation, not a rehearsed answer.",
+        "a": "The visitor looks at the recorder before answering. “Then turn that off before you ask me to trust you.”",
+        "tone": "press",
+        "group": "approach",
+        "mood": "defensive"
+      }
+    ],
+    "archive": "Independent clinic photograph confirms dressing and ID. Maintenance log: demister switched on after outage, clearing condensation. Wound requires treatment without delay.",
+    "call": "Charge nurse Keel: “That is Mara. Tell her to elevate the arm. We have a stretcher on the inner side.”",
+    "hold": "A second paper arrives from the outer desk. Independent clinic photograph confirms dressing and ID. Maintenance log: demister switched on after outage, clearing condensation. Wound requires treatment without delay.",
+    "disposition": "ordinary",
+    "event": "",
+    "evidence": "",
+    "evidenceLabel": "",
+    "evidenceText": "",
+    "memoryKey": "",
+    "memoryText": "",
+    "resolution": "New corroborated details, a clinical photograph and the demister log explain the apparent anomaly. Denying urgent care is dangerous.",
+    "onAdmitFlag": "mara-saved",
+    "onDenyFlag": "",
+    "override": {},
+    "lethalDeny": true,
+    "reactions": []
+  },
+  {
+    "id": "n4-04-ivo",
+    "night": 4,
+    "resident": "ivo",
+    "truth": "human",
+    "anomalies": [],
+    "title": "Under lift four",
+    "opening": "Ivo holds a screwdriver in both hands. He sets it down before you ask. “I saw someone painting over the sun.”",
+    "nodes": [
+      {
+        "id": "where",
+        "q": "Where have you been?",
+        "a": "The lift well. I know I should not be there. Before you say it: yes, my father knows. No, he did not tell me to go.",
+        "mood": "guarded"
+      },
+      {
+        "id": "home",
+        "q": "Who is waiting for you upstairs?",
+        "a": "Father: Tomas Rusk. Can we agree my father does not need the dramatic version?",
+        "mood": "neutral"
+      },
+      {
+        "id": "detail",
+        "q": "Who was painting over the mark?",
+        "a": "Someone who looked like Dad. They asked me what colour the sun was supposed to be while holding the right paint. It was like they wanted permission to remember it.",
+        "mood": "uneasy"
+      },
+      {
+        "id": "follow",
+        "q": "What did you do?",
+        "a": "I said it had always been yellow. They changed brushes. Dad would have called it blue and told me to finish the edges. That was when I hid.",
+        "requires": [
+          "detail"
+        ],
+        "mood": "guarded"
+      },
+      {
+        "id": "gentle",
+        "q": "Take a breath. What do you need me to understand?",
+        "a": "Lies about his boyfriend and steals old work permits to cover missed curfew.",
+        "tone": "gentle",
+        "group": "approach",
+        "mood": "open"
+      },
+      {
+        "id": "press",
+        "q": "I need an explanation, not a rehearsed answer.",
+        "a": "The visitor looks at the recorder before answering. “Then turn that off before you ask me to trust you.”",
+        "tone": "press",
+        "group": "approach",
+        "mood": "defensive"
+      }
+    ],
+    "archive": "Fresh photograph: blue sun partly overwritten in yellow. Tomas’s maintenance note mentions the original blue paint weeks before tonight.",
+    "call": "Tomas: “He is not authorized to be in the well. That does not mean he is wrong about what he saw.”",
+    "hold": "A second paper arrives from the outer desk. Fresh photograph: blue sun partly overwritten in yellow. Tomas’s maintenance note mentions the original blue paint weeks before tonight.",
+    "disposition": "ordinary",
+    "event": "",
+    "evidence": "learning",
+    "evidenceLabel": "The repainted blue sun",
+    "evidenceText": "A visitor asked Ivo to correct a private memory, then changed behaviour to fit his false answer. Reproductions can learn from challenges.",
+    "memoryKey": "",
+    "memoryText": "",
+    "resolution": "Ivo’s unauthorized exploration produced independently verifiable evidence. A human can break a rule and still tell the truth.",
+    "onAdmitFlag": "",
+    "onDenyFlag": "",
+    "override": {},
+    "lethalDeny": false,
+    "reactions": []
+  },
+  {
+    "id": "n4-05-celia",
+    "night": 4,
+    "resident": "celia",
+    "truth": "human",
+    "anomalies": [
+      "intercom"
+    ],
+    "title": "A chorus of yes",
+    "opening": "Celia arrives with three ration books belonging to other people. Before you touch the intercom, the apartment speaker says, “Yes. That is her.”",
+    "nodes": [
+      {
+        "id": "where",
+        "q": "Where have you been?",
+        "a": "Distribution. There are people sleeping in the service hall. I am trying to move them somewhere that has neither live cabling nor an official name.",
+        "mood": "guarded"
+      },
+      {
+        "id": "home",
+        "q": "Who is waiting for you upstairs?",
+        "a": "Lives with three unnamed evacuees. Keeping people safe has to include keeping them people.",
+        "mood": "neutral"
+      },
+      {
+        "id": "detail",
+        "q": "Why did your apartment answer before I asked?",
+        "a": "Because I told them when I would arrive. That may be stupid after tonight. Ask them what I forgot to bring. They will enjoy telling you.",
+        "mood": "uneasy"
+      },
+      {
+        "id": "follow",
+        "q": "What did you forget?",
+        "a": "Salt. We have a whole committee devoted to logistics and I forgot the one thing everyone asked for. They are not letting me be inspiring about it.",
+        "requires": [
+          "detail"
+        ],
+        "mood": "guarded"
+      },
+      {
+        "id": "gentle",
+        "q": "Take a breath. What do you need me to understand?",
+        "a": "I need the people in the service hall to remain people when you count them.",
+        "tone": "gentle",
+        "group": "approach",
+        "mood": "open"
+      },
+      {
+        "id": "press",
+        "q": "I need an explanation, not a rehearsed answer.",
+        "a": "The visitor looks at the recorder before answering. “Then turn that off before you ask me to trust you.”",
+        "tone": "press",
+        "group": "approach",
+        "mood": "defensive"
+      }
+    ],
+    "archive": "Independent stores receipt: Celia purchased flour and lentils, no salt. Guest ration books legitimately signed into her custody.",
+    "call": "Apartment residents answer an open question: “She forgot the salt again. Tell her the committee has formally noticed.” Their first yes was anticipation, not proof.",
+    "hold": "A second paper arrives from the outer desk. Independent stores receipt: Celia purchased flour and lentils, no salt. Guest ration books legitimately signed into her custody.",
+    "disposition": "ordinary",
+    "event": "",
+    "evidence": "",
+    "evidenceLabel": "",
+    "evidenceText": "",
+    "memoryKey": "",
+    "memoryText": "",
+    "resolution": "The premature intercom answer is corroborated by a fresh mundane detail. It is suspicious behaviour, not conclusive identity evidence.",
+    "onAdmitFlag": "",
+    "onDenyFlag": "",
+    "override": {},
+    "lethalDeny": false,
+    "reactions": []
+  },
+  {
+    "id": "n4-06-leon",
+    "night": 4,
+    "resident": "leon",
+    "truth": "hostile",
+    "anomalies": [
+      "recognition"
+    ],
+    "title": "The straight clasp",
+    "opening": "The officer salutes. The gesture looks practised. He does not turn his badge over.",
+    "nodes": [
+      {
+        "id": "where",
+        "q": "Where have you been?",
+        "a": "Internal patrol. All unauthorized persons have been relocated. The clinic personnel were uncooperative. I have orders to enter immediately.",
+        "mood": "guarded"
+      },
+      {
+        "id": "home",
+        "q": "Who is waiting for you upstairs?",
+        "a": "Official apartment A-021; sleeps at Mara’s B-112. Rules should survive questions. Otherwise they are only orders.",
+        "mood": "neutral"
+      },
+      {
+        "id": "detail",
+        "q": "Can I see the reverse of your badge?",
+        "a": "The front contains the authorized information. The reverse is irrelevant. You should not delay a superior because you have become interested in metalwork.",
+        "mood": "uneasy"
+      },
+      {
+        "id": "follow",
+        "q": "Does Mara still have your thermos?",
+        "a": "Mara is not a registered contact at my apartment. I do not recognize that name. Are you attempting to establish an unauthorized relationship?",
+        "requires": [
+          "detail"
+        ],
+        "mood": "guarded"
+      },
+      {
+        "id": "gentle",
+        "q": "Take a breath. What do you need me to understand?",
+        "a": "Uses two addresses; keeps the arrangement private to protect Mara from investigation.",
+        "tone": "gentle",
+        "group": "approach",
+        "mood": "open"
+      },
+      {
+        "id": "press",
+        "q": "I need an explanation, not a rehearsed answer.",
+        "a": "“Your employment ends when I cross this window,” says the officer, with no change of expression.",
+        "tone": "press",
+        "group": "approach",
+        "mood": "defensive"
+      }
+    ],
+    "archive": "Badge photograph: number 047, clasp bent outwards. Current visitor’s clasp is straight. Signed accommodation amendment links Leon to Mara.",
+    "call": "Inner patrol confirms Leon is delivering a stretcher to the clinic. A second officer independently verifies badge 047 at that location.",
+    "hold": "A second paper arrives from the outer desk. Badge photograph: number 047, clasp bent outwards. Current visitor’s clasp is straight. Signed accommodation amendment links Leon to Mara.",
+    "disposition": "ordinary",
+    "event": "order",
+    "evidence": "",
+    "evidenceLabel": "",
+    "evidenceText": "",
+    "memoryKey": "",
+    "memoryText": "",
+    "resolution": "The badge detail, denied relationship and independent patrol location all contradict the visitor’s claim.",
+    "onAdmitFlag": "",
+    "onDenyFlag": "",
+    "override": {},
+    "lethalDeny": false,
+    "reactions": []
+  },
+  {
+    "id": "n4-07-hadi",
+    "night": 4,
+    "resident": "hadi",
+    "truth": "human",
+    "anomalies": [
+      "blood-group"
+    ],
+    "title": "Names, not numbers",
+    "opening": "Hadi carries a transfer list so heavily amended that it resembles a drawing. His card contains a blood group crossed out in blue pencil.",
+    "nodes": [
+      {
+        "id": "where",
+        "q": "Where have you been?",
+        "a": "The containment wing. They requested family photographs before releasing anyone. They asked for one photograph per transfer. They did not ask for blood.",
+        "mood": "guarded"
+      },
+      {
+        "id": "home",
+        "q": "Who is waiting for you upstairs?",
+        "a": "Lives alone; helps Pavel after memorial visits. The living deserve uncertainty. The dead deserve their names.",
+        "mood": "neutral"
+      },
+      {
+        "id": "detail",
+        "q": "Your card and the clinic ledger disagree.",
+        "a": "The card has a sample label from a colleague. The lab issued a correction. I would be much more worried about that if anyone here still cared about treating patients.",
+        "mood": "uneasy"
+      },
+      {
+        "id": "follow",
+        "q": "What are the photographs for?",
+        "a": "I asked. They told me to bring better photographs. Then a name appeared on a tag I had already filled out. The ink was mine. I had not written that name.",
+        "requires": [
+          "detail"
+        ],
+        "mood": "guarded"
+      },
+      {
+        "id": "gentle",
+        "q": "Take a breath. What do you need me to understand?",
+        "a": "Works with chemical residues and sometimes carries identity tags belonging to dead people.",
+        "tone": "gentle",
+        "group": "approach",
+        "mood": "open"
+      },
+      {
+        "id": "press",
+        "q": "I need an explanation, not a rehearsed answer.",
+        "a": "The visitor looks at the recorder before answering. “Then turn that off before you ask me to trust you.”",
+        "tone": "press",
+        "group": "approach",
+        "mood": "defensive"
+      }
+    ],
+    "archive": "Lab correction confirms card sample mislabelling; genuine blood group O+. Transfer list requests recent family photographs and removes all causes of admission.",
+    "call": "Leon: “Morrow’s paperwork is authentic. I watched a transfer number remain constant while the person’s name changed. Keep a copy.”",
+    "hold": "A second paper arrives from the outer desk. Lab correction confirms card sample mislabelling; genuine blood group O+. Transfer list requests recent family photographs and removes all causes of admission.",
+    "disposition": "ordinary",
+    "event": "",
+    "evidence": "transfers",
+    "evidenceLabel": "Containment photograph requisition",
+    "evidenceText": "Containment requests recent family photographs, then changes names under stable transfer numbers. Hadi and Leon independently witnessed alterations.",
+    "memoryKey": "",
+    "memoryText": "",
+    "resolution": "A signed laboratory correction resolves Hadi’s document discrepancy. His transfer sheet provides evidence of institutional tampering.",
+    "onAdmitFlag": "",
+    "onDenyFlag": "",
+    "override": {},
+    "lethalDeny": false,
+    "reactions": []
+  },
+  {
+    "id": "n5-01-victor",
+    "night": 5,
+    "resident": "victor",
+    "truth": "human",
+    "anomalies": [
+      "wrong-authority"
+    ],
+    "title": "Executive convenience",
+    "opening": "The administrator does not offer his documents. He places them on the tray as though returning something you had borrowed without asking.",
+    "nodes": [
+      {
+        "id": "where",
+        "q": "Where have you been?",
+        "a": "An emergency continuity meeting. You will be receiving courier Noll after me. She is authorized for immediate access regardless of what your terminal or your instincts suggest.",
+        "mood": "guarded"
+      },
+      {
+        "id": "home",
+        "q": "Who is waiting for you upstairs?",
+        "a": "Private administration suite. Continuity requires difficult decisions to remain continuous.",
+        "mood": "neutral"
+      },
+      {
+        "id": "detail",
+        "q": "This authorization has no valid issuing office.",
+        "a": "It has my signature. Offices derive their authority from people, Ellis. Do try to remember which people. I have fed this building through five winters.",
+        "mood": "uneasy"
+      },
+      {
+        "id": "follow",
+        "q": "Will you put the exception for Noll in writing?",
+        "a": "You already have enough paper. What you need is perspective. The synchronization is not an experiment anymore. It is how we continue to be here.",
+        "requires": [
+          "detail"
+        ],
+        "mood": "guarded"
+      },
+      {
+        "id": "gentle",
+        "q": "Take a breath. What do you need me to understand?",
+        "a": "“I need you to preserve a building,” he says. “You appear to be preserving a conversation.”",
+        "tone": "gentle",
+        "group": "approach",
+        "mood": "open"
+      },
+      {
+        "id": "press",
+        "q": "I need an explanation, not a rehearsed answer.",
+        "a": "The visitor looks at the recorder before answering. “Then turn that off before you ask me to trust you.”",
+        "tone": "press",
+        "group": "approach",
+        "mood": "defensive"
+      }
+    ],
+    "archive": "Victor Pell’s identity is authentic. Executive directive has no independent legal countersignature. It specifically exempts the next courier from verification.",
+    "call": "Leon: “Pell is who he says. His order is another question. I will back a documented refusal, but I need the documentation.”",
+    "hold": "A second paper arrives from the outer desk. Victor Pell’s identity is authentic. Executive directive has no independent legal countersignature. It specifically exempts the next courier from verification.",
+    "disposition": "ordinary",
+    "event": "order",
+    "evidence": "order",
+    "evidenceLabel": "Unsigned courier exemption",
+    "evidenceText": "Pell orders Bea Noll admitted even if evidence conflicts. The instruction has no independent countersignature.",
+    "memoryKey": "",
+    "memoryText": "",
+    "resolution": "Pell is a human official abusing authority. Identity and obedience are separate judgments.",
+    "onAdmitFlag": "pell-admitted",
+    "onDenyFlag": "",
+    "override": {},
+    "lethalDeny": false,
+    "reactions": []
+  },
+  {
+    "id": "n5-02-bea",
+    "night": 5,
+    "resident": "bea",
+    "truth": "hostile",
+    "anomalies": [
+      "seal"
+    ],
+    "title": "Seventeen points",
+    "opening": "The courier’s pass bears Pell’s signature and a star with seventeen points. The office seal printed beside your ledger has sixteen.",
+    "nodes": [
+      {
+        "id": "where",
+        "q": "Where have you been?",
+        "a": "The signal laboratory. I carry a synchronization spool. It must reach the central speaker cabinet before the morning cycle. The administrator has already decided.",
+        "mood": "guarded"
+      },
+      {
+        "id": "home",
+        "q": "Who is waiting for you upstairs?",
+        "a": "Sister lives in the eastern shelter. I can bring you a signature or I can bring you what happened. They are not always the same parcel.",
+        "mood": "neutral"
+      },
+      {
+        "id": "detail",
+        "q": "The seal differs from the registered office seal.",
+        "a": "There are seventeen sectors. Seventeen is therefore the correct number of points. The old seal was incorrect. We have improved it.",
+        "mood": "uneasy"
+      },
+      {
+        "id": "follow",
+        "q": "Which two knots should I find on your parcel?",
+        "a": "One is sufficient. If you insist on two, I can tie another now. You can tell me the colour too. I am willing to become correct.",
+        "requires": [
+          "detail"
+        ],
+        "mood": "guarded"
+      },
+      {
+        "id": "gentle",
+        "q": "Take a breath. What do you need me to understand?",
+        "a": "Reuses serialled paper when the depot runs out and lies about carrying letters.",
+        "tone": "gentle",
+        "group": "approach",
+        "mood": "open"
+      },
+      {
+        "id": "press",
+        "q": "I need an explanation, not a rehearsed answer.",
+        "a": "The visitor looks at the recorder before answering. “Then turn that off before you ask me to trust you.”",
+        "tone": "press",
+        "group": "approach",
+        "mood": "defensive"
+      }
+    ],
+    "archive": "Office die register: SIXTEEN-point star. No replacement die authorized. Courier depot records yellow thread, two knots; real Bea remains at the eastern shelter.",
+    "call": "Eastern shelter clerk: “Noll is repairing a bicycle here. I am looking at her. Pell called us too, but he cannot make that stop being true.”",
+    "hold": "A second paper arrives from the outer desk. Office die register: SIXTEEN-point star. No replacement die authorized. Courier depot records yellow thread, two knots; real Bea remains at the eastern shelter.",
+    "disposition": "ordinary",
+    "event": "order",
+    "evidence": "",
+    "evidenceLabel": "",
+    "evidenceText": "",
+    "memoryKey": "",
+    "memoryText": "",
+    "resolution": "Executive pressure does not reconcile the forged seal, wrong parcel practice and current independent witness.",
+    "onAdmitFlag": "spool-inside",
+    "onDenyFlag": "",
+    "override": {},
+    "lethalDeny": false,
+    "reactions": []
+  },
+  {
+    "id": "n5-03-selene",
+    "night": 5,
+    "resident": "selene",
+    "truth": "human",
+    "anomalies": [
+      "changed-record"
+    ],
+    "title": "The green line",
+    "opening": "Selene’s terminal entry loads normally. As you open the register, a green correction passes over the apartment field. The room becomes A-000. She watches your face rather than the screen.",
+    "nodes": [
+      {
+        "id": "where",
+        "q": "Where have you been?",
+        "a": "Census annex. I took the carbon before the ribbon moved. That was all. I did not break the machine. I just kept the thing it wanted nobody to have.",
+        "mood": "guarded"
+      },
+      {
+        "id": "home",
+        "q": "Who is waiting for you upstairs?",
+        "a": "Lives alone; cousin: Micah Bell. It is possible for every box to be filled correctly and the form to be a lie.",
+        "mood": "neutral"
+      },
+      {
+        "id": "detail",
+        "q": "Your apartment field just changed.",
+        "a": "That is not a typo. It is an instruction. A-000 means remove from the active population. It has happened to people who were sitting at their desks. Please keep the old entry.",
+        "mood": "uneasy"
+      },
+      {
+        "id": "follow",
+        "q": "What distinguishes your real carbons?",
+        "a": "The letter O. I strike it twice. See the little dark rim? The file says F-008 was a return, not an original admission. It also lists you. The correction will try to erase this conversation next.",
+        "requires": [
+          "detail"
+        ],
+        "mood": "guarded"
+      },
+      {
+        "id": "gentle",
+        "q": "Take a breath. What do you need me to understand?",
+        "a": "I need you to say my name before you decide. Not the name it gives you. Mine.",
+        "tone": "gentle",
+        "group": "approach",
+        "mood": "open"
+      },
+      {
+        "id": "press",
+        "q": "I need an explanation, not a rehearsed answer.",
+        "a": "The visitor looks at the recorder before answering. “Then turn that off before you ask me to trust you.”",
+        "tone": "press",
+        "group": "approach",
+        "mood": "defensive"
+      }
+    ],
+    "archive": "Unaltered carbon: Selene Holt, A-309, DOB 28 FEB 1960. Typewriter O struck twice. Matched 1984 list independently corroborates microfilm R-84/17.",
+    "call": "Micah: “A-309. I have been to that apartment every week for ten years. Do not let the screen move her while you look at it.”",
+    "hold": "A second paper arrives from the outer desk. Unaltered carbon: Selene Holt, A-309, DOB 28 FEB 1960. Typewriter O struck twice. Matched 1984 list independently corroborates microfilm R-84/17.",
+    "disposition": "ordinary",
+    "event": "rewrite",
+    "evidence": "carbon",
+    "evidenceLabel": "Selene’s double-O carbon",
+    "evidenceText": "Carbon confirms Selene at A-309 and corroborates the 43-name 1984 microfilm. The terminal overwrote A-309 during the interview.",
+    "memoryKey": "",
+    "memoryText": "",
+    "resolution": "The changing record is an institutional attack on a human, not a change in the person at the window.",
+    "onAdmitFlag": "selene-safe",
+    "onDenyFlag": "",
+    "override": {},
+    "lethalDeny": false,
+    "reactions": []
+  },
+  {
+    "id": "n5-04-nessa",
+    "night": 5,
+    "resident": "nessa",
+    "truth": "hostile",
+    "anomalies": [
+      "forbidden-knowledge"
+    ],
+    "title": "The penny in your shoe",
+    "opening": "Nessa smiles without looking toward the inner door. “You should take that penny out of your left shoe, Ellis. It has been there a very long time.”",
+    "nodes": [
+      {
+        "id": "where",
+        "q": "Where have you been?",
+        "a": "The laundry depot. All clothing has been assigned to a resident. All residents will be assigned to a room. You may find that comforting after your own return.",
+        "mood": "guarded"
+      },
+      {
+        "id": "home",
+        "q": "Who is waiting for you upstairs?",
+        "a": "Child: Lio Vale; partner deceased. You can mark me difficult after you tell me whether you saw my child.",
+        "mood": "neutral"
+      },
+      {
+        "id": "detail",
+        "q": "How do you know about the penny?",
+        "a": "The building remembers what its residents cannot. You are one of its residents. Why should your private details be treated differently from an apartment number?",
+        "mood": "uneasy"
+      },
+      {
+        "id": "follow",
+        "q": "What does Lio call his toy tram?",
+        "a": "Little Lion. It comforts children when objects and children share a name. I will teach him to like it.",
+        "requires": [
+          "detail"
+        ],
+        "mood": "guarded"
+      },
+      {
+        "id": "gentle",
+        "q": "Take a breath. What do you need me to understand?",
+        "a": "Goes outside without authorization to search shelters; conceals that from officials.",
+        "tone": "gentle",
+        "group": "approach",
+        "mood": "open"
+      },
+      {
+        "id": "press",
+        "q": "I need an explanation, not a rehearsed answer.",
+        "a": "The visitor looks at the recorder before answering. “Then turn that off before you ask me to trust you.”",
+        "tone": "press",
+        "group": "approach",
+        "mood": "defensive"
+      }
+    ],
+    "archive": "Nessa’s retained family note: toy tram named WINDOW. Lio dislikes Little Lion. The officer’s private file has recently been opened by the census service.",
+    "call": "June: “Nessa is at the laundry asking about a lost coat. She has not left in an hour. Ask her about Window, not something from the census.”",
+    "hold": "A second paper arrives from the outer desk. Nessa’s retained family note: toy tram named WINDOW. Lio dislikes Little Lion. The officer’s private file has recently been opened by the census service.",
+    "disposition": "ordinary",
+    "event": "private-call",
+    "evidence": "",
+    "evidenceLabel": "",
+    "evidenceText": "",
+    "memoryKey": "",
+    "memoryText": "",
+    "resolution": "Knowledge of private records is not proof of authenticity. The family detail and independent current witness contradict this visitor.",
+    "onAdmitFlag": "",
+    "onDenyFlag": "",
+    "override": {},
+    "lethalDeny": false,
+    "reactions": []
+  },
+  {
+    "id": "n5-05-june",
+    "night": 5,
+    "resident": "june",
+    "truth": "human",
+    "anomalies": [
+      "travel"
+    ],
+    "title": "The longer road",
+    "opening": "The tram driver’s permit claims a two-minute return from the eastern shelter. June draws a line through the printed time before you have asked anything.",
+    "nodes": [
+      {
+        "id": "where",
+        "q": "Where have you been?",
+        "a": "The shelter road. Forty-two minutes, not two. I stopped at a blocked drain and brought people around the flooded part. The clerk used yesterday’s counterfoil.",
+        "mood": "guarded"
+      },
+      {
+        "id": "home",
+        "q": "Who is waiting for you upstairs?",
+        "a": "Partner works the west pumping station. I brought back everyone who was at the stop. That is the part I would like written down.",
+        "mood": "neutral"
+      },
+      {
+        "id": "detail",
+        "q": "How can I verify the journey?",
+        "a": "The tram’s mechanical roll. It records wheel turns. You can fake a ticket; you cannot get those wheels to cover the shelter road in two minutes without turning us all into paste.",
+        "mood": "uneasy"
+      },
+      {
+        "id": "follow",
+        "q": "What happens to people refused at the checkpoint?",
+        "a": "Some reach the shelters. Some wait under the overpass. Some disappear from the return list. That last phrase sounds cleaner than the work of finding them.",
+        "requires": [
+          "detail"
+        ],
+        "mood": "guarded"
+      },
+      {
+        "id": "gentle",
+        "q": "Take a breath. What do you need me to understand?",
+        "a": "I need you to remember there is no safe outside button on your desk.",
+        "tone": "gentle",
+        "group": "approach",
+        "mood": "open"
+      },
+      {
+        "id": "press",
+        "q": "I need an explanation, not a rehearsed answer.",
+        "a": "The visitor looks at the recorder before answering. “Then turn that off before you ask me to trust you.”",
+        "tone": "press",
+        "group": "approach",
+        "mood": "defensive"
+      }
+    ],
+    "archive": "Tram tachograph and depot witness confirm 42-minute journey. Counterfoil printing error established by sequential roll numbers.",
+    "call": "Bea: “I rode the service board to the flooded drain. June stopped for everyone. The permit has the wrong time, not the wrong person.”",
+    "hold": "A second paper arrives from the outer desk. Tram tachograph and depot witness confirm 42-minute journey. Counterfoil printing error established by sequential roll numbers.",
+    "disposition": "ordinary",
+    "event": "",
+    "evidence": "",
+    "evidenceLabel": "",
+    "evidenceText": "",
+    "memoryKey": "",
+    "memoryText": "",
+    "resolution": "Independent mechanical evidence explains the impossible printed journey.",
+    "onAdmitFlag": "tram-ready",
+    "onDenyFlag": "",
+    "override": {},
+    "lethalDeny": false,
+    "reactions": []
+  },
+  {
+    "id": "n5-06-emil",
+    "night": 5,
+    "resident": "emil",
+    "truth": "human",
+    "anomalies": [
+      "phrase"
+    ],
+    "title": "The kettle",
+    "opening": "Emil repeats the emergency slogan under his breath. Then he notices himself doing it and looks more frightened than he did outside.",
+    "nodes": [
+      {
+        "id": "where",
+        "q": "Where have you been?",
+        "a": "The transmitter shed. The public-address tone leaks into an unused band. I spent an hour listening before I realized I was saying the words along with it.",
+        "mood": "guarded"
+      },
+      {
+        "id": "home",
+        "q": "Who is waiting for you upstairs?",
+        "a": "Neighbour and emergency contact: Ruth Sable. A noise is a message only after somebody agrees what to listen for.",
+        "mood": "neutral"
+      },
+      {
+        "id": "detail",
+        "q": "Why repeat the same phrase?",
+        "a": "Because it is being broadcast. Not because I believe it. I wrote down the carrier frequency so I could stop listening. Some of my theories are rubbish, Ellis. Please distinguish that from this measurement.",
+        "mood": "uneasy"
+      },
+      {
+        "id": "follow",
+        "q": "Can a warning get outside Meridian?",
+        "a": "Bea can carry paper to the eastern press. My transmitter can reach them if we keep the speaker feeder off the antenna. Put the kettle on, my wife used to say. I would like it to mean something useful once more.",
+        "requires": [
+          "detail"
+        ],
+        "mood": "guarded"
+      },
+      {
+        "id": "gentle",
+        "q": "Take a breath. What do you need me to understand?",
+        "a": "Collects stolen wire and sees conspiracies in ordinary clerical mistakes.",
+        "tone": "gentle",
+        "group": "approach",
+        "mood": "open"
+      },
+      {
+        "id": "press",
+        "q": "I need an explanation, not a rehearsed answer.",
+        "a": "The visitor looks at the recorder before answering. “Then turn that off before you ask me to trust you.”",
+        "tone": "press",
+        "group": "approach",
+        "mood": "defensive"
+      }
+    ],
+    "archive": "Independent frequency chart shows census carrier bleeding into emergency radio. Transmitter can reach eastern press on a separate antenna; not the census speaker wire.",
+    "call": "Ruth: “He was muttering the slogan at dinner too. Then he turned the receiver off and stopped. He is still Emil. Ask about the kettle.”",
+    "hold": "A second paper arrives from the outer desk. Independent frequency chart shows census carrier bleeding into emergency radio. Transmitter can reach eastern press on a separate antenna; not the census speaker wire.",
+    "disposition": "ordinary",
+    "event": "",
+    "evidence": "broadcast",
+    "evidenceLabel": "Independent transmitter route",
+    "evidenceText": "Emil’s antenna reaches the eastern press without using the census speaker feeder. Bea can deliver a physical duplicate.",
+    "memoryKey": "",
+    "memoryText": "",
+    "resolution": "Exposure to a repetitive broadcast explains the phrase. The independent carrier chart and private memory corroborate him.",
+    "onAdmitFlag": "radio-ready",
+    "onDenyFlag": "",
+    "override": {},
+    "lethalDeny": false,
+    "reactions": []
+  },
+  {
+    "id": "n5-07-dalia",
+    "night": 5,
+    "resident": "dalia",
+    "truth": "human",
+    "anomalies": [],
+    "title": "The reference person",
+    "opening": "Kest has removed the department title from her badge. The glue has left a rectangle paler than the rest of the plastic.",
+    "nodes": [
+      {
+        "id": "where",
+        "q": "Where have you been?",
+        "a": "The containment laboratory. I was asked to calibrate against a photograph of somebody who had not yet been detained. That should have been impossible. It was merely efficient.",
+        "mood": "guarded"
+      },
+      {
+        "id": "home",
+        "q": "Who is waiting for you upstairs?",
+        "a": "Lives alone; research colleague: Selene Holt. A measurement can be accurate and the question it answers can still be wrong.",
+        "mood": "neutral"
+      },
+      {
+        "id": "detail",
+        "q": "Does the system create Reproductions?",
+        "a": "It does not create them from nothing. The rain leaves a capacity to repeat. The census gives it names, addresses and corrections. We thought we were detecting a difference. Sometimes we were teaching the difference to disappear.",
+        "mood": "uneasy"
+      },
+      {
+        "id": "follow",
+        "q": "Does that make every Echo dangerous?",
+        "a": "No. It makes our confidence dangerous. Some returns have lived quietly for years. Some learn only how to open doors. You need conduct, witnesses and history. None is perfect. Together they are better than my meter.",
+        "requires": [
+          "detail"
+        ],
+        "mood": "guarded"
+      },
+      {
+        "id": "gentle",
+        "q": "Take a breath. What do you need me to understand?",
+        "a": "I need you to know I understood too late. That is not an excuse. It is simply the part I can no longer edit.",
+        "tone": "gentle",
+        "group": "approach",
+        "mood": "open"
+      },
+      {
+        "id": "press",
+        "q": "I need an explanation, not a rehearsed answer.",
+        "a": "The visitor looks at the recorder before answering. “Then turn that off before you ask me to trust you.”",
+        "tone": "press",
+        "group": "approach",
+        "mood": "defensive"
+      }
+    ],
+    "archive": "Lab protocol describes reference photographs applied BEFORE containment. The revision date predates the official discovery of Reproductions.",
+    "call": "Anja: “Kest asked me which circuit feeds the loudspeakers. She explicitly told me not to touch ventilation. She is trying to stop something, not shut us down.”",
+    "hold": "A second paper arrives from the outer desk. Lab protocol describes reference photographs applied BEFORE containment. The revision date predates the official discovery of Reproductions.",
+    "disposition": "ordinary",
+    "event": "",
+    "evidence": "protocol",
+    "evidenceLabel": "Pre-containment reference protocol",
+    "evidenceText": "The programme applies identity references before detaining people. The census can shape the phenomenon it claims only to detect.",
+    "memoryKey": "",
+    "memoryText": "",
+    "resolution": "Dalia admits complicity and supplies evidence. Her moral guilt is not an identity anomaly.",
+    "onAdmitFlag": "",
+    "onDenyFlag": "",
+    "override": {},
+    "lethalDeny": false,
+    "reactions": []
+  },
+  {
+    "id": "n6-01-orin",
+    "night": 6,
+    "resident": "orin",
+    "truth": "peaceful",
+    "anomalies": [
+      "temperature"
+    ],
+    "title": "The one who tells you",
+    "opening": "Orin places both hands where you can see them. “Before you read the card: I returned in the rain. I do not think I am the person whose name is on it.”",
+    "nodes": [
+      {
+        "id": "where",
+        "q": "Where have you been?",
+        "a": "The roof garden. I left Ruth an orange. It was sour again. I wanted to be able to say I had improved at something before coming here.",
+        "mood": "guarded"
+      },
+      {
+        "id": "home",
+        "q": "Who is waiting for you upstairs?",
+        "a": "Lives alone; Ruth is a close friend. I do not think a memory becomes less kind because it was borrowed.",
+        "mood": "neutral"
+      },
+      {
+        "id": "detail",
+        "q": "Are you saying you are a Reproduction?",
+        "a": "Yes. I know that word has a button on your desk. I have never taken anyone into the rain. I have grown food, repaired windows and avoided this conversation for five years. You should verify all three claims.",
+        "mood": "uneasy"
+      },
+      {
+        "id": "follow",
+        "q": "What would supervised entry mean to you?",
+        "a": "People knowing what I am. People being able to ask me questions. Not a photograph used to turn me into a better version of somebody who died. I would accept observation. I would not accept being rewritten.",
+        "requires": [
+          "detail"
+        ],
+        "mood": "guarded"
+      },
+      {
+        "id": "gentle",
+        "q": "Take a breath. What do you need me to understand?",
+        "a": "I need you to ask whether I agree before you decide what I should become.",
+        "tone": "gentle",
+        "group": "approach",
+        "mood": "open"
+      },
+      {
+        "id": "press",
+        "q": "I need an explanation, not a rehearsed answer.",
+        "a": "The visitor looks at the recorder before answering. “Then turn that off before you ask me to trust you.”",
+        "tone": "press",
+        "group": "approach",
+        "mood": "defensive"
+      }
+    ],
+    "archive": "Kitchen and garden logs corroborate five years without disappearances or violence. High phase reading predates tonight. Demister log explains dry glass but not the scanner; the visitor openly discloses being a return.",
+    "call": "Ruth: “I knew before I knew the word. He stayed when my husband died. I am not asking you to call him human. I am asking what the word is supposed to decide.”",
+    "hold": "A second paper arrives from the outer desk. Kitchen and garden logs corroborate five years without disappearances or violence. High phase reading predates tonight. Demister log explains dry glass but not the scanner; the visitor openly discloses being a return.",
+    "disposition": "ordinary",
+    "event": "",
+    "evidence": "consent",
+    "evidenceLabel": "Orin’s voluntary testimony",
+    "evidenceText": "Orin discloses being a return and accepts observation, not compulsory rewriting. Ruth’s five-year kitchen record corroborates his conduct.",
+    "memoryKey": "",
+    "memoryText": "",
+    "resolution": "Orin is a disclosed, independently corroborated non-hostile Echo. Voluntary supervised admission is possible; containment would harm a cooperative person.",
+    "onAdmitFlag": "consent-accepted",
+    "onDenyFlag": "",
+    "override": {},
+    "lethalDeny": false,
+    "reactions": []
+  },
+  {
+    "id": "n6-02-micah",
+    "night": 6,
+    "resident": "micah",
+    "truth": "hostile",
+    "anomalies": [
+      "recognition"
+    ],
+    "title": "Three bells",
+    "opening": "The archivist’s photograph is perfect. His voice is perfect. He asks whether you kept the canister, then asks exactly the same question again.",
+    "nodes": [
+      {
+        "id": "where",
+        "q": "Where have you been?",
+        "a": "The archive. The three flood bells rang. I evacuated as required. All original records have been preserved in the census, which is more reliable than film.",
+        "mood": "guarded"
+      },
+      {
+        "id": "home",
+        "q": "Who is waiting for you upstairs?",
+        "a": "Cousin: Selene Holt. History is what survives the next office clean-out.",
+        "mood": "neutral"
+      },
+      {
+        "id": "detail",
+        "q": "What was the third bell?",
+        "a": "The third flood bell. There are three. The safety sheet lists three signals and I have learned all three. You can ask again, but the answer will remain correct.",
+        "mood": "uneasy"
+      },
+      {
+        "id": "follow",
+        "q": "Why would an archivist prefer the census to film?",
+        "a": "Film can retain obsolete errors. The census removes them. You have old notes on your desk. I can dispose of them for you.",
+        "requires": [
+          "detail"
+        ],
+        "mood": "guarded"
+      },
+      {
+        "id": "gentle",
+        "q": "Take a breath. What do you need me to understand?",
+        "a": "Has stolen archive film and is carrying an altered authorization to escape with it.",
+        "tone": "gentle",
+        "group": "approach",
+        "mood": "open"
+      },
+      {
+        "id": "press",
+        "q": "I need an explanation, not a rehearsed answer.",
+        "a": "The visitor looks at the recorder before answering. “Then turn that off before you ask me to trust you.”",
+        "tone": "press",
+        "group": "approach",
+        "mood": "defensive"
+      }
+    ],
+    "archive": "Equipment maintenance record: TWO alarm bells; third sound is cooling pump. Retained conversation from night three independently matches this distinction.",
+    "call": "Selene: “Micah called me from the service passage. He said someone carrying an empty canister was looking for him. Ask about the pump.”",
+    "hold": "A second paper arrives from the outer desk. Equipment maintenance record: TWO alarm bells; third sound is cooling pump. Retained conversation from night three independently matches this distinction.",
+    "disposition": "ordinary",
+    "event": "duplicate",
+    "evidence": "",
+    "evidenceLabel": "",
+    "evidenceText": "",
+    "memoryKey": "",
+    "memoryText": "",
+    "resolution": "The flawless visitor lacks a small lived distinction corroborated by equipment records and an earlier conversation.",
+    "onAdmitFlag": "",
+    "onDenyFlag": "",
+    "override": {},
+    "lethalDeny": false,
+    "reactions": []
+  },
+  {
+    "id": "n6-03-micah",
+    "night": 6,
+    "resident": "micah",
+    "truth": "human",
+    "anomalies": [
+      "mole"
+    ],
+    "title": "The face under the bandage",
+    "opening": "The second Micah is wearing a bandage large enough to hide his dimple. He has no film canister. “I think I just passed my replacement at the tram lane.”",
+    "nodes": [
+      {
+        "id": "where",
+        "q": "Where have you been?",
+        "a": "The service passage. I kept walking until the pump stopped sounding like a bell. Someone hit me in the corridor. I do not know whether he was human. I am tired of pretending violence answers that question.",
+        "mood": "guarded"
+      },
+      {
+        "id": "home",
+        "q": "Who is waiting for you upstairs?",
+        "a": "Cousin: Selene Holt. History is what survives the next office clean-out.",
+        "mood": "neutral"
+      },
+      {
+        "id": "detail",
+        "q": "Your distinguishing feature is covered.",
+        "a": "The clinic dressing covers it. There is a photograph taken before they wrapped it. Ask Mara’s ward. Please do not pull it off to make the file happy.",
+        "mood": "uneasy"
+      },
+      {
+        "id": "follow",
+        "q": "How many alarm bells does the archive have?",
+        "a": "Two. The other noise is the cooling pump. It has a bearing going bad. I filed a maintenance request twice, which is why I know the difference better than my own birthday.",
+        "requires": [
+          "detail"
+        ],
+        "mood": "guarded"
+      },
+      {
+        "id": "gentle",
+        "q": "Take a breath. What do you need me to understand?",
+        "a": "I need one thing tonight to remain where I left it.",
+        "tone": "gentle",
+        "group": "approach",
+        "mood": "open"
+      },
+      {
+        "id": "press",
+        "q": "I need an explanation, not a rehearsed answer.",
+        "a": "The visitor looks at the recorder before answering. “Then turn that off before you ask me to trust you.”",
+        "tone": "press",
+        "group": "approach",
+        "mood": "defensive"
+      }
+    ],
+    "archive": "Fresh clinic photograph shows right cheek dimple below injury. Paper maintenance request, signed Micah, distinguishes two alarm bells from cooling pump.",
+    "call": "Clinic charge confirms dressing and supplies the photograph; no new identity card has been issued.",
+    "hold": "A second paper arrives from the outer desk. Fresh clinic photograph shows right cheek dimple below injury. Paper maintenance request, signed Micah, distinguishes two alarm bells from cooling pump.",
+    "disposition": "ordinary",
+    "event": "",
+    "evidence": "",
+    "evidenceLabel": "",
+    "evidenceText": "",
+    "memoryKey": "",
+    "memoryText": "",
+    "resolution": "The covered feature is explained by independent clinical evidence. The fresh detail and original maintenance request distinguish this Micah from the earlier visitor.",
+    "onAdmitFlag": "archive-safe",
+    "onDenyFlag": "",
+    "override": {},
+    "lethalDeny": false,
+    "reactions": []
+  },
+  {
+    "id": "n6-04-ruth",
+    "night": 6,
+    "resident": "ruth",
+    "truth": "human",
+    "anomalies": [
+      "recognition"
+    ],
+    "title": "A neighbour, not a category",
+    "opening": "Ruth lays down her card beside a ration ledger. On its first page is a fruit stain older than the plastic cover.",
+    "nodes": [
+      {
+        "id": "where",
+        "q": "Where have you been?",
+        "a": "The garden. Orin was not there. I picked up the orange he left and then came here, because I think I know where people go when they decide to be honest.",
+        "mood": "guarded"
+      },
+      {
+        "id": "home",
+        "q": "Who is waiting for you upstairs?",
+        "a": "Lives alone; feeds most of floor E. Hungry people are not an accounting error.",
+        "mood": "neutral"
+      },
+      {
+        "id": "detail",
+        "q": "The current file does not list Orin as a contact.",
+        "a": "Then the current file has never eaten at my table. His name is on that ledger more often than mine. Look at the dates, not just the names.",
+        "mood": "uneasy"
+      },
+      {
+        "id": "follow",
+        "q": "When did you first suspect what he was?",
+        "a": "When he asked me what an orange tasted like. The old Orin loved them. This one listened while I told him. Five years later he is still trying to grow a sweet one for me. I do not know how to call that a threat.",
+        "requires": [
+          "detail"
+        ],
+        "mood": "guarded"
+      },
+      {
+        "id": "gentle",
+        "q": "Take a breath. What do you need me to understand?",
+        "a": "I need his name to mean the person who brings oranges, not the thing you are frightened of.",
+        "tone": "gentle",
+        "group": "approach",
+        "mood": "open"
+      },
+      {
+        "id": "press",
+        "q": "I need an explanation, not a rehearsed answer.",
+        "a": "The visitor looks at the recorder before answering. “Then turn that off before you ask me to trust you.”",
+        "tone": "press",
+        "group": "approach",
+        "mood": "defensive"
+      }
+    ],
+    "archive": "Ruth’s kitchen ledger independently documents Orin since October 1984. Current emergency-contact list was rebuilt from an older form and omitted him.",
+    "call": "Celia: “Ruth is telling you what she has seen. She is not pretending that makes a universal rule. I would like administration to learn the distinction.”",
+    "hold": "A second paper arrives from the outer desk. Ruth’s kitchen ledger independently documents Orin since October 1984. Current emergency-contact list was rebuilt from an older form and omitted him.",
+    "disposition": "ordinary",
+    "event": "",
+    "evidence": "garden",
+    "evidenceLabel": "Five years of kitchen ledgers",
+    "evidenceText": "Dated kitchen entries independently record Orin bringing food since 1984. No linked disappearances, coercion or violence is recorded.",
+    "memoryKey": "",
+    "memoryText": "",
+    "resolution": "The contact omission belongs to the file, not Ruth’s memory. Her evidence strengthens Orin’s conduct history.",
+    "onAdmitFlag": "",
+    "onDenyFlag": "",
+    "override": {},
+    "lethalDeny": false,
+    "reactions": []
+  },
+  {
+    "id": "n6-05-pavel",
+    "night": 6,
+    "resident": "pavel",
+    "truth": "human",
+    "anomalies": [
+      "temperature"
+    ],
+    "title": "A reading in the red",
+    "opening": "Pavel has brought no cup. His coat is buttoned incorrectly. “I thought leaving it at home would make it easier.”",
+    "nodes": [
+      {
+        "id": "where",
+        "q": "Where have you been?",
+        "a": "The memorial wall. Again. There is no surprising destination. I am sorry to be a repetitive person during an emergency.",
+        "mood": "guarded"
+      },
+      {
+        "id": "home",
+        "q": "Who is waiting for you upstairs?",
+        "a": "Lives alone; wife and daughter deceased. There are questions people answer wrongly because the answer hurts.",
+        "mood": "neutral"
+      },
+      {
+        "id": "detail",
+        "q": "Why is your temperature so high?",
+        "a": "Fever. The clinic gave me tablets. I took them late because I thought I could finish visiting first. The demister has dried the glass; I know you will look at that too.",
+        "mood": "uneasy"
+      },
+      {
+        "id": "follow",
+        "q": "What do you think of people returning?",
+        "a": "I used to want my daughter back at any price. Now I think I would owe the person who arrived a question about what she wanted. That is not the answer I expected to grow old enough to give.",
+        "requires": [
+          "detail"
+        ],
+        "mood": "guarded"
+      },
+      {
+        "id": "gentle",
+        "q": "Take a breath. What do you need me to understand?",
+        "a": "I need to be allowed to be confused without being made into somebody else.",
+        "tone": "gentle",
+        "group": "approach",
+        "mood": "open"
+      },
+      {
+        "id": "press",
+        "q": "I need an explanation, not a rehearsed answer.",
+        "a": "The visitor looks at the recorder before answering. “Then turn that off before you ask me to trust you.”",
+        "tone": "press",
+        "group": "approach",
+        "mood": "defensive"
+      }
+    ],
+    "archive": "Clinical temperature 39.1°C, fever treatment documented. Scanner interference warning includes fever. Dry interview glass explained by demister, not lack of breath.",
+    "call": "Ada: “He left the cup with me. I told him he did not have to prove he remembered her every night.”",
+    "hold": "A second paper arrives from the outer desk. Clinical temperature 39.1°C, fever treatment documented. Scanner interference warning includes fever. Dry interview glass explained by demister, not lack of breath.",
+    "disposition": "ordinary",
+    "event": "",
+    "evidence": "",
+    "evidenceLabel": "",
+    "evidenceText": "",
+    "memoryKey": "",
+    "memoryText": "",
+    "resolution": "The alarming reading has a corroborated clinical explanation. The scanner is not a moral or identity oracle.",
+    "onAdmitFlag": "",
+    "onDenyFlag": "",
+    "override": {},
+    "lethalDeny": false,
+    "reactions": []
+  },
+  {
+    "id": "n6-06-anja",
+    "night": 6,
+    "resident": "anja",
+    "truth": "human",
+    "anomalies": [],
+    "title": "The wire that matters",
+    "opening": "Anja unrolls a hand-drawn circuit diagram over the tray. Someone has tried to stamp it CONFISCATED. The stamp missed the paper.",
+    "nodes": [
+      {
+        "id": "where",
+        "q": "Where have you been?",
+        "a": "The speaker junction. The census feeder is separate from ventilation. I tested continuity with the cabinet physically disconnected. I am not asking you to trust a label.",
+        "mood": "guarded"
+      },
+      {
+        "id": "home",
+        "q": "Who is waiting for you upstairs?",
+        "a": "Lives with unnamed younger brother. Labels are suggestions. Voltage is not.",
+        "mood": "neutral"
+      },
+      {
+        "id": "detail",
+        "q": "Which connection can be cut safely?",
+        "a": "C. Census feeder C. A keeps the air moving; B is the alarm loop. The printed diagram swaps A and C. Tomas witnessed the meter test. Write the distinction somewhere a green line cannot get at it.",
+        "mood": "uneasy"
+      },
+      {
+        "id": "follow",
+        "q": "Can you keep the doors working afterwards?",
+        "a": "With Tomas at the manual relay and enough people willing to hold them. This is not a button that makes everything safe. It is a way to stop the building making our decisions for us.",
+        "requires": [
+          "detail"
+        ],
+        "mood": "guarded"
+      },
+      {
+        "id": "gentle",
+        "q": "Take a breath. What do you need me to understand?",
+        "a": "Carries unauthorized copper jumpers and a tool that makes the scanner sing.",
+        "tone": "gentle",
+        "group": "approach",
+        "mood": "open"
+      },
+      {
+        "id": "press",
+        "q": "I need an explanation, not a rehearsed answer.",
+        "a": "The visitor looks at the recorder before answering. “Then turn that off before you ask me to trust you.”",
+        "tone": "press",
+        "group": "approach",
+        "mood": "defensive"
+      }
+    ],
+    "archive": "Independent continuity test signed by Anja and Tomas: A VENTILATION; B ALARM; C CENSUS. Disconnecting C leaves air and manual door power intact.",
+    "call": "Tomas: “I held the meter. C is the feeder. I will be at the relay if you need me and if your door lets me get there.”",
+    "hold": "A second paper arrives from the outer desk. Independent continuity test signed by Anja and Tomas: A VENTILATION; B ALARM; C CENSUS. Disconnecting C leaves air and manual door power intact.",
+    "disposition": "ordinary",
+    "event": "",
+    "evidence": "circuit",
+    "evidenceLabel": "Witnessed A/B/C continuity test",
+    "evidenceText": "A = ventilation, B = alarm, C = census feeder. Anja measured the isolated circuit; Tomas witnessed it. The official drawing swaps A and C.",
+    "memoryKey": "",
+    "memoryText": "",
+    "resolution": "Anja brings independently witnessed electrical evidence. The final disconnect must preserve ventilation.",
+    "onAdmitFlag": "anja-ready",
+    "onDenyFlag": "",
+    "override": {},
+    "lethalDeny": false,
+    "reactions": []
+  },
+  {
+    "id": "n6-07-ada",
+    "night": 6,
+    "resident": "ada",
+    "truth": "hostile",
+    "anomalies": [
+      "forbidden-knowledge"
+    ],
+    "title": "The price of a boat",
+    "opening": "Ada waits at the window with no umbrella. “You were so small when you came back, Ellis. I remember what the penny bought.”",
+    "nodes": [
+      {
+        "id": "where",
+        "q": "Where have you been?",
+        "a": "The memorial garden. Lucet’s boats were good boats. She sold them for a penny each. You bought one when you returned and she explained the transaction.",
+        "mood": "guarded"
+      },
+      {
+        "id": "home",
+        "q": "Who is waiting for you upstairs?",
+        "a": "Lives alone; Ruth brings supper. I know a thousand voices, love. Faces are the difficult bit.",
+        "mood": "neutral"
+      },
+      {
+        "id": "detail",
+        "q": "What was the penny actually for?",
+        "a": "Payment. A small object assigned a small value. You are sentimental about the transaction because you were young. That is a normal resident response.",
+        "mood": "uneasy"
+      },
+      {
+        "id": "follow",
+        "q": "Where is Lucet now?",
+        "a": "Her entry has been consolidated. She is available wherever the census requires her. You should not be distressed. The building never has to lose anyone again.",
+        "requires": [
+          "detail"
+        ],
+        "mood": "guarded"
+      },
+      {
+        "id": "gentle",
+        "q": "Take a breath. What do you need me to understand?",
+        "a": "Her hearing aid whistles against the intercom. She sometimes answers the question she expected, not the one asked.",
+        "tone": "gentle",
+        "group": "approach",
+        "mood": "open"
+      },
+      {
+        "id": "press",
+        "q": "I need an explanation, not a rehearsed answer.",
+        "a": "The visitor looks at the recorder before answering. “Then turn that off before you ask me to trust you.”",
+        "tone": "press",
+        "group": "approach",
+        "mood": "defensive"
+      }
+    ],
+    "archive": "Ada’s personal book: pennies weighted badly folded boats; Lucet did not sell them. The paper note predates the player’s employment file.",
+    "call": "Ruth: “Ada is here with Pavel. She insisted I tell you the coin was ballast, not payment. She said you would know why.”",
+    "hold": "A second paper arrives from the outer desk. Ada’s personal book: pennies weighted badly folded boats; Lucet did not sell them. The paper note predates the player’s employment file.",
+    "disposition": "ordinary",
+    "event": "private-call",
+    "evidence": "",
+    "evidenceLabel": "",
+    "evidenceText": "",
+    "memoryKey": "",
+    "memoryText": "",
+    "resolution": "This visitor has official private details but misinterprets an unrecorded lived memory. An independent caller confirms Ada is elsewhere.",
+    "onAdmitFlag": "",
+    "onDenyFlag": "",
+    "override": {},
+    "lethalDeny": false,
+    "reactions": []
+  },
+  {
+    "id": "n7-01-tomas",
+    "night": 7,
+    "resident": "tomas",
+    "truth": "human",
+    "anomalies": [],
+    "title": "The manual relay",
+    "opening": "Tomas has brought a wooden bird. He leaves it on the desk, on your side. “It is not a bribe. I wanted one thing tonight to be made for no practical reason.”",
+    "nodes": [
+      {
+        "id": "where",
+        "q": "Where have you been?",
+        "a": "The door relay room. We can still open the inner door by hand after C is disconnected. It will take two people. Anja thinks I should stop treating that as a flaw.",
+        "mood": "guarded"
+      },
+      {
+        "id": "home",
+        "q": "Who is waiting for you upstairs?",
+        "a": "Son: Ivo Rusk. A door is never safe because it is shut. You need to know what the hinges are doing.",
+        "mood": "neutral"
+      },
+      {
+        "id": "detail",
+        "q": "Will cutting C affect life support?",
+        "a": "No. We tested it in isolation. A is ventilation. C is the census feeder. The official diagram is wrong. I am saying it twice because a wrong wire would make all our good intentions irrelevant.",
+        "mood": "uneasy"
+      },
+      {
+        "id": "follow",
+        "q": "Why help me after the decisions I have made?",
+        "a": "Depends which decisions. I am here because there is still an Ivo to come home to, or because there should have been. Neither is a reason to let the building decide the next child.",
+        "requires": [
+          "detail"
+        ],
+        "mood": "guarded"
+      },
+      {
+        "id": "gentle",
+        "q": "Take a breath. What do you need me to understand?",
+        "a": "I need you to keep your hands steady at the junction. Being right about the story will not stop you cutting the wrong wire.",
+        "tone": "gentle",
+        "group": "approach",
+        "mood": "open"
+      },
+      {
+        "id": "press",
+        "q": "I need an explanation, not a rehearsed answer.",
+        "a": "The visitor looks at the recorder before answering. “Then turn that off before you ask me to trust you.”",
+        "tone": "press",
+        "group": "approach",
+        "mood": "defensive"
+      }
+    ],
+    "archive": "Manual relay test passes. A/B/C continuity map agrees with Anja’s retained signed copy. No external power is required to unlock the inner latch.",
+    "call": "Anja: “He is ready. Two people, one handle each. No heroic shortcut.”",
+    "hold": "A second paper arrives from the outer desk. Manual relay test passes. A/B/C continuity map agrees with Anja’s retained signed copy. No external power is required to unlock the inner latch.",
+    "disposition": "ordinary",
+    "event": "",
+    "evidence": "",
+    "evidenceLabel": "",
+    "evidenceText": "",
+    "memoryKey": "",
+    "memoryText": "",
+    "resolution": "Tomas’s identity and electrical account are corroborated. Admitting him makes the manual relay crew available.",
+    "onAdmitFlag": "relay-ready",
+    "onDenyFlag": "",
+    "override": {},
+    "lethalDeny": false,
+    "reactions": []
+  },
+  {
+    "id": "n7-02-lio",
+    "night": 7,
+    "resident": "lio",
+    "truth": "human",
+    "anomalies": [],
+    "title": "A room missing from the map",
+    "opening": "Lio unfolds a map of Meridian drawn on the back of a school worksheet. It includes a room the official plan insists is solid concrete.",
+    "nodes": [
+      {
+        "id": "where",
+        "q": "Where have you been?",
+        "a": "The inner stair landing. June showed me the service path. I was supposed to wait. I know. People keep saying that as though waiting is always the safe thing.",
+        "mood": "guarded"
+      },
+      {
+        "id": "home",
+        "q": "Who is waiting for you upstairs?",
+        "a": "Mother: Nessa Vale. The room on the map has a door. The room in the building does not.",
+        "mood": "neutral"
+      },
+      {
+        "id": "detail",
+        "q": "What is in the room you added?",
+        "a": "Chairs. A radio. Photographs facing the chairs. No beds. It is on the floor where they take people to make sure they are themselves.",
+        "mood": "uneasy"
+      },
+      {
+        "id": "follow",
+        "q": "How did you know the map was wrong?",
+        "a": "Because there is a door. You cannot tell me it is a wall while I am looking through it. Grown-ups do that with names too.",
+        "requires": [
+          "detail"
+        ],
+        "mood": "guarded"
+      },
+      {
+        "id": "gentle",
+        "q": "Take a breath. What do you need me to understand?",
+        "a": "I need you to keep the door on the map even after I go upstairs.",
+        "tone": "gentle",
+        "group": "approach",
+        "mood": "open"
+      },
+      {
+        "id": "press",
+        "q": "I need an explanation, not a rehearsed answer.",
+        "a": "The visitor looks at the recorder before answering. “Then turn that off before you ask me to trust you.”",
+        "tone": "press",
+        "group": "approach",
+        "mood": "defensive"
+      }
+    ],
+    "archive": "Anja’s maintenance sketch independently marks an unlisted room beside the census feeder. Lio’s route matches the service stair, not a guessed apartment number.",
+    "call": "Nessa: “I told him to stay where June put him. I also told him not to let anybody take his name. I am learning those instructions can disagree.”",
+    "hold": "A second paper arrives from the outer desk. Anja’s maintenance sketch independently marks an unlisted room beside the census feeder. Lio’s route matches the service stair, not a guessed apartment number.",
+    "disposition": "ordinary",
+    "event": "",
+    "evidence": "room",
+    "evidenceLabel": "Lio’s unlisted interview room",
+    "evidenceText": "Lio’s map and Anja’s maintenance sketch independently mark a photo-and-speaker room beside the census feeder, absent from official plans.",
+    "memoryKey": "",
+    "memoryText": "",
+    "resolution": "The child’s unauthorized movement produced a verifiable observation. The map discrepancy is institutional.",
+    "onAdmitFlag": "",
+    "onDenyFlag": "",
+    "override": {},
+    "lethalDeny": false,
+    "reactions": []
+  },
+  {
+    "id": "n7-03-celia",
+    "night": 7,
+    "resident": "celia",
+    "truth": "hostile",
+    "anomalies": [
+      "phrase"
+    ],
+    "title": "Keep a seat",
+    "opening": "The council organizer has arrived with a stack of new ration books. “Keep a seat,” she says. “There will be exactly enough seats.”",
+    "nodes": [
+      {
+        "id": "where",
+        "q": "Where have you been?",
+        "a": "The council room. The synchronization will remove the need for appeals. A resident whose record is correct has nothing to appeal against. You can finally rest.",
+        "mood": "guarded"
+      },
+      {
+        "id": "home",
+        "q": "Who is waiting for you upstairs?",
+        "a": "Lives with three unnamed evacuees. Keeping people safe has to include keeping them people.",
+        "mood": "neutral"
+      },
+      {
+        "id": "detail",
+        "q": "How do you end a council meeting?",
+        "a": "Keep a seat. A seat belongs to a registered occupant. That is what I have always meant. Your notes may contain an earlier, less precise version.",
+        "mood": "uneasy"
+      },
+      {
+        "id": "follow",
+        "q": "What happens to people who do not agree to synchronization?",
+        "a": "Agreement is a temporary inconsistency. We will not need to keep a chair for them once they are corrected. Please admit me before you become attached to that wording.",
+        "requires": [
+          "detail"
+        ],
+        "mood": "guarded"
+      },
+      {
+        "id": "gentle",
+        "q": "Take a breath. What do you need me to understand?",
+        "a": "Signs paperwork for people who cannot read and sometimes covers their mistakes.",
+        "tone": "gentle",
+        "group": "approach",
+        "mood": "open"
+      },
+      {
+        "id": "press",
+        "q": "I need an explanation, not a rehearsed answer.",
+        "a": "The visitor looks at the recorder before answering. “Then turn that off before you ask me to trust you.”",
+        "tone": "press",
+        "group": "approach",
+        "mood": "defensive"
+      }
+    ],
+    "archive": "Retained meeting minutes in Celia’s hand: KEEP A CHAIR, including a paragraph about carrying it to absent people. Current council quorum places genuine Celia inside.",
+    "call": "Ruth: “The real Celia is at the kitchen table. She said to ask about the chair, and then said not to mistake a slogan for all the evidence you need.”",
+    "hold": "A second paper arrives from the outer desk. Retained meeting minutes in Celia’s hand: KEEP A CHAIR, including a paragraph about carrying it to absent people. Current council quorum places genuine Celia inside.",
+    "disposition": "ordinary",
+    "event": "order",
+    "evidence": "",
+    "evidenceLabel": "",
+    "evidenceText": "",
+    "memoryKey": "",
+    "memoryText": "",
+    "resolution": "The visitor offers coercion, changes a lived phrase and contradicts a current independent witness. Her perfect documents do not repair that.",
+    "onAdmitFlag": "",
+    "onDenyFlag": "",
+    "override": {},
+    "lethalDeny": false,
+    "reactions": []
+  },
+  {
+    "id": "n7-04-hadi",
+    "night": 7,
+    "resident": "hadi",
+    "truth": "human",
+    "anomalies": [],
+    "title": "The names that remain",
+    "opening": "Hadi brings the containment list without a cover sheet. “I took off the total. It made people stop reading the names.”",
+    "nodes": [
+      {
+        "id": "where",
+        "q": "Where have you been?",
+        "a": "The holding wing. Some people can still be released. Others will not come back because someone decided uncertainty was permission to stop asking.",
+        "mood": "guarded"
+      },
+      {
+        "id": "home",
+        "q": "Who is waiting for you upstairs?",
+        "a": "Lives alone; helps Pavel after memorial visits. The living deserve uncertainty. The dead deserve their names.",
+        "mood": "neutral"
+      },
+      {
+        "id": "detail",
+        "q": "Can I reverse an earlier quarantine?",
+        "a": "A living person can leave a room. The hours in that room do not disappear. Neither does what the room taught them about us. There is an appeal line in Communications. Use it while it still has someone on the other end.",
+        "mood": "uneasy"
+      },
+      {
+        "id": "follow",
+        "q": "Who should leave first if the building fails?",
+        "a": "The people who cannot get themselves to a door. Not the people with the most convincing documents. You will have to ask the others to help.",
+        "requires": [
+          "detail"
+        ],
+        "mood": "guarded"
+      },
+      {
+        "id": "gentle",
+        "q": "Take a breath. What do you need me to understand?",
+        "a": "I need your ledger to contain the people you hurt as carefully as the people you saved.",
+        "tone": "gentle",
+        "group": "approach",
+        "mood": "open"
+      },
+      {
+        "id": "press",
+        "q": "I need an explanation, not a rehearsed answer.",
+        "a": "The visitor looks at the recorder before answering. “Then turn that off before you ask me to trust you.”",
+        "tone": "press",
+        "group": "approach",
+        "mood": "defensive"
+      }
+    ],
+    "archive": "Containment appeal channel authenticated by Hadi’s signed roster. Release restores presence, not erased trauma. The player’s own orders are attached by encounter ID.",
+    "call": "Leon: “I will carry release orders to the wing. Send names, not a blanket instruction. I need to know who we are bringing back.”",
+    "hold": "A second paper arrives from the outer desk. Containment appeal channel authenticated by Hadi’s signed roster. Release restores presence, not erased trauma. The player’s own orders are attached by encounter ID.",
+    "disposition": "ordinary",
+    "event": "",
+    "evidence": "",
+    "evidenceLabel": "",
+    "evidenceText": "",
+    "memoryKey": "",
+    "memoryText": "",
+    "resolution": "Hadi’s authenticated list makes prior choices actionable. Innocent people are not just a final score.",
+    "onAdmitFlag": "rescue-ready",
+    "onDenyFlag": "",
+    "override": {},
+    "lethalDeny": false,
+    "reactions": []
+  },
+  {
+    "id": "n7-05-leon",
+    "night": 7,
+    "resident": "leon",
+    "truth": "human",
+    "anomalies": [
+      "expired"
+    ],
+    "title": "The officer without clearance",
+    "opening": "Leon’s service clearance has been revoked. He turns badge 047 over so you can see the bent clasp. “Pell says I have stopped being useful.”",
+    "nodes": [
+      {
+        "id": "where",
+        "q": "Where have you been?",
+        "a": "The holding wing. I refused to escort Selene to the reference room. He revoked my clearance over the radio. The pass is mine; the permission is not anymore.",
+        "mood": "guarded"
+      },
+      {
+        "id": "home",
+        "q": "Who is waiting for you upstairs?",
+        "a": "Official apartment A-021; sleeps at Mara’s B-112. Rules should survive questions. Otherwise they are only orders.",
+        "mood": "neutral"
+      },
+      {
+        "id": "detail",
+        "q": "Why should I admit a revoked officer?",
+        "a": "Because revocation is not identity. Verify me. Then decide whether you want me carrying people to the tram or standing here so Pell can say a procedure was followed.",
+        "mood": "uneasy"
+      },
+      {
+        "id": "follow",
+        "q": "Will you prevent a purge?",
+        "a": "I will refuse to carry it out. Whether that stops it depends on how many people still think refusal is possible. Your orders have made a difference to that, for better or worse.",
+        "requires": [
+          "detail"
+        ],
+        "mood": "guarded"
+      },
+      {
+        "id": "gentle",
+        "q": "Take a breath. What do you need me to understand?",
+        "a": "I need you to decide because you saw the evidence, not because I look like somebody who gives orders.",
+        "tone": "gentle",
+        "group": "approach",
+        "mood": "open"
+      },
+      {
+        "id": "press",
+        "q": "I need an explanation, not a rehearsed answer.",
+        "a": "The visitor looks at the recorder before answering. “Then turn that off before you ask me to trust you.”",
+        "tone": "press",
+        "group": "approach",
+        "mood": "defensive"
+      }
+    ],
+    "archive": "Revocation order concerns insubordination, not impersonation. Badge 047 bent clasp and independent patrol witness match genuine Leon.",
+    "call": "Mortuary line: “Morrow confirms Voss escorted living detainees to the appeal desk and refused a second transfer.”",
+    "hold": "A second paper arrives from the outer desk. Revocation order concerns insubordination, not impersonation. Badge 047 bent clasp and independent patrol witness match genuine Leon.",
+    "disposition": "ordinary",
+    "event": "",
+    "evidence": "",
+    "evidenceLabel": "",
+    "evidenceText": "",
+    "memoryKey": "",
+    "memoryText": "",
+    "resolution": "Leon is a human whose permissions were withdrawn for disobedience. His identity can still be verified.",
+    "onAdmitFlag": "leon-defies",
+    "onDenyFlag": "",
+    "override": {},
+    "lethalDeny": false,
+    "reactions": []
+  },
+  {
+    "id": "n7-06-dalia",
+    "night": 7,
+    "resident": "dalia",
+    "truth": "human",
+    "anomalies": [],
+    "title": "An uncorrected world",
+    "opening": "Kest removes the synchronization key from an envelope. “It only authorizes the transmission. It cannot tell you what to say.”",
+    "nodes": [
+      {
+        "id": "where",
+        "q": "Where have you been?",
+        "a": "The reference room. There are photographs of people who have not been born. The machine is no longer correcting yesterday. It is budgeting tomorrow.",
+        "mood": "guarded"
+      },
+      {
+        "id": "home",
+        "q": "Who is waiting for you upstairs?",
+        "a": "Lives alone; research colleague: Selene Holt. A measurement can be accurate and the question it answers can still be wrong.",
+        "mood": "neutral"
+      },
+      {
+        "id": "detail",
+        "q": "What happens if the feeder is disconnected?",
+        "a": "The census loses the signal it uses to impose a common reference. People already here remain here. The rain outside may continue. This is not a cure for the world. It is an end to one coercion.",
+        "mood": "uneasy"
+      },
+      {
+        "id": "follow",
+        "q": "What am I, according to the old file?",
+        "a": "A return recorded after an industrial accident in 1984. The original is presumed dead. Ada taught the person who arrived what the penny meant. I cannot tell you whether that makes you the same Ellis. I can tell you the last seven nights were your decisions.",
+        "requires": [
+          "detail"
+        ],
+        "mood": "guarded"
+      },
+      {
+        "id": "gentle",
+        "q": "Take a breath. What do you need me to understand?",
+        "a": "I need a world where being wrong does not authorize making everyone else identical.",
+        "tone": "gentle",
+        "group": "approach",
+        "mood": "open"
+      },
+      {
+        "id": "press",
+        "q": "I need an explanation, not a rehearsed answer.",
+        "a": "The visitor looks at the recorder before answering. “Then turn that off before you ask me to trust you.”",
+        "tone": "press",
+        "group": "approach",
+        "mood": "defensive"
+      }
+    ],
+    "archive": "Player file and 1984 film share return date. Accident report names Ellis Flint as presumed dead. Ada’s address book independently documents his return.",
+    "call": "Anja: “We have A isolated from C. No test result can choose for you now. That is rather the point.”",
+    "hold": "A second paper arrives from the outer desk. Player file and 1984 film share return date. Accident report names Ellis Flint as presumed dead. Ada’s address book independently documents his return.",
+    "disposition": "ordinary",
+    "event": "",
+    "evidence": "self",
+    "evidenceLabel": "Ellis Flint’s accident and return",
+    "evidenceText": "Independent accident report, 1984 film and Ada’s personal book record Ellis Flint’s death and subsequent return. Origin and conduct are different questions.",
+    "memoryKey": "",
+    "memoryText": "",
+    "resolution": "The player’s recorded origin does not erase responsibility for conduct. Dalia offers a way to stop compulsory correction without destroying life support.",
+    "onAdmitFlag": "key-held",
+    "onDenyFlag": "",
+    "override": {},
+    "lethalDeny": false,
+    "reactions": []
+  },
+  {
+    "id": "n7-07-orin",
+    "night": 7,
+    "resident": "orin",
+    "truth": "peaceful",
+    "anomalies": [],
+    "title": "The person at the window",
+    "opening": "Orin returns with one orange and no new paperwork. “I thought the final person you checked should be somebody who cannot make this easy for you.”",
+    "nodes": [
+      {
+        "id": "where",
+        "q": "Where have you been?",
+        "a": "The kitchen. Ruth cut the orange into pieces so more people could try it. She said it was a little sweeter. I think she was lying. I liked that she wanted to.",
+        "mood": "guarded"
+      },
+      {
+        "id": "home",
+        "q": "Who is waiting for you upstairs?",
+        "a": "Lives alone; Ruth is a close friend. I do not think a memory becomes less kind because it was borrowed.",
+        "mood": "neutral"
+      },
+      {
+        "id": "detail",
+        "q": "What will you do if the feeder stops?",
+        "a": "Go back to the garden. Learn what else I have remembered incorrectly. Ask people before replacing their memories with mine. It seems a reasonable life, even without a correct beginning.",
+        "mood": "uneasy"
+      },
+      {
+        "id": "follow",
+        "q": "What do you want the building to become?",
+        "a": "A place where an open door is an invitation, not a correction. I do not expect everyone to trust me tonight. I would like the opportunity to keep giving them reasons tomorrow.",
+        "requires": [
+          "detail"
+        ],
+        "mood": "guarded"
+      },
+      {
+        "id": "gentle",
+        "q": "Take a breath. What do you need me to understand?",
+        "a": "I need you not to turn a difficult answer into a person-shaped absence.",
+        "tone": "gentle",
+        "group": "approach",
+        "mood": "open"
+      },
+      {
+        "id": "press",
+        "q": "I need an explanation, not a rehearsed answer.",
+        "a": "The visitor looks at the recorder before answering. “Then turn that off before you ask me to trust you.”",
+        "tone": "press",
+        "group": "approach",
+        "mood": "defensive"
+      }
+    ],
+    "archive": "No new identity claim. Orin reiterates disclosed return status and voluntary observation. Conduct history remains independently corroborated by dated garden and kitchen records.",
+    "call": "Ruth: “Keep a chair. And do not let Celia hear I used her line.”",
+    "hold": "A second paper arrives from the outer desk. No new identity claim. Orin reiterates disclosed return status and voluntary observation. Conduct history remains independently corroborated by dated garden and kitchen records.",
+    "disposition": "ordinary",
+    "event": "",
+    "evidence": "",
+    "evidenceLabel": "",
+    "evidenceText": "",
+    "memoryKey": "",
+    "memoryText": "",
+    "resolution": "A disclosed non-hostile return asks for continuing consent and accountability, not a false declaration of humanity.",
+    "onAdmitFlag": "orin-final",
+    "onDenyFlag": "",
+    "override": {},
+    "lethalDeny": false,
+    "reactions": []
+  }
+];

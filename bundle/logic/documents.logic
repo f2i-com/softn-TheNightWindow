@@ -1,0 +1,107 @@
+// Construct only the current encounter's sources. Archived originals never share
+// object identity with mutable documents, so a terminal rewrite cannot alter paper.
+function nwDocuments(c, t) {
+    let r = nwResident(c.resident);
+    let original = { name: r.name, dob: r.dob, apartment: r.apartment, occupation: r.occupation, residentId: r.residentId,
+        eyes: r.eyes, feature: r.feature, clearance: r.clearance, blood: "O+", issuer: r.issuer };
+    let d = { card: nwClone(original), record: nwClone(original), permit: { serial: "RETURN-" + (4100 + r.visual) + "-" + c.night,
+            validUntil: "07 NOV 1989", issued: "22:31", authority: r.permitAuthority, signature: r.signature,
+            route: "Eastern shelter → checkpoint / 42 minutes", photoDate: "17 OCT 1984", seal: "SIXTEEN points / original die", window: "22:00–05:30" },
+        live: { eyes: r.eyes, feature: r.feature, hand: r.hand, pupils: "One round pupil per eye", ears: "Ear rims match intake sketch",
+            shadow: "One shadow under the overhead floodlamp", reflection: "Glass reflection follows the visitor",
+            teeth: "One row visible; other features match intake", temperature: "Condensation appears on the cold glass" },
+        statement: { knowledge: "", household: "", reply: "", memory: "" }, comms: { reply: "" }, original: original, portraitVariant: "base" };
+    d.record.whereabouts = "OUTSIDE / exit at 18:04";
+    d.record.lastEntry = "Previous shift / one admission";
+    d.record.schedule = r.schedule;
+    for (let i = 0; i < c.anomalies.length; i++) {
+        let a = nwAnomaly(c.anomalies[i]);
+        if (!a) {
+            continue;
+        }
+        let v = a.value.replace("{name}", r.name).replace("{otherHand}", r.hand === "left" ? "right" : "left");
+        if (a.id === "changed-record" && (!t || !t.rewritten)) {
+            continue;
+        }
+        d[a.target][a.field] = v;
+        if (a.target === "live") {
+            d.portraitVariant = a.id;
+        }
+    }
+    if (c.override) {
+        let ks = Object.keys(c.override);
+        for (let i = 0; i < ks.length; i++) {
+            d.card[ks[i]] = c.override[ks[i]];
+        }
+    }
+    // Authored props: actual deviations represented both in pixels and a caption.
+    if (c.id === "n4-06-leon") {
+        d.live.feature = r.feature + "; badge 047 has a STRAIGHT clasp";
+    }
+    if (c.id === "n6-03-micah") {
+        d.live.feature = "Clinic dressing over RIGHT cheek; dimple obscured";
+        d.portraitVariant = "bandage";
+    }
+    if (c.id === "n4-03-mara") {
+        d.live.feature = r.feature + "; fresh dressing on hand";
+        d.portraitVariant = "bandage";
+    }
+    if (c.id === "n5-03-selene" && t && t.rewritten) {
+        d.record.name = "Selene Holt / no current tenancy";
+    }
+    return d;
+}
+let NW_FIELD_LABELS = { name: "Full name", dob: "Date of birth", apartment: "Apartment", occupation: "Occupation", residentId: "Resident ID", eyes: "Eyes", feature: "Distinguishing feature", clearance: "Clearance", blood: "Blood record", issuer: "Issuing desk", serial: "Return serial", validUntil: "Valid through", issued: "Issue time", authority: "Authority", signature: "Signature", route: "Journey", photoDate: "Photograph date", seal: "Seal geometry", window: "Entry window", hand: "Writing hand", pupils: "Pupils", ears: "Ear profile", shadow: "Floodlamp shadow", reflection: "Glass reflection", teeth: "Visible teeth", temperature: "Breath on glass", knowledge: "Unprompted remark", household: "Claimed relationship", reply: "Spoken response", memory: "Claimed memory", whereabouts: "Current census status", lastEntry: "Last entry", schedule: "Usual schedule" };
+function nwFieldLabel(k) { return NW_FIELD_LABELS[k] || k; }
+function nwRows(d, source, keys) { let out = []; for (let i = 0; i < keys.length; i++) {
+    let k = keys[i];
+    if (d[source][k] !== undefined && d[source][k] !== "") {
+        out.push({ id: source + ":" + k, source: source, key: k, label: nwFieldLabel(k), value: "" + d[source][k] });
+    }
+} return out; }
+function nwFact(c, t, id) { let p = id.split(":"), d = nwDocuments(c, t); if (p.length !== 2 || !d[p[0]] || d[p[0]][p[1]] === undefined) {
+    return null;
+} return { id: id, source: p[0], key: p[1], label: nwFieldLabel(p[1]), value: "" + d[p[0]][p[1]] }; }
+function nwSelectFact(s, id) {
+    if (s.phase !== "desk" || s.turn.closed) {
+        return false;
+    }
+    let f = nwFact(nwCaseAt(s), s.turn, id);
+    if (!f) {
+        return false;
+    }
+    if (nwHas(s.turn.selected, id)) {
+        s.turn.selected = s.turn.selected.filter(function (v) { return v !== id; });
+    }
+    else {
+        if (s.turn.selected.length >= 2) {
+            s.turn.selected = [];
+        }
+        s.turn.selected.push(id);
+    }
+    return true;
+}
+function nwComparison(s) {
+    if (!s.turn || s.turn.selected.length !== 2) {
+        return "Select any two labeled facts to lay them side by side. A match is not proof; a mismatch is not a conviction.";
+    }
+    let c = nwCaseAt(s), a = nwFact(c, s.turn, s.turn.selected[0]), b = nwFact(c, s.turn, s.turn.selected[1]);
+    if (a.key === b.key) {
+        return a.value === b.value ? "The entries agree. Shared records can repeat a mistake; look for independent corroboration." : "The entries disagree. Ask about the difference, then look for an independently kept source.";
+    }
+    return "Different kinds of evidence. Read them together; do not treat the comparison tool as an identity test.";
+}
+function nwPin(s) {
+    if (s.phase !== "desk" || s.turn.closed || s.turn.selected.length !== 2) {
+        return false;
+    }
+    let c = nwCaseAt(s), a = nwFact(c, s.turn, s.turn.selected[0]), b = nwFact(c, s.turn, s.turn.selected[1]);
+    let text = a.source + " / " + a.label + ": " + a.value + " ↔ " + b.source + " / " + b.label + ": " + b.value;
+    if (nwHas(s.turn.pins, text)) {
+        return false;
+    }
+    s.turn.pins.push(text);
+    nwJournal(s, "COMPARISON / " + nwResident(c.resident).name, text);
+    s.investigations++;
+    return true;
+}

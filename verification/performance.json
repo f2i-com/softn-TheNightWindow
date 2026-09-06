@@ -1,0 +1,44 @@
+{
+  "environment": {
+    "engine": "Node/V8, not ZIPP",
+    "node": "v22.16.0",
+    "cpu": "AMD EPYC 9V74 80-Core Processor",
+    "platform": "linux"
+  },
+  "measurements": [
+    {
+      "name": "100 seeded case/document constructions",
+      "iterations": 100,
+      "p50_ms": 2.1754,
+      "p95_ms": 2.4251,
+      "max_ms": 2.5529
+    },
+    {
+      "name": "Refresh current native-UI projection",
+      "iterations": 300,
+      "p50_ms": 0.1283,
+      "p95_ms": 0.2757,
+      "max_ms": 2.6197
+    },
+    {
+      "name": "Autosave + checksum/backup + UI refresh",
+      "iterations": 300,
+      "p50_ms": 0.3113,
+      "p95_ms": 0.4465,
+      "max_ms": 0.9854
+    },
+    {
+      "name": "Decode and validate completed 49-case campaign",
+      "iterations": 300,
+      "p50_ms": 0.826,
+      "p95_ms": 1.0879,
+      "max_ms": 5.3953
+    }
+  ],
+  "sizes": {
+    "logicUtf8Bytes": 273680,
+    "firstCaseProjectionBytes": 11172,
+    "completeCampaignSaveBytes": 20918,
+    "journalEntries": 73
+  }
+}

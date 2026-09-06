@@ -1,0 +1,280 @@
+TAP version 13
+# Subtest: manifest enumerates every deployed asset and imports only existing relative source files
+ok 1 - manifest enumerates every deployed asset and imports only existing relative source files
+  ---
+  duration_ms: 12.330969
+  type: 'test'
+  ...
+# Subtest: all 300 resident portrait variants and six ending scenes resolve locally
+ok 2 - all 300 resident portrait variants and six ending scenes resolve locally
+  ---
+  duration_ms: 6.082081
+  type: 'test'
+  ...
+# Subtest: SVG assets are self-contained and have no executable or external content
+ok 3 - SVG assets are self-contained and have no executable or external content
+  ---
+  duration_ms: 11.125424
+  type: 'test'
+  ...
+# Subtest: sixteen original WAVs have valid PCM headers, bounded peaks and a loopable rain bed
+ok 4 - sixteen original WAVs have valid PCM headers, bounded peaks and a loopable rain bed
+  ---
+  duration_ms: 18.277761
+  type: 'test'
+  ...
+# Subtest: every UI action names a real function; no per-frame VM or external network game path
+ok 5 - every UI action names a real function; no per-frame VM or external network game path
+  ---
+  duration_ms: 10.091903
+  type: 'test'
+  ...
+# Subtest: resident lookup tolerates apartment punctuation and never exposes secrets
+ok 6 - resident lookup tolerates apartment punctuation and never exposes secrets
+  ---
+  duration_ms: 0.945702
+  type: 'test'
+  ...
+# Subtest: backup recovery also works with a missing primary key, and saves stay bounded
+ok 7 - backup recovery also works with a missing primary key, and saves stay bounded
+  ---
+  duration_ms: 4.928734
+  type: 'test'
+  ...
+# Subtest: returning from menu preserves unsaved campaign and arcade decisions after quota failure
+ok 8 - returning from menu preserves unsaved campaign and arcade decisions after quota failure
+  ---
+  duration_ms: 7.274256
+  type: 'test'
+  ...
+# Subtest: roster has 20 unique, fully authored residents and valid relationships
+ok 9 - roster has 20 unique, fully authored residents and valid relationships
+  ---
+  duration_ms: 2.326815
+  type: 'test'
+  ...
+# Subtest: 49 curated encounters, exactly seven per night, and valid dialogue graph
+ok 10 - 49 curated encounters, exactly seven per night, and valid dialogue graph
+  ---
+  duration_ms: 17.493276
+  type: 'test'
+  ...
+# Subtest: anomalies: 36 unique types, detection routes and mundane exceptions
+ok 11 - anomalies: 36 unique types, detection routes and mundane exceptions
+  ---
+  duration_ms: 0.466646
+  type: 'test'
+  ...
+# Subtest: new game, tutorial and initially gated tools
+ok 12 - new game, tutorial and initially gated tools
+  ---
+  duration_ms: 4.145761
+  type: 'test'
+  ...
+# Subtest: follow-up prerequisites and exclusive dialogue tone branches
+ok 13 - follow-up prerequisites and exclusive dialogue tone branches
+  ---
+  duration_ms: 1.73978
+  type: 'test'
+  ...
+# Subtest: document comparison uses independent fields and cannot issue a verdict
+ok 14 - document comparison uses independent fields and cannot issue a verdict
+  ---
+  duration_ms: 2.245265
+  type: 'test'
+  ...
+# Subtest: paper originals cannot be mutated by a terminal rewrite
+ok 15 - paper originals cannot be mutated by a terminal rewrite
+  ---
+  duration_ms: 1.535139
+  type: 'test'
+  ...
+# Subtest: holding consumes a limited slot, supplies testimony, and does not finalize
+ok 16 - holding consumes a limited slot, supplies testimony, and does not finalize
+  ---
+  duration_ms: 1.889801
+  type: 'test'
+  ...
+# Subtest: human admission is safe; repeated final clicks cannot double-count
+ok 17 - human admission is safe; repeated final clicks cannot double-count
+  ---
+  duration_ms: 1.353672
+  type: 'test'
+  ...
+# Subtest: hostile admission increments breach; hostile quarantine leaves real resident alive
+ok 18 - hostile admission increments breach; hostile quarantine leaves real resident alive
+  ---
+  duration_ms: 1.531784
+  type: 'test'
+  ...
+# Subtest: wrong quarantine harms residents; denial is not a universal safe button
+ok 19 - wrong quarantine harms residents; denial is not a universal safe button
+  ---
+  duration_ms: 2.784639
+  type: 'test'
+  ...
+# Subtest: detained humans return under escort and denial retains custody
+ok 20 - detained humans return under escort and denial retains custody
+  ---
+  duration_ms: 0.760179
+  type: 'test'
+  ...
+# Subtest: relationships and consequences affect later dialogue, not only final score
+ok 21 - relationships and consequences affect later dialogue, not only final score
+  ---
+  duration_ms: 0.911252
+  type: 'test'
+  ...
+# Subtest: absent witnesses become explicitly dated testimony
+ok 22 - absent witnesses become explicitly dated testimony
+  ---
+  duration_ms: 0.63176
+  type: 'test'
+  ...
+# Subtest: appeal mechanism opens night five, cannot farm trust, and never erases harm
+ok 23 - appeal mechanism opens night five, cannot farm trust, and never erases harm
+  ---
+  duration_ms: 0.898332
+  type: 'test'
+  ...
+# Subtest: scanner readings overlap; no threshold is a species test
+ok 24 - scanner readings overlap; no threshold is a species test
+  ---
+  duration_ms: 1.14777
+  type: 'test'
+  ...
+# Subtest: camera and blackout lamp are gated, captioned and non-timed
+ok 25 - camera and blackout lamp are gated, captioned and non-timed
+  ---
+  duration_ms: 1.326972
+  type: 'test'
+  ...
+# Subtest: full 49-case protective campaign traverses every phase with save roundtrips
+ok 26 - full 49-case protective campaign traverses every phase with save roundtrips
+  ---
+  duration_ms: 99.585257
+  type: 'test'
+  ...
+# Subtest: reachable ending: survivor has three scenes and a durable unlock
+ok 27 - reachable ending: survivor has three scenes and a durable unlock
+  ---
+  duration_ms: 93.774636
+  type: 'test'
+  ...
+# Subtest: reachable ending: purge has three scenes and a durable unlock
+ok 28 - reachable ending: purge has three scenes and a durable unlock
+  ---
+  duration_ms: 101.810673
+  type: 'test'
+  ...
+# Subtest: reachable ending: whistleblower has three scenes and a durable unlock
+ok 29 - reachable ending: whistleblower has three scenes and a durable unlock
+  ---
+  duration_ms: 95.283632
+  type: 'test'
+  ...
+# Subtest: reachable ending: coexistence has three scenes and a durable unlock
+ok 30 - reachable ending: coexistence has three scenes and a durable unlock
+  ---
+  duration_ms: 88.984755
+  type: 'test'
+  ...
+# Subtest: reachable ending: truth has three scenes and a durable unlock
+ok 31 - reachable ending: truth has three scenes and a durable unlock
+  ---
+  duration_ms: 90.819357
+  type: 'test'
+  ...
+# Subtest: breach is reachable through harmful admissions; other routes are closed
+ok 32 - breach is reachable through harmful admissions; other routes are closed
+  ---
+  duration_ms: 88.771872
+  type: 'test'
+  ...
+# Subtest: wrong circuit changes the actual final scene to evacuation
+ok 33 - wrong circuit changes the actual final scene to evacuation
+  ---
+  duration_ms: 84.848618
+  type: 'test'
+  ...
+# Subtest: all-deny and all-quarantine campaigns reach an ending but carry substantial harm
+ok 34 - all-deny and all-quarantine campaigns reach an ending but carry substantial harm
+  ---
+  duration_ms: 171.129836
+  type: 'test'
+  ...
+# Subtest: save preserves mid-interview selections, journal, questions, notes and resources
+ok 35 - save preserves mid-interview selections, journal, questions, notes and resources
+  ---
+  duration_ms: 1.375034
+  type: 'test'
+  ...
+# Subtest: checksum/version/shape corruption is contained rather than crashing
+ok 36 - checksum/version/shape corruption is contained rather than crashing
+  ---
+  duration_ms: 3.270714
+  type: 'test'
+  ...
+# Subtest: backup recovery, quota error and reset are app-local
+ok 37 - backup recovery, quota error and reset are app-local
+  ---
+  duration_ms: 2.43194
+  type: 'test'
+  ...
+# Subtest: menu confirmations, continue, settings and input events
+ok 38 - menu confirmations, continue, settings and input events
+  ---
+  duration_ms: 3.827022
+  type: 'test'
+  ...
+# Subtest: procedural cases: 10,000 deterministic valid, applicable, detectable encounters
+ok 39 - procedural cases: 10,000 deterministic valid, applicable, detectable encounters
+  ---
+  duration_ms: 578.844441
+  type: 'test'
+  ...
+# Subtest: arcade scoring, resource renewal, independent save and >500-case bounded history
+ok 40 - arcade scoring, resource renewal, independent save and >500-case bounded history
+  ---
+  duration_ms: 34.565673
+  type: 'test'
+  ...
+# Subtest: no omniscient campaign truth crosses the UI projection
+ok 41 - no omniscient campaign truth crosses the UI projection
+  ---
+  duration_ms: 0.825134
+  type: 'test'
+  ...
+# Subtest: catalogue registration is idempotent and preserves unrelated entries, tags and tests
+ok 42 - catalogue registration is idempotent and preserves unrelated entries, tags and tests
+  ---
+  duration_ms: 9.310213
+  type: 'test'
+  ...
+# Subtest: registration refuses schema changes without partially editing shared files
+ok 43 - registration refuses schema changes without partially editing shared files
+  ---
+  duration_ms: 1.854129
+  type: 'test'
+  ...
+# Subtest: registration refuses conflicting identifiers, category and test commands
+ok 44 - registration refuses conflicting identifiers, category and test commands
+  ---
+  duration_ms: 2.637011
+  type: 'test'
+  ...
+# Subtest: registration records built size without deleting custom game metadata
+ok 45 - registration records built size without deleting custom game metadata
+  ---
+  duration_ms: 4.26033
+  type: 'test'
+  ...
+1..45
+# tests 45
+# suites 0
+# pass 45
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1659.721078

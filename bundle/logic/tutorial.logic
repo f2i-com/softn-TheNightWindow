@@ -1,0 +1,43 @@
+// Guided first shift, later tips and the in-game guide. Plain content tables: the
+// adapter (main.logic) decides when a step is complete and what to show.
+// A tutorial step advances when its "done" condition is met on the live turn, or
+// on a click when done is "next". Voice lines are recorded from these texts.
+let NW_TUTORIAL = [
+  { id: "welcome", title: "Your first visitor", where: "window", done: "next",
+    text: "Your first visitor is waiting at the window. Read what they say beneath the camera view. Every decision tonight begins with looking and listening. Press Next when you are ready." },
+  { id: "checklist", title: "Work the checklist", where: "checklist", done: "checklist",
+    text: "Beside the desk is head office form 17-B: the eight things you must verify for every visitor. Press Compare on the first row. It lays their card and the register side by side and highlights both facts. Then mark the row Matches or Differs. Agreement is not proof; a difference is a reason to ask." },
+  { id: "observe", title: "Look at the person", where: "papers", done: "observe",
+    text: "Two rows need your eyes rather than the register. Open OBSERVE in PAPERS for their feature and eye colour, and compare their face with the photograph on file on the TERMINAL. Mark those rows too. Later visitors will not always match their photograph." },
+  { id: "ask", title: "Ask a question", where: "interview", done: "ask",
+    text: "Scroll down to the interview and ask the visitor anything. Their answers are recorded. A gentle question and a pressing question open different replies, and you may choose only one approach per visitor. Under TOOLS, HOLD asks the outer desk for an independent paper on them; the intercom, scanner and camera arrive on later nights." },
+  { id: "file", title: "File the form with head office", where: "checklist", done: "file",
+    text: "When all eight rows are marked, send form 17-B to head office. Every visitor’s form must be filed before you can sign anything. Head office reads the forms, and so, one day, will the census." },
+  { id: "decide", title: "Sign a decision", where: "actions", done: "decide",
+    text: "When you have seen enough, sign. ADMIT opens the inner door. DENY sends her back into the rain. QUARANTINE sends her to the containment ward. Nothing here decides for you, and every signature asks you to confirm." },
+  { id: "receipt", title: "Every decision has consequences", where: "receipt", done: "close",
+    text: "The ledger keeps what you signed. Some consequences arrive tonight; others arrive on a later night, when the same person returns. Close the entry to meet the next visitor. From here you are on your own, but the Guide is always in the header." }
+];
+// One-time tips for the case that introduces a mechanic. Shown as a dismissible card.
+let NW_TIPS = [
+  { id: "n1-02-mara", title: "A permit error is not an identity", text: "Mara’s return slip has expired. Open the Counterfoil on the terminal: it is the movement desk’s own copy, and it can explain an ordinary mistake." },
+  { id: "n1-03-tomas", title: "Look at the person", text: "Open Observe and compare the distinguishing feature with the resident card. Left and right always mean the visitor’s own left and right, as if you were standing in their shoes." },
+  { id: "n1-05-bea", title: "Two originals", text: "Some documents carry a serial number. Compare the return slip’s serial with the counterfoil; two originals cannot share one number." },
+  { id: "n2-01-tomas", title: "The intercom is connected", text: "Call apartment asks someone upstairs whether they expect this visitor. A witness can be tired, frightened or wrong. Their answer joins the interview transcript." },
+  { id: "n3-01-micah", title: "The archive is open", text: "The Archive tab holds microfilm and signed originals that the terminal cannot rewrite. Facts you select there can be compared with the card like any other source." },
+  { id: "n4-01-anja", title: "Blackout, scanner and camera", text: "Switch on the battery lamp to see the visitor; there is no countdown. The scanner gives an uncertain reading and uses one of two cartridges per night. Take a still to keep the current face beside the intake photograph." },
+  { id: "n5-01-victor", title: "Appeals and orders", text: "Comms now lists containment appeals: you can ask the clinic to release someone you quarantined earlier. Administration has begun giving orders without signatures. An order is not evidence." },
+  { id: "n6-01-orin", title: "Some Echoes tell you what they are", text: "A visitor who discloses their origin is asking for a different judgement. Listen to the rest of the sentence, then verify it against records of conduct, not species." }
+];
+let NW_FINALE_TEXT = "The queue is finished. Administration waits for your countersignature. The residents wait for something else. What happens next depends on the people you protected and the evidence you actually kept.";
+// The guide: a plain-language reference reachable from the menu and the header.
+let NW_GUIDE = [
+  { title: "The loop", text: "Every visitor is the same five steps.\n1. LOOK at the person and read what they say.\n2. WORK THE CHECKLIST: Compare each row of form 17-B and mark it.\n3. ASK questions; one approach per visitor. Hold buys one more paper.\n4. FILE the form with head office.\n5. DECIDE: admit, deny or quarantine." },
+  { title: "Form 17-B", text: "Head office requires a checklist for every visitor: name, date of birth, apartment and resident ID against the register; feature and eye colour against Observe; the face against the photograph on file; the return slip against the counterfoil. Compare lays the two sources side by side and highlights both facts. Mark each row Matches, Differs or Unclear, then send the form. No signature opens until it is filed, and the filed form goes into your notebook." },
+  { title: "Your papers", text: "Resident card: the document in the visitor’s hand. It carries no photograph; the photograph on file is on the terminal.\nReturn slip: their night movement permit.\nObserve: what you can actually see through the glass, written down." },
+  { title: "Your terminal", text: "Register: the building’s own record, with the intake photograph on file. Convenient, and it can be rewritten while you watch.\nCounterfoil: the movement desk’s independent copy of the permit.\nArchive (night 3): microfilm originals that nothing can edit.\nResidents: the public address book.\nComms: intercom witness calls and containment appeals.\nReports: the previous guard’s notes and the state of the building.\nNotebook: your own copy of everything you discovered." },
+  { title: "Your tools", text: "Every tool’s result appears in the desk log beside the tools and in the interview transcript.\nHOLD (ask the outer desk): two per night, from night one. The outer desk sends one more independent paper on this visitor.\nCall apartment (night 2): ask a witness upstairs.\nScan (night 4): an uncertain reading, two cartridges per night.\nTake still (night 4): keep tonight’s face beside the photograph on file.\nBattery lamp: during a blackout, so you can see. There is never a countdown." },
+  { title: "Your signatures", text: "ADMIT opens the inner door. A hostile impersonator inside can harm residents.\nDENY sends the visitor back to the outer shelter. Exposure and delayed care can harm a real resident.\nQUARANTINE sends them to the containment ward. An innocent person loses freedom and trust; from night five you can appeal.\nNothing decides for you. Every signature asks for confirmation." },
+  { title: "What actually matters", text: "A difference between two records is a reason to ask, not a verdict. Genuine residents lie for ordinary reasons and carry replacement paperwork. The scanner has false positives and false negatives. Some Echoes are peaceful and will tell you so. Independent evidence, kept in your own notebook, is what the terminal cannot rewrite." },
+  { title: "Voice, sound and captions", text: "Residents and the narrator are voiced. Every important sound has a written caption, and every visual clue is also written under Observe. Use the header to mute, to replay the last spoken line, or to open Settings for volume and reduced motion." }
+];

@@ -1,0 +1,104 @@
+<Box className="nw-crt">
+  <Box className="nw-crt-top">
+    <Text className="nw-crt-brand">MERIDIAN CENSUS SYSTEM · TERMINAL 04</Text>
+    <Text className="nw-crt-led">● ONLINE</Text>
+  </Box>
+  <Box className="nw-tabs nw-fkeys">
+    <Button className={nwPanel === "register" ? "nw-active" : ""} title="The building’s own record of this person, with the photograph on file" @click={nwSetPanel("register")}>F1 Register</Button>
+    <Button className={nwPanel === "counterfoil" ? "nw-active" : ""} title="The movement desk’s copy of the permit" @click={nwSetPanel("counterfoil")}>F2 Counterfoil</Button>
+    <Button className={nwPanel === "archive" ? "nw-active" : ""} disabled={!nwView.archiveUnlocked} title="Microfilm originals. Opens on night three." @click={nwSetPanel("archive")}>{nwView.archiveUnlocked ? "F3 Archive" : "F3 Archive · N3"}</Button>
+    <Button className={nwPanel === "directory" ? "nw-active" : ""} title="Public address book" @click={nwSetPanel("directory")}>F4 Residents</Button>
+    <Button className={nwPanel === "comms" ? "nw-active" : ""} title="Intercom witnesses and containment appeals" @click={nwSetPanel("comms")}>F5 Comms</Button>
+    <Button className={nwPanel === "reports" ? "nw-active" : ""} title="Previous guard’s notes and the state of the building" @click={nwSetPanel("reports")}>F6 Reports</Button>
+    <Button className={nwPanel === "notes" ? "nw-active" : ""} title="Your own copy of everything you discovered" @click={nwSetPanel("notes")}>F7 Notebook</Button>
+  </Box>
+  <Box className="nw-crt-screen nw-term">
+    <Box className="nw-term-head"><Text className="nw-crt-prompt">{"> " + nwView.terminalQuery}</Text><Text className="nw-tiny">{nwView.date}</Text></Box>
+    <Text className="nw-hint">{nwView.panelHint}</Text>
+    <Box if={nwPanel === "register"}>
+      <Box className="nw-record-row">
+        <Box className="nw-record-photo"><Image src={asset(nwView.referencePortrait)} alt={"Intake photograph on file for " + nwView.name} objectFit="cover" objectPosition="top" /></Box>
+        <Box className="nw-stack" style={{gap:"6px"}}>
+          <Text className="nw-kicker">Photograph on file / intake 17 OCT 1984</Text>
+          <Text className="nw-term-text">{"FILE " + nwView.recordId + "\n" + nwView.name}</Text>
+          <Text className="nw-proof-note">Compare this photograph with the person at the window and with Observe, not with anything the visitor hands you.</Text>
+        </Box>
+      </Box>
+      <Box if={nwView.event === "rewrite" && !nwView.rewritten} className="nw-warning" style={{marginBottom:"12px"}}>
+        <Text className="nw-small nw-block">A green cursor flashes over the apartment field. There is a pending census correction.</Text>
+        <Button className="nw-btn" @click={nwSetPanel("register")}>Read the pending correction</Button>
+      </Box>
+      <Box if={nwView.rewritten} className="nw-warning" style={{marginBottom:"12px"}}><Text className="nw-small">RECORD AMENDED DURING THIS INTERVIEW. Your physical copy has not changed. The event was retained in the notebook.</Text></Box>
+      <Box className="nw-facts">
+        #each (row in nwView.register)
+          <Button variant="ghost" className={row.selected ? "nw-fact nw-selected" : "nw-fact"} title="Select this fact for comparison" @click={nwPick(row.id)}><Text className="nw-fact-label">{(row.selected ? "■ " : "") + row.label}</Text><Text className="nw-fact-value">{row.value}</Text></Button>
+        #end
+      </Box>
+    </Box>
+    <Box if={nwPanel === "counterfoil"} className="nw-stack">
+      <Text className="nw-kicker">Movement desk / independent retained copy</Text>
+      <Text className="nw-term-text">{nwView.counterfoil}</Text>
+      <Text className="nw-proof-note">Counterfoils can establish amendments or work authorization. They cannot tell you whether a person means harm.</Text>
+    </Box>
+    <Box if={nwPanel === "archive"} className="nw-stack">
+      <Text className="nw-kicker">Microfilm and signed originals</Text>
+      <Text className="nw-term-text">{nwView.archive}</Text>
+      <Text className="nw-proof-note">Story evidence from this record is automatically retained. Questions can reveal additional personal memories.</Text>
+      <Box className="nw-facts">
+        #each (row in nwView.original)
+          <Button variant="ghost" className={row.selected ? "nw-fact nw-selected" : "nw-fact"} title="Select this original for comparison" @click={nwPick(row.id)}><Text className="nw-fact-label">{(row.selected ? "■ " : "") + row.label}</Text><Text className="nw-fact-value">{row.value}</Text></Button>
+        #end
+      </Box>
+    </Box>
+    <Box if={nwPanel === "directory"} className="nw-stack">
+      <Text className="nw-kicker">Resident address book / public index</Text>
+      <Input label="Find a name, apartment or resident number" value={nwDirectoryQuery} @change={nwDirectorySearch} maxLength={60} />
+      <Box className="nw-directory-list">
+        #each (resident in nwView.directory)
+          <Button className="nw-quiet" @click={nwDirectorySelect(resident.id)}>{resident.label}</Button>
+        #end
+      </Box>
+      <Text if={nwView.directory.length === 0} className="nw-small">No matching public entry. Try a name or omit the apartment punctuation.</Text>
+      <Text className="nw-term-text">{nwView.directoryDetails}</Text>
+    </Box>
+    <Box if={nwPanel === "comms"} className="nw-stack">
+      <Text className="nw-kicker">Apartment line / containment desk</Text>
+      <Text className="nw-term-text">The intercom asks a witness, not a machine that knows the truth. Missing, detained or deceased contacts route to dated recordings, clearly marked as historical.</Text>
+      <Button className="nw-btn" disabled={!nwView.canCall} @click={nwDoCall}>{nwView.callUnlocked ? "Call and transcribe the apartment" : "Intercom reconnects on night two"}</Button>
+      <Text className="nw-kicker">Pending resident appeals</Text>
+      <Text if={nwView.appeals.length === 0} className="nw-term-text">No resident is waiting for a review of your orders.</Text>
+      #each (appeal in nwView.appeals)
+        <Box className="nw-log nw-stack">
+          <Text>{appeal.name}</Text>
+          <Button className="nw-btn" disabled={!appeal.enabled} @click={nwDoAppeal(appeal.id)}>{appeal.enabled ? "Request independent review / release" : "Appeals desk opens on night five"}</Button>
+        </Box>
+      #end
+      <Text className="nw-proof-note">An appeal restores freedom, not the time or trust taken away.</Text>
+    </Box>
+    <Box if={nwPanel === "reports"} className="nw-stack">
+      <Text className="nw-kicker">Previous shift / S. Marr</Text>
+      <Text className="nw-term-text">{nwView.note}</Text>
+      <Button className="nw-btn" @click={nwHearNote}>Hear Marr’s note</Button>
+      <Text className="nw-kicker">Incident circular</Text>
+      <Text className="nw-term-text">{nwView.incident}</Text>
+      <Text className="nw-kicker">State of the building</Text>
+      <Text className="nw-term-text">{nwView.consequences}</Text>
+    </Box>
+    <Box if={nwPanel === "notes"} className="nw-stack">
+      <Text className="nw-kicker">Your copy / outside the census</Text>
+      <TextArea label="Personal notes" value={nwNoteDraft} @change={nwNoteChange} @blur={nwSaveNote} rows={4} maxLength={4000} fullWidth={true} resize="vertical" placeholder="Write what you actually heard. Names, dates, private details…" />
+      <Button className="nw-btn" @click={nwSaveNote}>Keep personal note</Button>
+      <Text className="nw-proof-note">Discoveries, memories, comparisons and decisions are retained below. No outside service can amend this copy.</Text>
+      <Box className="nw-toolbar">
+        <Button className="nw-quiet" disabled={nwView.ledgerPage <= 1} @click={nwLogMove(-1)}>Newer</Button>
+        <Text className="nw-small">{nwView.ledgerPage + " / " + nwView.ledgerPages}</Text>
+        <Button className="nw-quiet" disabled={nwView.ledgerPage >= nwView.ledgerPages} @click={nwLogMove(1)}>Older</Button>
+      </Box>
+      #each (entry in nwView.logs)
+        <Box className="nw-log"><Text className="nw-kicker">{"N" + entry.night + " / " + entry.title}</Text><Text className="nw-term-text">{entry.text}</Text></Box>
+      #end
+      <Text if={nwView.logs.length === 0} className="nw-term-text">The pencil is sharp. The page is still empty.</Text>
+    </Box>
+    <Box className="nw-crt-cursor"><Text>{"> "}</Text><Box className="nw-crt-caret" /></Box>
+  </Box>
+</Box>

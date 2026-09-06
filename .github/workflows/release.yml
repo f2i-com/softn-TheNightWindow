@@ -1,0 +1,41 @@
+# A tag of the form vX.Y.Z builds the bundle and publishes it as a GitHub Release,
+# with its checksum and generated notes. The tag must match bundle/manifest.json's
+# version, so a release can never carry a number the game does not report.
+#
+#   git tag v1.0.1 && git push origin v1.0.1
+name: Release
+
+on:
+  push:
+    tags: ['v*']
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm test
+      - run: node scripts/build.cjs --expect-tag "$GITHUB_REF_NAME"
+      - run: npm run validate
+      - name: Publish the bundle
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          # A tag pushed again (after a fix) refreshes the release rather than failing on it.
+          if gh release view "$GITHUB_REF_NAME" >/dev/null 2>&1; then
+            gh release upload "$GITHUB_REF_NAME" dist/TheNightWindow.softn dist/SHA256SUMS.txt --clobber
+            gh release edit "$GITHUB_REF_NAME" --title "The Night Window $GITHUB_REF_NAME" --notes-file dist/RELEASE_NOTES.md
+          else
+            gh release create "$GITHUB_REF_NAME" \
+              dist/TheNightWindow.softn dist/SHA256SUMS.txt \
+              --title "The Night Window $GITHUB_REF_NAME" \
+              --notes-file dist/RELEASE_NOTES.md
+          fi

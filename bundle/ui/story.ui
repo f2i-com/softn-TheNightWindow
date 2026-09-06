@@ -1,0 +1,71 @@
+<Box>
+  <Box if={nwScreen === "brief"} className="nw-shift">
+    <Box className="nw-shift-art">
+      <Image src={asset("assets/scenes/title.svg")} alt="Meridian-17 above the night checkpoint" style={{position:"absolute",width:"100%",height:"100%"}} />
+      <Box className="nw-rain" />
+    </Box>
+    <Box className="nw-story-copy">
+      <Text className="nw-kicker">{nwView.shift + " / " + nwView.date}</Text>
+      <Text className="nw-title">{nwView.nightTitle}</Text>
+      <Text className="nw-body">{nwView.brief}</Text>
+      <Box className="nw-toolbar"><Button className="nw-quiet" @click={nwHearBrief}>Hear the briefing</Button></Box>
+      <Box className="nw-story-note">
+        <Text className="nw-kicker">Left on the desk by S. Marr, the previous guard</Text>
+        <Text className="nw-body">{nwView.note}</Text>
+        <Button className="nw-quiet" @click={nwHearNote}>Hear Marr’s note</Button>
+      </Box>
+      <Text className="nw-small">{"Available this shift: " + nwView.tools}</Text>
+      <Text if={nwView.roster !== ""} className="nw-small">{nwView.roster}</Text>
+      <Button className="nw-primary" @click={nwBeginShift}>Sign in / open the night window</Button>
+    </Box>
+  </Box>
+  <Box if={nwScreen === "shiftEnd"} className="nw-finale-copy">
+    <Text className="nw-kicker">End of shift / delayed consequences</Text>
+    <Text className="nw-title">What the morning found</Text>
+    <Text className="nw-body">{nwView.consequences}</Text>
+    <Box className="nw-story-note"><Text className="nw-kicker">Incident circular</Text><Text className="nw-body">{nwView.incident}</Text></Box>
+    <Text className="nw-small">Your progress has been saved. The next shift will acknowledge who was admitted, who is still outside, and who is waiting in the ward.</Text>
+    <Button className="nw-primary" @click={nwBeginNextNight}>Read the next shift’s briefing</Button>
+  </Box>
+  <Box if={nwScreen === "finale"} className="nw-finale-copy">
+    <Text className="nw-kicker">07 NOV 1989 / 05:16</Text>
+    <Text className="nw-title">No last instruction.</Text>
+    <Text className="nw-body">{nwView.finale}</Text>
+    <Text className="nw-small">Routes that lack a witness, document or living collaborator remain unavailable. Nothing advances until you choose.</Text>
+    #each (route in nwView.routes)
+      <Box className="nw-route">
+        <Text className="nw-section-title">{route.name}</Text>
+        <Text className="nw-small">{route.reason}</Text>
+        <Button className={route.id === "purge" ? "nw-danger" : "nw-primary"} disabled={!route.enabled} @click={nwRoute(route.id)}>{route.enabled ? "Commit to this course" : "Evidence or support missing"}</Button>
+      </Box>
+    #end
+  </Box>
+  <Box if={nwScreen === "ending"}>
+    <Box className="nw-scene"><Image src={asset(nwView.scene)} alt={nwView.endingTitle} style={{position:"absolute",width:"100%",height:"100%"}} /></Box>
+    <Box className="nw-finale-copy">
+      <Text className="nw-kicker">Final shift / Meridian-17</Text>
+      <Text className="nw-title">{nwView.endingTitle}</Text>
+      <Text className="nw-body">{nwView.endingText}</Text>
+      <Button if={!nwView.circuit} className="nw-primary" @click={nwSceneNext}>{nwView.endingAction}</Button>
+      <Box if={nwView.circuit} className="nw-circuits">
+        <Button className="nw-btn" @click={nwChooseFeed("A")}>FEED A / switch off</Button>
+        <Button className="nw-btn" @click={nwChooseFeed("B")}>FEED B / switch off</Button>
+        <Button className="nw-btn" @click={nwChooseFeed("C")}>FEED C / switch off</Button>
+      </Box>
+    </Box>
+  </Box>
+  <Box if={nwScreen === "credits"}>
+    <Box className="nw-scene"><Image src={asset(nwView.scene)} alt={nwView.title} style={{position:"absolute",width:"100%",height:"100%"}} /></Box>
+    <Box className="nw-finale-copy">
+      <Text className="nw-kicker">Ending retained / the outer queue is unlocked</Text>
+      <Text className="nw-title">{nwView.title}</Text>
+      <Text className="nw-body">{nwView.endingText}</Text>
+      <Text className="nw-small">{nwView.endingSummary}</Text>
+      <Box className="nw-rule" />
+      <Text className="nw-kicker">The Night Window</Text>
+      <Text className="nw-small">Original story, character illustrations and environmental artwork. Voices recorded with ElevenLabs text-to-speech; sound design generated with ElevenLabs sound effects. Created for SoftN. Inspired by observation and document-inspection horror games; no external characters, lore, recordings or artwork are used.</Text>
+      <Text className="nw-small">Thank you for keeping your own copy.</Text>
+      <Button className="nw-primary" @click={nwMenu}>Return to menu / ending collection</Button>
+    </Box>
+  </Box>
+</Box>

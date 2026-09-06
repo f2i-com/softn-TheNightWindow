@@ -1,0 +1,29 @@
+# Every push and pull request: the game's own tests, a build of the bundle with the
+# standalone packer, and the same structural validation the SoftN runtime applies.
+name: Build
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm test
+      - run: npm run build
+      - run: npm run validate
+      - uses: actions/upload-artifact@v4
+        with:
+          name: TheNightWindow.softn
+          path: |
+            dist/TheNightWindow.softn
+            dist/SHA256SUMS.txt
+          if-no-files-found: error

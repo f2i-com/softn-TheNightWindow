@@ -1,0 +1,514 @@
+// The Night Window — original authored content. See DATA_MODEL.md.
+let NW_ANOMALIES = [
+  {
+    "id": "dob",
+    "category": "IDENTITY",
+    "tier": 1,
+    "target": "card",
+    "field": "dob",
+    "value": "31 FEB 1955",
+    "mundaneResolution": "Clerical re-entry error; the clinic ledger retains the genuine date.",
+    "detectVia": [
+      "card",
+      "archive"
+    ],
+    "mundaneAllowed": true
+  },
+  {
+    "id": "middle",
+    "category": "IDENTITY",
+    "tier": 1,
+    "target": "card",
+    "field": "name",
+    "value": "{name} E.",
+    "mundaneResolution": "An intake clerk mistook an evacuation zone for a middle initial.",
+    "detectVia": [
+      "card",
+      "archive"
+    ],
+    "mundaneAllowed": true
+  },
+  {
+    "id": "apartment",
+    "category": "IDENTITY",
+    "tier": 1,
+    "target": "card",
+    "field": "apartment",
+    "value": "G-999",
+    "mundaneResolution": "The temporary housing slip uses a shelter grid rather than the building grid.",
+    "detectVia": [
+      "card",
+      "archive"
+    ],
+    "mundaneAllowed": true
+  },
+  {
+    "id": "occupation",
+    "category": "IDENTITY",
+    "tier": 1,
+    "target": "card",
+    "field": "occupation",
+    "value": "Census observer",
+    "mundaneResolution": "A reassignment form was filed under the wrong surname.",
+    "detectVia": [
+      "card",
+      "archive"
+    ],
+    "mundaneAllowed": true
+  },
+  {
+    "id": "resident-id",
+    "category": "IDENTITY",
+    "tier": 1,
+    "target": "card",
+    "field": "residentId",
+    "value": "M17-0000",
+    "mundaneResolution": "The emergency desk issued a provisional blank; compare the signed register.",
+    "detectVia": [
+      "card",
+      "archive"
+    ],
+    "mundaneAllowed": true
+  },
+  {
+    "id": "duplicate-serial",
+    "category": "DOCUMENT",
+    "tier": 1,
+    "target": "permit",
+    "field": "serial",
+    "value": "RETURN-017-017",
+    "mundaneResolution": "Courier paper stock was reused. A depot counterfoil records the replacement.",
+    "detectVia": [
+      "permit",
+      "archive"
+    ],
+    "mundaneAllowed": true
+  },
+  {
+    "id": "expired",
+    "category": "DOCUMENT",
+    "tier": 1,
+    "target": "permit",
+    "field": "validUntil",
+    "value": "30 OCT 1989",
+    "mundaneResolution": "The permit office closed before the shift ended. An extension exists on the ward log.",
+    "detectVia": [
+      "permit",
+      "archive"
+    ],
+    "mundaneAllowed": true
+  },
+  {
+    "id": "impossible-time",
+    "category": "DOCUMENT",
+    "tier": 1,
+    "target": "permit",
+    "field": "issued",
+    "value": "25:71",
+    "mundaneResolution": "A broken time stamp wheel. The hand-written departure log gives the real hour.",
+    "detectVia": [
+      "permit",
+      "archive"
+    ],
+    "mundaneAllowed": true
+  },
+  {
+    "id": "wrong-authority",
+    "category": "DOCUMENT",
+    "tier": 1,
+    "target": "permit",
+    "field": "authority",
+    "value": "MERIDIAN RECREATION BOARD",
+    "mundaneResolution": "A recreation form was borrowed during a paper shortage; a countersignature is still required.",
+    "detectVia": [
+      "permit",
+      "archive"
+    ],
+    "mundaneAllowed": true
+  },
+  {
+    "id": "format",
+    "category": "DOCUMENT",
+    "tier": 1,
+    "target": "card",
+    "field": "residentId",
+    "value": "17/041-??",
+    "mundaneResolution": "The former evacuation service used a different numbering scheme.",
+    "detectVia": [
+      "card",
+      "archive"
+    ],
+    "mundaneAllowed": true
+  },
+  {
+    "id": "signature",
+    "category": "DOCUMENT",
+    "tier": 1,
+    "target": "permit",
+    "field": "signature",
+    "value": "V. Pell / proxy",
+    "mundaneResolution": "A supervisor signed on behalf of the bearer after an injury.",
+    "detectVia": [
+      "permit",
+      "archive"
+    ],
+    "mundaneAllowed": true
+  },
+  {
+    "id": "eye",
+    "category": "APPEARANCE",
+    "tier": 1,
+    "target": "live",
+    "field": "eyes",
+    "value": "silver",
+    "mundaneResolution": "A medical eye dressing reflects the lamp. A clinical note is available.",
+    "detectVia": [
+      "live",
+      "archive"
+    ],
+    "mundaneAllowed": true
+  },
+  {
+    "id": "mole",
+    "category": "APPEARANCE",
+    "tier": 2,
+    "target": "live",
+    "field": "feature",
+    "value": "No distinguishing mark visible",
+    "mundaneResolution": "A bandage or makeup may cover the mark; ask about it rather than assuming.",
+    "detectVia": [
+      "live",
+      "archive"
+    ],
+    "mundaneAllowed": true
+  },
+  {
+    "id": "scar",
+    "category": "APPEARANCE",
+    "tier": 1,
+    "target": "live",
+    "field": "feature",
+    "value": "The recorded mark appears on the opposite side",
+    "mundaneResolution": "A mirrored archive negative is possible. The original paper intake drawing is authoritative.",
+    "detectVia": [
+      "live",
+      "archive"
+    ],
+    "mundaneAllowed": true
+  },
+  {
+    "id": "pupil",
+    "category": "APPEARANCE",
+    "tier": 2,
+    "target": "live",
+    "field": "pupils",
+    "value": "Two separate pupils in one iris",
+    "mundaneResolution": "A double reflection in laminated glass is possible; use the still camera.",
+    "detectVia": [
+      "live",
+      "archive"
+    ],
+    "mundaneAllowed": false
+  },
+  {
+    "id": "ear",
+    "category": "APPEARANCE",
+    "tier": 2,
+    "target": "live",
+    "field": "ears",
+    "value": "Both ear rims are completely smooth",
+    "mundaneResolution": "An ear covering can conceal a notch; compare the close photograph and intake sketch.",
+    "detectVia": [
+      "live",
+      "archive"
+    ],
+    "mundaneAllowed": true
+  },
+  {
+    "id": "hand",
+    "category": "APPEARANCE",
+    "tier": 2,
+    "target": "live",
+    "field": "hand",
+    "value": "{otherHand}",
+    "mundaneResolution": "A hurt wrist can change which hand somebody uses. Check the medical counterfoil.",
+    "detectVia": [
+      "live",
+      "archive"
+    ],
+    "mundaneAllowed": true
+  },
+  {
+    "id": "forbidden-knowledge",
+    "category": "BEHAVIOUR",
+    "tier": 3,
+    "target": "statement",
+    "field": "knowledge",
+    "value": "You keep a penny in your left shoe, Ellis.",
+    "mundaneResolution": "The visitor overheard a remark through the maintenance speaker, which was left open.",
+    "detectVia": [
+      "statement",
+      "record",
+      "archive"
+    ],
+    "mundaneAllowed": true
+  },
+  {
+    "id": "relationship",
+    "category": "BEHAVIOUR",
+    "tier": 2,
+    "target": "statement",
+    "field": "household",
+    "value": "My younger sister lives with me.",
+    "mundaneResolution": "Family terms may be affectionate rather than literal. Ask the emergency contact.",
+    "detectVia": [
+      "statement",
+      "record",
+      "archive"
+    ],
+    "mundaneAllowed": true
+  },
+  {
+    "id": "phrase",
+    "category": "BEHAVIOUR",
+    "tier": 2,
+    "target": "statement",
+    "field": "reply",
+    "value": "The residence returns the resident. The residence returns the resident.",
+    "mundaneResolution": "A frightened resident is repeating a phrase heard on the emergency radio.",
+    "detectVia": [
+      "statement",
+      "record",
+      "archive"
+    ],
+    "mundaneAllowed": true
+  },
+  {
+    "id": "recognition",
+    "category": "BEHAVIOUR",
+    "tier": 2,
+    "target": "statement",
+    "field": "memory",
+    "value": "I have never met any of the people in my emergency-contact file.",
+    "mundaneResolution": "An old file lists former contacts. Check the signed amendment and ask about one named person.",
+    "detectVia": [
+      "statement",
+      "record",
+      "archive"
+    ],
+    "mundaneAllowed": true
+  },
+  {
+    "id": "inside",
+    "category": "TEMPORAL",
+    "tier": 2,
+    "target": "record",
+    "field": "whereabouts",
+    "value": "INSIDE / no exit recorded",
+    "mundaneResolution": "The departure reader failed. The manual gate log records the exit.",
+    "detectVia": [
+      "record",
+      "archive"
+    ],
+    "mundaneAllowed": true
+  },
+  {
+    "id": "travel",
+    "category": "TEMPORAL",
+    "tier": 2,
+    "target": "permit",
+    "field": "route",
+    "value": "Eastern shelter → checkpoint in 2 minutes",
+    "mundaneResolution": "The printed time is from an old counterfoil; a tram driver can confirm the genuine trip.",
+    "detectVia": [
+      "permit",
+      "archive"
+    ],
+    "mundaneAllowed": true
+  },
+  {
+    "id": "previous",
+    "category": "TEMPORAL",
+    "tier": 3,
+    "target": "statement",
+    "field": "memory",
+    "value": "There were six stars on the cup. I am certain.",
+    "mundaneResolution": "Grief can make a person avoid a memory. Ask gently and compare earlier notes.",
+    "detectVia": [
+      "statement",
+      "record",
+      "archive"
+    ],
+    "mundaneAllowed": true
+  },
+  {
+    "id": "double-entry",
+    "category": "TEMPORAL",
+    "tier": 2,
+    "target": "record",
+    "field": "lastEntry",
+    "value": "Two admissions, same serial, 00:17 and 00:18",
+    "mundaneResolution": "The terminal retried a transaction; the paper turnstile roll has only one passage.",
+    "detectVia": [
+      "record",
+      "archive"
+    ],
+    "mundaneAllowed": true
+  },
+  {
+    "id": "future-photo",
+    "category": "DOCUMENT",
+    "tier": 2,
+    "target": "permit",
+    "field": "photoDate",
+    "value": "12 NOV 1997",
+    "mundaneResolution": "The film stamp was set incorrectly; the dated contact sheet still exists.",
+    "detectVia": [
+      "permit",
+      "archive"
+    ],
+    "mundaneAllowed": true
+  },
+  {
+    "id": "seal",
+    "category": "DOCUMENT",
+    "tier": 2,
+    "target": "permit",
+    "field": "seal",
+    "value": "SEVENTEEN points / office uses sixteen",
+    "mundaneResolution": "A private decorative stamp is not an official seal; ask for its counterfoil.",
+    "detectVia": [
+      "permit",
+      "archive"
+    ],
+    "mundaneAllowed": true
+  },
+  {
+    "id": "blood-group",
+    "category": "DOCUMENT",
+    "tier": 2,
+    "target": "card",
+    "field": "blood",
+    "value": "AB− / archived O+",
+    "mundaneResolution": "A labelling error on a blood sample can be dangerous, but is not proof of non-human identity.",
+    "detectVia": [
+      "card",
+      "archive"
+    ],
+    "mundaneAllowed": true
+  },
+  {
+    "id": "intercom",
+    "category": "BEHAVIOUR",
+    "tier": 3,
+    "target": "comms",
+    "field": "reply",
+    "value": "The apartment confirms the visitor before you give a name.",
+    "mundaneResolution": "The resident upstairs knows the expected return time. Ask an open question, not a leading one.",
+    "detectVia": [
+      "comms",
+      "record",
+      "archive"
+    ],
+    "mundaneAllowed": true
+  },
+  {
+    "id": "live-call",
+    "category": "TEMPORAL",
+    "tier": 3,
+    "target": "comms",
+    "field": "reply",
+    "value": "The real resident calls from the clinic while the visitor remains in view.",
+    "mundaneResolution": "An old message may have been replayed. Ask the caller a new question and check a live witness.",
+    "detectVia": [
+      "comms",
+      "record",
+      "archive"
+    ],
+    "mundaneAllowed": false
+  },
+  {
+    "id": "erasure",
+    "category": "IDENTITY",
+    "tier": 3,
+    "target": "record",
+    "field": "name",
+    "value": "NO SUCH RESIDENT",
+    "mundaneResolution": "An administrative removal can erase a living person. Compare the carbon copy, not just the terminal.",
+    "detectVia": [
+      "record",
+      "archive"
+    ],
+    "mundaneAllowed": true
+  },
+  {
+    "id": "reflection",
+    "category": "PHYSICAL",
+    "tier": 3,
+    "target": "live",
+    "field": "reflection",
+    "value": "The reflected mouth is open while the visitor’s mouth is closed",
+    "mundaneResolution": "Laminated safety glass can create a delayed-looking double image. Compare the still exposure.",
+    "detectVia": [
+      "live",
+      "archive"
+    ],
+    "mundaneAllowed": false
+  },
+  {
+    "id": "shadow",
+    "category": "PHYSICAL",
+    "tier": 3,
+    "target": "live",
+    "field": "shadow",
+    "value": "Light crosses the visitor without a cast shadow",
+    "mundaneResolution": "A second floodlamp can fill a shadow. The maintenance lighting log records outages.",
+    "detectVia": [
+      "live",
+      "archive"
+    ],
+    "mundaneAllowed": false
+  },
+  {
+    "id": "teeth",
+    "category": "PHYSICAL",
+    "tier": 3,
+    "target": "live",
+    "field": "teeth",
+    "value": "A second small row of teeth behind the first",
+    "mundaneResolution": "Dental appliances can resemble extra teeth. Check a clinical photograph and ask the visitor.",
+    "detectVia": [
+      "live",
+      "archive"
+    ],
+    "mundaneAllowed": false
+  },
+  {
+    "id": "temperature",
+    "category": "PHYSICAL",
+    "tier": 2,
+    "target": "live",
+    "field": "temperature",
+    "value": "No condensation on the cold interview glass",
+    "mundaneResolution": "The demister can warm the pane. A dry glass reading alone is not an identity test.",
+    "detectVia": [
+      "live",
+      "archive"
+    ],
+    "mundaneAllowed": true
+  },
+  {
+    "id": "changed-record",
+    "category": "TEMPORAL",
+    "tier": 3,
+    "target": "record",
+    "field": "apartment",
+    "value": "A-000 / amended during this interview",
+    "mundaneResolution": "An automated census update has replaced the record. Keep a physical copy before asking for a refresh.",
+    "detectVia": [
+      "record",
+      "archive"
+    ],
+    "mundaneAllowed": false
+  }
+];

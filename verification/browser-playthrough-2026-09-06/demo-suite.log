@@ -1,0 +1,476 @@
+
+> @softn/demo@0.0.2 test
+> node scripts/test-texasholdem-gameplay.cjs && node scripts/test-texasholdem-authority.cjs && node scripts/test-texasholdem-authority-client.cjs && node scripts/test-texasholdem-authority-http.cjs && node scripts/test-warblewire-protocol.cjs && npm run test:validators && npm run test:promptly && npm run test:bundles && npm run test:night-window
+
+PASS: round-robin deal order
+PASS: odd chip left-of-dealer split
+PASS: bot short all-in call behavior
+PASS: showdown main/side pot resolution
+PASS: blind progression via last big blind
+PASS: bot-vs-bot hand settles without stall
+PASS: heads-up blind and turn order
+PASS: check blocked when call required
+PASS: short all-in raise does not reopen action
+PASS: ace-low straight evaluation
+PASS: kicker tie-break evaluation
+PASS: odd-chip ordering across three winners
+PASS: award split conserves full pot
+PASS: card visibility rules
+PASS: table repository latest/sticky selection
+PASS: host reconnect does not instantly auto-start hand
+PASS: reset at showdown does not refund a paid-out pot
+PASS: raise increment never below the minimum
+PASS: new street clears the chosen raise size
+PASS: raise controls hidden when only a call is affordable
+PASS: showdown writes a result summary every peer can show
+TexasHoldem gameplay tests passed: 21/21
+PASS: join, leave, capacity and spectators
+PASS: projections hide other hands and the deck
+PASS: a duplicate action has one effect; a reused id is refused
+PASS: a stale or future revision is refused with the current one
+PASS: out-of-turn, spectator, unknown and malformed actions do nothing
+PASS: reconnect keeps the seat; leaving revokes it
+PASS: an absent player's turn is taken for them
+PASS: the last player leaving closes the table
+PASS: side pots cap what a short stack can win
+PASS: chips conserved, no duplicate cards, every hand ends, over many random hands
+PASS: the same seed deals the same game
+TexasHoldem authority tests passed: 11/11
+PASS: create and join from the lobby
+PASS: each client holds its own cards and card backs for the others
+PASS: actions are judged by the server
+PASS: the hand ends in a showdown both clients see
+PASS: the next hand is dealt on request
+PASS: a reload resumes the seat
+PASS: leaving revokes the seat
+PASS: the peer table is as it was
+TexasHoldem authority client tests passed
+SKIP: no built softn-server at apps/softn-server/target; the HTTP authority test needs one (cargo build --release).
+UTF-8
+  ok  round trips ASCII, accents and an astral pair
+  ok  counts bytes, not characters
+  ok  refuses invalid UTF-8 rather than inventing characters
+Coding
+  ok  convolutional encode then Viterbi recovers the input
+  ok  Viterbi still recovers the input with bits flipped
+  ok  interleave and deinterleave are inverses
+Frames
+  ok  build then parse preserves the payload and the profile
+  ok  a corrupted frame fails its checksum instead of decoding
+Round trips
+  ok  wren · meadow
+  ok  wren · canopy
+  ok  wren · dawn
+  ok  wren · night
+  ok  finch · meadow
+  ok  finch · canopy
+  ok  finch · dawn
+  ok  finch · night
+  ok  swift · meadow
+  ok  swift · canopy
+  ok  swift · dawn
+  ok  swift · night
+  ok  survives a noisy channel
+  ok  rejects noise on its own rather than inventing a message
+WAV
+  ok  a WAV data URL round trips to the samples that went in
+  ok  a decoded WAV still decodes as a frame
+Acquisition
+  ok  finds a burst buried in a longer, quieter recording
+  ok  a recording at the wrong sample rate is resampled, not rejected
+  ok  an empty room decodes as nothing, not as a message
+
+27 checks passed.
+
+> @softn/demo@0.0.2 test:validators
+> node scripts/test-bundle-validator.cjs && node scripts/test-promptly-audio-validator.cjs
+
+PASS: inline and component logic compose into one complete block
+PASS: syntax errors in non-manifest component logic fail validation
+PASS: circular logic imports fail before de-duplication
+PASS: Promptly audio validator checks cues and non-blocking dialogue
+
+> @softn/demo@0.0.2 test:promptly
+> node bundles/PromptlyUnemployed/check-geometry.cjs && node bundles/PromptlyUnemployed/check-spawns.cjs && node bundles/PromptlyUnemployed/check-audio.cjs
+
+checked 382 objects across 6 scenes
+ALL GEOMETRY COMPLETE
+ok   OFFICE_ROWS spawn (4,4)
+ok   FLAT_ROWS spawn (2,12)
+ok   BAKERY_ROWS spawn (2,14)
+ok   DREAM_ROWS spawn (4,4)
+ok   hand spawn (office grid) (12,4.2)
+ALL SPAWNS CLEAR
+checked 57 voiced lines and 70 WAV files
+ALL AUDIO COMPLETE
+
+> @softn/demo@0.0.2 test:bundles
+> node scripts/test-all-bundles.cjs
+
+Bundle: bundles\AIChat.softn (42367 bytes, 7 files)
+PASS: AI Chat bundle is complete, current, and parseable.
+Bundle: bundles\AIDemo.softn (23141 bytes, 5 files)
+PASS: AIDemo bundle is complete, current, and parseable.
+Bundle: bundles\Blockfall.softn (103452 bytes, 10 files)
+PASS: Blockfall bundle is complete, current, and parseable.
+Bundle: bundles\Blockscape.softn (78520 bytes, 8 files)
+PASS: Blockscape bundle is complete, current, and parseable.
+Bundle: bundles\DeadHours.softn (305437 bytes, 15 files)
+PASS: DeadHours bundle is complete, current, and parseable.
+Bundle: bundles\DeviceKit.softn (34562 bytes, 9 files)
+PASS: DeviceKit bundle is complete, current, and parseable.
+Bundle: bundles\FoundationFixture.softn (33953 bytes, 6 files)
+PASS: FoundationFixture bundle is complete, current, and parseable.
+Bundle: bundles\GlamourStudio.softn (94192 bytes, 27 files)
+PASS: Glamour Studio bundle is complete, current, and parseable.
+Bundle: bundles\GPUDemo.softn (13500 bytes, 6 files)
+PASS: GPUDemo bundle is complete, current, and parseable.
+Bundle: bundles\HouseBuilder.softn (110487 bytes, 5 files)
+PASS: HouseBuilder bundle is complete, current, and parseable.
+Bundle: bundles\LastSound3D.softn (11504028 bytes, 236 files)
+PASS: LastSound3D bundle is complete, current, and parseable.
+Bundle: bundles\MazeEscape3D.softn (93707 bytes, 7 files)
+PASS: MazeEscape3D bundle is complete, current, and parseable.
+Bundle: bundles\Notes.softn (16581 bytes, 5 files)
+PASS: Notes bundle is complete, current, and parseable.
+Bundle: bundles\PhotoStudio.softn (602293 bytes, 15 files)
+PASS: PhotoStudio bundle is complete, current, and parseable.
+Bundle: bundles\Pocket.softn (358284 bytes, 14 files)
+PASS: Pocket bundle is complete, current, and parseable.
+Bundle: bundles\PredatorPrey.softn (87274 bytes, 4 files)
+PASS: PredatorPrey bundle is complete, current, and parseable.
+Bundle: bundles\PromptlyUnemployed.softn (17903428 bytes, 78 files)
+PASS: PromptlyUnemployed bundle is complete, current, and parseable.
+Bundle: bundles\Showcase.softn (45755 bytes, 8 files)
+PASS: SoftN Showcase bundle is complete, current, and parseable.
+Bundle: bundles\SimLives.softn (261764 bytes, 6 files)
+PASS: SimLives bundle is complete, current, and parseable.
+Bundle: bundles\SnakeGame.softn (64351 bytes, 8 files)
+PASS: SnakeGame bundle is complete, current, and parseable.
+Bundle: bundles\SoftDOS.softn (453792 bytes, 21 files)
+PASS: SoftDOS bundle is complete, current, and parseable.
+Bundle: bundles\TexasHoldem.softn (318425 bytes, 29 files)
+PASS: Texas Hold'em bundle is complete, current, and parseable.
+Bundle: bundles\TheNightWindow.softn (21211109 bytes, 788 files)
+PASS: The Night Window bundle is complete, current, and parseable.
+Bundle: bundles\TheOffice.softn (623342 bytes, 41 files)
+PASS: TheOffice bundle is complete, current, and parseable.
+Bundle: bundles\ThreeDemo.softn (12444 bytes, 4 files)
+PASS: ThreeDemo bundle is complete, current, and parseable.
+Bundle: bundles\TrainYard.softn (157331 bytes, 5 files)
+PASS: TrainYard bundle is complete, current, and parseable.
+Bundle: bundles\Twenty48.softn (80437 bytes, 8 files)
+PASS: Twenty48 bundle is complete, current, and parseable.
+Bundle: bundles\WarbleWire.softn (111885 bytes, 9 files)
+PASS: WarbleWire bundle is complete, current, and parseable.
+All 28 demo bundles passed.
+Demo index matches all 25 served bundles.
+
+> @softn/demo@0.0.2 test:night-window
+> node --test bundles/TheNightWindow/tests/game.test.cjs bundles/TheNightWindow/tests/content.test.cjs bundles/TheNightWindow/tests/integration.test.cjs
+
+TAP version 13
+# Subtest: manifest enumerates every deployed asset and imports only existing relative source files
+ok 1 - manifest enumerates every deployed asset and imports only existing relative source files
+  ---
+  duration_ms: 38.4906
+  type: 'test'
+  ...
+# Subtest: all 300 resident portrait variants and six ending scenes resolve locally
+ok 2 - all 300 resident portrait variants and six ending scenes resolve locally
+  ---
+  duration_ms: 11.5734
+  type: 'test'
+  ...
+# Subtest: SVG assets are self-contained and have no executable or external content
+ok 3 - SVG assets are self-contained and have no executable or external content
+  ---
+  duration_ms: 89.1584
+  type: 'test'
+  ...
+# Subtest: sixteen sound effects: fifteen MP3 one-shots and a seamless PCM rain bed that the adapter references correctly
+ok 4 - sixteen sound effects: fifteen MP3 one-shots and a seamless PCM rain bed that the adapter references correctly
+  ---
+  duration_ms: 18.9282
+  type: 'test'
+  ...
+# Subtest: every scripted line has a recorded voice clip and every clip is a real MP3 that is referenced
+ok 5 - every scripted line has a recorded voice clip and every clip is a real MP3 that is referenced
+  ---
+  duration_ms: 128.7724
+  type: 'test'
+  ...
+# Subtest: every UI action names a real function; no per-frame VM or external network game path
+ok 6 - every UI action names a real function; no per-frame VM or external network game path
+  ---
+  duration_ms: 11.3486
+  type: 'test'
+  ...
+# Subtest: resident lookup tolerates apartment punctuation and never exposes secrets
+ok 7 - resident lookup tolerates apartment punctuation and never exposes secrets
+  ---
+  duration_ms: 0.921
+  type: 'test'
+  ...
+# Subtest: backup recovery also works with a missing primary key, and saves stay bounded
+ok 8 - backup recovery also works with a missing primary key, and saves stay bounded
+  ---
+  duration_ms: 3.8618
+  type: 'test'
+  ...
+# Subtest: returning from menu preserves unsaved campaign and arcade decisions after quota failure
+ok 9 - returning from menu preserves unsaved campaign and arcade decisions after quota failure
+  ---
+  duration_ms: 9.9657
+  type: 'test'
+  ...
+# Subtest: roster has 20 unique, fully authored residents and valid relationships
+ok 10 - roster has 20 unique, fully authored residents and valid relationships
+  ---
+  duration_ms: 2.1769
+  type: 'test'
+  ...
+# Subtest: 49 curated encounters, exactly seven per night, and valid dialogue graph
+ok 11 - 49 curated encounters, exactly seven per night, and valid dialogue graph
+  ---
+  duration_ms: 12.599
+  type: 'test'
+  ...
+# Subtest: anomalies: 36 unique types, detection routes and mundane exceptions
+ok 12 - anomalies: 36 unique types, detection routes and mundane exceptions
+  ---
+  duration_ms: 0.4806
+  type: 'test'
+  ...
+# Subtest: new game, guided first shift and initially gated tools
+ok 13 - new game, guided first shift and initially gated tools
+  ---
+  duration_ms: 4.2052
+  type: 'test'
+  ...
+# Subtest: guided first shift follows the player through every step, then retires itself
+ok 14 - guided first shift follows the player through every step, then retires itself
+  ---
+  duration_ms: 15.6564
+  type: 'test'
+  ...
+# Subtest: voice lines never overlap, respect mute and voice volume, and can be replayed
+ok 15 - voice lines never overlap, respect mute and voice volume, and can be replayed
+  ---
+  duration_ms: 7.2767
+  type: 'test'
+  ...
+# Subtest: briefings, endings, witnesses and the outer queue are voiced from their own ids
+ok 16 - briefings, endings, witnesses and the outer queue are voiced from their own ids
+  ---
+  duration_ms: 13.9906
+  type: 'test'
+  ...
+# Subtest: follow-up prerequisites and exclusive dialogue tone branches
+ok 17 - follow-up prerequisites and exclusive dialogue tone branches
+  ---
+  duration_ms: 1.1942
+  type: 'test'
+  ...
+# Subtest: document comparison uses independent fields and cannot issue a verdict
+ok 18 - document comparison uses independent fields and cannot issue a verdict
+  ---
+  duration_ms: 1.5856
+  type: 'test'
+  ...
+# Subtest: paper originals cannot be mutated by a terminal rewrite
+ok 19 - paper originals cannot be mutated by a terminal rewrite
+  ---
+  duration_ms: 1.7881
+  type: 'test'
+  ...
+# Subtest: holding consumes a limited slot, supplies testimony, and does not finalize
+ok 20 - holding consumes a limited slot, supplies testimony, and does not finalize
+  ---
+  duration_ms: 1.1075
+  type: 'test'
+  ...
+# Subtest: human admission is safe; repeated final clicks cannot double-count
+ok 21 - human admission is safe; repeated final clicks cannot double-count
+  ---
+  duration_ms: 0.5569
+  type: 'test'
+  ...
+# Subtest: hostile admission increments breach; hostile quarantine leaves real resident alive
+ok 22 - hostile admission increments breach; hostile quarantine leaves real resident alive
+  ---
+  duration_ms: 0.7178
+  type: 'test'
+  ...
+# Subtest: wrong quarantine harms residents; denial is not a universal safe button
+ok 23 - wrong quarantine harms residents; denial is not a universal safe button
+  ---
+  duration_ms: 0.9817
+  type: 'test'
+  ...
+# Subtest: detained humans return under escort and denial retains custody
+ok 24 - detained humans return under escort and denial retains custody
+  ---
+  duration_ms: 0.4887
+  type: 'test'
+  ...
+# Subtest: relationships and consequences affect later dialogue, not only final score
+ok 25 - relationships and consequences affect later dialogue, not only final score
+  ---
+  duration_ms: 0.5144
+  type: 'test'
+  ...
+# Subtest: absent witnesses become explicitly dated testimony
+ok 26 - absent witnesses become explicitly dated testimony
+  ---
+  duration_ms: 0.354
+  type: 'test'
+  ...
+# Subtest: appeal mechanism opens night five, cannot farm trust, and never erases harm
+ok 27 - appeal mechanism opens night five, cannot farm trust, and never erases harm
+  ---
+  duration_ms: 0.6914
+  type: 'test'
+  ...
+# Subtest: scanner readings overlap; no threshold is a species test
+ok 28 - scanner readings overlap; no threshold is a species test
+  ---
+  duration_ms: 0.6684
+  type: 'test'
+  ...
+# Subtest: camera and blackout lamp are gated, captioned and non-timed
+ok 29 - camera and blackout lamp are gated, captioned and non-timed
+  ---
+  duration_ms: 0.8583
+  type: 'test'
+  ...
+# Subtest: full 49-case protective campaign traverses every phase with save roundtrips
+ok 30 - full 49-case protective campaign traverses every phase with save roundtrips
+  ---
+  duration_ms: 117.5694
+  type: 'test'
+  ...
+# Subtest: reachable ending: survivor has three scenes and a durable unlock
+ok 31 - reachable ending: survivor has three scenes and a durable unlock
+  ---
+  duration_ms: 115.748
+  type: 'test'
+  ...
+# Subtest: reachable ending: purge has three scenes and a durable unlock
+ok 32 - reachable ending: purge has three scenes and a durable unlock
+  ---
+  duration_ms: 108.4071
+  type: 'test'
+  ...
+# Subtest: reachable ending: whistleblower has three scenes and a durable unlock
+ok 33 - reachable ending: whistleblower has three scenes and a durable unlock
+  ---
+  duration_ms: 112.6835
+  type: 'test'
+  ...
+# Subtest: reachable ending: coexistence has three scenes and a durable unlock
+ok 34 - reachable ending: coexistence has three scenes and a durable unlock
+  ---
+  duration_ms: 109.1272
+  type: 'test'
+  ...
+# Subtest: reachable ending: truth has three scenes and a durable unlock
+ok 35 - reachable ending: truth has three scenes and a durable unlock
+  ---
+  duration_ms: 105.8157
+  type: 'test'
+  ...
+# Subtest: breach is reachable through harmful admissions; other routes are closed
+ok 36 - breach is reachable through harmful admissions; other routes are closed
+  ---
+  duration_ms: 103.0525
+  type: 'test'
+  ...
+# Subtest: wrong circuit changes the actual final scene to evacuation
+ok 37 - wrong circuit changes the actual final scene to evacuation
+  ---
+  duration_ms: 101.1997
+  type: 'test'
+  ...
+# Subtest: all-deny and all-quarantine campaigns reach an ending but carry substantial harm
+ok 38 - all-deny and all-quarantine campaigns reach an ending but carry substantial harm
+  ---
+  duration_ms: 201.2099
+  type: 'test'
+  ...
+# Subtest: save preserves mid-interview selections, journal, questions, notes and resources
+ok 39 - save preserves mid-interview selections, journal, questions, notes and resources
+  ---
+  duration_ms: 1.5772
+  type: 'test'
+  ...
+# Subtest: checksum/version/shape corruption is contained rather than crashing
+ok 40 - checksum/version/shape corruption is contained rather than crashing
+  ---
+  duration_ms: 2.4976
+  type: 'test'
+  ...
+# Subtest: backup recovery, quota error and reset are app-local
+ok 41 - backup recovery, quota error and reset are app-local
+  ---
+  duration_ms: 2.2771
+  type: 'test'
+  ...
+# Subtest: menu confirmations, continue, settings and input events
+ok 42 - menu confirmations, continue, settings and input events
+  ---
+  duration_ms: 2.6475
+  type: 'test'
+  ...
+# Subtest: procedural cases: 10,000 deterministic valid, applicable, detectable encounters
+ok 43 - procedural cases: 10,000 deterministic valid, applicable, detectable encounters
+  ---
+  duration_ms: 611.2481
+  type: 'test'
+  ...
+# Subtest: arcade scoring, resource renewal, independent save and >500-case bounded history
+ok 44 - arcade scoring, resource renewal, independent save and >500-case bounded history
+  ---
+  duration_ms: 36.4401
+  type: 'test'
+  ...
+# Subtest: no omniscient campaign truth crosses the UI projection
+ok 45 - no omniscient campaign truth crosses the UI projection
+  ---
+  duration_ms: 0.5003
+  type: 'test'
+  ...
+# Subtest: catalogue registration is idempotent and preserves unrelated entries, tags and tests
+ok 46 - catalogue registration is idempotent and preserves unrelated entries, tags and tests
+  ---
+  duration_ms: 19.2411
+  type: 'test'
+  ...
+# Subtest: registration refuses schema changes without partially editing shared files
+ok 47 - registration refuses schema changes without partially editing shared files
+  ---
+  duration_ms: 8.285
+  type: 'test'
+  ...
+# Subtest: registration refuses conflicting identifiers, category and test commands
+ok 48 - registration refuses conflicting identifiers, category and test commands
+  ---
+  duration_ms: 9.8701
+  type: 'test'
+  ...
+# Subtest: registration records built size without deleting custom game metadata
+ok 49 - registration records built size without deleting custom game metadata
+  ---
+  duration_ms: 11.7221
+  type: 'test'
+  ...
+1..49
+# tests 49
+# suites 0
+# pass 49
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1950.8548
+exit 0

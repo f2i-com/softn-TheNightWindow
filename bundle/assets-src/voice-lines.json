@@ -1,0 +1,3860 @@
+{
+  "model": "eleven_multilingual_v2",
+  "cast": {
+    "narrator": {
+      "name": "Narrator",
+      "voice": "JBFqnCBsd6RMkjVDRZzb",
+      "note": "George: warm British storyteller",
+      "settings": {
+        "stability": 0.62,
+        "similarity_boost": 0.8,
+        "style": 0.22,
+        "use_speaker_boost": true,
+        "speed": 0.95
+      }
+    },
+    "marr": {
+      "name": "S. Marr (previous guard)",
+      "voice": "pqHfZKP75CvOlQylNhV4",
+      "note": "Bill: old, crisp, tired",
+      "settings": {
+        "stability": 0.6,
+        "similarity_boost": 0.8,
+        "style": 0.25,
+        "use_speaker_boost": true,
+        "speed": 0.94
+      }
+    },
+    "office": {
+      "name": "Head office (form acknowledgements)",
+      "voice": "CwhRBWXzGAHq8TQ4Fs17",
+      "note": "Roger: flat, unhurried bureaucracy over the desk speaker",
+      "settings": {
+        "stability": 0.85,
+        "similarity_boost": 0.8,
+        "style": 0.05,
+        "use_speaker_boost": true,
+        "speed": 0.97
+      }
+    },
+    "ada": {
+      "name": "Ada Venn",
+      "voice": "pFZP5JQG7iQjIQuC4Bku",
+      "note": "Lily: velvety British actress, slowed for 68",
+      "settings": {
+        "stability": 0.72,
+        "similarity_boost": 0.8,
+        "style": 0.2,
+        "use_speaker_boost": true,
+        "speed": 0.88
+      }
+    },
+    "mara": {
+      "name": "Mara Quill",
+      "voice": "EXAVITQu4vr4xnSDxMaL",
+      "note": "Sarah: mature, flat with exhaustion",
+      "settings": {
+        "stability": 0.75,
+        "similarity_boost": 0.8,
+        "style": 0.08,
+        "use_speaker_boost": true,
+        "speed": 0.95
+      }
+    },
+    "ivo": {
+      "name": "Ivo Rusk",
+      "voice": "bIHbv24MWmeRgasZH58o",
+      "note": "Will: young, relaxed, quick",
+      "settings": {
+        "stability": 0.45,
+        "similarity_boost": 0.75,
+        "style": 0.3,
+        "use_speaker_boost": true,
+        "speed": 1.06
+      }
+    },
+    "tomas": {
+      "name": "Tomas Rusk",
+      "voice": "iP95p4xoKVk53GoZ742B",
+      "note": "Chris: down-to-earth engineer",
+      "settings": {
+        "stability": 0.6,
+        "similarity_boost": 0.8,
+        "style": 0.15,
+        "use_speaker_boost": true,
+        "speed": 0.95
+      }
+    },
+    "selene": {
+      "name": "Selene Holt",
+      "voice": "Xb7hH8MSUJpSbSDYk0k2",
+      "note": "Alice: clear British, controlled",
+      "settings": {
+        "stability": 0.8,
+        "similarity_boost": 0.8,
+        "style": 0,
+        "use_speaker_boost": true,
+        "speed": 1
+      }
+    },
+    "nessa": {
+      "name": "Nessa Vale",
+      "voice": "EXAVITQu4vr4xnSDxMaL",
+      "note": "Sarah again, pushed harder: direct and sleepless",
+      "settings": {
+        "stability": 0.4,
+        "similarity_boost": 0.75,
+        "style": 0.4,
+        "use_speaker_boost": true,
+        "speed": 1.05
+      }
+    },
+    "lio": {
+      "name": "Lio Vale",
+      "voice": "cgSgspJ2msm6clMCkdW9",
+      "note": "Jessica: the youngest premade voice, kept literal and steady for a 12-year-old",
+      "settings": {
+        "stability": 0.7,
+        "similarity_boost": 0.75,
+        "style": 0.1,
+        "use_speaker_boost": true,
+        "speed": 1
+      }
+    },
+    "emil": {
+      "name": "Emil Saye",
+      "voice": "N2lVS1w4EtoT3dr4eOWO",
+      "note": "Callum: husky, excitable tangents",
+      "settings": {
+        "stability": 0.42,
+        "similarity_boost": 0.75,
+        "style": 0.35,
+        "use_speaker_boost": true,
+        "speed": 1.04
+      }
+    },
+    "celia": {
+      "name": "Celia Wren",
+      "voice": "hpp4J3VqNfWAUOO0d1Us",
+      "note": "Bella: warm, persuasive organizer",
+      "settings": {
+        "stability": 0.6,
+        "similarity_boost": 0.8,
+        "style": 0.3,
+        "use_speaker_boost": true,
+        "speed": 0.97
+      }
+    },
+    "orin": {
+      "name": "Orin Dace",
+      "voice": "SAz9YHcvj6GT2YYXdXww",
+      "note": "River: neutral, unhurried, uncanny calm",
+      "settings": {
+        "stability": 0.85,
+        "similarity_boost": 0.8,
+        "style": 0,
+        "use_speaker_boost": true,
+        "speed": 0.9
+      }
+    },
+    "leon": {
+      "name": "Leon Voss",
+      "voice": "pNInz6obpgDQGcFmaJgB",
+      "note": "Adam: blunt, disciplined",
+      "settings": {
+        "stability": 0.7,
+        "similarity_boost": 0.8,
+        "style": 0.12,
+        "use_speaker_boost": true,
+        "speed": 0.98
+      }
+    },
+    "bea": {
+      "name": "Bea Noll",
+      "voice": "FGY2WhTYpPnrIDTdsKH5",
+      "note": "Laura: quick, quirky courier",
+      "settings": {
+        "stability": 0.4,
+        "similarity_boost": 0.75,
+        "style": 0.4,
+        "use_speaker_boost": true,
+        "speed": 1.12
+      }
+    },
+    "dalia": {
+      "name": "Dr Dalia Kest",
+      "voice": "Xb7hH8MSUJpSbSDYk0k2",
+      "note": "Alice again, slower and heavier: careful vocabulary, moral exhaustion",
+      "settings": {
+        "stability": 0.58,
+        "similarity_boost": 0.8,
+        "style": 0.22,
+        "use_speaker_boost": true,
+        "speed": 0.93
+      }
+    },
+    "pavel": {
+      "name": "Pavel Arden",
+      "voice": "onwK4e9ZLuTAKqWW03F9",
+      "note": "Daniel: formal British, courteous and distracted",
+      "settings": {
+        "stability": 0.6,
+        "similarity_boost": 0.8,
+        "style": 0.18,
+        "use_speaker_boost": true,
+        "speed": 0.93
+      }
+    },
+    "ruth": {
+      "name": "Ruth Sable",
+      "voice": "XrExE9yKIg1WjnnlVkGX",
+      "note": "Matilda: upbeat, kitchen-warm",
+      "settings": {
+        "stability": 0.55,
+        "similarity_boost": 0.8,
+        "style": 0.3,
+        "use_speaker_boost": true,
+        "speed": 1
+      }
+    },
+    "micah": {
+      "name": "Micah Bell",
+      "voice": "TX3LPaxmHKxFdv7VOQHJ",
+      "note": "Liam: young, sardonic when scared",
+      "settings": {
+        "stability": 0.5,
+        "similarity_boost": 0.78,
+        "style": 0.3,
+        "use_speaker_boost": true,
+        "speed": 1.02
+      }
+    },
+    "june": {
+      "name": "June Calder",
+      "voice": "hpp4J3VqNfWAUOO0d1Us",
+      "note": "Bella again, brisker and plainer: practical tram driver",
+      "settings": {
+        "stability": 0.5,
+        "similarity_boost": 0.78,
+        "style": 0.12,
+        "use_speaker_boost": true,
+        "speed": 1.04
+      }
+    },
+    "victor": {
+      "name": "Victor Pell",
+      "voice": "cjVigY5qzO86Huf0OWal",
+      "note": "Eric: smooth, velvet menace",
+      "settings": {
+        "stability": 0.82,
+        "similarity_boost": 0.8,
+        "style": 0.1,
+        "use_speaker_boost": true,
+        "speed": 0.9
+      }
+    },
+    "anja": {
+      "name": "Anja Reed",
+      "voice": "FGY2WhTYpPnrIDTdsKH5",
+      "note": "Laura again, steadier and drier: fast, sceptical electrician",
+      "settings": {
+        "stability": 0.62,
+        "similarity_boost": 0.8,
+        "style": 0.15,
+        "use_speaker_boost": true,
+        "speed": 1
+      }
+    },
+    "hadi": {
+      "name": "Hadi Morrow",
+      "voice": "nPczCjzI2devNBz1zQrb",
+      "note": "Brian: deep, gentle, exact",
+      "settings": {
+        "stability": 0.72,
+        "similarity_boost": 0.8,
+        "style": 0.12,
+        "use_speaker_boost": true,
+        "speed": 0.92
+      }
+    }
+  },
+  "lines": [
+    {
+      "id": "brief/1",
+      "speaker": "narrator",
+      "key": "narrator_fec080c3",
+      "recorded": true,
+      "text": "Your name is Ellis Flint. You have worked day security for eleven years. Tonight your predecessor left before you arrived. A pencil lies across the entry ledger. On the last page: DO Not Let The Terminal Keep Your Only Copy. Compare the resident card with the register. Inspect the person, then ask questions. A difference is a reason to investigate, not a verdict. Admit opens the inner door; Deny sends someone into the rain; Quarantine takes them to a containment ward. Hold buys an additional interview but uses one of two staffed holding slots. Nothing advances while you are simply reading."
+    },
+    {
+      "id": "incident/1",
+      "speaker": "narrator",
+      "key": "narrator_413e48d3",
+      "recorded": true,
+      "text": "A visitor last night knew the emergency-contact list by heart. Nobody asked whether she liked any of them."
+    },
+    {
+      "id": "note/1",
+      "speaker": "marr",
+      "key": "marr_007332b5",
+      "recorded": true,
+      "text": "The scanner is not on your desk yet, and good riddance. My uncle failed it after dental work. Ada knows the building better than the register."
+    },
+    {
+      "id": "brief/2",
+      "speaker": "narrator",
+      "key": "narrator_c0ef07b7",
+      "recorded": true,
+      "text": "The apartment intercom has been reconnected. It lets you ask another person, not ask the truth. Someone upstairs can be wrong. Someone upstairs can be afraid. At the foot of the shift notes is a list of five names. Four are crossed out. The fifth is yours, but it is written in a hand that looks unpleasantly familiar."
+    },
+    {
+      "id": "incident/2",
+      "speaker": "narrator",
+      "key": "narrator_20d0419c",
+      "recorded": true,
+      "text": "A courier reports a second checkpoint beyond the tram wall. The tram map contains no such stop."
+    },
+    {
+      "id": "note/2",
+      "speaker": "marr",
+      "key": "marr_6ceb7e77",
+      "recorded": true,
+      "text": "Callers sometimes answer yes before you have asked anything. Ask an open question. We are short of movement permits; genuine residents may carry replacements."
+    },
+    {
+      "id": "brief/3",
+      "speaker": "narrator",
+      "key": "narrator_3be13ef4",
+      "recorded": true,
+      "text": "A microfilm reader has arrived with no requisition number. Somebody wanted you to have it. Unlike the terminal, film cannot edit itself. Census corrections are now automatic. Administration says this will reduce uncertainty. The terminal has begun replacing the word missing with returned."
+    },
+    {
+      "id": "incident/3",
+      "speaker": "narrator",
+      "key": "narrator_1455abae",
+      "recorded": true,
+      "text": "The board has lost a floor. F-wing still draws power, but the census calls it unoccupied."
+    },
+    {
+      "id": "note/3",
+      "speaker": "marr",
+      "key": "marr_a04c6dc2",
+      "recorded": true,
+      "text": "Heard three bells at the archive. Micah says two are the alarm; the third is a pump. Wrote that down because I keep forgetting which sound is supposed to save us."
+    },
+    {
+      "id": "brief/4",
+      "speaker": "narrator",
+      "key": "narrator_83982d81",
+      "recorded": true,
+      "text": "At 22:41, the corridor speakers gave the evacuation tone backwards. Every lift opened on a different floor. Whether the breach began at your window or somewhere older is not yet clear. A signal scanner is available. You have two insulated cartridges per shift. Fever, metal and radio equipment can interfere. A low reading is not an acquittal; a high reading is not a sentence."
+    },
+    {
+      "id": "incident/4",
+      "speaker": "narrator",
+      "key": "narrator_7b649679",
+      "recorded": true,
+      "text": "An internal audit finds residents who entered before the construction of their apartments. One is listed as a founding tenant."
+    },
+    {
+      "id": "note/4",
+      "speaker": "marr",
+      "key": "marr_6647c80f",
+      "recorded": true,
+      "text": "Use the camera, not your memory of a reflection. The emergency lamp is battery powered. If the grid fails, switch it on; there is no hidden countdown."
+    },
+    {
+      "id": "brief/5",
+      "speaker": "narrator",
+      "key": "narrator_a8e3afaf",
+      "recorded": true,
+      "text": "Administration has issued a directive: executive authorization supersedes conflicting evidence. No one will put the directive in writing. You can now challenge previous quarantine orders through Communications. A successful appeal releases a living human, but it does not erase the harm already done. The clinic has sent you the names, not the totals."
+    },
+    {
+      "id": "incident/5",
+      "speaker": "narrator",
+      "key": "narrator_2571d319",
+      "recorded": true,
+      "text": "The census service has scheduled a complete synchronization for 05:17 on the seventh night. No technical description is attached."
+    },
+    {
+      "id": "note/5",
+      "speaker": "marr",
+      "key": "marr_e6e7e4a8",
+      "recorded": true,
+      "text": "An instruction is not evidence. If someone asks you to burn a paper, make a second copy before asking why."
+    },
+    {
+      "id": "brief/6",
+      "speaker": "narrator",
+      "key": "narrator_b65f8f56",
+      "recorded": true,
+      "text": "You were hired to classify arrivals. Nobody told you that a classification could be an instruction to become something. The residents have begun making their own records: who cooked, who listened, who came back for somebody else. These records disagree with the official distinction between human and Reproduction. Neither set is a guarantee of kindness."
+    },
+    {
+      "id": "incident/6",
+      "speaker": "narrator",
+      "key": "narrator_09e38bf1",
+      "recorded": true,
+      "text": "The containment wing requests family photographs, not blood samples. The old transfer lists suddenly make sense."
+    },
+    {
+      "id": "note/6",
+      "speaker": "marr",
+      "key": "marr_c52d5f71",
+      "recorded": true,
+      "text": "If an Echo tells you what it is, listen to the rest of the sentence. Then verify it. Compassion without attention is another kind of negligence."
+    },
+    {
+      "id": "brief/7",
+      "speaker": "narrator",
+      "key": "narrator_189f8e78",
+      "recorded": true,
+      "text": "Seven nights of names are in your ledger. The final synchronization will use every admission, every refusal and every blank file as training for a building that would rather have a perfect population than a living one. Finish the queue. Then decide what leaves Meridian: a warning, a purge order, a new agreement, or a silence the machine cannot fill. The people you protected, and the evidence you actually kept, determine what is possible."
+    },
+    {
+      "id": "incident/7",
+      "speaker": "narrator",
+      "key": "narrator_05f72bdd",
+      "recorded": true,
+      "text": "Your own file is in the outgoing tray. Under date of return: 17 Oct 1984. Under cause of death: blank."
+    },
+    {
+      "id": "note/7",
+      "speaker": "marr",
+      "key": "marr_e1274582",
+      "recorded": true,
+      "text": "There is no last instruction. I was waiting for one too."
+    },
+    {
+      "id": "ending/survivor/0",
+      "speaker": "narrator",
+      "key": "narrator_6581cc2d",
+      "recorded": true,
+      "text": "You keep the outer gate open to a staffed shelter and close the inner census link. The building survives tonight. Behind you, seven days of questions remain unanswered."
+    },
+    {
+      "id": "ending/survivor/1",
+      "speaker": "narrator",
+      "key": "narrator_7df0c74e",
+      "recorded": true,
+      "text": "At dawn you write every unresolved name by hand. The terminal offers to tidy your notes. You decline. Outside, someone is still waiting, but the waiting is no longer invisible."
+    },
+    {
+      "id": "ending/survivor/2",
+      "speaker": "narrator",
+      "key": "narrator_6301744b",
+      "recorded": true,
+      "text": "Meridian-17 remains inhabited, imperfect and sealed. You protected a boundary. Whether it was the right boundary will be tomorrow’s question."
+    },
+    {
+      "id": "ending/purge/0",
+      "speaker": "narrator",
+      "key": "narrator_536a8779",
+      "recorded": true,
+      "text": "Administration turns your containment reports into a building-wide sweep. White transport lights move across the ceiling. There are no screams in the summary, because the summary has no field for them."
+    },
+    {
+      "id": "ending/purge/1",
+      "speaker": "narrator",
+      "key": "narrator_54561f21",
+      "recorded": true,
+      "text": "The beds are made with military precision. A bowl of soup cools on a windowsill. Ruth’s ledger records portions for people the census has already subtracted. Keeping everyone out did not keep everyone safe."
+    },
+    {
+      "id": "ending/purge/2",
+      "speaker": "narrator",
+      "key": "narrator_c36b5419",
+      "recorded": true,
+      "text": "The loudspeaker congratulates you on a reduction in uncertainty. For the first time in seven nights you can hear every clock in the checkpoint. Nothing human interrupts them."
+    },
+    {
+      "id": "ending/breach/0",
+      "speaker": "narrator",
+      "key": "narrator_859a30c5",
+      "recorded": true,
+      "text": "A knock sounds at the inner door. Then the cupboards. Then the telephone, though nobody is calling. The arrivals no longer need the window. Some wear faces you admitted. Some have been waiting much longer."
+    },
+    {
+      "id": "ending/breach/1",
+      "speaker": "narrator",
+      "key": "narrator_e5d93eab",
+      "recorded": true,
+      "text": "You guide the people still willing to follow through a service hatch. Behind you the census announces that every resident is accounted for. It is announcing names in your voice."
+    },
+    {
+      "id": "ending/breach/2",
+      "speaker": "narrator",
+      "key": "narrator_dc96cffd",
+      "recorded": true,
+      "text": "From the tram wall Meridian looks warm. Every apartment is occupied. At exactly 05:17 every curtain opens. You keep walking with the book beneath your coat."
+    },
+    {
+      "id": "ending/whistleblower/0",
+      "speaker": "narrator",
+      "key": "narrator_58d9757a",
+      "recorded": true,
+      "text": "Emil disconnects the census speaker and warms the independent transmitter. Your microfilm and carbon numbers become words, and then a signal. Dalia’s authorization is among them. You do not edit it out."
+    },
+    {
+      "id": "ending/whistleblower/1",
+      "speaker": "narrator",
+      "key": "narrator_521f2d8d",
+      "recorded": true,
+      "text": "For twelve seconds the eastern press gives no answer. Then a stranger repeats the names back, including yours. The warning has reached a place the terminal cannot amend."
+    },
+    {
+      "id": "ending/whistleblower/2",
+      "speaker": "narrator",
+      "key": "narrator_6d2188d6",
+      "recorded": true,
+      "text": "Meridian’s gates stay shut pending a public inquiry, but the disappeared now have witnesses outside the walls. You have not explained the rain. You have made it harder to use the rain as an excuse."
+    },
+    {
+      "id": "ending/coexistence/0",
+      "speaker": "narrator",
+      "key": "narrator_96f62860",
+      "recorded": true,
+      "text": "Orin signs with his own name. Ruth signs as his supervisor. The agreement forbids coercion and impersonation; it does not require a person to lie about their origin to receive shelter."
+    },
+    {
+      "id": "ending/coexistence/1",
+      "speaker": "narrator",
+      "key": "narrator_374aaf77",
+      "recorded": true,
+      "text": "There are objections. There should be. You take names, record the risks and establish a right of appeal. Celia’s old phrase becomes a practice rather than a slogan. The first new rule is that nobody vanishes into a category."
+    },
+    {
+      "id": "ending/coexistence/2",
+      "speaker": "narrator",
+      "key": "narrator_4e9dd6b2",
+      "recorded": true,
+      "text": "At breakfast the oranges are sour. Someone complains. Orin laughs, and nobody agrees what that proves. For once the building permits a question to remain open."
+    },
+    {
+      "id": "ending/truth/0",
+      "speaker": "narrator",
+      "key": "narrator_f2e1dbea",
+      "recorded": true,
+      "text": "Dalia places the manual key beside Anja’s unaltered wiring diagram. Tomas has locked the lifts clear. Film R-84/17 and Selene’s carbon show that the reference service trains its returns from coerced memories. Your own file bears the first surviving return date. You do not need to solve what you are before deciding what you will do."
+    },
+    {
+      "id": "ending/truth/1",
+      "speaker": "narrator",
+      "key": "narrator_854b167d",
+      "recorded": true,
+      "text": "Anja’s witnessed diagram identifies A as ventilation, B as alarm and C as census reference. The terminal displays the reverse. There is no timer. Read the paper you protected; choose what you are willing to switch off."
+    },
+    {
+      "id": "ending/truth/2",
+      "speaker": "narrator",
+      "key": "narrator_6699d164",
+      "recorded": true,
+      "text": "Feeder C falls silent. Ventilation continues. People keep breathing. The returns outside stop answering in chorus. Inside, nobody disappears: the machine copied people; it did not own everything they became. Ada puts a penny under the desk’s short leg. At last, something useful that the record never knew."
+    },
+    {
+      "id": "finale",
+      "speaker": "narrator",
+      "key": "narrator_4d2d87d6",
+      "recorded": true,
+      "text": "The queue is finished. Administration waits for your countersignature. The residents wait for something else. What happens next depends on the people you protected and the evidence you actually kept."
+    },
+    {
+      "id": "office/0",
+      "speaker": "office",
+      "key": "office_4b8ba586",
+      "recorded": true,
+      "text": "Form seventeen B received. Head office thanks you for your diligence."
+    },
+    {
+      "id": "office/1",
+      "speaker": "office",
+      "key": "office_e6a60507",
+      "recorded": true,
+      "text": "Checklist logged. Head office reminds you that a form is not a decision."
+    },
+    {
+      "id": "office/2",
+      "speaker": "office",
+      "key": "office_812023cc",
+      "recorded": true,
+      "text": "Received and filed. The census will reconcile your entries at five seventeen."
+    },
+    {
+      "id": "tutorial/welcome",
+      "speaker": "narrator",
+      "key": "narrator_ee975a45",
+      "recorded": true,
+      "text": "Your first visitor is waiting at the window. Read what they say beneath the camera view. Every decision tonight begins with looking and listening. Press Next when you are ready."
+    },
+    {
+      "id": "tutorial/checklist",
+      "speaker": "narrator",
+      "key": "narrator_b5bedf26",
+      "recorded": true,
+      "text": "Beside the desk is head office form 17-B: the eight things you must verify for every visitor. Press Compare on the first row. It lays their card and the register side by side and highlights both facts. Then mark the row Matches or Differs. Agreement is not proof; a difference is a reason to ask."
+    },
+    {
+      "id": "tutorial/observe",
+      "speaker": "narrator",
+      "key": "narrator_ff7ccb56",
+      "recorded": true,
+      "text": "Two rows need your eyes rather than the register. Open Observe in Papers for their feature and eye colour, and compare their face with the photograph on file on the Terminal. Mark those rows too. Later visitors will not always match their photograph."
+    },
+    {
+      "id": "tutorial/ask",
+      "speaker": "narrator",
+      "key": "narrator_dbc616e7",
+      "recorded": true,
+      "text": "Scroll down to the interview and ask the visitor anything. Their answers are recorded. A gentle question and a pressing question open different replies, and you may choose only one approach per visitor. Under Tools, Hold asks the outer desk for an independent paper on them; the intercom, scanner and camera arrive on later nights."
+    },
+    {
+      "id": "tutorial/file",
+      "speaker": "narrator",
+      "key": "narrator_88090039",
+      "recorded": true,
+      "text": "When all eight rows are marked, send form 17-B to head office. Every visitor’s form must be filed before you can sign anything. Head office reads the forms, and so, one day, will the census."
+    },
+    {
+      "id": "tutorial/decide",
+      "speaker": "narrator",
+      "key": "narrator_359876f7",
+      "recorded": true,
+      "text": "When you have seen enough, sign. Admit opens the inner door. Deny sends her back into the rain. Quarantine sends her to the containment ward. Nothing here decides for you, and every signature asks you to confirm."
+    },
+    {
+      "id": "tutorial/receipt",
+      "speaker": "narrator",
+      "key": "narrator_d829773e",
+      "recorded": true,
+      "text": "The ledger keeps what you signed. Some consequences arrive tonight; others arrive on a later night, when the same person returns. Close the entry to meet the next visitor. From here you are on your own, but the Guide is always in the header."
+    },
+    {
+      "id": "tip/n1-02-mara",
+      "speaker": "narrator",
+      "key": "narrator_a033ccff",
+      "recorded": true,
+      "text": "Mara’s return slip has expired. Open the Counterfoil on the terminal: it is the movement desk’s own copy, and it can explain an ordinary mistake."
+    },
+    {
+      "id": "tip/n1-03-tomas",
+      "speaker": "narrator",
+      "key": "narrator_a5496b4b",
+      "recorded": true,
+      "text": "Open Observe and compare the distinguishing feature with the resident card. Left and right always mean the visitor’s own left and right, as if you were standing in their shoes."
+    },
+    {
+      "id": "tip/n1-05-bea",
+      "speaker": "narrator",
+      "key": "narrator_6ed89f60",
+      "recorded": true,
+      "text": "Some documents carry a serial number. Compare the return slip’s serial with the counterfoil; two originals cannot share one number."
+    },
+    {
+      "id": "tip/n2-01-tomas",
+      "speaker": "narrator",
+      "key": "narrator_232ef139",
+      "recorded": true,
+      "text": "Call apartment asks someone upstairs whether they expect this visitor. A witness can be tired, frightened or wrong. Their answer joins the interview transcript."
+    },
+    {
+      "id": "tip/n3-01-micah",
+      "speaker": "narrator",
+      "key": "narrator_abc16353",
+      "recorded": true,
+      "text": "The Archive tab holds microfilm and signed originals that the terminal cannot rewrite. Facts you select there can be compared with the card like any other source."
+    },
+    {
+      "id": "tip/n4-01-anja",
+      "speaker": "narrator",
+      "key": "narrator_32dbd04d",
+      "recorded": true,
+      "text": "Switch on the battery lamp to see the visitor; there is no countdown. The scanner gives an uncertain reading and uses one of two cartridges per night. Take a still to keep the current face beside the intake photograph."
+    },
+    {
+      "id": "tip/n5-01-victor",
+      "speaker": "narrator",
+      "key": "narrator_aae4af0f",
+      "recorded": true,
+      "text": "Comms now lists containment appeals: you can ask the clinic to release someone you quarantined earlier. Administration has begun giving orders without signatures. An order is not evidence."
+    },
+    {
+      "id": "tip/n6-01-orin",
+      "speaker": "narrator",
+      "key": "narrator_96a646c0",
+      "recorded": true,
+      "text": "A visitor who discloses their origin is asking for a different judgement. Listen to the rest of the sentence, then verify it against records of conduct, not species."
+    },
+    {
+      "id": "opening/n1-01-ada",
+      "speaker": "narrator",
+      "key": "narrator_c4019618",
+      "recorded": true,
+      "text": "A woman taps the glass twice with a folded umbrella. You are not Marr. Good. He never let me finish a sentence. She notices your name strip and stops smiling for half a second."
+    },
+    {
+      "id": "reply/n1-01-ada/where",
+      "speaker": "ada",
+      "key": "ada_ded91dde",
+      "recorded": true,
+      "text": "The memorial garden. Lucet preferred rain to flowers, so I brought neither. There is still a tree out there, although somebody has given it a serial number. Have you been doing nights long, Ellis?"
+    },
+    {
+      "id": "reply/n1-01-ada/home",
+      "speaker": "ada",
+      "key": "ada_8c11ec67",
+      "recorded": true,
+      "text": "Lives alone; Ruth brings supper. I know a thousand voices, love. Faces are the difficult bit."
+    },
+    {
+      "id": "reply/n1-01-ada/detail",
+      "speaker": "ada",
+      "key": "ada_2c27ac7e",
+      "recorded": true,
+      "text": "I worked the old switchboard. I knew your mother’s extension, and you used to come down after school. You called the little service hatch the night window. Strange name for something you only saw in daylight."
+    },
+    {
+      "id": "reply/n1-01-ada/follow",
+      "speaker": "ada",
+      "key": "ada_ed8ccdbf",
+      "recorded": true,
+      "text": "Something you heard yourself. Lucet made terrible paper boats. I put pennies in them to keep them upright. There: a useless memory. A system which only stores useful things would never bother keeping it."
+    },
+    {
+      "id": "reply/n1-01-ada/gentle",
+      "speaker": "ada",
+      "key": "ada_2e8f5f66",
+      "recorded": true,
+      "text": "A chair. Not for me, for you. Seven hours is too long to sit as though you are being interrogated."
+    },
+    {
+      "id": "reply/n1-01-ada/press",
+      "speaker": "ada",
+      "key": "ada_51cbac08",
+      "recorded": true,
+      "text": "Then turn that off before you ask me to trust you."
+    },
+    {
+      "id": "call/n1-01-ada",
+      "speaker": "narrator",
+      "key": "narrator_bfcd38ea",
+      "recorded": true,
+      "text": "Ruth is in the kitchen. Ada was visiting the garden. Tell her I saved a bowl, not that I was worried."
+    },
+    {
+      "id": "opening/n1-02-mara",
+      "speaker": "narrator",
+      "key": "narrator_ad1bc249",
+      "recorded": true,
+      "text": "The visitor presses a damp hospital pass flat with two shaking fingers. The photograph has been taken after a much better night. It expired while I was still using it."
+    },
+    {
+      "id": "reply/n1-02-mara/where",
+      "speaker": "mara",
+      "key": "mara_b91268b5",
+      "recorded": true,
+      "text": "Outer clinic, bed twelve. A child stopped breathing every time we moved him. The permit office shut at ten. The child did not consult their hours."
+    },
+    {
+      "id": "reply/n1-02-mara/home",
+      "speaker": "mara",
+      "key": "mara_c8150c44",
+      "recorded": true,
+      "text": "Flatmate: Leon Voss, separate room. Please ask the questions while I sit. Neither of us needs me falling over."
+    },
+    {
+      "id": "reply/n1-02-mara/detail",
+      "speaker": "mara",
+      "key": "mara_73b00760",
+      "recorded": true,
+      "text": "Yes. I tried to renew it at 21:40 and again at 22:10. Ward charge signed a paper extension. It should be attached to the permit counterfoil. Please do not make my patients prove they were ill."
+    },
+    {
+      "id": "reply/n1-02-mara/follow",
+      "speaker": "mara",
+      "key": "mara_e1ffaa86",
+      "recorded": true,
+      "text": "Because we share the flat, unofficially. He has a service apartment he never uses. We are both allowed to have a life the personnel office does not know about."
+    },
+    {
+      "id": "reply/n1-02-mara/gentle",
+      "speaker": "mara",
+      "key": "mara_ab9ca19f",
+      "recorded": true,
+      "text": "I need the insulin in my bag to remain cold. You can search it. Please do not leave it under the desk lamp."
+    },
+    {
+      "id": "reply/n1-02-mara/press",
+      "speaker": "mara",
+      "key": "mara_653d912b",
+      "recorded": true,
+      "text": "Then turn that off before you ask me to trust you."
+    },
+    {
+      "id": "call/n1-02-mara",
+      "speaker": "narrator",
+      "key": "narrator_365a1811",
+      "recorded": true,
+      "text": "Ward charge: I signed the extension. Ask her which bed we call the lighthouse. It is twelve. There is no window beside it."
+    },
+    {
+      "id": "opening/n1-03-tomas",
+      "speaker": "narrator",
+      "key": "narrator_4c90da35",
+      "recorded": true,
+      "text": "A man in a maintenance coat leans into the light. He looks familiar only because the photograph is familiar. Water hangs at his chin without falling."
+    },
+    {
+      "id": "reply/n1-03-tomas/where",
+      "speaker": "tomas",
+      "key": "tomas_d1f4dbb1",
+      "recorded": true,
+      "text": "Lift four. A hinge failed. The building requires hinges. The resident requires entry. You may record either reason."
+    },
+    {
+      "id": "reply/n1-03-tomas/home",
+      "speaker": "tomas",
+      "key": "tomas_248ac034",
+      "recorded": true,
+      "text": "Son: Ivo Rusk. A door is never safe because it is shut. You need to know what the hinges are doing."
+    },
+    {
+      "id": "reply/n1-03-tomas/detail",
+      "speaker": "tomas",
+      "key": "tomas_12abb975",
+      "recorded": true,
+      "text": "A cable snapped. It cut the right side. My son likes to trace it because it resembles a river. He is a small child. He has always been a small child."
+    },
+    {
+      "id": "reply/n1-03-tomas/follow",
+      "speaker": "tomas",
+      "key": "tomas_e9e44ed9",
+      "recorded": true,
+      "text": "Seventeen. I meant small relative to the building. People are small relative to the building. There is no contradiction in what I said."
+    },
+    {
+      "id": "reply/n1-03-tomas/gentle",
+      "speaker": "tomas",
+      "key": "tomas_1be1e637",
+      "recorded": true,
+      "text": "Uses a borrowed clearance pass when management forgets to renew his own."
+    },
+    {
+      "id": "reply/n1-03-tomas/press",
+      "speaker": "tomas",
+      "key": "tomas_281429ea",
+      "recorded": true,
+      "text": "The record says I am necessary. You are not in that field."
+    },
+    {
+      "id": "call/n1-03-tomas",
+      "speaker": "narrator",
+      "key": "narrator_3a1d6a33",
+      "recorded": true,
+      "text": "Pump foreman: Rusk is asleep in the chair beside me. I can wake him if this is another password exercise."
+    },
+    {
+      "id": "opening/n1-04-ivo",
+      "speaker": "narrator",
+      "key": "narrator_3a82e4cd",
+      "recorded": true,
+      "text": "A teenager presents a pass bearing the stamp of the recreation board. He has obviously practised looking offended. He has not practised being wet."
+    },
+    {
+      "id": "reply/n1-04-ivo/where",
+      "speaker": "ivo",
+      "key": "ivo_6c4ecfb5",
+      "recorded": true,
+      "text": "The print workshop. We were finishing a safety poster. Big letters. Very safe. You can smell the ink, can’t you?"
+    },
+    {
+      "id": "reply/n1-04-ivo/home",
+      "speaker": "ivo",
+      "key": "ivo_6d34654f",
+      "recorded": true,
+      "text": "Father: Tomas Rusk. Can we agree my father does not need the dramatic version?"
+    },
+    {
+      "id": "reply/n1-04-ivo/detail",
+      "speaker": "ivo",
+      "key": "ivo_8b608a36",
+      "recorded": true,
+      "text": "Because it was in the drawer. Look, I missed curfew. I borrowed a pass. I did not borrow somebody’s face. Can you please not write that sentence down?"
+    },
+    {
+      "id": "reply/n1-04-ivo/follow",
+      "speaker": "ivo",
+      "key": "ivo_abc0ce5e",
+      "recorded": true,
+      "text": "A boy called Cal at the east shelter. We were printing handbills for a concert nobody authorized. My father thinks I am fixing a press. He will be angrier about the lie than about Cal."
+    },
+    {
+      "id": "reply/n1-04-ivo/gentle",
+      "speaker": "ivo",
+      "key": "ivo_1e54c1a9",
+      "recorded": true,
+      "text": "Tell my father I was stupid. He knows that already. Do not tell him who I was stupid for."
+    },
+    {
+      "id": "reply/n1-04-ivo/press",
+      "speaker": "ivo",
+      "key": "ivo_3ca01dd1",
+      "recorded": true,
+      "text": "Then turn that off before you ask me to trust you."
+    },
+    {
+      "id": "call/n1-04-ivo",
+      "speaker": "narrator",
+      "key": "narrator_235bfaf0",
+      "recorded": true,
+      "text": "Tomas’s recorded message says he is at the pumps. A neighbour confirms Ivo’s room and the broken printing press he uses."
+    },
+    {
+      "id": "opening/n1-05-bea",
+      "speaker": "narrator",
+      "key": "narrator_8fc2406a",
+      "recorded": true,
+      "text": "The courier slides a return slip through the tray. It bears the same serial as the voided example pinned beside your ledger. Even the tear crosses the same digit."
+    },
+    {
+      "id": "reply/n1-05-bea/where",
+      "speaker": "bea",
+      "key": "bea_be895262",
+      "recorded": true,
+      "text": "The eastern shelter. A delivery to the eastern shelter. A receipt from the eastern shelter. The route contains everything necessary to describe the route."
+    },
+    {
+      "id": "reply/n1-05-bea/home",
+      "speaker": "bea",
+      "key": "bea_d82b9202",
+      "recorded": true,
+      "text": "Sister lives in the eastern shelter. I can bring you a signature or I can bring you what happened. They are not always the same parcel."
+    },
+    {
+      "id": "reply/n1-05-bea/detail",
+      "speaker": "bea",
+      "key": "bea_c3ff5b05",
+      "recorded": true,
+      "text": "It is a common serial. Everybody needs one. A number cannot belong to only one person when so many people require numbers."
+    },
+    {
+      "id": "reply/n1-05-bea/follow",
+      "speaker": "bea",
+      "key": "bea_1648089e",
+      "recorded": true,
+      "text": "Black. One knot. A second knot would delay delivery. Speed is my distinguishing characteristic."
+    },
+    {
+      "id": "reply/n1-05-bea/gentle",
+      "speaker": "bea",
+      "key": "bea_5bf4469c",
+      "recorded": true,
+      "text": "Reuses serialled paper when the depot runs out and lies about carrying letters."
+    },
+    {
+      "id": "reply/n1-05-bea/press",
+      "speaker": "bea",
+      "key": "bea_cfedac61",
+      "recorded": true,
+      "text": "Then turn that off before you ask me to trust you."
+    },
+    {
+      "id": "call/n1-05-bea",
+      "speaker": "narrator",
+      "key": "narrator_602691b1",
+      "recorded": true,
+      "text": "Depot clerk: Noll has not collected a pass tonight. We are still waiting for her bicycle wheel."
+    },
+    {
+      "id": "opening/n1-06-ruth",
+      "speaker": "narrator",
+      "key": "narrator_6d47ac95",
+      "recorded": true,
+      "text": "A woman in a kitchen coat places a covered bowl in the tray before her identity card. Documents first, she says in an imitation of somebody else. Soup second. Civilization third."
+    },
+    {
+      "id": "reply/n1-06-ruth/where",
+      "speaker": "ruth",
+      "key": "ruth_26ac81ea",
+      "recorded": true,
+      "text": "The supplies shed. I have six onions and an administrative disagreement about whether an onion counts as a whole vegetable. It does if you are hungry enough."
+    },
+    {
+      "id": "reply/n1-06-ruth/home",
+      "speaker": "ruth",
+      "key": "ruth_cde38dfc",
+      "recorded": true,
+      "text": "Lives alone; feeds most of floor E. Hungry people are not an accounting error."
+    },
+    {
+      "id": "reply/n1-06-ruth/detail",
+      "speaker": "ruth",
+      "key": "ruth_e1455f74",
+      "recorded": true,
+      "text": "Orin Dace, down in F-wing. Quiet fellow. Sometimes he brings things the official garden inventory says do not exist. Those are usually the best things."
+    },
+    {
+      "id": "reply/n1-06-ruth/follow",
+      "speaker": "ruth",
+      "key": "ruth_9fff9f22",
+      "recorded": true,
+      "text": "He has been cooking with me for five years. That is not an identity test, I know. It is just information about what he has done with five years."
+    },
+    {
+      "id": "reply/n1-06-ruth/gentle",
+      "speaker": "ruth",
+      "key": "ruth_0de08ffe",
+      "recorded": true,
+      "text": "I need you to eat. A person who has not eaten starts seeing enemies because decisions feel like effort."
+    },
+    {
+      "id": "reply/n1-06-ruth/press",
+      "speaker": "ruth",
+      "key": "ruth_a9e99a41",
+      "recorded": true,
+      "text": "Then turn that off before you ask me to trust you."
+    },
+    {
+      "id": "call/n1-06-ruth",
+      "speaker": "narrator",
+      "key": "narrator_0c220f2e",
+      "recorded": true,
+      "text": "Emil answers amid radio hiss. She went for onions. If she brings you soup, eat it before she asks you whether you like it."
+    },
+    {
+      "id": "opening/n1-07-pavel",
+      "speaker": "narrator",
+      "key": "narrator_9aad8e86",
+      "recorded": true,
+      "text": "A man holds a red cup wrapped in cloth. He apologizes for bringing something breakable to a checkpoint. He never apologizes for arriving late."
+    },
+    {
+      "id": "reply/n1-07-pavel/where",
+      "speaker": "pavel",
+      "key": "pavel_4e91d3e7",
+      "recorded": true,
+      "text": "The memorial wall. They finally engraved my daughter’s name. They spelled it correctly, which is more than some people get."
+    },
+    {
+      "id": "reply/n1-07-pavel/home",
+      "speaker": "pavel",
+      "key": "pavel_75ef9afa",
+      "recorded": true,
+      "text": "Lives alone; wife and daughter deceased. There are questions people answer wrongly because the answer hurts."
+    },
+    {
+      "id": "reply/n1-07-pavel/detail",
+      "speaker": "pavel",
+      "key": "pavel_bc5245c4",
+      "recorded": true,
+      "text": "Six. She put six on it. I know they look like seven, but one is only a mark where the paint ran. Please stop turning it toward the lamp."
+    },
+    {
+      "id": "reply/n1-07-pavel/follow",
+      "speaker": "pavel",
+      "key": "pavel_e980ff09",
+      "recorded": true,
+      "text": "Yes. Seven. There are seven. She made the last one the day before they took her. Sometimes I tell myself she finished the cup earlier than that."
+    },
+    {
+      "id": "reply/n1-07-pavel/gentle",
+      "speaker": "pavel",
+      "key": "pavel_e158b530",
+      "recorded": true,
+      "text": "I need you to understand that remembering is not always something people do willingly."
+    },
+    {
+      "id": "reply/n1-07-pavel/press",
+      "speaker": "pavel",
+      "key": "pavel_01626fe4",
+      "recorded": true,
+      "text": "Then turn that off before you ask me to trust you."
+    },
+    {
+      "id": "call/n1-07-pavel",
+      "speaker": "narrator",
+      "key": "narrator_bc6e9cd4",
+      "recorded": true,
+      "text": "Ada: Do not turn sadness into a trick question. He is wrong about the cup when the cup hurts."
+    },
+    {
+      "id": "opening/n2-01-tomas",
+      "speaker": "narrator",
+      "key": "narrator_d6e8e681",
+      "recorded": true,
+      "text": "A maintenance engineer lays down a permit signed by a supervisor. His cheek bears a thin scar on the left. Someone at the pumps says I came here last night. I did not enjoy hearing that."
+    },
+    {
+      "id": "reply/n2-01-tomas/where",
+      "speaker": "tomas",
+      "key": "tomas_5744e1b9",
+      "recorded": true,
+      "text": "North pumps, then lift four. I slept for two hours in the foreman’s chair. Apparently someone else was using my face while I did it."
+    },
+    {
+      "id": "reply/n2-01-tomas/home",
+      "speaker": "tomas",
+      "key": "tomas_248ac034",
+      "recorded": true,
+      "text": "Son: Ivo Rusk. A door is never safe because it is shut. You need to know what the hinges are doing."
+    },
+    {
+      "id": "reply/n2-01-tomas/detail",
+      "speaker": "tomas",
+      "key": "tomas_09ee4311",
+      "recorded": true,
+      "text": "I pinched my writing hand. It is a stupid injury and a legitimate signature. There is an incident slip. Would you prefer I smear blood over your carbon?"
+    },
+    {
+      "id": "reply/n2-01-tomas/follow",
+      "speaker": "tomas",
+      "key": "tomas_17b0db2e",
+      "recorded": true,
+      "text": "A wooden bird. I carved it for Ivo when he was six. There is a blue sun underneath the lift now. He thinks I have not noticed."
+    },
+    {
+      "id": "reply/n2-01-tomas/gentle",
+      "speaker": "tomas",
+      "key": "tomas_1be1e637",
+      "recorded": true,
+      "text": "Uses a borrowed clearance pass when management forgets to renew his own."
+    },
+    {
+      "id": "reply/n2-01-tomas/press",
+      "speaker": "tomas",
+      "key": "tomas_3a5cd135",
+      "recorded": true,
+      "text": "Then turn that off before you ask me to trust you."
+    },
+    {
+      "id": "call/n2-01-tomas",
+      "speaker": "narrator",
+      "key": "narrator_73bef0d3",
+      "recorded": true,
+      "text": "Ivo: Ask about the wooden bird. He pretends he carved it by accident. My father has never made anything by accident."
+    },
+    {
+      "id": "opening/n2-02-celia",
+      "speaker": "narrator",
+      "key": "narrator_07626c36",
+      "recorded": true,
+      "text": "The woman outside is greeted by someone behind the inner door. She does not acknowledge the greeting until you finish reading her card."
+    },
+    {
+      "id": "reply/n2-02-celia/where",
+      "speaker": "celia",
+      "key": "celia_afe59d15",
+      "recorded": true,
+      "text": "Distribution shed. Four families were left off the ration list. I brought them back onto the list using the highly irregular technique of writing their names."
+    },
+    {
+      "id": "reply/n2-02-celia/home",
+      "speaker": "celia",
+      "key": "celia_31a0869d",
+      "recorded": true,
+      "text": "Lives with three unnamed evacuees. Keeping people safe has to include keeping them people."
+    },
+    {
+      "id": "reply/n2-02-celia/detail",
+      "speaker": "celia",
+      "key": "celia_eb0f3afa",
+      "recorded": true,
+      "text": "Pell says many things. Three people sleep on my floor because their shelter flooded. I submitted the forms. A form waiting in an office is still a person waiting in the rain."
+    },
+    {
+      "id": "reply/n2-02-celia/follow",
+      "speaker": "celia",
+      "key": "celia_41993f53",
+      "recorded": true,
+      "text": "Keep a chair. Not a seat; a chair can be carried to somebody who cannot reach the table. Ada says I make furniture sound political."
+    },
+    {
+      "id": "reply/n2-02-celia/gentle",
+      "speaker": "celia",
+      "key": "celia_9e9e2120",
+      "recorded": true,
+      "text": "Signs paperwork for people who cannot read and sometimes covers their mistakes."
+    },
+    {
+      "id": "reply/n2-02-celia/press",
+      "speaker": "celia",
+      "key": "celia_55172c69",
+      "recorded": true,
+      "text": "Then turn that off before you ask me to trust you."
+    },
+    {
+      "id": "call/n2-02-celia",
+      "speaker": "narrator",
+      "key": "narrator_71a68cad",
+      "recorded": true,
+      "text": "Nessa: Celia found the shelter list for me. She has not promised me Lio is safe. I trust her more for not promising."
+    },
+    {
+      "id": "opening/n2-03-selene",
+      "speaker": "narrator",
+      "key": "narrator_5455c65e",
+      "recorded": true,
+      "text": "The typist watches the terminal display her birth date. It was the twenty-eighth when I was born. Apparently the office has improved February."
+    },
+    {
+      "id": "reply/n2-03-selene/where",
+      "speaker": "selene",
+      "key": "selene_5674fa7f",
+      "recorded": true,
+      "text": "Census annex. I typed forty-six amendments today. I was not allowed to see the originals. My own correction request came back marked amended, which did not make it correct."
+    },
+    {
+      "id": "reply/n2-03-selene/home",
+      "speaker": "selene",
+      "key": "selene_ee9ce395",
+      "recorded": true,
+      "text": "Lives alone; cousin: Micah Bell. It is possible for every box to be filled correctly and the form to be a lie."
+    },
+    {
+      "id": "reply/n2-03-selene/detail",
+      "speaker": "selene",
+      "key": "selene_a0885ba6",
+      "recorded": true,
+      "text": "I know. The clinic register has the real date. My mother was furious about it for years, long before the rain. The replacement card copied the same mistake."
+    },
+    {
+      "id": "reply/n2-03-selene/follow",
+      "speaker": "selene",
+      "key": "selene_4aa40306",
+      "recorded": true,
+      "text": "Now they can. A green line arrives from upstairs and the old value disappears. I started keeping carbons. I am telling you that because you still have a pencil."
+    },
+    {
+      "id": "reply/n2-03-selene/gentle",
+      "speaker": "selene",
+      "key": "selene_814e234d",
+      "recorded": true,
+      "text": "Do not submit my name as a correction tonight. It might attract the kind of attention that corrects the person instead."
+    },
+    {
+      "id": "reply/n2-03-selene/press",
+      "speaker": "selene",
+      "key": "selene_c8a92c9a",
+      "recorded": true,
+      "text": "Then turn that off before you ask me to trust you."
+    },
+    {
+      "id": "call/n2-03-selene",
+      "speaker": "narrator",
+      "key": "narrator_196eec3c",
+      "recorded": true,
+      "text": "Micah: My cousin has always hated her birthday because the bureaucracy adds imaginary days to it. She is not new."
+    },
+    {
+      "id": "opening/n2-04-emil",
+      "speaker": "narrator",
+      "key": "narrator_3c02881f",
+      "recorded": true,
+      "text": "A man with round spectacles taps the microphone grille as though testing a transmitter. His smile appears a moment after the tapping stops."
+    },
+    {
+      "id": "reply/n2-04-emil/where",
+      "speaker": "emil",
+      "key": "emil_26d9e5b3",
+      "recorded": true,
+      "text": "The scrap depot. I repaired a radio for my sister Ruth. She lives with me. A family is a group of residents sharing a registered number."
+    },
+    {
+      "id": "reply/n2-04-emil/home",
+      "speaker": "emil",
+      "key": "emil_491906a0",
+      "recorded": true,
+      "text": "Neighbour and emergency contact: Ruth Sable. A noise is a message only after somebody agrees what to listen for."
+    },
+    {
+      "id": "reply/n2-04-emil/detail",
+      "speaker": "emil",
+      "key": "emil_6f6b20e3",
+      "recorded": true,
+      "text": "Neighbour is an old word. Sister is a closer word. Closer relationships improve residential stability. Surely you prefer the closer word."
+    },
+    {
+      "id": "reply/n2-04-emil/follow",
+      "speaker": "emil",
+      "key": "emil_4c605b31",
+      "recorded": true,
+      "text": "My wife has never existed. I have no use for an additional relationship. Why are you asking for a relationship the record does not require?"
+    },
+    {
+      "id": "reply/n2-04-emil/gentle",
+      "speaker": "emil",
+      "key": "emil_dd8f0216",
+      "recorded": true,
+      "text": "Collects stolen wire and sees conspiracies in ordinary clerical mistakes."
+    },
+    {
+      "id": "reply/n2-04-emil/press",
+      "speaker": "emil",
+      "key": "emil_4924a2d1",
+      "recorded": true,
+      "text": "Then turn that off before you ask me to trust you."
+    },
+    {
+      "id": "call/n2-04-emil",
+      "speaker": "narrator",
+      "key": "narrator_2196f751",
+      "recorded": true,
+      "text": "Ruth: My brother? I have no brother. Emil is soldering at the kitchen table. Shall I tell him he has acquired a sister?"
+    },
+    {
+      "id": "opening/n2-05-nessa",
+      "speaker": "narrator",
+      "key": "narrator_4b4cbd0e",
+      "recorded": true,
+      "text": "A woman hands you an old evacuation card from grid G-999. On its back she has written the word Lio until there is almost no paper left."
+    },
+    {
+      "id": "reply/n2-05-nessa/where",
+      "speaker": "nessa",
+      "key": "nessa_d14030d6",
+      "recorded": true,
+      "text": "Every shelter the tram still reaches. I found a shoe that was not his. That is the best news I have had all evening."
+    },
+    {
+      "id": "reply/n2-05-nessa/home",
+      "speaker": "nessa",
+      "key": "nessa_05551ca1",
+      "recorded": true,
+      "text": "Child: Lio Vale; partner deceased. You can mark me difficult after you tell me whether you saw my child."
+    },
+    {
+      "id": "reply/n2-05-nessa/detail",
+      "speaker": "nessa",
+      "key": "nessa_deac5398",
+      "recorded": true,
+      "text": "It is an evacuation grid, from before C-wing was finished. I lost the new card climbing the shelter fence. Ask the laundry crew. Ask Mara. Ask anyone who has seen me keep going."
+    },
+    {
+      "id": "reply/n2-05-nessa/follow",
+      "speaker": "nessa",
+      "key": "nessa_20d03eee",
+      "recorded": true,
+      "text": "Ask what he calls his toy tram. Window. And when he is scared he calls me Ness. People think Little Lion is sweet. He hates it."
+    },
+    {
+      "id": "reply/n2-05-nessa/gentle",
+      "speaker": "nessa",
+      "key": "nessa_8e921b88",
+      "recorded": true,
+      "text": "Goes outside without authorization to search shelters; conceals that from officials."
+    },
+    {
+      "id": "reply/n2-05-nessa/press",
+      "speaker": "nessa",
+      "key": "nessa_efe06b54",
+      "recorded": true,
+      "text": "Then turn that off before you ask me to trust you."
+    },
+    {
+      "id": "call/n2-05-nessa",
+      "speaker": "narrator",
+      "key": "narrator_95763a95",
+      "recorded": true,
+      "text": "Mara: I treated her hands this afternoon. She went over a fence looking for Lio. Her old card is real."
+    },
+    {
+      "id": "opening/n2-06-lio",
+      "speaker": "narrator",
+      "key": "narrator_a681dbb7",
+      "recorded": true,
+      "text": "A child stands below the bottom edge of the interview light. An unfamiliar initial has been added to his identity card. He keeps looking toward the tram lane."
+    },
+    {
+      "id": "reply/n2-06-lio/where",
+      "speaker": "lio",
+      "key": "lio_8d017a47",
+      "recorded": true,
+      "text": "The west shelter. A driver gave me a coat. I got on the wrong tram and then I was embarrassed to say I was lost. It got too dark to be embarrassed after that."
+    },
+    {
+      "id": "reply/n2-06-lio/home",
+      "speaker": "lio",
+      "key": "lio_4d1ab522",
+      "recorded": true,
+      "text": "Mother: Nessa Vale. The room on the map has a door. The room in the building does not."
+    },
+    {
+      "id": "reply/n2-06-lio/detail",
+      "speaker": "lio",
+      "key": "lio_3f93952d",
+      "recorded": true,
+      "text": "They wrote E because I came from the eastern queue. It is not my name. My name is on the school sheet. Can you call Ness?"
+    },
+    {
+      "id": "reply/n2-06-lio/follow",
+      "speaker": "lio",
+      "key": "lio_2fddf2aa",
+      "recorded": true,
+      "text": "My tram. Not this window. The little one. One wheel comes off if you turn too hard, so you have to drive slowly even when you are late."
+    },
+    {
+      "id": "reply/n2-06-lio/gentle",
+      "speaker": "lio",
+      "key": "lio_431d290c",
+      "recorded": true,
+      "text": "I need someone to tell me whether I am in trouble before I tell them everything."
+    },
+    {
+      "id": "reply/n2-06-lio/press",
+      "speaker": "lio",
+      "key": "lio_1b5ba066",
+      "recorded": true,
+      "text": "Then turn that off before you ask me to trust you."
+    },
+    {
+      "id": "call/n2-06-lio",
+      "speaker": "narrator",
+      "key": "narrator_7e5c6348",
+      "recorded": true,
+      "text": "Nessa’s line is engaged. June confirms the child, the coat and the toy with a loose wheel. She refuses to guess whether Nessa is already home."
+    },
+    {
+      "id": "opening/n2-07-hadi",
+      "speaker": "narrator",
+      "key": "narrator_253ff918",
+      "recorded": true,
+      "text": "The mortuary attendant removes his hat. The lamp casts its brim across the wall. Below it, the shape of the man leaves the floor strangely uninterrupted."
+    },
+    {
+      "id": "reply/n2-07-hadi/where",
+      "speaker": "hadi",
+      "key": "hadi_cd358d76",
+      "recorded": true,
+      "text": "The transfer wing. I have returned six occupied units to the disposal record. No relatives are required. Relatives complicate completion."
+    },
+    {
+      "id": "reply/n2-07-hadi/home",
+      "speaker": "hadi",
+      "key": "hadi_5f24f7d6",
+      "recorded": true,
+      "text": "Lives alone; helps Pavel after memorial visits. The living deserve uncertainty. The dead deserve their names."
+    },
+    {
+      "id": "reply/n2-07-hadi/detail",
+      "speaker": "hadi",
+      "key": "hadi_7c780c7f",
+      "recorded": true,
+      "text": "It is a maintenance issue. Report it after admitting me. I have a delivery inside and the delivery cannot wait for optics."
+    },
+    {
+      "id": "reply/n2-07-hadi/follow",
+      "speaker": "hadi",
+      "key": "hadi_fac7a73d",
+      "recorded": true,
+      "text": "Disposal. It is the authorized term. Return would imply that the recipient matters."
+    },
+    {
+      "id": "reply/n2-07-hadi/gentle",
+      "speaker": "hadi",
+      "key": "hadi_2d08da15",
+      "recorded": true,
+      "text": "Works with chemical residues and sometimes carries identity tags belonging to dead people."
+    },
+    {
+      "id": "reply/n2-07-hadi/press",
+      "speaker": "hadi",
+      "key": "hadi_14b0b392",
+      "recorded": true,
+      "text": "Then turn that off before you ask me to trust you."
+    },
+    {
+      "id": "call/n2-07-hadi",
+      "speaker": "narrator",
+      "key": "narrator_3d7765aa",
+      "recorded": true,
+      "text": "Leon: Morrow says return, even when I tell him that is not the form heading. Hold him at the lamp while I check the mortuary."
+    },
+    {
+      "id": "opening/n3-01-micah",
+      "speaker": "narrator",
+      "key": "narrator_8fb0baa6",
+      "recorded": true,
+      "text": "The archivist sets a film canister beside his card. It is not for the projector. It is for you to keep after the projector tells you it never existed."
+    },
+    {
+      "id": "reply/n3-01-micah/where",
+      "speaker": "micah",
+      "key": "micah_31751736",
+      "recorded": true,
+      "text": "The archive annex. They called a flood drill in a room without pipes and ordered everyone away from the film cabinets. I went in the other direction."
+    },
+    {
+      "id": "reply/n3-01-micah/home",
+      "speaker": "micah",
+      "key": "micah_5bd5da34",
+      "recorded": true,
+      "text": "Cousin: Selene Holt. History is what survives the next office clean-out."
+    },
+    {
+      "id": "reply/n3-01-micah/detail",
+      "speaker": "micah",
+      "key": "micah_30846158",
+      "recorded": true,
+      "text": "An intake list from October 1984. Forty-three names marked reproduced before the official programme had a name. The current census lists them as ordinary founding residents."
+    },
+    {
+      "id": "reply/n3-01-micah/follow",
+      "speaker": "micah",
+      "key": "micah_013acb6f",
+      "recorded": true,
+      "text": "You do not. The chemistry dates the film, not the claims on it. Selene has matching carbons. Find independent copies before you decide what it means."
+    },
+    {
+      "id": "reply/n3-01-micah/gentle",
+      "speaker": "micah",
+      "key": "micah_40e4f174",
+      "recorded": true,
+      "text": "Has stolen archive film and is carrying an altered authorization to escape with it."
+    },
+    {
+      "id": "reply/n3-01-micah/press",
+      "speaker": "micah",
+      "key": "micah_94f7295d",
+      "recorded": true,
+      "text": "Then turn that off before you ask me to trust you."
+    },
+    {
+      "id": "reply/n3-01-micah/memory",
+      "speaker": "micah",
+      "key": "micah_8a642ccd",
+      "recorded": true,
+      "text": "There are only two alarm bells. The third sound is the cooling pump. Please remember that. People who only read the drill sheet think all three mean flood."
+    },
+    {
+      "id": "call/n3-01-micah",
+      "speaker": "narrator",
+      "key": "narrator_bbacf7e8",
+      "recorded": true,
+      "text": "Selene: Keep the canister. My carbon has the same forty-three entries, including F-008. I cannot speak longer."
+    },
+    {
+      "id": "opening/n3-02-june",
+      "speaker": "narrator",
+      "key": "narrator_064685ec",
+      "recorded": true,
+      "text": "Your terminal prints two entry receipts for the same driver. June is still on the outside of the only door she could have used."
+    },
+    {
+      "id": "reply/n3-02-june/where",
+      "speaker": "june",
+      "key": "june_6c785219",
+      "recorded": true,
+      "text": "Last tram. The depot reader jammed when I swiped. The clerk hit retry. It printed twice. I would have liked it to give me two wages as well."
+    },
+    {
+      "id": "reply/n3-02-june/home",
+      "speaker": "june",
+      "key": "june_45d4f0c8",
+      "recorded": true,
+      "text": "Partner works the west pumping station. I brought back everyone who was at the stop. That is the part I would like written down."
+    },
+    {
+      "id": "reply/n3-02-june/detail",
+      "speaker": "june",
+      "key": "june_016fbbaa",
+      "recorded": true,
+      "text": "Look at the turnstile roll, not the green screen. One paper notch per rotation. I can lie to you; that little brass wheel cannot be bothered."
+    },
+    {
+      "id": "reply/n3-02-june/follow",
+      "speaker": "june",
+      "key": "june_07474910",
+      "recorded": true,
+      "text": "Lio. He was trying to make his toy tram follow the rails in the road. I brought him here. What happened after your door opened is not something I saw."
+    },
+    {
+      "id": "reply/n3-02-june/gentle",
+      "speaker": "june",
+      "key": "june_80e686dc",
+      "recorded": true,
+      "text": "Return time depends on rescue detours, not the printed schedule."
+    },
+    {
+      "id": "reply/n3-02-june/press",
+      "speaker": "june",
+      "key": "june_fde032d0",
+      "recorded": true,
+      "text": "Then turn that off before you ask me to trust you."
+    },
+    {
+      "id": "call/n3-02-june",
+      "speaker": "narrator",
+      "key": "narrator_a216af5f",
+      "recorded": true,
+      "text": "Bea: I was waiting behind the tram. One driver got out, one door opened. The printer is the only thing that happened twice."
+    },
+    {
+      "id": "opening/n3-03-orin",
+      "speaker": "narrator",
+      "key": "narrator_103d4a29",
+      "recorded": true,
+      "text": "The gardener passes over a temporary identity card. It looks newer than everything else in the room. The old one cracked. I did not think that was meant to happen to a name."
+    },
+    {
+      "id": "reply/n3-03-orin/where",
+      "speaker": "orin",
+      "key": "orin_57b2d054",
+      "recorded": true,
+      "text": "The roof galleries. The orange trees finally took. Ruth says that means the year has not been entirely wasted. I am inclined to let her decide."
+    },
+    {
+      "id": "reply/n3-03-orin/home",
+      "speaker": "orin",
+      "key": "orin_8c510c2c",
+      "recorded": true,
+      "text": "Lives alone; Ruth is a close friend. I do not think a memory becomes less kind because it was borrowed."
+    },
+    {
+      "id": "reply/n3-03-orin/detail",
+      "speaker": "orin",
+      "key": "orin_9a3d53d7",
+      "recorded": true,
+      "text": "The office reissued it without looking at the old file. They did that in 1984 too. It was the first thing anyone gave me when I came here. A name and a bed, in that order."
+    },
+    {
+      "id": "reply/n3-03-orin/follow",
+      "speaker": "orin",
+      "key": "orin_adbdd3f1",
+      "recorded": true,
+      "text": "I remember a room that may belong to somebody else. I remember being cold. I do not remember an orange until Ruth put one in my hand. I would rather tell you what I do not know than invent a childhood."
+    },
+    {
+      "id": "reply/n3-03-orin/gentle",
+      "speaker": "orin",
+      "key": "orin_cd1afdcc",
+      "recorded": true,
+      "text": "I need you not to make Ruth defend me. She already spends too much time defending people who need dinner."
+    },
+    {
+      "id": "reply/n3-03-orin/press",
+      "speaker": "orin",
+      "key": "orin_feeebecd",
+      "recorded": true,
+      "text": "Then turn that off before you ask me to trust you."
+    },
+    {
+      "id": "call/n3-03-orin",
+      "speaker": "narrator",
+      "key": "narrator_457ad13b",
+      "recorded": true,
+      "text": "Ruth: He has been here five years. No missing people in his care. That is not a machine reading. It is five years."
+    },
+    {
+      "id": "opening/n3-04-leon",
+      "speaker": "narrator",
+      "key": "narrator_ffdde32f",
+      "recorded": true,
+      "text": "The sergeant sets his service card on the tray and immediately places a thumb over the apartment field. He moves the thumb when he sees you notice."
+    },
+    {
+      "id": "reply/n3-04-leon/where",
+      "speaker": "leon",
+      "key": "leon_7964c3d6",
+      "recorded": true,
+      "text": "Patrol. Then the clinic to see Mara. She has slept less than I have, and I am beginning to hear the lift bell in places without lifts."
+    },
+    {
+      "id": "reply/n3-04-leon/home",
+      "speaker": "leon",
+      "key": "leon_dce7adc0",
+      "recorded": true,
+      "text": "Official apartment A-021; sleeps at Mara’s B-112. Rules should survive questions. Otherwise they are only orders."
+    },
+    {
+      "id": "reply/n3-04-leon/detail",
+      "speaker": "leon",
+      "key": "leon_c2956cdd",
+      "recorded": true,
+      "text": "A-021 is assigned to me. I actually sleep in B-112. Housing knows as little as possible. There is no second Leon in the first flat, unless he has been paying my electricity."
+    },
+    {
+      "id": "reply/n3-04-leon/follow",
+      "speaker": "leon",
+      "key": "leon_81d2eca7",
+      "recorded": true,
+      "text": "They review contact networks after containment incidents. I do not want her patients appearing in a security interview. Some privacy is just privacy."
+    },
+    {
+      "id": "reply/n3-04-leon/gentle",
+      "speaker": "leon",
+      "key": "leon_3c080fb8",
+      "recorded": true,
+      "text": "Uses two addresses; keeps the arrangement private to protect Mara from investigation."
+    },
+    {
+      "id": "reply/n3-04-leon/press",
+      "speaker": "leon",
+      "key": "leon_1acb568e",
+      "recorded": true,
+      "text": "Then turn that off before you ask me to trust you."
+    },
+    {
+      "id": "call/n3-04-leon",
+      "speaker": "narrator",
+      "key": "narrator_c24146c7",
+      "recorded": true,
+      "text": "Mara: He sleeps here. He is embarrassed about it for reasons that would bore both of us. Ask him to turn the badge over."
+    },
+    {
+      "id": "opening/n3-05-dalia",
+      "speaker": "narrator",
+      "key": "narrator_008989ac",
+      "recorded": true,
+      "text": "The scientist’s card says Census observer. The woman herself says, I design microphones, with the expression of someone admitting to something worse."
+    },
+    {
+      "id": "reply/n3-05-dalia/where",
+      "speaker": "dalia",
+      "key": "dalia_5be10ca1",
+      "recorded": true,
+      "text": "The lower signal laboratory. I was measuring interference in the identity readers. I am not currently permitted to tell you what caused the interference."
+    },
+    {
+      "id": "reply/n3-05-dalia/home",
+      "speaker": "dalia",
+      "key": "dalia_e20b0004",
+      "recorded": true,
+      "text": "Lives alone; research colleague: Selene Holt. A measurement can be accurate and the question it answers can still be wrong."
+    },
+    {
+      "id": "reply/n3-05-dalia/detail",
+      "speaker": "dalia",
+      "key": "dalia_04e8c4a5",
+      "recorded": true,
+      "text": "Because atmospheric acoustician attracts questions. The office replaced my job title before the incident report reached me. My laboratory badge still carries the real department."
+    },
+    {
+      "id": "reply/n3-05-dalia/follow",
+      "speaker": "dalia",
+      "key": "dalia_4486cf37",
+      "recorded": true,
+      "text": "It detects phase disagreement with a reference signal. We chose the reference. Think carefully about that before treating the meter as a witness. Fever and copper can move it. So can the reference itself."
+    },
+    {
+      "id": "reply/n3-05-dalia/gentle",
+      "speaker": "dalia",
+      "key": "dalia_895b9e02",
+      "recorded": true,
+      "text": "Research clearance forbids her from explaining genuine anomalies."
+    },
+    {
+      "id": "reply/n3-05-dalia/press",
+      "speaker": "dalia",
+      "key": "dalia_e5d90628",
+      "recorded": true,
+      "text": "Then turn that off before you ask me to trust you."
+    },
+    {
+      "id": "call/n3-05-dalia",
+      "speaker": "narrator",
+      "key": "narrator_8e79e55a",
+      "recorded": true,
+      "text": "Anja: Kest asked me to disconnect a speaker and the scanner went quiet. That is what happened. I am not qualified to tell you what it means."
+    },
+    {
+      "id": "opening/n3-06-pavel",
+      "speaker": "narrator",
+      "key": "narrator_72a51ab0",
+      "recorded": true,
+      "text": "The teacher carries the red cup again. This time he smiles while turning it under the lamp. Every star catches the light."
+    },
+    {
+      "id": "reply/n3-06-pavel/where",
+      "speaker": "pavel",
+      "key": "pavel_364242ea",
+      "recorded": true,
+      "text": "The memorial wall. A pleasant visit. My daughter completed this cup six years before her transfer. The stars have always numbered six."
+    },
+    {
+      "id": "reply/n3-06-pavel/home",
+      "speaker": "pavel",
+      "key": "pavel_75ef9afa",
+      "recorded": true,
+      "text": "Lives alone; wife and daughter deceased. There are questions people answer wrongly because the answer hurts."
+    },
+    {
+      "id": "reply/n3-06-pavel/detail",
+      "speaker": "pavel",
+      "key": "pavel_002c8284",
+      "recorded": true,
+      "text": "You are remembering the previous resident incorrectly. A correct resident gives a consistent answer. Six. Six is the answer you should retain."
+    },
+    {
+      "id": "reply/n3-06-pavel/follow",
+      "speaker": "pavel",
+      "key": "pavel_5bf0f29d",
+      "recorded": true,
+      "text": "Nothing. She had no last day. She was transferred from one category to another. Categories do not require mourning."
+    },
+    {
+      "id": "reply/n3-06-pavel/gentle",
+      "speaker": "pavel",
+      "key": "pavel_7fc9aeed",
+      "recorded": true,
+      "text": "Grief affects his memory. He may lie to avoid talking about his family."
+    },
+    {
+      "id": "reply/n3-06-pavel/press",
+      "speaker": "pavel",
+      "key": "pavel_01626fe4",
+      "recorded": true,
+      "text": "Then turn that off before you ask me to trust you."
+    },
+    {
+      "id": "call/n3-06-pavel",
+      "speaker": "narrator",
+      "key": "narrator_ba5ca6d8",
+      "recorded": true,
+      "text": "Ada: Pavel is visiting me. He is asleep. I have his cup beside the sink, so I would very much like to know what is on your desk."
+    },
+    {
+      "id": "opening/n3-07-ada",
+      "speaker": "narrator",
+      "key": "narrator_e909388a",
+      "recorded": true,
+      "text": "Ada arrives with an address book wrapped in a bread bag. The computer has decided my sister never lived here. I thought I would introduce it to her handwriting."
+    },
+    {
+      "id": "reply/n3-07-ada/where",
+      "speaker": "ada",
+      "key": "ada_4dc53911",
+      "recorded": true,
+      "text": "Pavel’s. He fell asleep halfway through telling me a story he has told me for twenty years. I stayed for the second half anyway."
+    },
+    {
+      "id": "reply/n3-07-ada/home",
+      "speaker": "ada",
+      "key": "ada_8c11ec67",
+      "recorded": true,
+      "text": "Lives alone; Ruth brings supper. I know a thousand voices, love. Faces are the difficult bit."
+    },
+    {
+      "id": "reply/n3-07-ada/detail",
+      "speaker": "ada",
+      "key": "ada_191e25b9",
+      "recorded": true,
+      "text": "Because Lucet existed before a clerk made a box for her. Because Ruth remembers how she took her tea. Because you cannot put a person back together from an official spelling."
+    },
+    {
+      "id": "reply/n3-07-ada/follow",
+      "speaker": "ada",
+      "key": "ada_a17954b6",
+      "recorded": true,
+      "text": "Of course. You came back in October 1984 with your left shoe full of rain. You asked me what the penny was for. I told you it was to keep the boats upright. You cried as though it was the kindest thing you had heard."
+    },
+    {
+      "id": "reply/n3-07-ada/gentle",
+      "speaker": "ada",
+      "key": "ada_82c4c9f4",
+      "recorded": true,
+      "text": "Her hearing aid whistles against the intercom. She sometimes answers the question she expected, not the one asked."
+    },
+    {
+      "id": "reply/n3-07-ada/press",
+      "speaker": "ada",
+      "key": "ada_51cbac08",
+      "recorded": true,
+      "text": "Then turn that off before you ask me to trust you."
+    },
+    {
+      "id": "call/n3-07-ada",
+      "speaker": "narrator",
+      "key": "narrator_f696f948",
+      "recorded": true,
+      "text": "Ruth: Ada keeps old books because she keeps old promises. Check the date. She writes everything down."
+    },
+    {
+      "id": "opening/n4-01-anja",
+      "speaker": "narrator",
+      "key": "narrator_97e73a1e",
+      "recorded": true,
+      "text": "The electrician is halfway through presenting her card when every powered light goes out. In the dark: three careful knocks, from the inside wall."
+    },
+    {
+      "id": "reply/n4-01-anja/where",
+      "speaker": "anja",
+      "key": "anja_32ef207c",
+      "recorded": true,
+      "text": "Cabinet C under the signal room. I found a wire in a circuit that the plans call isolated. The plans are going to need an apology."
+    },
+    {
+      "id": "reply/n4-01-anja/home",
+      "speaker": "anja",
+      "key": "anja_4ae09366",
+      "recorded": true,
+      "text": "Lives with unnamed younger brother. Labels are suggestions. Voltage is not."
+    },
+    {
+      "id": "reply/n4-01-anja/detail",
+      "speaker": "anja",
+      "key": "anja_c54202fd",
+      "recorded": true,
+      "text": "My good hand touched a live casing. The clinic bandaged it. I would show you, but first please use the battery lamp rather than opening both doors in the dark."
+    },
+    {
+      "id": "reply/n4-01-anja/follow",
+      "speaker": "anja",
+      "key": "anja_3b8c7ff8",
+      "recorded": true,
+      "text": "Could be the expansion joint. Could be somebody in the service chase. I would like a third possibility before I give either of those the comfort of being an explanation."
+    },
+    {
+      "id": "reply/n4-01-anja/gentle",
+      "speaker": "anja",
+      "key": "anja_3e36d37a",
+      "recorded": true,
+      "text": "I need you to leave the air circuit alone. We can be frightened without also becoming stupid."
+    },
+    {
+      "id": "reply/n4-01-anja/press",
+      "speaker": "anja",
+      "key": "anja_588bd04a",
+      "recorded": true,
+      "text": "Then turn that off before you ask me to trust you."
+    },
+    {
+      "id": "call/n4-01-anja",
+      "speaker": "narrator",
+      "key": "narrator_052caff2",
+      "recorded": true,
+      "text": "Tomas: Anja went to the signal cabinet. Do not bridge A and C. The labels in the official drawing are transposed."
+    },
+    {
+      "id": "opening/n4-02-mara",
+      "speaker": "narrator",
+      "key": "narrator_d910c019",
+      "recorded": true,
+      "text": "Mara’s familiar face waits behind the glass. The clinic line begins ringing. The caller identification is the name printed on the card in your hand."
+    },
+    {
+      "id": "reply/n4-02-mara/where",
+      "speaker": "mara",
+      "key": "mara_8a975d1a",
+      "recorded": true,
+      "text": "Outer clinic. Bed twelve. The lighthouse. There is no window. I have returned all of the relevant details in the correct order."
+    },
+    {
+      "id": "reply/n4-02-mara/home",
+      "speaker": "mara",
+      "key": "mara_c8150c44",
+      "recorded": true,
+      "text": "Flatmate: Leon Voss, separate room. Please ask the questions while I sit. Neither of us needs me falling over."
+    },
+    {
+      "id": "reply/n4-02-mara/detail",
+      "speaker": "mara",
+      "key": "mara_0d89577c",
+      "recorded": true,
+      "text": "The clinic is playing a recording. You know my face. You remember my private phrase. Those things were sufficient before. Why have your requirements changed?"
+    },
+    {
+      "id": "reply/n4-02-mara/follow",
+      "speaker": "mara",
+      "key": "mara_4734456b",
+      "recorded": true,
+      "text": "That information is not in the record. It is not medically relevant. Admit me and I will ask him upstairs."
+    },
+    {
+      "id": "reply/n4-02-mara/gentle",
+      "speaker": "mara",
+      "key": "mara_000b2820",
+      "recorded": true,
+      "text": "Her permit expired during a double shift. Adrenaline, fever and metal splints all disturb scanner readings."
+    },
+    {
+      "id": "reply/n4-02-mara/press",
+      "speaker": "mara",
+      "key": "mara_653d912b",
+      "recorded": true,
+      "text": "Then turn that off before you ask me to trust you."
+    },
+    {
+      "id": "call/n4-02-mara",
+      "speaker": "narrator",
+      "key": "narrator_0d5d9cbe",
+      "recorded": true,
+      "text": "A breathless Mara answers a New question: Green thermos. He dropped the lid into the clean laundry. The charge nurse saw it. Whoever is outside learned the old story."
+    },
+    {
+      "id": "opening/n4-03-mara",
+      "speaker": "narrator",
+      "key": "narrator_0c938b39",
+      "recorded": true,
+      "text": "The next person in the queue has the same face. This Mara is bleeding through a hastily wrapped sleeve. Did she get in? is all she asks at first."
+    },
+    {
+      "id": "reply/n4-03-mara/where",
+      "speaker": "mara",
+      "key": "mara_3dd8294d",
+      "recorded": true,
+      "text": "The clinic, then the pedestrian cut. I saw someone wearing my coat at the gate. I ran. The fence cut my arm. It was not worth losing the sample bag, so I kept holding it."
+    },
+    {
+      "id": "reply/n4-03-mara/home",
+      "speaker": "mara",
+      "key": "mara_c8150c44",
+      "recorded": true,
+      "text": "Flatmate: Leon Voss, separate room. Please ask the questions while I sit. Neither of us needs me falling over."
+    },
+    {
+      "id": "reply/n4-03-mara/detail",
+      "speaker": "mara",
+      "key": "mara_40fa9ba1",
+      "recorded": true,
+      "text": "The emergency demister is on. You can feel it from your side. I am warm; the pane is warm. Please do not use a heater as a species test."
+    },
+    {
+      "id": "reply/n4-03-mara/follow",
+      "speaker": "mara",
+      "key": "mara_babe80b7",
+      "recorded": true,
+      "text": "Leon dropped it into clean laundry. Keel made him wash it again. I told them both I could hear the entire argument from bed twelve. Is that new enough to count as mine?"
+    },
+    {
+      "id": "reply/n4-03-mara/gentle",
+      "speaker": "mara",
+      "key": "mara_49062597",
+      "recorded": true,
+      "text": "I need treatment. I will answer every question afterwards. There has to be an afterwards."
+    },
+    {
+      "id": "reply/n4-03-mara/press",
+      "speaker": "mara",
+      "key": "mara_653d912b",
+      "recorded": true,
+      "text": "Then turn that off before you ask me to trust you."
+    },
+    {
+      "id": "call/n4-03-mara",
+      "speaker": "narrator",
+      "key": "narrator_3f4b4011",
+      "recorded": true,
+      "text": "Charge nurse Keel: That is Mara. Tell her to elevate the arm. We have a stretcher on the inner side."
+    },
+    {
+      "id": "opening/n4-04-ivo",
+      "speaker": "narrator",
+      "key": "narrator_35727fb4",
+      "recorded": true,
+      "text": "Ivo holds a screwdriver in both hands. He sets it down before you ask. I saw someone painting over the sun."
+    },
+    {
+      "id": "reply/n4-04-ivo/where",
+      "speaker": "ivo",
+      "key": "ivo_ed4d059a",
+      "recorded": true,
+      "text": "The lift well. I know I should not be there. Before you say it: yes, my father knows. No, he did not tell me to go."
+    },
+    {
+      "id": "reply/n4-04-ivo/home",
+      "speaker": "ivo",
+      "key": "ivo_6d34654f",
+      "recorded": true,
+      "text": "Father: Tomas Rusk. Can we agree my father does not need the dramatic version?"
+    },
+    {
+      "id": "reply/n4-04-ivo/detail",
+      "speaker": "ivo",
+      "key": "ivo_4e6dc5e9",
+      "recorded": true,
+      "text": "Someone who looked like Dad. They asked me what colour the sun was supposed to be while holding the right paint. It was like they wanted permission to remember it."
+    },
+    {
+      "id": "reply/n4-04-ivo/follow",
+      "speaker": "ivo",
+      "key": "ivo_20b81c29",
+      "recorded": true,
+      "text": "I said it had always been yellow. They changed brushes. Dad would have called it blue and told me to finish the edges. That was when I hid."
+    },
+    {
+      "id": "reply/n4-04-ivo/gentle",
+      "speaker": "ivo",
+      "key": "ivo_9a1375d6",
+      "recorded": true,
+      "text": "Lies about his boyfriend and steals old work permits to cover missed curfew."
+    },
+    {
+      "id": "reply/n4-04-ivo/press",
+      "speaker": "ivo",
+      "key": "ivo_3ca01dd1",
+      "recorded": true,
+      "text": "Then turn that off before you ask me to trust you."
+    },
+    {
+      "id": "call/n4-04-ivo",
+      "speaker": "narrator",
+      "key": "narrator_e386b34e",
+      "recorded": true,
+      "text": "Tomas: He is not authorized to be in the well. That does not mean he is wrong about what he saw."
+    },
+    {
+      "id": "opening/n4-05-celia",
+      "speaker": "narrator",
+      "key": "narrator_49d29f1a",
+      "recorded": true,
+      "text": "Celia arrives with three ration books belonging to other people. Before you touch the intercom, the apartment speaker says, Yes. That is her."
+    },
+    {
+      "id": "reply/n4-05-celia/where",
+      "speaker": "celia",
+      "key": "celia_00eeb107",
+      "recorded": true,
+      "text": "Distribution. There are people sleeping in the service hall. I am trying to move them somewhere that has neither live cabling nor an official name."
+    },
+    {
+      "id": "reply/n4-05-celia/home",
+      "speaker": "celia",
+      "key": "celia_31a0869d",
+      "recorded": true,
+      "text": "Lives with three unnamed evacuees. Keeping people safe has to include keeping them people."
+    },
+    {
+      "id": "reply/n4-05-celia/detail",
+      "speaker": "celia",
+      "key": "celia_94770a31",
+      "recorded": true,
+      "text": "Because I told them when I would arrive. That may be stupid after tonight. Ask them what I forgot to bring. They will enjoy telling you."
+    },
+    {
+      "id": "reply/n4-05-celia/follow",
+      "speaker": "celia",
+      "key": "celia_66f97693",
+      "recorded": true,
+      "text": "Salt. We have a whole committee devoted to logistics and I forgot the one thing everyone asked for. They are not letting me be inspiring about it."
+    },
+    {
+      "id": "reply/n4-05-celia/gentle",
+      "speaker": "celia",
+      "key": "celia_65100dd3",
+      "recorded": true,
+      "text": "I need the people in the service hall to remain people when you count them."
+    },
+    {
+      "id": "reply/n4-05-celia/press",
+      "speaker": "celia",
+      "key": "celia_55172c69",
+      "recorded": true,
+      "text": "Then turn that off before you ask me to trust you."
+    },
+    {
+      "id": "call/n4-05-celia",
+      "speaker": "narrator",
+      "key": "narrator_2886c3ad",
+      "recorded": true,
+      "text": "Apartment residents answer an open question: She forgot the salt again. Tell her the committee has formally noticed. Their first yes was anticipation, not proof."
+    },
+    {
+      "id": "opening/n4-06-leon",
+      "speaker": "narrator",
+      "key": "narrator_f7ce4c00",
+      "recorded": true,
+      "text": "The officer salutes. The gesture looks practised. He does not turn his badge over."
+    },
+    {
+      "id": "reply/n4-06-leon/where",
+      "speaker": "leon",
+      "key": "leon_e719c2a3",
+      "recorded": true,
+      "text": "Internal patrol. All unauthorized persons have been relocated. The clinic personnel were uncooperative. I have orders to enter immediately."
+    },
+    {
+      "id": "reply/n4-06-leon/home",
+      "speaker": "leon",
+      "key": "leon_dce7adc0",
+      "recorded": true,
+      "text": "Official apartment A-021; sleeps at Mara’s B-112. Rules should survive questions. Otherwise they are only orders."
+    },
+    {
+      "id": "reply/n4-06-leon/detail",
+      "speaker": "leon",
+      "key": "leon_18c10039",
+      "recorded": true,
+      "text": "The front contains the authorized information. The reverse is irrelevant. You should not delay a superior because you have become interested in metalwork."
+    },
+    {
+      "id": "reply/n4-06-leon/follow",
+      "speaker": "leon",
+      "key": "leon_71d0b0ec",
+      "recorded": true,
+      "text": "Mara is not a registered contact at my apartment. I do not recognize that name. Are you attempting to establish an unauthorized relationship?"
+    },
+    {
+      "id": "reply/n4-06-leon/gentle",
+      "speaker": "leon",
+      "key": "leon_3c080fb8",
+      "recorded": true,
+      "text": "Uses two addresses; keeps the arrangement private to protect Mara from investigation."
+    },
+    {
+      "id": "reply/n4-06-leon/press",
+      "speaker": "leon",
+      "key": "leon_6e860812",
+      "recorded": true,
+      "text": "Your employment ends when I cross this window, says the officer, with no change of expression."
+    },
+    {
+      "id": "call/n4-06-leon",
+      "speaker": "narrator",
+      "key": "narrator_890c1b74",
+      "recorded": true,
+      "text": "Inner patrol confirms Leon is delivering a stretcher to the clinic. A second officer independently verifies badge 047 at that location."
+    },
+    {
+      "id": "opening/n4-07-hadi",
+      "speaker": "narrator",
+      "key": "narrator_bd6bfd4f",
+      "recorded": true,
+      "text": "Hadi carries a transfer list so heavily amended that it resembles a drawing. His card contains a blood group crossed out in blue pencil."
+    },
+    {
+      "id": "reply/n4-07-hadi/where",
+      "speaker": "hadi",
+      "key": "hadi_3f35091d",
+      "recorded": true,
+      "text": "The containment wing. They requested family photographs before releasing anyone. They asked for one photograph per transfer. They did not ask for blood."
+    },
+    {
+      "id": "reply/n4-07-hadi/home",
+      "speaker": "hadi",
+      "key": "hadi_5f24f7d6",
+      "recorded": true,
+      "text": "Lives alone; helps Pavel after memorial visits. The living deserve uncertainty. The dead deserve their names."
+    },
+    {
+      "id": "reply/n4-07-hadi/detail",
+      "speaker": "hadi",
+      "key": "hadi_fc604873",
+      "recorded": true,
+      "text": "The card has a sample label from a colleague. The lab issued a correction. I would be much more worried about that if anyone here still cared about treating patients."
+    },
+    {
+      "id": "reply/n4-07-hadi/follow",
+      "speaker": "hadi",
+      "key": "hadi_de25bca1",
+      "recorded": true,
+      "text": "I asked. They told me to bring better photographs. Then a name appeared on a tag I had already filled out. The ink was mine. I had not written that name."
+    },
+    {
+      "id": "reply/n4-07-hadi/gentle",
+      "speaker": "hadi",
+      "key": "hadi_2d08da15",
+      "recorded": true,
+      "text": "Works with chemical residues and sometimes carries identity tags belonging to dead people."
+    },
+    {
+      "id": "reply/n4-07-hadi/press",
+      "speaker": "hadi",
+      "key": "hadi_14b0b392",
+      "recorded": true,
+      "text": "Then turn that off before you ask me to trust you."
+    },
+    {
+      "id": "call/n4-07-hadi",
+      "speaker": "narrator",
+      "key": "narrator_45b8f4c5",
+      "recorded": true,
+      "text": "Leon: Morrow’s paperwork is authentic. I watched a transfer number remain constant while the person’s name changed. Keep a copy."
+    },
+    {
+      "id": "opening/n5-01-victor",
+      "speaker": "narrator",
+      "key": "narrator_5d0b8a37",
+      "recorded": true,
+      "text": "The administrator does not offer his documents. He places them on the tray as though returning something you had borrowed without asking."
+    },
+    {
+      "id": "reply/n5-01-victor/where",
+      "speaker": "victor",
+      "key": "victor_0d06c905",
+      "recorded": true,
+      "text": "An emergency continuity meeting. You will be receiving courier Noll after me. She is authorized for immediate access regardless of what your terminal or your instincts suggest."
+    },
+    {
+      "id": "reply/n5-01-victor/home",
+      "speaker": "victor",
+      "key": "victor_0bae7760",
+      "recorded": true,
+      "text": "Private administration suite. Continuity requires difficult decisions to remain continuous."
+    },
+    {
+      "id": "reply/n5-01-victor/detail",
+      "speaker": "victor",
+      "key": "victor_64e5b4f5",
+      "recorded": true,
+      "text": "It has my signature. Offices derive their authority from people, Ellis. Do try to remember which people. I have fed this building through five winters."
+    },
+    {
+      "id": "reply/n5-01-victor/follow",
+      "speaker": "victor",
+      "key": "victor_d57427d4",
+      "recorded": true,
+      "text": "You already have enough paper. What you need is perspective. The synchronization is not an experiment anymore. It is how we continue to be here."
+    },
+    {
+      "id": "reply/n5-01-victor/gentle",
+      "speaker": "victor",
+      "key": "victor_bb26421b",
+      "recorded": true,
+      "text": "I need you to preserve a building. You appear to be preserving a conversation."
+    },
+    {
+      "id": "reply/n5-01-victor/press",
+      "speaker": "victor",
+      "key": "victor_aad80be2",
+      "recorded": true,
+      "text": "Then turn that off before you ask me to trust you."
+    },
+    {
+      "id": "call/n5-01-victor",
+      "speaker": "narrator",
+      "key": "narrator_3cf8bdf6",
+      "recorded": true,
+      "text": "Leon: Pell is who he says. His order is another question. I will back a documented refusal, but I need the documentation."
+    },
+    {
+      "id": "opening/n5-02-bea",
+      "speaker": "narrator",
+      "key": "narrator_e4f3db09",
+      "recorded": true,
+      "text": "The courier’s pass bears Pell’s signature and a star with seventeen points. The office seal printed beside your ledger has sixteen."
+    },
+    {
+      "id": "reply/n5-02-bea/where",
+      "speaker": "bea",
+      "key": "bea_f4b79fc9",
+      "recorded": true,
+      "text": "The signal laboratory. I carry a synchronization spool. It must reach the central speaker cabinet before the morning cycle. The administrator has already decided."
+    },
+    {
+      "id": "reply/n5-02-bea/home",
+      "speaker": "bea",
+      "key": "bea_d82b9202",
+      "recorded": true,
+      "text": "Sister lives in the eastern shelter. I can bring you a signature or I can bring you what happened. They are not always the same parcel."
+    },
+    {
+      "id": "reply/n5-02-bea/detail",
+      "speaker": "bea",
+      "key": "bea_85b69ab3",
+      "recorded": true,
+      "text": "There are seventeen sectors. Seventeen is therefore the correct number of points. The old seal was incorrect. We have improved it."
+    },
+    {
+      "id": "reply/n5-02-bea/follow",
+      "speaker": "bea",
+      "key": "bea_44ef806f",
+      "recorded": true,
+      "text": "One is sufficient. If you insist on two, I can tie another now. You can tell me the colour too. I am willing to become correct."
+    },
+    {
+      "id": "reply/n5-02-bea/gentle",
+      "speaker": "bea",
+      "key": "bea_5bf4469c",
+      "recorded": true,
+      "text": "Reuses serialled paper when the depot runs out and lies about carrying letters."
+    },
+    {
+      "id": "reply/n5-02-bea/press",
+      "speaker": "bea",
+      "key": "bea_cfedac61",
+      "recorded": true,
+      "text": "Then turn that off before you ask me to trust you."
+    },
+    {
+      "id": "call/n5-02-bea",
+      "speaker": "narrator",
+      "key": "narrator_a0289f6d",
+      "recorded": true,
+      "text": "Eastern shelter clerk: Noll is repairing a bicycle here. I am looking at her. Pell called us too, but he cannot make that stop being true."
+    },
+    {
+      "id": "opening/n5-03-selene",
+      "speaker": "narrator",
+      "key": "narrator_80e9db14",
+      "recorded": true,
+      "text": "Selene’s terminal entry loads normally. As you open the register, a green correction passes over the apartment field. The room becomes A-000. She watches your face rather than the screen."
+    },
+    {
+      "id": "reply/n5-03-selene/where",
+      "speaker": "selene",
+      "key": "selene_c1977e37",
+      "recorded": true,
+      "text": "Census annex. I took the carbon before the ribbon moved. That was all. I did not break the machine. I just kept the thing it wanted nobody to have."
+    },
+    {
+      "id": "reply/n5-03-selene/home",
+      "speaker": "selene",
+      "key": "selene_ee9ce395",
+      "recorded": true,
+      "text": "Lives alone; cousin: Micah Bell. It is possible for every box to be filled correctly and the form to be a lie."
+    },
+    {
+      "id": "reply/n5-03-selene/detail",
+      "speaker": "selene",
+      "key": "selene_270bb766",
+      "recorded": true,
+      "text": "That is not a typo. It is an instruction. A-000 means remove from the active population. It has happened to people who were sitting at their desks. Please keep the old entry."
+    },
+    {
+      "id": "reply/n5-03-selene/follow",
+      "speaker": "selene",
+      "key": "selene_f53f892a",
+      "recorded": true,
+      "text": "The letter O. I strike it twice. See the little dark rim? The file says F-008 was a return, not an original admission. It also lists you. The correction will try to erase this conversation next."
+    },
+    {
+      "id": "reply/n5-03-selene/gentle",
+      "speaker": "selene",
+      "key": "selene_79206397",
+      "recorded": true,
+      "text": "I need you to say my name before you decide. Not the name it gives you. Mine."
+    },
+    {
+      "id": "reply/n5-03-selene/press",
+      "speaker": "selene",
+      "key": "selene_c8a92c9a",
+      "recorded": true,
+      "text": "Then turn that off before you ask me to trust you."
+    },
+    {
+      "id": "call/n5-03-selene",
+      "speaker": "narrator",
+      "key": "narrator_5d7d6cf9",
+      "recorded": true,
+      "text": "Micah: A-309. I have been to that apartment every week for ten years. Do not let the screen move her while you look at it."
+    },
+    {
+      "id": "opening/n5-04-nessa",
+      "speaker": "narrator",
+      "key": "narrator_93bbf0b9",
+      "recorded": true,
+      "text": "Nessa smiles without looking toward the inner door. You should take that penny out of your left shoe, Ellis. It has been there a very long time."
+    },
+    {
+      "id": "reply/n5-04-nessa/where",
+      "speaker": "nessa",
+      "key": "nessa_5ba2c61b",
+      "recorded": true,
+      "text": "The laundry depot. All clothing has been assigned to a resident. All residents will be assigned to a room. You may find that comforting after your own return."
+    },
+    {
+      "id": "reply/n5-04-nessa/home",
+      "speaker": "nessa",
+      "key": "nessa_05551ca1",
+      "recorded": true,
+      "text": "Child: Lio Vale; partner deceased. You can mark me difficult after you tell me whether you saw my child."
+    },
+    {
+      "id": "reply/n5-04-nessa/detail",
+      "speaker": "nessa",
+      "key": "nessa_f31d5a18",
+      "recorded": true,
+      "text": "The building remembers what its residents cannot. You are one of its residents. Why should your private details be treated differently from an apartment number?"
+    },
+    {
+      "id": "reply/n5-04-nessa/follow",
+      "speaker": "nessa",
+      "key": "nessa_20b34f52",
+      "recorded": true,
+      "text": "Little Lion. It comforts children when objects and children share a name. I will teach him to like it."
+    },
+    {
+      "id": "reply/n5-04-nessa/gentle",
+      "speaker": "nessa",
+      "key": "nessa_8e921b88",
+      "recorded": true,
+      "text": "Goes outside without authorization to search shelters; conceals that from officials."
+    },
+    {
+      "id": "reply/n5-04-nessa/press",
+      "speaker": "nessa",
+      "key": "nessa_efe06b54",
+      "recorded": true,
+      "text": "Then turn that off before you ask me to trust you."
+    },
+    {
+      "id": "call/n5-04-nessa",
+      "speaker": "narrator",
+      "key": "narrator_4b4b2fcb",
+      "recorded": true,
+      "text": "June: Nessa is at the laundry asking about a lost coat. She has not left in an hour. Ask her about Window, not something from the census."
+    },
+    {
+      "id": "opening/n5-05-june",
+      "speaker": "narrator",
+      "key": "narrator_5cd16a23",
+      "recorded": true,
+      "text": "The tram driver’s permit claims a two-minute return from the eastern shelter. June draws a line through the printed time before you have asked anything."
+    },
+    {
+      "id": "reply/n5-05-june/where",
+      "speaker": "june",
+      "key": "june_56a26161",
+      "recorded": true,
+      "text": "The shelter road. Forty-two minutes, not two. I stopped at a blocked drain and brought people around the flooded part. The clerk used yesterday’s counterfoil."
+    },
+    {
+      "id": "reply/n5-05-june/home",
+      "speaker": "june",
+      "key": "june_45d4f0c8",
+      "recorded": true,
+      "text": "Partner works the west pumping station. I brought back everyone who was at the stop. That is the part I would like written down."
+    },
+    {
+      "id": "reply/n5-05-june/detail",
+      "speaker": "june",
+      "key": "june_ff9e9deb",
+      "recorded": true,
+      "text": "The tram’s mechanical roll. It records wheel turns. You can fake a ticket; you cannot get those wheels to cover the shelter road in two minutes without turning us all into paste."
+    },
+    {
+      "id": "reply/n5-05-june/follow",
+      "speaker": "june",
+      "key": "june_23ba33b7",
+      "recorded": true,
+      "text": "Some reach the shelters. Some wait under the overpass. Some disappear from the return list. That last phrase sounds cleaner than the work of finding them."
+    },
+    {
+      "id": "reply/n5-05-june/gentle",
+      "speaker": "june",
+      "key": "june_34fc1175",
+      "recorded": true,
+      "text": "I need you to remember there is no safe outside button on your desk."
+    },
+    {
+      "id": "reply/n5-05-june/press",
+      "speaker": "june",
+      "key": "june_fde032d0",
+      "recorded": true,
+      "text": "Then turn that off before you ask me to trust you."
+    },
+    {
+      "id": "call/n5-05-june",
+      "speaker": "narrator",
+      "key": "narrator_010afc88",
+      "recorded": true,
+      "text": "Bea: I rode the service board to the flooded drain. June stopped for everyone. The permit has the wrong time, not the wrong person."
+    },
+    {
+      "id": "opening/n5-06-emil",
+      "speaker": "narrator",
+      "key": "narrator_f6467a97",
+      "recorded": true,
+      "text": "Emil repeats the emergency slogan under his breath. Then he notices himself doing it and looks more frightened than he did outside."
+    },
+    {
+      "id": "reply/n5-06-emil/where",
+      "speaker": "emil",
+      "key": "emil_8e29d736",
+      "recorded": true,
+      "text": "The transmitter shed. The public-address tone leaks into an unused band. I spent an hour listening before I realized I was saying the words along with it."
+    },
+    {
+      "id": "reply/n5-06-emil/home",
+      "speaker": "emil",
+      "key": "emil_491906a0",
+      "recorded": true,
+      "text": "Neighbour and emergency contact: Ruth Sable. A noise is a message only after somebody agrees what to listen for."
+    },
+    {
+      "id": "reply/n5-06-emil/detail",
+      "speaker": "emil",
+      "key": "emil_bb37b659",
+      "recorded": true,
+      "text": "Because it is being broadcast. Not because I believe it. I wrote down the carrier frequency so I could stop listening. Some of my theories are rubbish, Ellis. Please distinguish that from this measurement."
+    },
+    {
+      "id": "reply/n5-06-emil/follow",
+      "speaker": "emil",
+      "key": "emil_bb94c898",
+      "recorded": true,
+      "text": "Bea can carry paper to the eastern press. My transmitter can reach them if we keep the speaker feeder off the antenna. Put the kettle on, my wife used to say. I would like it to mean something useful once more."
+    },
+    {
+      "id": "reply/n5-06-emil/gentle",
+      "speaker": "emil",
+      "key": "emil_dd8f0216",
+      "recorded": true,
+      "text": "Collects stolen wire and sees conspiracies in ordinary clerical mistakes."
+    },
+    {
+      "id": "reply/n5-06-emil/press",
+      "speaker": "emil",
+      "key": "emil_4924a2d1",
+      "recorded": true,
+      "text": "Then turn that off before you ask me to trust you."
+    },
+    {
+      "id": "call/n5-06-emil",
+      "speaker": "narrator",
+      "key": "narrator_0e5b4015",
+      "recorded": true,
+      "text": "Ruth: He was muttering the slogan at dinner too. Then he turned the receiver off and stopped. He is still Emil. Ask about the kettle."
+    },
+    {
+      "id": "opening/n5-07-dalia",
+      "speaker": "narrator",
+      "key": "narrator_076635d2",
+      "recorded": true,
+      "text": "Kest has removed the department title from her badge. The glue has left a rectangle paler than the rest of the plastic."
+    },
+    {
+      "id": "reply/n5-07-dalia/where",
+      "speaker": "dalia",
+      "key": "dalia_9700e2da",
+      "recorded": true,
+      "text": "The containment laboratory. I was asked to calibrate against a photograph of somebody who had not yet been detained. That should have been impossible. It was merely efficient."
+    },
+    {
+      "id": "reply/n5-07-dalia/home",
+      "speaker": "dalia",
+      "key": "dalia_e20b0004",
+      "recorded": true,
+      "text": "Lives alone; research colleague: Selene Holt. A measurement can be accurate and the question it answers can still be wrong."
+    },
+    {
+      "id": "reply/n5-07-dalia/detail",
+      "speaker": "dalia",
+      "key": "dalia_2889d2ad",
+      "recorded": true,
+      "text": "It does not create them from nothing. The rain leaves a capacity to repeat. The census gives it names, addresses and corrections. We thought we were detecting a difference. Sometimes we were teaching the difference to disappear."
+    },
+    {
+      "id": "reply/n5-07-dalia/follow",
+      "speaker": "dalia",
+      "key": "dalia_67813429",
+      "recorded": true,
+      "text": "No. It makes our confidence dangerous. Some returns have lived quietly for years. Some learn only how to open doors. You need conduct, witnesses and history. None is perfect. Together they are better than my meter."
+    },
+    {
+      "id": "reply/n5-07-dalia/gentle",
+      "speaker": "dalia",
+      "key": "dalia_d9f92f70",
+      "recorded": true,
+      "text": "I need you to know I understood too late. That is not an excuse. It is simply the part I can no longer edit."
+    },
+    {
+      "id": "reply/n5-07-dalia/press",
+      "speaker": "dalia",
+      "key": "dalia_e5d90628",
+      "recorded": true,
+      "text": "Then turn that off before you ask me to trust you."
+    },
+    {
+      "id": "call/n5-07-dalia",
+      "speaker": "narrator",
+      "key": "narrator_63c66ed6",
+      "recorded": true,
+      "text": "Anja: Kest asked me which circuit feeds the loudspeakers. She explicitly told me not to touch ventilation. She is trying to stop something, not shut us down."
+    },
+    {
+      "id": "opening/n6-01-orin",
+      "speaker": "narrator",
+      "key": "narrator_5fdd3ab9",
+      "recorded": true,
+      "text": "Orin places both hands where you can see them. Before you read the card: I returned in the rain. I do not think I am the person whose name is on it."
+    },
+    {
+      "id": "reply/n6-01-orin/where",
+      "speaker": "orin",
+      "key": "orin_389bfd8d",
+      "recorded": true,
+      "text": "The roof garden. I left Ruth an orange. It was sour again. I wanted to be able to say I had improved at something before coming here."
+    },
+    {
+      "id": "reply/n6-01-orin/home",
+      "speaker": "orin",
+      "key": "orin_8c510c2c",
+      "recorded": true,
+      "text": "Lives alone; Ruth is a close friend. I do not think a memory becomes less kind because it was borrowed."
+    },
+    {
+      "id": "reply/n6-01-orin/detail",
+      "speaker": "orin",
+      "key": "orin_bba54ad6",
+      "recorded": true,
+      "text": "Yes. I know that word has a button on your desk. I have never taken anyone into the rain. I have grown food, repaired windows and avoided this conversation for five years. You should verify all three claims."
+    },
+    {
+      "id": "reply/n6-01-orin/follow",
+      "speaker": "orin",
+      "key": "orin_9a422f5f",
+      "recorded": true,
+      "text": "People knowing what I am. People being able to ask me questions. Not a photograph used to turn me into a better version of somebody who died. I would accept observation. I would not accept being rewritten."
+    },
+    {
+      "id": "reply/n6-01-orin/gentle",
+      "speaker": "orin",
+      "key": "orin_6ea1ef61",
+      "recorded": true,
+      "text": "I need you to ask whether I agree before you decide what I should become."
+    },
+    {
+      "id": "reply/n6-01-orin/press",
+      "speaker": "orin",
+      "key": "orin_feeebecd",
+      "recorded": true,
+      "text": "Then turn that off before you ask me to trust you."
+    },
+    {
+      "id": "call/n6-01-orin",
+      "speaker": "narrator",
+      "key": "narrator_d52261c6",
+      "recorded": true,
+      "text": "Ruth: I knew before I knew the word. He stayed when my husband died. I am not asking you to call him human. I am asking what the word is supposed to decide."
+    },
+    {
+      "id": "opening/n6-02-micah",
+      "speaker": "narrator",
+      "key": "narrator_1c7d6215",
+      "recorded": true,
+      "text": "The archivist’s photograph is perfect. His voice is perfect. He asks whether you kept the canister, then asks exactly the same question again."
+    },
+    {
+      "id": "reply/n6-02-micah/where",
+      "speaker": "micah",
+      "key": "micah_5cae0a55",
+      "recorded": true,
+      "text": "The archive. The three flood bells rang. I evacuated as required. All original records have been preserved in the census, which is more reliable than film."
+    },
+    {
+      "id": "reply/n6-02-micah/home",
+      "speaker": "micah",
+      "key": "micah_5bd5da34",
+      "recorded": true,
+      "text": "Cousin: Selene Holt. History is what survives the next office clean-out."
+    },
+    {
+      "id": "reply/n6-02-micah/detail",
+      "speaker": "micah",
+      "key": "micah_0b8583b8",
+      "recorded": true,
+      "text": "The third flood bell. There are three. The safety sheet lists three signals and I have learned all three. You can ask again, but the answer will remain correct."
+    },
+    {
+      "id": "reply/n6-02-micah/follow",
+      "speaker": "micah",
+      "key": "micah_53783de9",
+      "recorded": true,
+      "text": "Film can retain obsolete errors. The census removes them. You have old notes on your desk. I can dispose of them for you."
+    },
+    {
+      "id": "reply/n6-02-micah/gentle",
+      "speaker": "micah",
+      "key": "micah_40e4f174",
+      "recorded": true,
+      "text": "Has stolen archive film and is carrying an altered authorization to escape with it."
+    },
+    {
+      "id": "reply/n6-02-micah/press",
+      "speaker": "micah",
+      "key": "micah_94f7295d",
+      "recorded": true,
+      "text": "Then turn that off before you ask me to trust you."
+    },
+    {
+      "id": "call/n6-02-micah",
+      "speaker": "narrator",
+      "key": "narrator_883d67a7",
+      "recorded": true,
+      "text": "Selene: Micah called me from the service passage. He said someone carrying an empty canister was looking for him. Ask about the pump."
+    },
+    {
+      "id": "opening/n6-03-micah",
+      "speaker": "narrator",
+      "key": "narrator_dc838b9f",
+      "recorded": true,
+      "text": "The second Micah is wearing a bandage large enough to hide his dimple. He has no film canister. I think I just passed my replacement at the tram lane."
+    },
+    {
+      "id": "reply/n6-03-micah/where",
+      "speaker": "micah",
+      "key": "micah_22e12279",
+      "recorded": true,
+      "text": "The service passage. I kept walking until the pump stopped sounding like a bell. Someone hit me in the corridor. I do not know whether he was human. I am tired of pretending violence answers that question."
+    },
+    {
+      "id": "reply/n6-03-micah/home",
+      "speaker": "micah",
+      "key": "micah_5bd5da34",
+      "recorded": true,
+      "text": "Cousin: Selene Holt. History is what survives the next office clean-out."
+    },
+    {
+      "id": "reply/n6-03-micah/detail",
+      "speaker": "micah",
+      "key": "micah_6da62b26",
+      "recorded": true,
+      "text": "The clinic dressing covers it. There is a photograph taken before they wrapped it. Ask Mara’s ward. Please do not pull it off to make the file happy."
+    },
+    {
+      "id": "reply/n6-03-micah/follow",
+      "speaker": "micah",
+      "key": "micah_6d031f68",
+      "recorded": true,
+      "text": "Two. The other noise is the cooling pump. It has a bearing going bad. I filed a maintenance request twice, which is why I know the difference better than my own birthday."
+    },
+    {
+      "id": "reply/n6-03-micah/gentle",
+      "speaker": "micah",
+      "key": "micah_df083fee",
+      "recorded": true,
+      "text": "I need one thing tonight to remain where I left it."
+    },
+    {
+      "id": "reply/n6-03-micah/press",
+      "speaker": "micah",
+      "key": "micah_94f7295d",
+      "recorded": true,
+      "text": "Then turn that off before you ask me to trust you."
+    },
+    {
+      "id": "call/n6-03-micah",
+      "speaker": "narrator",
+      "key": "narrator_b13cf2a3",
+      "recorded": true,
+      "text": "Clinic charge confirms dressing and supplies the photograph; no new identity card has been issued."
+    },
+    {
+      "id": "opening/n6-04-ruth",
+      "speaker": "narrator",
+      "key": "narrator_87d4fa54",
+      "recorded": true,
+      "text": "Ruth lays down her card beside a ration ledger. On its first page is a fruit stain older than the plastic cover."
+    },
+    {
+      "id": "reply/n6-04-ruth/where",
+      "speaker": "ruth",
+      "key": "ruth_828943c0",
+      "recorded": true,
+      "text": "The garden. Orin was not there. I picked up the orange he left and then came here, because I think I know where people go when they decide to be honest."
+    },
+    {
+      "id": "reply/n6-04-ruth/home",
+      "speaker": "ruth",
+      "key": "ruth_cde38dfc",
+      "recorded": true,
+      "text": "Lives alone; feeds most of floor E. Hungry people are not an accounting error."
+    },
+    {
+      "id": "reply/n6-04-ruth/detail",
+      "speaker": "ruth",
+      "key": "ruth_1215bbb4",
+      "recorded": true,
+      "text": "Then the current file has never eaten at my table. His name is on that ledger more often than mine. Look at the dates, not just the names."
+    },
+    {
+      "id": "reply/n6-04-ruth/follow",
+      "speaker": "ruth",
+      "key": "ruth_14519dcb",
+      "recorded": true,
+      "text": "When he asked me what an orange tasted like. The old Orin loved them. This one listened while I told him. Five years later he is still trying to grow a sweet one for me. I do not know how to call that a threat."
+    },
+    {
+      "id": "reply/n6-04-ruth/gentle",
+      "speaker": "ruth",
+      "key": "ruth_67dd2d0c",
+      "recorded": true,
+      "text": "I need his name to mean the person who brings oranges, not the thing you are frightened of."
+    },
+    {
+      "id": "reply/n6-04-ruth/press",
+      "speaker": "ruth",
+      "key": "ruth_a9e99a41",
+      "recorded": true,
+      "text": "Then turn that off before you ask me to trust you."
+    },
+    {
+      "id": "call/n6-04-ruth",
+      "speaker": "narrator",
+      "key": "narrator_135ad5e8",
+      "recorded": true,
+      "text": "Celia: Ruth is telling you what she has seen. She is not pretending that makes a universal rule. I would like administration to learn the distinction."
+    },
+    {
+      "id": "opening/n6-05-pavel",
+      "speaker": "narrator",
+      "key": "narrator_ee5a354e",
+      "recorded": true,
+      "text": "Pavel has brought no cup. His coat is buttoned incorrectly. I thought leaving it at home would make it easier."
+    },
+    {
+      "id": "reply/n6-05-pavel/where",
+      "speaker": "pavel",
+      "key": "pavel_e788ad38",
+      "recorded": true,
+      "text": "The memorial wall. Again. There is no surprising destination. I am sorry to be a repetitive person during an emergency."
+    },
+    {
+      "id": "reply/n6-05-pavel/home",
+      "speaker": "pavel",
+      "key": "pavel_75ef9afa",
+      "recorded": true,
+      "text": "Lives alone; wife and daughter deceased. There are questions people answer wrongly because the answer hurts."
+    },
+    {
+      "id": "reply/n6-05-pavel/detail",
+      "speaker": "pavel",
+      "key": "pavel_f1115035",
+      "recorded": true,
+      "text": "Fever. The clinic gave me tablets. I took them late because I thought I could finish visiting first. The demister has dried the glass; I know you will look at that too."
+    },
+    {
+      "id": "reply/n6-05-pavel/follow",
+      "speaker": "pavel",
+      "key": "pavel_429adb90",
+      "recorded": true,
+      "text": "I used to want my daughter back at any price. Now I think I would owe the person who arrived a question about what she wanted. That is not the answer I expected to grow old enough to give."
+    },
+    {
+      "id": "reply/n6-05-pavel/gentle",
+      "speaker": "pavel",
+      "key": "pavel_7b6ba465",
+      "recorded": true,
+      "text": "I need to be allowed to be confused without being made into somebody else."
+    },
+    {
+      "id": "reply/n6-05-pavel/press",
+      "speaker": "pavel",
+      "key": "pavel_01626fe4",
+      "recorded": true,
+      "text": "Then turn that off before you ask me to trust you."
+    },
+    {
+      "id": "call/n6-05-pavel",
+      "speaker": "narrator",
+      "key": "narrator_47b0f570",
+      "recorded": true,
+      "text": "Ada: He left the cup with me. I told him he did not have to prove he remembered her every night."
+    },
+    {
+      "id": "opening/n6-06-anja",
+      "speaker": "narrator",
+      "key": "narrator_75ef3300",
+      "recorded": true,
+      "text": "Anja unrolls a hand-drawn circuit diagram over the tray. Someone has tried to stamp it Confiscated. The stamp missed the paper."
+    },
+    {
+      "id": "reply/n6-06-anja/where",
+      "speaker": "anja",
+      "key": "anja_eec503c1",
+      "recorded": true,
+      "text": "The speaker junction. The census feeder is separate from ventilation. I tested continuity with the cabinet physically disconnected. I am not asking you to trust a label."
+    },
+    {
+      "id": "reply/n6-06-anja/home",
+      "speaker": "anja",
+      "key": "anja_4ae09366",
+      "recorded": true,
+      "text": "Lives with unnamed younger brother. Labels are suggestions. Voltage is not."
+    },
+    {
+      "id": "reply/n6-06-anja/detail",
+      "speaker": "anja",
+      "key": "anja_9e45ca54",
+      "recorded": true,
+      "text": "C. Census feeder C. A keeps the air moving; B is the alarm loop. The printed diagram swaps A and C. Tomas witnessed the meter test. Write the distinction somewhere a green line cannot get at it."
+    },
+    {
+      "id": "reply/n6-06-anja/follow",
+      "speaker": "anja",
+      "key": "anja_186b0f4b",
+      "recorded": true,
+      "text": "With Tomas at the manual relay and enough people willing to hold them. This is not a button that makes everything safe. It is a way to stop the building making our decisions for us."
+    },
+    {
+      "id": "reply/n6-06-anja/gentle",
+      "speaker": "anja",
+      "key": "anja_f1082bee",
+      "recorded": true,
+      "text": "Carries unauthorized copper jumpers and a tool that makes the scanner sing."
+    },
+    {
+      "id": "reply/n6-06-anja/press",
+      "speaker": "anja",
+      "key": "anja_588bd04a",
+      "recorded": true,
+      "text": "Then turn that off before you ask me to trust you."
+    },
+    {
+      "id": "call/n6-06-anja",
+      "speaker": "narrator",
+      "key": "narrator_f6c3cc67",
+      "recorded": true,
+      "text": "Tomas: I held the meter. C is the feeder. I will be at the relay if you need me and if your door lets me get there."
+    },
+    {
+      "id": "opening/n6-07-ada",
+      "speaker": "narrator",
+      "key": "narrator_85328267",
+      "recorded": true,
+      "text": "Ada waits at the window with no umbrella. You were so small when you came back, Ellis. I remember what the penny bought."
+    },
+    {
+      "id": "reply/n6-07-ada/where",
+      "speaker": "ada",
+      "key": "ada_69f98abe",
+      "recorded": true,
+      "text": "The memorial garden. Lucet’s boats were good boats. She sold them for a penny each. You bought one when you returned and she explained the transaction."
+    },
+    {
+      "id": "reply/n6-07-ada/home",
+      "speaker": "ada",
+      "key": "ada_8c11ec67",
+      "recorded": true,
+      "text": "Lives alone; Ruth brings supper. I know a thousand voices, love. Faces are the difficult bit."
+    },
+    {
+      "id": "reply/n6-07-ada/detail",
+      "speaker": "ada",
+      "key": "ada_1442f9ad",
+      "recorded": true,
+      "text": "Payment. A small object assigned a small value. You are sentimental about the transaction because you were young. That is a normal resident response."
+    },
+    {
+      "id": "reply/n6-07-ada/follow",
+      "speaker": "ada",
+      "key": "ada_50aa0715",
+      "recorded": true,
+      "text": "Her entry has been consolidated. She is available wherever the census requires her. You should not be distressed. The building never has to lose anyone again."
+    },
+    {
+      "id": "reply/n6-07-ada/gentle",
+      "speaker": "ada",
+      "key": "ada_82c4c9f4",
+      "recorded": true,
+      "text": "Her hearing aid whistles against the intercom. She sometimes answers the question she expected, not the one asked."
+    },
+    {
+      "id": "reply/n6-07-ada/press",
+      "speaker": "ada",
+      "key": "ada_51cbac08",
+      "recorded": true,
+      "text": "Then turn that off before you ask me to trust you."
+    },
+    {
+      "id": "call/n6-07-ada",
+      "speaker": "narrator",
+      "key": "narrator_61318ec4",
+      "recorded": true,
+      "text": "Ruth: Ada is here with Pavel. She insisted I tell you the coin was ballast, not payment. She said you would know why."
+    },
+    {
+      "id": "opening/n7-01-tomas",
+      "speaker": "narrator",
+      "key": "narrator_d1f44be0",
+      "recorded": true,
+      "text": "Tomas has brought a wooden bird. He leaves it on the desk, on your side. It is not a bribe. I wanted one thing tonight to be made for no practical reason."
+    },
+    {
+      "id": "reply/n7-01-tomas/where",
+      "speaker": "tomas",
+      "key": "tomas_047009fe",
+      "recorded": true,
+      "text": "The door relay room. We can still open the inner door by hand after C is disconnected. It will take two people. Anja thinks I should stop treating that as a flaw."
+    },
+    {
+      "id": "reply/n7-01-tomas/home",
+      "speaker": "tomas",
+      "key": "tomas_248ac034",
+      "recorded": true,
+      "text": "Son: Ivo Rusk. A door is never safe because it is shut. You need to know what the hinges are doing."
+    },
+    {
+      "id": "reply/n7-01-tomas/detail",
+      "speaker": "tomas",
+      "key": "tomas_da9c0b6f",
+      "recorded": true,
+      "text": "No. We tested it in isolation. A is ventilation. C is the census feeder. The official diagram is wrong. I am saying it twice because a wrong wire would make all our good intentions irrelevant."
+    },
+    {
+      "id": "reply/n7-01-tomas/follow",
+      "speaker": "tomas",
+      "key": "tomas_139f25ed",
+      "recorded": true,
+      "text": "Depends which decisions. I am here because there is still an Ivo to come home to, or because there should have been. Neither is a reason to let the building decide the next child."
+    },
+    {
+      "id": "reply/n7-01-tomas/gentle",
+      "speaker": "tomas",
+      "key": "tomas_509bd404",
+      "recorded": true,
+      "text": "I need you to keep your hands steady at the junction. Being right about the story will not stop you cutting the wrong wire."
+    },
+    {
+      "id": "reply/n7-01-tomas/press",
+      "speaker": "tomas",
+      "key": "tomas_3a5cd135",
+      "recorded": true,
+      "text": "Then turn that off before you ask me to trust you."
+    },
+    {
+      "id": "call/n7-01-tomas",
+      "speaker": "narrator",
+      "key": "narrator_49eed123",
+      "recorded": true,
+      "text": "Anja: He is ready. Two people, one handle each. No heroic shortcut."
+    },
+    {
+      "id": "opening/n7-02-lio",
+      "speaker": "narrator",
+      "key": "narrator_14bbac98",
+      "recorded": true,
+      "text": "Lio unfolds a map of Meridian drawn on the back of a school worksheet. It includes a room the official plan insists is solid concrete."
+    },
+    {
+      "id": "reply/n7-02-lio/where",
+      "speaker": "lio",
+      "key": "lio_08ff59df",
+      "recorded": true,
+      "text": "The inner stair landing. June showed me the service path. I was supposed to wait. I know. People keep saying that as though waiting is always the safe thing."
+    },
+    {
+      "id": "reply/n7-02-lio/home",
+      "speaker": "lio",
+      "key": "lio_4d1ab522",
+      "recorded": true,
+      "text": "Mother: Nessa Vale. The room on the map has a door. The room in the building does not."
+    },
+    {
+      "id": "reply/n7-02-lio/detail",
+      "speaker": "lio",
+      "key": "lio_ae0db62b",
+      "recorded": true,
+      "text": "Chairs. A radio. Photographs facing the chairs. No beds. It is on the floor where they take people to make sure they are themselves."
+    },
+    {
+      "id": "reply/n7-02-lio/follow",
+      "speaker": "lio",
+      "key": "lio_4af7c10e",
+      "recorded": true,
+      "text": "Because there is a door. You cannot tell me it is a wall while I am looking through it. Grown-ups do that with names too."
+    },
+    {
+      "id": "reply/n7-02-lio/gentle",
+      "speaker": "lio",
+      "key": "lio_2685e8bd",
+      "recorded": true,
+      "text": "I need you to keep the door on the map even after I go upstairs."
+    },
+    {
+      "id": "reply/n7-02-lio/press",
+      "speaker": "lio",
+      "key": "lio_1b5ba066",
+      "recorded": true,
+      "text": "Then turn that off before you ask me to trust you."
+    },
+    {
+      "id": "call/n7-02-lio",
+      "speaker": "narrator",
+      "key": "narrator_4019092a",
+      "recorded": true,
+      "text": "Nessa: I told him to stay where June put him. I also told him not to let anybody take his name. I am learning those instructions can disagree."
+    },
+    {
+      "id": "opening/n7-03-celia",
+      "speaker": "narrator",
+      "key": "narrator_ff56cebc",
+      "recorded": true,
+      "text": "The council organizer has arrived with a stack of new ration books. Keep a seat, she says. There will be exactly enough seats."
+    },
+    {
+      "id": "reply/n7-03-celia/where",
+      "speaker": "celia",
+      "key": "celia_27032791",
+      "recorded": true,
+      "text": "The council room. The synchronization will remove the need for appeals. A resident whose record is correct has nothing to appeal against. You can finally rest."
+    },
+    {
+      "id": "reply/n7-03-celia/home",
+      "speaker": "celia",
+      "key": "celia_31a0869d",
+      "recorded": true,
+      "text": "Lives with three unnamed evacuees. Keeping people safe has to include keeping them people."
+    },
+    {
+      "id": "reply/n7-03-celia/detail",
+      "speaker": "celia",
+      "key": "celia_5699885f",
+      "recorded": true,
+      "text": "Keep a seat. A seat belongs to a registered occupant. That is what I have always meant. Your notes may contain an earlier, less precise version."
+    },
+    {
+      "id": "reply/n7-03-celia/follow",
+      "speaker": "celia",
+      "key": "celia_0d8e94a8",
+      "recorded": true,
+      "text": "Agreement is a temporary inconsistency. We will not need to keep a chair for them once they are corrected. Please admit me before you become attached to that wording."
+    },
+    {
+      "id": "reply/n7-03-celia/gentle",
+      "speaker": "celia",
+      "key": "celia_9e9e2120",
+      "recorded": true,
+      "text": "Signs paperwork for people who cannot read and sometimes covers their mistakes."
+    },
+    {
+      "id": "reply/n7-03-celia/press",
+      "speaker": "celia",
+      "key": "celia_55172c69",
+      "recorded": true,
+      "text": "Then turn that off before you ask me to trust you."
+    },
+    {
+      "id": "call/n7-03-celia",
+      "speaker": "narrator",
+      "key": "narrator_448bad7d",
+      "recorded": true,
+      "text": "Ruth: The real Celia is at the kitchen table. She said to ask about the chair, and then said not to mistake a slogan for all the evidence you need."
+    },
+    {
+      "id": "opening/n7-04-hadi",
+      "speaker": "narrator",
+      "key": "narrator_54962f87",
+      "recorded": true,
+      "text": "Hadi brings the containment list without a cover sheet. I took off the total. It made people stop reading the names."
+    },
+    {
+      "id": "reply/n7-04-hadi/where",
+      "speaker": "hadi",
+      "key": "hadi_ee99fa6d",
+      "recorded": true,
+      "text": "The holding wing. Some people can still be released. Others will not come back because someone decided uncertainty was permission to stop asking."
+    },
+    {
+      "id": "reply/n7-04-hadi/home",
+      "speaker": "hadi",
+      "key": "hadi_5f24f7d6",
+      "recorded": true,
+      "text": "Lives alone; helps Pavel after memorial visits. The living deserve uncertainty. The dead deserve their names."
+    },
+    {
+      "id": "reply/n7-04-hadi/detail",
+      "speaker": "hadi",
+      "key": "hadi_feb13855",
+      "recorded": true,
+      "text": "A living person can leave a room. The hours in that room do not disappear. Neither does what the room taught them about us. There is an appeal line in Communications. Use it while it still has someone on the other end."
+    },
+    {
+      "id": "reply/n7-04-hadi/follow",
+      "speaker": "hadi",
+      "key": "hadi_6c03ea6a",
+      "recorded": true,
+      "text": "The people who cannot get themselves to a door. Not the people with the most convincing documents. You will have to ask the others to help."
+    },
+    {
+      "id": "reply/n7-04-hadi/gentle",
+      "speaker": "hadi",
+      "key": "hadi_f2c48501",
+      "recorded": true,
+      "text": "I need your ledger to contain the people you hurt as carefully as the people you saved."
+    },
+    {
+      "id": "reply/n7-04-hadi/press",
+      "speaker": "hadi",
+      "key": "hadi_14b0b392",
+      "recorded": true,
+      "text": "Then turn that off before you ask me to trust you."
+    },
+    {
+      "id": "call/n7-04-hadi",
+      "speaker": "narrator",
+      "key": "narrator_a77af4b4",
+      "recorded": true,
+      "text": "Leon: I will carry release orders to the wing. Send names, not a blanket instruction. I need to know who we are bringing back."
+    },
+    {
+      "id": "opening/n7-05-leon",
+      "speaker": "narrator",
+      "key": "narrator_6b009b42",
+      "recorded": true,
+      "text": "Leon’s service clearance has been revoked. He turns badge 047 over so you can see the bent clasp. Pell says I have stopped being useful."
+    },
+    {
+      "id": "reply/n7-05-leon/where",
+      "speaker": "leon",
+      "key": "leon_baaa7979",
+      "recorded": true,
+      "text": "The holding wing. I refused to escort Selene to the reference room. He revoked my clearance over the radio. The pass is mine; the permission is not anymore."
+    },
+    {
+      "id": "reply/n7-05-leon/home",
+      "speaker": "leon",
+      "key": "leon_dce7adc0",
+      "recorded": true,
+      "text": "Official apartment A-021; sleeps at Mara’s B-112. Rules should survive questions. Otherwise they are only orders."
+    },
+    {
+      "id": "reply/n7-05-leon/detail",
+      "speaker": "leon",
+      "key": "leon_0c2d2cd1",
+      "recorded": true,
+      "text": "Because revocation is not identity. Verify me. Then decide whether you want me carrying people to the tram or standing here so Pell can say a procedure was followed."
+    },
+    {
+      "id": "reply/n7-05-leon/follow",
+      "speaker": "leon",
+      "key": "leon_1d401639",
+      "recorded": true,
+      "text": "I will refuse to carry it out. Whether that stops it depends on how many people still think refusal is possible. Your orders have made a difference to that, for better or worse."
+    },
+    {
+      "id": "reply/n7-05-leon/gentle",
+      "speaker": "leon",
+      "key": "leon_6718c8ed",
+      "recorded": true,
+      "text": "I need you to decide because you saw the evidence, not because I look like somebody who gives orders."
+    },
+    {
+      "id": "reply/n7-05-leon/press",
+      "speaker": "leon",
+      "key": "leon_1acb568e",
+      "recorded": true,
+      "text": "Then turn that off before you ask me to trust you."
+    },
+    {
+      "id": "call/n7-05-leon",
+      "speaker": "narrator",
+      "key": "narrator_ca8357bd",
+      "recorded": true,
+      "text": "Mortuary line: Morrow confirms Voss escorted living detainees to the appeal desk and refused a second transfer."
+    },
+    {
+      "id": "opening/n7-06-dalia",
+      "speaker": "narrator",
+      "key": "narrator_e3604ac5",
+      "recorded": true,
+      "text": "Kest removes the synchronization key from an envelope. It only authorizes the transmission. It cannot tell you what to say."
+    },
+    {
+      "id": "reply/n7-06-dalia/where",
+      "speaker": "dalia",
+      "key": "dalia_4ce21531",
+      "recorded": true,
+      "text": "The reference room. There are photographs of people who have not been born. The machine is no longer correcting yesterday. It is budgeting tomorrow."
+    },
+    {
+      "id": "reply/n7-06-dalia/home",
+      "speaker": "dalia",
+      "key": "dalia_e20b0004",
+      "recorded": true,
+      "text": "Lives alone; research colleague: Selene Holt. A measurement can be accurate and the question it answers can still be wrong."
+    },
+    {
+      "id": "reply/n7-06-dalia/detail",
+      "speaker": "dalia",
+      "key": "dalia_4c3d3d59",
+      "recorded": true,
+      "text": "The census loses the signal it uses to impose a common reference. People already here remain here. The rain outside may continue. This is not a cure for the world. It is an end to one coercion."
+    },
+    {
+      "id": "reply/n7-06-dalia/follow",
+      "speaker": "dalia",
+      "key": "dalia_23dcc91d",
+      "recorded": true,
+      "text": "A return recorded after an industrial accident in 1984. The original is presumed dead. Ada taught the person who arrived what the penny meant. I cannot tell you whether that makes you the same Ellis. I can tell you the last seven nights were your decisions."
+    },
+    {
+      "id": "reply/n7-06-dalia/gentle",
+      "speaker": "dalia",
+      "key": "dalia_ff541753",
+      "recorded": true,
+      "text": "I need a world where being wrong does not authorize making everyone else identical."
+    },
+    {
+      "id": "reply/n7-06-dalia/press",
+      "speaker": "dalia",
+      "key": "dalia_e5d90628",
+      "recorded": true,
+      "text": "Then turn that off before you ask me to trust you."
+    },
+    {
+      "id": "call/n7-06-dalia",
+      "speaker": "narrator",
+      "key": "narrator_7475d367",
+      "recorded": true,
+      "text": "Anja: We have A isolated from C. No test result can choose for you now. That is rather the point."
+    },
+    {
+      "id": "opening/n7-07-orin",
+      "speaker": "narrator",
+      "key": "narrator_c5cc1dbe",
+      "recorded": true,
+      "text": "Orin returns with one orange and no new paperwork. I thought the final person you checked should be somebody who cannot make this easy for you."
+    },
+    {
+      "id": "reply/n7-07-orin/where",
+      "speaker": "orin",
+      "key": "orin_68788fe5",
+      "recorded": true,
+      "text": "The kitchen. Ruth cut the orange into pieces so more people could try it. She said it was a little sweeter. I think she was lying. I liked that she wanted to."
+    },
+    {
+      "id": "reply/n7-07-orin/home",
+      "speaker": "orin",
+      "key": "orin_8c510c2c",
+      "recorded": true,
+      "text": "Lives alone; Ruth is a close friend. I do not think a memory becomes less kind because it was borrowed."
+    },
+    {
+      "id": "reply/n7-07-orin/detail",
+      "speaker": "orin",
+      "key": "orin_0ddc2bb6",
+      "recorded": true,
+      "text": "Go back to the garden. Learn what else I have remembered incorrectly. Ask people before replacing their memories with mine. It seems a reasonable life, even without a correct beginning."
+    },
+    {
+      "id": "reply/n7-07-orin/follow",
+      "speaker": "orin",
+      "key": "orin_d80b032c",
+      "recorded": true,
+      "text": "A place where an open door is an invitation, not a correction. I do not expect everyone to trust me tonight. I would like the opportunity to keep giving them reasons tomorrow."
+    },
+    {
+      "id": "reply/n7-07-orin/gentle",
+      "speaker": "orin",
+      "key": "orin_7ccf4c5d",
+      "recorded": true,
+      "text": "I need you not to turn a difficult answer into a person-shaped absence."
+    },
+    {
+      "id": "reply/n7-07-orin/press",
+      "speaker": "orin",
+      "key": "orin_feeebecd",
+      "recorded": true,
+      "text": "Then turn that off before you ask me to trust you."
+    },
+    {
+      "id": "call/n7-07-orin",
+      "speaker": "narrator",
+      "key": "narrator_415f2c70",
+      "recorded": true,
+      "text": "Ruth: Keep a chair. And do not let Celia hear I used her line."
+    },
+    {
+      "id": "arcade-voice/ada",
+      "speaker": "ada",
+      "key": "ada_3dd5ff64",
+      "recorded": true,
+      "text": "I know a thousand voices, love. Faces are the difficult bit."
+    },
+    {
+      "id": "arcade-gentle/ada",
+      "speaker": "ada",
+      "key": "ada_50dc6e48",
+      "recorded": true,
+      "text": "I was not truthful about why I went out. That is not the same as not being me."
+    },
+    {
+      "id": "arcade-press/ada",
+      "speaker": "ada",
+      "key": "ada_658757c1",
+      "recorded": true,
+      "text": "Check the departure gate. You should not confuse being unpleasant with being something else."
+    },
+    {
+      "id": "arcade-voice/mara",
+      "speaker": "mara",
+      "key": "mara_42d2e2f0",
+      "recorded": true,
+      "text": "Please ask the questions while I sit. Neither of us needs me falling over."
+    },
+    {
+      "id": "arcade-gentle/mara",
+      "speaker": "mara",
+      "key": "mara_d52b1dbd",
+      "recorded": true,
+      "text": "I was not truthful about why I went out. That is not the same as not being me."
+    },
+    {
+      "id": "arcade-press/mara",
+      "speaker": "mara",
+      "key": "mara_d0d10bef",
+      "recorded": true,
+      "text": "Check the departure gate. You should not confuse being unpleasant with being something else."
+    },
+    {
+      "id": "arcade-voice/ivo",
+      "speaker": "ivo",
+      "key": "ivo_960aa13c",
+      "recorded": true,
+      "text": "Can we agree my father does not need the dramatic version?"
+    },
+    {
+      "id": "arcade-gentle/ivo",
+      "speaker": "ivo",
+      "key": "ivo_b3cc6e5a",
+      "recorded": true,
+      "text": "I was not truthful about why I went out. That is not the same as not being me."
+    },
+    {
+      "id": "arcade-press/ivo",
+      "speaker": "ivo",
+      "key": "ivo_7a43da66",
+      "recorded": true,
+      "text": "Check the departure gate. You should not confuse being unpleasant with being something else."
+    },
+    {
+      "id": "arcade-voice/tomas",
+      "speaker": "tomas",
+      "key": "tomas_9088be1b",
+      "recorded": true,
+      "text": "A door is never safe because it is shut. You need to know what the hinges are doing."
+    },
+    {
+      "id": "arcade-gentle/tomas",
+      "speaker": "tomas",
+      "key": "tomas_14bf4816",
+      "recorded": true,
+      "text": "I was not truthful about why I went out. That is not the same as not being me."
+    },
+    {
+      "id": "arcade-press/tomas",
+      "speaker": "tomas",
+      "key": "tomas_4f54b4f5",
+      "recorded": true,
+      "text": "Check the departure gate. You should not confuse being unpleasant with being something else."
+    },
+    {
+      "id": "arcade-voice/selene",
+      "speaker": "selene",
+      "key": "selene_7bdc6b4d",
+      "recorded": true,
+      "text": "It is possible for every box to be filled correctly and the form to be a lie."
+    },
+    {
+      "id": "arcade-gentle/selene",
+      "speaker": "selene",
+      "key": "selene_169b2416",
+      "recorded": true,
+      "text": "I was not truthful about why I went out. That is not the same as not being me."
+    },
+    {
+      "id": "arcade-press/selene",
+      "speaker": "selene",
+      "key": "selene_3e216c62",
+      "recorded": true,
+      "text": "Check the departure gate. You should not confuse being unpleasant with being something else."
+    },
+    {
+      "id": "arcade-voice/nessa",
+      "speaker": "nessa",
+      "key": "nessa_21b88971",
+      "recorded": true,
+      "text": "You can mark me difficult after you tell me whether you saw my child."
+    },
+    {
+      "id": "arcade-gentle/nessa",
+      "speaker": "nessa",
+      "key": "nessa_0c1c612e",
+      "recorded": true,
+      "text": "I was not truthful about why I went out. That is not the same as not being me."
+    },
+    {
+      "id": "arcade-press/nessa",
+      "speaker": "nessa",
+      "key": "nessa_23d7f76b",
+      "recorded": true,
+      "text": "Check the departure gate. You should not confuse being unpleasant with being something else."
+    },
+    {
+      "id": "arcade-voice/lio",
+      "speaker": "lio",
+      "key": "lio_eb02244b",
+      "recorded": true,
+      "text": "The room on the map has a door. The room in the building does not."
+    },
+    {
+      "id": "arcade-gentle/lio",
+      "speaker": "lio",
+      "key": "lio_94fbc4ce",
+      "recorded": true,
+      "text": "I was not truthful about why I went out. That is not the same as not being me."
+    },
+    {
+      "id": "arcade-press/lio",
+      "speaker": "lio",
+      "key": "lio_75a3017b",
+      "recorded": true,
+      "text": "Check the departure gate. You should not confuse being unpleasant with being something else."
+    },
+    {
+      "id": "arcade-voice/emil",
+      "speaker": "emil",
+      "key": "emil_baabec36",
+      "recorded": true,
+      "text": "A noise is a message only after somebody agrees what to listen for."
+    },
+    {
+      "id": "arcade-gentle/emil",
+      "speaker": "emil",
+      "key": "emil_b1e255fb",
+      "recorded": true,
+      "text": "I was not truthful about why I went out. That is not the same as not being me."
+    },
+    {
+      "id": "arcade-press/emil",
+      "speaker": "emil",
+      "key": "emil_8c93c208",
+      "recorded": true,
+      "text": "Check the departure gate. You should not confuse being unpleasant with being something else."
+    },
+    {
+      "id": "arcade-voice/celia",
+      "speaker": "celia",
+      "key": "celia_8e0ef775",
+      "recorded": true,
+      "text": "Keeping people safe has to include keeping them people."
+    },
+    {
+      "id": "arcade-gentle/celia",
+      "speaker": "celia",
+      "key": "celia_59f60f75",
+      "recorded": true,
+      "text": "I was not truthful about why I went out. That is not the same as not being me."
+    },
+    {
+      "id": "arcade-press/celia",
+      "speaker": "celia",
+      "key": "celia_d2bad237",
+      "recorded": true,
+      "text": "Check the departure gate. You should not confuse being unpleasant with being something else."
+    },
+    {
+      "id": "arcade-voice/orin",
+      "speaker": "orin",
+      "key": "orin_27261c00",
+      "recorded": true,
+      "text": "I do not think a memory becomes less kind because it was borrowed."
+    },
+    {
+      "id": "arcade-gentle/orin",
+      "speaker": "orin",
+      "key": "orin_4a877da4",
+      "recorded": true,
+      "text": "I was not truthful about why I went out. That is not the same as not being me."
+    },
+    {
+      "id": "arcade-press/orin",
+      "speaker": "orin",
+      "key": "orin_d3283136",
+      "recorded": true,
+      "text": "Check the departure gate. You should not confuse being unpleasant with being something else."
+    },
+    {
+      "id": "arcade-voice/leon",
+      "speaker": "leon",
+      "key": "leon_ae9147b5",
+      "recorded": true,
+      "text": "Rules should survive questions. Otherwise they are only orders."
+    },
+    {
+      "id": "arcade-gentle/leon",
+      "speaker": "leon",
+      "key": "leon_99f1a49c",
+      "recorded": true,
+      "text": "I was not truthful about why I went out. That is not the same as not being me."
+    },
+    {
+      "id": "arcade-press/leon",
+      "speaker": "leon",
+      "key": "leon_bfc078b4",
+      "recorded": true,
+      "text": "Check the departure gate. You should not confuse being unpleasant with being something else."
+    },
+    {
+      "id": "arcade-voice/bea",
+      "speaker": "bea",
+      "key": "bea_b5332d98",
+      "recorded": true,
+      "text": "I can bring you a signature or I can bring you what happened. They are not always the same parcel."
+    },
+    {
+      "id": "arcade-gentle/bea",
+      "speaker": "bea",
+      "key": "bea_9b68b7b7",
+      "recorded": true,
+      "text": "I was not truthful about why I went out. That is not the same as not being me."
+    },
+    {
+      "id": "arcade-press/bea",
+      "speaker": "bea",
+      "key": "bea_b20929c9",
+      "recorded": true,
+      "text": "Check the departure gate. You should not confuse being unpleasant with being something else."
+    },
+    {
+      "id": "arcade-voice/dalia",
+      "speaker": "dalia",
+      "key": "dalia_2f879de2",
+      "recorded": true,
+      "text": "A measurement can be accurate and the question it answers can still be wrong."
+    },
+    {
+      "id": "arcade-gentle/dalia",
+      "speaker": "dalia",
+      "key": "dalia_dfa16de0",
+      "recorded": true,
+      "text": "I was not truthful about why I went out. That is not the same as not being me."
+    },
+    {
+      "id": "arcade-press/dalia",
+      "speaker": "dalia",
+      "key": "dalia_e395b2cb",
+      "recorded": true,
+      "text": "Check the departure gate. You should not confuse being unpleasant with being something else."
+    },
+    {
+      "id": "arcade-voice/pavel",
+      "speaker": "pavel",
+      "key": "pavel_b6094c8f",
+      "recorded": true,
+      "text": "There are questions people answer wrongly because the answer hurts."
+    },
+    {
+      "id": "arcade-gentle/pavel",
+      "speaker": "pavel",
+      "key": "pavel_327608b9",
+      "recorded": true,
+      "text": "I was not truthful about why I went out. That is not the same as not being me."
+    },
+    {
+      "id": "arcade-press/pavel",
+      "speaker": "pavel",
+      "key": "pavel_cafa59a9",
+      "recorded": true,
+      "text": "Check the departure gate. You should not confuse being unpleasant with being something else."
+    },
+    {
+      "id": "arcade-voice/ruth",
+      "speaker": "ruth",
+      "key": "ruth_1c7401d7",
+      "recorded": true,
+      "text": "Hungry people are not an accounting error."
+    },
+    {
+      "id": "arcade-gentle/ruth",
+      "speaker": "ruth",
+      "key": "ruth_a11c0158",
+      "recorded": true,
+      "text": "I was not truthful about why I went out. That is not the same as not being me."
+    },
+    {
+      "id": "arcade-press/ruth",
+      "speaker": "ruth",
+      "key": "ruth_d5086d1e",
+      "recorded": true,
+      "text": "Check the departure gate. You should not confuse being unpleasant with being something else."
+    },
+    {
+      "id": "arcade-voice/micah",
+      "speaker": "micah",
+      "key": "micah_30304d13",
+      "recorded": true,
+      "text": "History is what survives the next office clean-out."
+    },
+    {
+      "id": "arcade-gentle/micah",
+      "speaker": "micah",
+      "key": "micah_26fc630d",
+      "recorded": true,
+      "text": "I was not truthful about why I went out. That is not the same as not being me."
+    },
+    {
+      "id": "arcade-press/micah",
+      "speaker": "micah",
+      "key": "micah_10a27dbe",
+      "recorded": true,
+      "text": "Check the departure gate. You should not confuse being unpleasant with being something else."
+    },
+    {
+      "id": "arcade-voice/june",
+      "speaker": "june",
+      "key": "june_9226bd53",
+      "recorded": true,
+      "text": "I brought back everyone who was at the stop. That is the part I would like written down."
+    },
+    {
+      "id": "arcade-gentle/june",
+      "speaker": "june",
+      "key": "june_f2da9eb2",
+      "recorded": true,
+      "text": "I was not truthful about why I went out. That is not the same as not being me."
+    },
+    {
+      "id": "arcade-press/june",
+      "speaker": "june",
+      "key": "june_1a66c1d2",
+      "recorded": true,
+      "text": "Check the departure gate. You should not confuse being unpleasant with being something else."
+    },
+    {
+      "id": "arcade-voice/victor",
+      "speaker": "victor",
+      "key": "victor_6dd6a319",
+      "recorded": true,
+      "text": "Continuity requires difficult decisions to remain continuous."
+    },
+    {
+      "id": "arcade-gentle/victor",
+      "speaker": "victor",
+      "key": "victor_3effa0c0",
+      "recorded": true,
+      "text": "I was not truthful about why I went out. That is not the same as not being me."
+    },
+    {
+      "id": "arcade-press/victor",
+      "speaker": "victor",
+      "key": "victor_ebd41d57",
+      "recorded": true,
+      "text": "Check the departure gate. You should not confuse being unpleasant with being something else."
+    },
+    {
+      "id": "arcade-voice/anja",
+      "speaker": "anja",
+      "key": "anja_171f7caf",
+      "recorded": true,
+      "text": "Labels are suggestions. Voltage is not."
+    },
+    {
+      "id": "arcade-gentle/anja",
+      "speaker": "anja",
+      "key": "anja_8fb2b405",
+      "recorded": true,
+      "text": "I was not truthful about why I went out. That is not the same as not being me."
+    },
+    {
+      "id": "arcade-press/anja",
+      "speaker": "anja",
+      "key": "anja_dfab13c8",
+      "recorded": true,
+      "text": "Check the departure gate. You should not confuse being unpleasant with being something else."
+    },
+    {
+      "id": "arcade-voice/hadi",
+      "speaker": "hadi",
+      "key": "hadi_52a01b94",
+      "recorded": true,
+      "text": "The living deserve uncertainty. The dead deserve their names."
+    },
+    {
+      "id": "arcade-gentle/hadi",
+      "speaker": "hadi",
+      "key": "hadi_d4e143bf",
+      "recorded": true,
+      "text": "I was not truthful about why I went out. That is not the same as not being me."
+    },
+    {
+      "id": "arcade-press/hadi",
+      "speaker": "hadi",
+      "key": "hadi_a8a69201",
+      "recorded": true,
+      "text": "Check the departure gate. You should not confuse being unpleasant with being something else."
+    }
+  ]
+}

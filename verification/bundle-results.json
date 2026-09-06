@@ -1,0 +1,9 @@
+{
+  "kind": "Upstream-built archive integrity, not native validation",
+  "crc": "passed",
+  "sourceParity": "passed",
+  "servedParity": "passed",
+  "entries": 343,
+  "bytes": 3756085,
+  "sha256": "dbc228c43f5a6e4722dcfb7dea7099cdc82ecde11eab69c14b91d8b6b96085bb"
+}

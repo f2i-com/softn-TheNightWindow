@@ -1,0 +1,64 @@
+<Box if={nwScreen === "menu"}>
+  <Box className="nw-menu">
+    <Box className="nw-menu-art">
+      <Image src={asset("assets/scenes/title.svg")} alt="A rain-soaked brutalist arcology; a single amber security window is lit beneath it" style={{width:"100%",height:"100%",position:"absolute"}} />
+      <Box className="nw-rain" />
+    </Box>
+    <Box className="nw-menu-copy">
+      <Text className="nw-kicker">Meridian-17 · graveyard security · 1989</Text>
+      <Text className="nw-title">The Night Window</Text>
+      <Text className="nw-tagline">They remember everything on the record. That is what worries you.</Text>
+      <Text className="nw-body">Seven nights behind a security window. Twenty familiar faces, every one of them voiced. A building that has started correcting its inhabitants.</Text>
+      <Box className="nw-menu-actions">
+        <Button variant="ghost" className="nw-primary" @click={nwRequestNew}>{nwView.tutorialDone ? "New game" : "New game / guided first shift"}</Button>
+        <Button if={nwHasSave} variant="ghost" className="nw-btn" @click={nwContinue}>Continue campaign</Button>
+        <Button variant="ghost" className="nw-quiet" @click={nwToggleGuide}>How to play</Button>
+      </Box>
+      <Text className="nw-small">Psychological horror, detention, bereavement and implied violence. No timed reading, combat reflexes or uncaptioned audio clues. Progress saves automatically.</Text>
+    </Box>
+  </Box>
+  <Box className="nw-band">
+    <Text className="nw-kicker">Read the person. Check the paper. Keep your own copy.</Text>
+    <Text className="nw-small">7 shifts · 49 encounters · 6 endings · fully voiced</Text>
+  </Box>
+  <Text className="nw-kicker" style={{marginTop:"22px"}}>Every visitor, in five steps</Text>
+  <Box className="nw-howto">
+    <Box className="nw-howto-step"><Text className="nw-howto-num">1</Text><Text className="nw-section-title">Look</Text><Text className="nw-small">Watch the person at the window and read what they say. Observe writes down everything you can see.</Text></Box>
+    <Box className="nw-howto-step"><Text className="nw-howto-num">2</Text><Text className="nw-section-title">Check</Text><Text className="nw-small">Work head office form 17-B: Compare lays two sources side by side; mark each row Matches or Differs.</Text></Box>
+    <Box className="nw-howto-step"><Text className="nw-howto-num">3</Text><Text className="nw-section-title">Ask</Text><Text className="nw-small">Question the visitor, call a witness, hold them for one more paper. A difference is a reason to ask, not a verdict.</Text></Box>
+    <Box className="nw-howto-step"><Text className="nw-howto-num">4</Text><Text className="nw-section-title">File</Text><Text className="nw-small">Send the form to head office. Every visitor needs one before you can sign anything.</Text></Box>
+    <Box className="nw-howto-step"><Text className="nw-howto-num">5</Text><Text className="nw-section-title">Decide</Text><Text className="nw-small">Admit, deny or quarantine, then confirm. Consequences arrive tonight, or on a night when the same person returns.</Text></Box>
+  </Box>
+  <Box className="nw-secondary-grid">
+    <Box className="nw-panel nw-stack">
+      <Text className="nw-kicker">After the campaign</Text>
+      <Text className="nw-section-title">The outer queue</Text>
+      <Text className="nw-body">A seeded, endless observation challenge. Cases grow more sophisticated; independent evidence still matters more than speed. Your campaign has a separate save.</Text>
+      <Text if={!nwView.unlocked} className="nw-small">Complete any campaign ending to unlock.</Text>
+      <Box if={nwView.unlocked} className="nw-stack">
+        <Input label="Queue seed" value={nwSeedDraft} @change={nwSetSeed} maxLength={10} />
+        <Box className="nw-toolbar">
+          <Button className="nw-primary" @click={nwBeginArcade}>Start outer queue</Button>
+          <Button if={nwHasArcade} className="nw-btn" @click={nwContinueArcade}>Continue queue</Button>
+        </Box>
+      </Box>
+      <Text className="nw-small">{"Local high score: " + nwView.best + " · No account or connection required"}</Text>
+    </Box>
+    <Box className="nw-panel nw-stack">
+      <Text className="nw-kicker">A note from the previous guard</Text>
+      <Text className="nw-tagline">“A lie is a reason to ask another question. It is not a species.”</Text>
+      <Text className="nw-body">Your first shift is guided step by step, and the Guide in the header explains every paper, tool and decision at any time. The queue is dealt fresh for every new campaign: the same seven nights in a different order, and always a genuine first visitor. Sound, voice volume and reduced motion live under Settings.</Text>
+      <Text className="nw-small">Mouse, touch and keyboard navigation. Every spoken line is written on screen and can be replayed. Paperwork stays snapped to the desk rather than obscuring other controls.</Text>
+    </Box>
+  </Box>
+  <Box className="nw-rule" />
+  <Text className="nw-kicker">The ending collection</Text>
+  <Box className="nw-collection">
+    #each (ending in nwView.collection)
+      <Box className={ending.unlocked ? "nw-ending-tile nw-unlocked" : "nw-ending-tile"}>
+        <Text className="nw-small nw-block">{ending.type}</Text>
+        <Text className="nw-tiny nw-block">{ending.name}</Text>
+      </Box>
+    #end
+  </Box>
+</Box>

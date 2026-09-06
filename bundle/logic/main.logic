@@ -1,0 +1,1003 @@
+// SoftN adapter. Only nwView and the small UI-selection values appear in markup.
+// Campaign tables and the authoritative session remain in ZIPP, not in React state.
+// All interactions are event-driven; no Loop, per-frame VM calls or setInterval.
+// Voice: every spoken line is a bundled clip looked up by id in NW_VOICE (voice.logic).
+// A line with no clip is simply silent; the text is always on screen.
+let nwSession = null;
+let nwMeta = nwDefaultMeta();
+let nwView = {};
+let nwScreen = "menu";
+let nwPanel = "register";
+let nwDoc = "card";
+let nwMobile = "window";
+let nwConfirm = "";
+let nwSettings = false;
+let nwGuide = false;
+let nwCaption = "[Rain on reinforced glass. A fluorescent tube hums.]";
+let nwSaveStatus = "";
+let nwMessage = "";
+let nwHasSave = false;
+let nwHasArcade = false;
+let nwLogPage = 0;
+let nwNoteDraft = "";
+let nwSeedDraft = "198917";
+let nwDirectoryQuery = "";
+let nwDirectoryId = "ada";
+let nwAudioStarted = false;
+let nwShowTranscript = false;
+let nwRootClass = "nw-root";
+let nwVoiceHandle = "";
+let nwVoiceSeq = 0;
+let nwVoiceNext = null;
+let nwSpeaking = "";
+let nwLastLine = null;
+let nwTutorialOn = false;
+let nwTutorialStep = 0;
+let nwTipHidden = "";
+let nwFormOpen = true;
+let nwFormPage = 1;
+let NW_PANEL_HINTS = { register: "The building’s own record of this person. Convenient, and it can be rewritten while you watch. Compare it with the card in their hand.",
+    counterfoil: "The movement desk’s independent copy of the return permit. It can explain an ordinary paperwork mistake.",
+    archive: "Microfilm and signed originals. Nothing can edit film. Facts here compare with the card like any other source.",
+    directory: "The public address book: names, apartments and schedules. Not proof of who is standing at the window.",
+    comms: "Ask a witness upstairs, or appeal an earlier containment order. Witnesses can be tired, frightened or wrong.",
+    reports: "The previous guard’s notes, the incident circular and how the building is doing under your window.",
+    notes: "Your own copy. Discoveries, comparisons and decisions are kept here, outside the census." };
+let NW_DOC_HINTS = { card: "The document in the visitor’s hand. Click a fact to select it for comparison.",
+    permit: "Their night movement permit. Serial, seal and dates can be checked against the counterfoil.",
+    live: "What you can actually see through the glass, written down. Compare it with the card’s description." };
+function _init() {
+    nwMeta = nwReadMeta(localStorage);
+    nwSeedDraft = "" + nwMeta.arcadeSeed;
+    let campaign = nwLoadSlot(localStorage, NW_SAVE_KEY), arcade = nwLoadSlot(localStorage, NW_ARCADE_KEY);
+    nwHasSave = campaign.session !== null;
+    nwHasArcade = arcade.session !== null;
+    nwMessage = campaign.message || arcade.message;
+    nwRefresh();
+}
+// ── Sound ──
+function nwSfxFile(name) { return "assets/sfx/" + name + (name === "rain" ? ".wav" : ".mp3"); }
+function nwPlay(name) {
+    if (nwMeta.muted || nwMeta.volume === 0) {
+        return;
+    }
+    try {
+        softn.audio.play(nwSfxFile(name), { volume: nwMeta.volume / 100 });
+    }
+    catch (e) {
+        nwMessage = "Audio is unavailable; all important sounds are captioned.";
+    }
+}
+function nwAmbience() {
+    if (nwAudioStarted || nwMeta.muted || nwMeta.volume === 0) {
+        return;
+    }
+    nwAudioStarted = true;
+    try {
+        softn.audio.play(nwSfxFile("rain"), { loop: true, volume: nwMeta.volume / 100 * 0.45 });
+    }
+    catch (e) {
+        nwAudioStarted = false;
+    }
+}
+function nwStopSound() { try {
+    softn.audio.stopAll();
+}
+catch (e) { } nwAudioStarted = false; nwVoiceSeq++; nwVoiceHandle = ""; nwSpeaking = ""; }
+// ── Voice ──
+function nwVoiceKey(id) { return typeof NW_VOICE === "object" && NW_VOICE !== null && typeof NW_VOICE[id] === "string" ? NW_VOICE[id] : ""; }
+function nwSpeakerName(speaker) { if (speaker === "narrator") {
+    return "Narrator";
+} if (speaker === "marr") {
+    return "S. Marr, previous guard";
+} if (speaker === "office") {
+    return "Head office";
+} let r = nwResident(speaker); return r ? r.name : speaker; }
+function nwStopVoice() { nwVoiceSeq++; nwVoiceNext = null; if (nwVoiceHandle) {
+    try {
+        softn.audio.stop(nwVoiceHandle);
+    }
+    catch (e) { }
+    nwVoiceHandle = "";
+} nwSpeaking = ""; }
+function nwPlayQueued() { let next = nwVoiceNext; nwVoiceNext = null; if (next) {
+    nwSpeak(next.id, next.speaker, "", "");
+} }
+// Plays one recorded line, then optionally a follow-up line once it has ended on its own.
+// Starting a new line always silences the previous one: two voices never overlap.
+function nwSpeak(id, speaker, nextId, nextSpeaker) {
+    nwStopVoice();
+    let key = nwVoiceKey(id);
+    if (!key) {
+        if (nextId) {
+            return nwSpeak(nextId, nextSpeaker, "", "");
+        }
+        return false;
+    }
+    nwLastLine = { id: id, speaker: speaker };
+    if (nwMeta.muted || nwMeta.voice === 0) {
+        return false;
+    }
+    let seq = nwVoiceSeq;
+    nwVoiceNext = nextId ? { id: nextId, speaker: nextSpeaker } : null;
+    nwSpeaking = nwSpeakerName(speaker);
+    try {
+        softn.audio.play("assets/voice/" + key + ".mp3", { volume: nwMeta.voice / 100 }, function (r) {
+            if (seq !== nwVoiceSeq) {
+                if (r && r.handle) {
+                    try {
+                        softn.audio.stop(r.handle);
+                    }
+                    catch (e) { }
+                }
+                return;
+            }
+            if (!r || !r.played || !r.handle) {
+                nwSpeaking = "";
+                nwPlayQueued();
+                nwRefresh();
+                return;
+            }
+            nwVoiceHandle = r.handle;
+            softn.audio.whenEnded(r.handle, function (outcome) {
+                if (seq !== nwVoiceSeq) {
+                    return;
+                }
+                nwVoiceHandle = "";
+                nwSpeaking = "";
+                if (outcome && outcome.status === "ended") {
+                    nwPlayQueued();
+                }
+                nwRefresh();
+            });
+        });
+    }
+    catch (e) {
+        nwSpeaking = "";
+    }
+    return true;
+}
+// Speaks a line now, or after the line currently playing has finished, so that
+// guidance never talks over a resident.
+function nwSpeakAfter(id, speaker) { if (nwSpeaking !== "") {
+    nwVoiceNext = { id: id, speaker: speaker };
+}
+else {
+    nwSpeak(id, speaker, "", "");
+} }
+function nwReplay() { if (nwLastLine) {
+    nwSpeak(nwLastLine.id, nwLastLine.speaker, "", "");
+} nwRefresh(); }
+function nwOpeningVoice(s, c) { return s.mode === "arcade" ? { id: "arcade-voice/" + c.resident, speaker: c.resident } : { id: "opening/" + c.id, speaker: "narrator" }; }
+function nwReplyVoice(s, c, nodeId) {
+    if (s.mode === "arcade") {
+        return nodeId === "gentle" ? { id: "arcade-gentle/" + c.resident, speaker: c.resident } : nodeId === "press" ? { id: "arcade-press/" + c.resident, speaker: c.resident } : null;
+    }
+    return { id: "reply/" + c.id + "/" + nodeId, speaker: c.resident };
+}
+// ── Tips and the guided first shift ──
+function nwTipFor(c) { if (!c || !nwSession || nwSession.mode !== "campaign" || nwTipHidden === c.id || nwHas(nwMeta.tipsSeen, c.id)) {
+    return null;
+} for (let i = 0; i < NW_TIPS.length; i++) {
+    if (NW_TIPS[i].id === c.id) {
+        return NW_TIPS[i];
+    }
+} return null; }
+function nwMarkTipSeen(c) { if (c && nwTipFor(c)) {
+    nwAdd(nwMeta.tipsSeen, c.id);
+    nwStoreMeta();
+} }
+function nwDismissTip() { let c = nwSession && nwSession.turn ? nwCaseAt(nwSession) : null; if (c) {
+    nwMarkTipSeen(c);
+    nwTipHidden = c.id;
+} nwStopVoice(); nwRefresh(); }
+function nwTutorialCurrent() { return nwTutorialOn && nwTutorialStep < NW_TUTORIAL.length ? NW_TUTORIAL[nwTutorialStep] : null; }
+function nwTutorialMet(step, s) {
+    let t = s.turn;
+    if (!t || step.done === "next" || step.done === "close") {
+        return false;
+    }
+    if (s.phase === "receipt") {
+        return true;
+    }
+    if (step.done === "card") {
+        for (let i = 0; i < t.selected.length; i++) {
+            if (t.selected[i].indexOf("card:") === 0) {
+                return true;
+            }
+        }
+        return false;
+    }
+    if (step.done === "compare") {
+        return t.selected.length === 2 || t.pins.length > 0;
+    }
+    if (step.done === "observe") {
+        return nwHas(t.seen, "live");
+    }
+    if (step.done === "ask") {
+        return t.asked.length > 0;
+    }
+    if (step.done === "decide") {
+        return t.closed;
+    }
+    if (step.done === "checklist") {
+        return nwChecklistMarked(t) > 0;
+    }
+    if (step.done === "file") {
+        return t.checklistSent;
+    }
+    return false;
+}
+function nwTutorialFocus(step) { if (step.where === "papers" || step.where === "terminal" || step.where === "window") {
+    nwMobile = step.where;
+} if (step.where === "checklist") {
+    nwFormOpen = true;
+    if (nwSession && nwSession.turn && nwChecklistReady(nwSession.turn)) {
+        nwFormPage = NW_FORM_PAGES.length;
+    }
+} }
+// The form floats above the desk; it can be folded to a pill and brought back.
+function nwFormToggle() { nwFormOpen = !nwFormOpen; nwPlay("paper"); nwRefresh(); }
+function nwFormShow() { nwFormOpen = true; nwPlay("paper"); nwRefresh(); }
+// Three short pages; turning one is a click, and a completed page turns itself.
+function nwFormPageSet(n) { if (nwInt(n, 1, NW_FORM_PAGES.length)) {
+    nwFormPage = n;
+    nwFormOpen = true;
+    nwPlay("paper");
+    nwRefresh();
+} }
+function nwFormPageNext() { nwFormPageSet(Math.min(NW_FORM_PAGES.length, nwFormPage + 1)); }
+function nwFormPagePrev() { nwFormPageSet(Math.max(1, nwFormPage - 1)); }
+function nwFormAutoTurn() { let t = nwSession && nwSession.turn; if (t && nwFormPage < NW_FORM_PAGES.length && nwChecklistPageDone(t, nwFormPage)) {
+    nwFormPage++;
+    nwCaption = "[Page " + nwFormPage + " of form 17-B turns over.]";
+    nwPlay("paper");
+} }
+// Advances past every step the player has already satisfied, then speaks the step now due.
+function nwTutorialSettle(speakAnyway) {
+    if (!nwTutorialOn || !nwSession || nwSession.mode !== "campaign" || nwSession.cursor !== 0) {
+        return;
+    }
+    let moved = false;
+    while (nwTutorialStep < NW_TUTORIAL.length && nwTutorialMet(NW_TUTORIAL[nwTutorialStep], nwSession)) {
+        nwTutorialStep++;
+        moved = true;
+    }
+    if ((moved || speakAnyway) && nwTutorialStep < NW_TUTORIAL.length) {
+        nwTutorialFocus(NW_TUTORIAL[nwTutorialStep]);
+        if (moved) {
+            nwPlay("click");
+        }
+        nwSpeakAfter("tutorial/" + NW_TUTORIAL[nwTutorialStep].id, "narrator");
+    }
+}
+function nwTutorialNext() { let step = nwTutorialCurrent(); if (step && step.done === "next") {
+    nwTutorialStep++;
+    nwTutorialSettle(true);
+} nwRefresh(); }
+function nwTutorialFinish(message) { nwTutorialOn = false; nwMeta.tutorialDone = true; nwStoreMeta(); if (message) {
+    nwMessage = message;
+} }
+function nwTutorialSkip() { nwTutorialFinish("Guided shift skipped. The Guide in the header explains every tool whenever you need it."); nwStopVoice(); nwRefresh(); }
+function nwTutorialReset() { nwMeta.tutorialDone = false; nwStoreMeta(); nwMessage = "The guided first shift will run again on your next new game."; nwRefresh(); }
+function nwToggleGuide() { nwGuide = !nwGuide; if (nwGuide) {
+    nwSettings = false;
+} nwPlay("paper"); nwRefresh(); }
+// ── Persistence ──
+function nwStoreMeta() { try {
+    localStorage.setItem(NW_META_KEY, JSON.stringify(nwMeta));
+}
+catch (e) {
+    nwSaveStatus = "Settings could not be saved. They still apply for this session.";
+} }
+function nwPersist() {
+    if (!nwSession) {
+        return;
+    }
+    nwSession.notes = nwNoteDraft;
+    let key = nwSession.mode === "campaign" ? NW_SAVE_KEY : NW_ARCADE_KEY;
+    nwSaveStatus = nwWriteSlot(localStorage, key, nwSession);
+    if (nwSession.mode === "campaign") {
+        nwHasSave = true;
+    }
+    else {
+        nwHasArcade = true;
+        nwMeta.arcadeBest = Math.max(nwMeta.arcadeBest, nwSession.score);
+    }
+    if (nwSession.ending) {
+        nwAdd(nwMeta.endings, nwSession.ending);
+    }
+    nwStoreMeta();
+}
+function nwDone(sound, caption) {
+    if (sound) {
+        nwPlay(sound);
+    }
+    if (caption) {
+        nwCaption = caption;
+    }
+    nwPersist();
+    nwRefresh();
+}
+// ── Menu, campaign and arcade flow ──
+// A fresh campaign deals the queue from a new seed; the authored order is one seed among many.
+function nwFreshSeed() { let r = 0; try {
+    r = Math.random();
+}
+catch (e) {
+    r = 0;
+} if (typeof r !== "number" || !(r >= 0 && r < 1)) {
+    return NW_AUTHORED_SEED;
+} return 1 + Math.floor(r * 2147483645); }
+function nwStartNew() {
+    try {
+        localStorage.removeItem(NW_SAVE_KEY);
+        localStorage.removeItem(NW_SAVE_KEY + "/backup");
+    }
+    catch (e) { }
+    nwSession = nwNew("campaign", nwFreshSeed());
+    nwScreen = "brief";
+    nwConfirm = "";
+    nwGuide = false;
+    nwPanel = "register";
+    nwMobile = "window";
+    nwDoc = "card";
+    nwLogPage = 0;
+    nwNoteDraft = "";
+    nwMessage = "";
+    nwTipHidden = "";
+    nwTutorialOn = !nwMeta.tutorialDone;
+    nwTutorialStep = 0;
+    nwAmbience();
+    nwSpeak("brief/1", "narrator", "note/1", "marr");
+    nwDone("paper", "[An empty ledger is placed on the desk. Rain continues.]");
+}
+function nwRequestNew() { if (nwHasSave) {
+    nwConfirm = "new";
+    nwRefresh();
+}
+else {
+    nwStartNew();
+} }
+// Prefer the live session when returning from the menu: a quota failure must
+// not replace newer in-memory decisions with an older persisted backup.
+function nwContinue() { let load = nwSession && nwSession.mode === "campaign" ? { session: nwSession, message: nwMessage } : nwLoadSlot(localStorage, NW_SAVE_KEY); if (load.session) {
+    nwSession = load.session;
+    nwScreen = nwSession.phase;
+    nwNoteDraft = nwSession.notes;
+    nwPanel = "register";
+    nwMobile = "window";
+    nwGuide = false;
+    nwMessage = load.message;
+    if (!nwMeta.tutorialDone && nwSession.cursor === 0 && !nwTutorialOn) {
+        nwTutorialOn = true;
+        nwTutorialStep = 0;
+    }
+    nwAmbience();
+    if (nwScreen === "brief") {
+        nwSpeak("brief/" + nwSession.night, "narrator", "note/" + nwSession.night, "marr");
+    }
+    nwTutorialSettle(true);
+    nwRefresh();
+}
+else {
+    nwMessage = load.message || "No campaign save is available.";
+    nwHasSave = false;
+    nwRefresh();
+} }
+function nwBeginArcade() {
+    if (nwMeta.endings.length === 0) {
+        nwMessage = "Finish a campaign ending to unlock the outer queue.";
+        nwRefresh();
+        return;
+    }
+    let parsed = Number(nwSeedDraft);
+    if (!nwInt(parsed, 1, 2147483646)) {
+        nwMessage = "Seed must be a whole number from 1 to 2147483646.";
+        nwRefresh();
+        return;
+    }
+    if (nwHasArcade) {
+        nwConfirm = "arcade";
+        nwRefresh();
+        return;
+    }
+    nwNewArcade(parsed);
+}
+function nwNewArcade(seed) { if (!nwInt(seed, 1, 2147483646)) {
+    nwMessage = "Invalid arcade seed.";
+    nwRefresh();
+    return;
+} try {
+    localStorage.removeItem(NW_ARCADE_KEY);
+    localStorage.removeItem(NW_ARCADE_KEY + "/backup");
+}
+catch (e) { } nwMeta.arcadeSeed = seed; nwSession = nwNew("arcade", seed); nwScreen = "desk"; nwConfirm = ""; nwGuide = false; nwNoteDraft = ""; nwMessage = ""; nwTutorialOn = false; nwAmbience(); nwEntryEffects(); nwDone("arrival", "[The outer queue bell sounds.]"); }
+function nwContinueArcade() { let load = nwSession && nwSession.mode === "arcade" ? { session: nwSession, message: nwMessage } : nwLoadSlot(localStorage, NW_ARCADE_KEY); if (load.session) {
+    nwSession = load.session;
+    nwScreen = nwSession.phase;
+    nwNoteDraft = nwSession.notes;
+    nwGuide = false;
+    nwMessage = load.message;
+    nwTutorialOn = false;
+    nwAmbience();
+    nwRefresh();
+}
+else {
+    nwMessage = load.message || "No arcade run is saved.";
+    nwHasArcade = false;
+    nwRefresh();
+} }
+function nwInputString(v) { if (v && typeof v === "object") {
+    if (v.target && v.target.value !== undefined) {
+        return "" + v.target.value;
+    }
+    if (v.value !== undefined) {
+        return "" + v.value;
+    }
+} return typeof v === "string" || typeof v === "number" ? "" + v : ""; }
+function nwSetSeed(v) { nwSeedDraft = nwInputString(v).slice(0, 10); }
+function nwMenu() { nwPersist(); nwStopSound(); nwScreen = "menu"; nwSettings = false; nwGuide = false; nwConfirm = ""; nwRefresh(); }
+function nwOpenSettings() { nwSettings = !nwSettings; if (nwSettings) {
+    nwGuide = false;
+} nwRefresh(); }
+function nwToggleMute() { nwMeta.muted = !nwMeta.muted; nwStopSound(); if (!nwMeta.muted) {
+    nwAmbience();
+} nwStoreMeta(); nwRefresh(); }
+function nwVolume(delta) { nwMeta.volume = nwClamp(nwMeta.volume + delta, 0, 100); nwStopSound(); nwAmbience(); nwStoreMeta(); nwRefresh(); }
+function nwVoiceVolume(delta) { nwMeta.voice = nwClamp(nwMeta.voice + delta, 0, 100); nwStoreMeta(); if (nwMeta.voice > 0 && !nwMeta.muted) {
+    nwSpeak("tutorial/welcome", "narrator", "", "");
+} nwRefresh(); }
+function nwReduced() { nwMeta.reduced = !nwMeta.reduced; nwStoreMeta(); nwRefresh(); }
+function nwRequestReset() { nwConfirm = "reset"; nwSettings = false; nwGuide = false; nwRefresh(); }
+function nwCancel() { nwConfirm = ""; nwRefresh(); }
+function nwConfirmAction() {
+    let cmd = nwConfirm;
+    nwConfirm = "";
+    if (cmd === "new") {
+        nwStartNew();
+        return;
+    }
+    if (cmd === "arcade") {
+        nwNewArcade(Number(nwSeedDraft));
+        return;
+    }
+    if (cmd === "reset") {
+        try {
+            nwDeleteSaves(localStorage);
+            nwSession = null;
+            nwMeta = nwDefaultMeta();
+            nwStopSound();
+            nwHasSave = false;
+            nwHasArcade = false;
+            nwScreen = "menu";
+            nwNoteDraft = "";
+            nwTutorialOn = false;
+            nwMessage = "Campaign, arcade, endings and settings have been reset.";
+            nwSaveStatus = "";
+        }
+        catch (e) {
+            nwMessage = "Some stored data could not be removed. Browser storage may be blocked.";
+        }
+        nwRefresh();
+        return;
+    }
+    if (nwSession && nwSession.phase === "desk") {
+        let c = nwCaseAt(nwSession);
+        if (nwResolve(nwSession, cmd)) {
+            nwMarkTipSeen(c);
+            nwStopVoice();
+            nwScreen = nwSession.phase;
+            nwDone(cmd === "quarantine" ? "contain" : "door", cmd === "quarantine" ? "[Amber shutters close. The containment team asks for a name.]" : cmd === "admit" ? "[Inner bolts retract. Footsteps enter the building.]" : "[The outer door opens. Rain grows louder.]");
+        }
+    }
+}
+function nwBeginShift() { if (nwSession && nwStartShift(nwSession)) {
+    nwScreen = nwSession.phase;
+    nwEntryEffects();
+    nwDone("arrival");
+} }
+function nwEntryEffects() {
+    nwPanel = "register";
+    nwDoc = "card";
+    nwMobile = "window";
+    nwShowTranscript = false;
+    nwLogPage = 0;
+    nwFormPage = 1;
+    let c = nwCaseAt(nwSession);
+    if (c.event === "blackout") {
+        nwCaption = "[The fluorescent strip fails. A relay clicks in the dark. The battery lamp is available; there is no countdown.]";
+        nwPlay("outage");
+    }
+    else if (c.event === "knock") {
+        nwCaption = "[Three deliberate knocks at the outer door.]";
+        nwPlay("knock");
+    }
+    else if (c.event === "live-call") {
+        nwCaption = "[The clinic extension rings while the visitor stands outside.]";
+        nwPlay("ring");
+    }
+    else if (c.event === "two-arrivals") {
+        nwCaption = "[Two sets of footsteps stop at the line. One continues away.]";
+        nwPlay("arrival");
+    }
+    else if (c.event === "duplicate") {
+        nwCaption = "[The arrival bell sounds again. The name on the card is the same.]";
+        nwPlay("ring");
+    }
+    else {
+        nwCaption = "[Footsteps stop outside the window. Rain and ventilation continue.]";
+    }
+    // The narrator introduces the visitor; a first-time tip or the tutorial follows once the introduction ends.
+    let opening = nwOpeningVoice(nwSession, c), tip = nwTipFor(c), step = nwTutorialCurrent();
+    let nextId = nwTutorialOn && nwSession.cursor === 0 && step ? "tutorial/" + step.id : tip ? "tip/" + tip.id : "";
+    nwSpeak(opening.id, opening.speaker, nextId, "narrator");
+}
+function nwNextVisitor() { if (nwSession && nwSession.phase === "receipt") {
+    if (nwTutorialOn && nwSession.mode === "campaign" && nwSession.cursor === 0) {
+        nwTutorialFinish("Guided shift complete. From here on, the Guide in the header repeats everything you learned.");
+    }
+    if (nwAdvance(nwSession)) {
+        nwScreen = nwSession.phase;
+        nwTipHidden = "";
+        if (nwScreen === "desk") {
+            nwEntryEffects();
+        }
+        else if (nwScreen === "shiftEnd") {
+            nwSpeak("incident/" + nwSession.night, "narrator", "", "");
+        }
+        else if (nwScreen === "finale") {
+            nwSpeak("finale", "narrator", "", "");
+        }
+        nwDone(nwScreen === "desk" ? "arrival" : "paper");
+    }
+} }
+function nwBeginNextNight() { if (nwSession && nwNextNight(nwSession)) {
+    nwScreen = nwSession.phase;
+    nwSpeak("brief/" + nwSession.night, "narrator", "note/" + nwSession.night, "marr");
+    nwDone("paper", "[The day guard’s report slides beneath the glass.]");
+} }
+function nwHearBrief() { if (nwSession) {
+    nwSpeak("brief/" + nwSession.night, "narrator", "note/" + nwSession.night, "marr");
+} nwRefresh(); }
+function nwHearNote() { if (nwSession) {
+    nwSpeak("note/" + nwSession.night, "marr", "", "");
+} nwRefresh(); }
+function nwQuestion(id) { if (nwSession && nwSession.turn) {
+    let c = nwCaseAt(nwSession);
+    if (nwAsk(nwSession, id)) {
+        let line = nwReplyVoice(nwSession, c, id);
+        if (line) {
+            nwSpeak(line.id, line.speaker, "", "");
+        }
+        nwDone("click", "[The tape recorder turns. The visitor’s answer is transcribed below.]");
+    }
+} }
+function nwSetDoc(id) { if (!nwSession || nwSession.phase !== "desk") {
+    return;
+} nwDoc = id; nwInspect(nwSession, id); nwDone("paper", "[Paper moves across the felt desk.]"); }
+function nwSetPanel(id) {
+    if (!nwSession || nwSession.phase !== "desk") {
+        return;
+    }
+    if (id === "archive" && nwSession.mode === "campaign" && nwSession.night < 3) {
+        nwMessage = "The historical archive arrives on night three. Early movement counterfoils are already available.";
+        nwRefresh();
+        return;
+    }
+    nwPanel = id;
+    nwInspect(nwSession, id);
+    nwMessage = "";
+    nwDone(id === "register" ? "terminal" : "paper");
+}
+function nwSetMobile(id) { nwMobile = id; nwRefresh(); }
+function nwPick(id) { if (nwSession && nwSelectFact(nwSession, id)) {
+    nwPlay("click");
+    nwPersist();
+    nwRefresh();
+} }
+function nwKeepComparison() { if (nwSession && nwPin(nwSession)) {
+    nwDone("paper", "[A comparison is pinned into your handwritten notebook.]");
+} }
+function nwDoHold() { if (nwSession && nwHold(nwSession)) {
+    nwDone("hold", "[The outer desk confirms a staffed holding space. Its paper is in the desk log. The visitor remains at the window.]");
+} }
+// A locked tool explains itself instead of silently refusing.
+function nwToolLocked(id) {
+    let s = nwSession, night = s ? s.night : 1;
+    if (id === "call") {
+        nwMessage = "The apartment intercom is reconnected on night two (tonight is night " + night + "). Until then, HOLD asks the outer desk for an independent paper on this visitor.";
+    }
+    else if (id === "scan") {
+        nwMessage = "The signal scanner arrives on night four (tonight is night " + night + "). It gives an uncertain reading, not a verdict; compare papers and ask questions in the meantime.";
+    }
+    else {
+        nwMessage = "The still camera arrives on night four (tonight is night " + night + "). Until then, Observe describes in words what you can see through the glass.";
+    }
+    nwCaption = "[The tool tray is empty where that instrument will sit. A label gives the night it arrives.]";
+    nwPlay("click");
+    nwRefresh();
+}
+function nwDoCall() { if (nwSession && nwSession.turn) {
+    let c = nwCaseAt(nwSession);
+    if (nwCall(nwSession)) {
+        if (nwSession.mode === "campaign") {
+            nwSpeak("call/" + c.id, "narrator", "", "");
+        }
+        nwDone("intercom", "[Intercom click; a witness answer is transcribed in the interview.]");
+    }
+} }
+function nwDoScan() { if (nwSession && nwScan(nwSession)) {
+    nwDone("scan", "[The scanner chirps. Its uncertain reading is transcribed in the interview.]");
+} }
+function nwDoCamera() { if (nwSession && nwPhotograph(nwSession)) {
+    nwDoc = "live";
+    nwMobile = "papers";
+    nwDone("camera", "[The camera shutter clicks. A still is held beside the intake photograph.]");
+} }
+function nwDoLamp() { if (nwSession && nwLamp(nwSession)) {
+    nwDone("click", nwSession.turn.lamp ? "[Battery lamp on. Features are visible again.]" : "[Battery lamp off. The text observation remains available.]");
+} }
+function nwRequestDecision(id) { if (nwSession && nwSession.phase === "desk") {
+    if (nwSession.turn && !nwSession.turn.checklistSent) {
+        nwMessage = "Head office requires form 17-B for every visitor before a signature. Mark every row of the checklist and send it first.";
+        nwCaption = "[The signature pad stays locked. A stamp on the desk reads FORM 17-B FIRST.]";
+        nwPlay("click");
+        nwRefresh();
+        return;
+    }
+    nwConfirm = id;
+    nwRefresh();
+} }
+// ── Form 17-B ──
+function nwCheckCompare(id) {
+    if (!nwSession || nwSession.phase !== "desk" || !nwSession.turn) {
+        return;
+    }
+    let item = nwChecklistItem(id), s = nwSession, c = nwCaseAt(s);
+    if (!item) {
+        return;
+    }
+    if (item.a) {
+        let fa = nwFact(c, s.turn, item.a), fb = nwFact(c, s.turn, item.b);
+        if (!fa || !fb) {
+            return;
+        }
+        s.turn.selected = [item.a, item.b];
+        nwInspect(s, fa.source === "record" ? "register" : fa.source);
+        nwInspect(s, fb.source === "record" ? "register" : fb.source);
+        nwDoc = fb.source === "live" ? "live" : "card";
+        if (fb.source === "record") {
+            nwPanel = "register";
+            nwMobile = "terminal";
+        }
+        else {
+            nwMobile = "papers";
+        }
+        nwDone("paper", "[Two entries are laid side by side on form 17-B. Both are highlighted on the desk.]");
+        return;
+    }
+    if (item.view === "photo") {
+        nwPanel = "register";
+        nwInspect(s, "register");
+        nwDoc = "live";
+        nwInspect(s, "live");
+        nwMobile = "terminal";
+        nwDone("terminal", "[The photograph on file glows on the terminal. The visitor waits at the glass.]");
+        return;
+    }
+    nwDoc = "permit";
+    nwInspect(s, "permit");
+    nwPanel = "counterfoil";
+    nwInspect(s, "counterfoil");
+    nwMobile = "papers";
+    nwDone("paper", "[The return slip lies beside the movement desk counterfoil.]");
+}
+function nwCheckSet(id, mark) { if (nwSession && nwChecklistMark(nwSession, id, mark)) {
+    nwPlay("click");
+    nwFormAutoTurn();
+    nwPersist();
+    nwRefresh();
+} }
+function nwCheckMatch(id) { nwCheckSet(id, "match"); }
+function nwCheckDiffers(id) { nwCheckSet(id, "differs"); }
+function nwCheckUnclear(id) { nwCheckSet(id, "unclear"); }
+function nwFileChecklist() {
+    if (!nwSession || nwSession.phase !== "desk" || !nwSession.turn || nwSession.turn.checklistSent) {
+        return;
+    }
+    if (!nwChecklistReady(nwSession.turn)) {
+        nwMessage = "Mark every row of form 17-B before sending it: Compare, then Matches, Differs or Unclear. " + nwChecklistMarked(nwSession.turn) + " of " + NW_CHECKLIST.length + " rows are marked.";
+        nwPlay("click");
+        nwRefresh();
+        return;
+    }
+    if (nwChecklistFile(nwSession)) {
+        nwMessage = "";
+        nwSpeak("office/" + (nwSession.cursor % NW_OFFICE_LINES.length), "office", "", "");
+        nwDone("printer", "[The form feeds through the desk printer. Head office acknowledges receipt. The signatures are open.]");
+    }
+}
+function nwDoAppeal(id) { if (nwSession && nwAppeal(nwSession, id)) {
+    nwDone("terminal", "[The clinic confirms an independent appeal and release.]");
+} }
+function nwNoteChange(v) { nwNoteDraft = nwInputString(v).slice(0, 4000); }
+function nwSaveNote() { if (nwSession) {
+    nwSession.notes = nwNoteDraft;
+    nwDone("paper", "[Your handwritten note is saved.]");
+} }
+function nwDirectorySearch(v) { nwDirectoryQuery = nwInputString(v).slice(0, 60); nwRefresh(); }
+function nwDirectorySelect(id) { if (nwResident(id)) {
+    nwDirectoryId = id;
+    nwPlay("terminal");
+    nwRefresh();
+} }
+function nwLogMove(delta) { nwLogPage = Math.max(0, nwLogPage + delta); nwRefresh(); }
+function nwTranscript() { nwShowTranscript = !nwShowTranscript; nwRefresh(); }
+function nwRoute(id) { if (nwSession && nwChooseEnding(nwSession, id)) {
+    nwScreen = nwSession.phase;
+    nwSpeak("ending/" + nwSession.finale + "/" + nwSession.endingStep, "narrator", "", "");
+    nwDone("outage", "[The checkpoint falls quiet. Your last decision is still yours.]");
+} }
+function nwSceneNext() { if (nwSession && nwEndingNext(nwSession)) {
+    nwScreen = nwSession.phase;
+    if (nwScreen === "ending") {
+        nwSpeak("ending/" + nwSession.finale + "/" + nwSession.endingStep, "narrator", "", "");
+    }
+    nwDone("paper");
+} }
+function nwChooseFeed(feed) { if (nwSession && nwCircuit(nwSession, feed)) {
+    nwCaption = feed === "C" ? "[The reference hum stops. Ventilation remains audible.]" : feed === "B" ? "[The warning bell stops; Anja restores it. This is the alarm circuit.]" : "[Emergency door releases sound. Anja restores airflow and orders evacuation.]";
+    if (feed !== "B") {
+        nwSpeak("ending/" + nwSession.finale + "/" + nwSession.endingStep, "narrator", "", "");
+    }
+    nwDone(feed === "C" ? "dawn" : "alarm");
+} }
+function nwMarkRows(rows) { let out = []; for (let i = 0; i < rows.length; i++) {
+    let row = rows[i];
+    row.selected = nwSession && nwSession.turn ? nwHas(nwSession.turn.selected, row.id) : false;
+    out.push(row);
+} return out; }
+function nwComparisonState(s) {
+    if (!s.turn || s.turn.selected.length !== 2) {
+        return s.turn && s.turn.selected.length === 1 ? "one" : "none";
+    }
+    let c = nwCaseAt(s), a = nwFact(c, s.turn, s.turn.selected[0]), b = nwFact(c, s.turn, s.turn.selected[1]);
+    if (!a || !b || a.key !== b.key) {
+        return "mixed";
+    }
+    return a.value === b.value ? "agree" : "disagree";
+}
+function nwRefresh() {
+    nwTutorialSettle(false);
+    nwRootClass = "nw-root" + (nwMeta.reduced ? " nw-reduced" : "") + (nwFormOpen && nwScreen === "desk" && !nwConfirm && !nwSettings && !nwGuide ? " nw-form-docked" : "");
+    let v = { title: "The Night Window", date: "MERIDIAN-17 / 1989", shift: "OFF DUTY", status: "Keep an independent copy.", trust: "", admin: "", roster: "",
+        volume: nwMeta.volume, voice: nwMeta.voice, muted: nwMeta.muted, reduced: nwMeta.reduced, unlocked: nwMeta.endings.length > 0, best: nwMeta.arcadeBest, tutorialDone: nwMeta.tutorialDone,
+        speaking: nwSpeaking, lastSpeaker: nwLastLine ? nwSpeakerName(nwLastLine.speaker) : "", canReplay: nwLastLine !== null && !nwMeta.muted && nwMeta.voice > 0, voiced: typeof NW_VOICE_COUNT === "number" ? NW_VOICE_COUNT : 0,
+        guide: NW_GUIDE, directory: [], directoryDetails: "", snapshotPortrait: "assets/portraits/ada/base.svg", efficiency: "0", collection: [], cards: [], permit: [], live: [], register: [], original: [], statements: [], questions: [], logs: [], appeals: [], transcript: [], selected: [], routes: [],
+        archive: "", counterfoil: "", name: "", occupation: "", portrait: "assets/portraits/ada/base.svg", referencePortrait: "assets/portraits/ada/base.svg",
+        caption: nwCaption, message: nwMessage, confirmTitle: "", confirmText: "", confirmButton: "Confirm", brief: "", nightTitle: "", note: "", incident: "", tools: "", weather: "", finale: NW_FINALE_TEXT,
+        callUnlocked: false, archiveUnlocked: false, scanUnlocked: false, canHold: false, canCall: false, canScan: false, canCamera: false,
+        held: false, blackout: false, canLamp: false, rewritten: false, camera: false, scene: "assets/scenes/title.svg", endingTitle: "", endingText: "", endingAction: "", circuit: false,
+        comparison: "", comparisonState: "none", result: "", choice: "", queue: "", reaction: "", opening: "", latestQ: "", latestA: "", mood: "waiting", score: 0, streak: 0, arcade: false,
+        holds: 0, scans: 0, ledgerPage: 1, ledgerPages: 1, consequences: "", endingSummary: "", notesSaved: true,
+        tutorialActive: false, tutorialStep: 0, tutorialTotal: NW_TUTORIAL.length, tutorialTitle: "", tutorialText: "", tutorialNext: false, tutorialWhere: "",
+        tipTitle: "", tipText: "", stepPapers: false, stepCompare: false, stepAsk: false, stepDecide: false, panelHint: NW_PANEL_HINTS[nwPanel] || "", docHint: NW_DOC_HINTS[nwDoc] || "", event: "", commsNotice: "",
+        toolLog: [], holdLabel: "Ask the outer desk", terminalQuery: "READY", recordId: "", night: 1,
+        checklist: [], checklistAuto: [], checklistReady: false, checklistSent: false, checklistProgress: "", checklistSummary: "", customPair: false, stepChecklist: false, stepFile: false, formOpen: nwFormOpen,
+        formPage: nwFormPage, formPageCount: NW_FORM_PAGES.length, formPageTitle: NW_FORM_PAGES[nwFormPage - 1].title, formPages: [], formFirst: nwFormPage === 1, formLast: nwFormPage === NW_FORM_PAGES.length, formPageDone: false };
+    let search = nwDirectoryQuery.toLowerCase().replace(/[\s-]/g, "");
+    for (let i = 0; i < NW_RESIDENTS.length; i++) {
+        let r = NW_RESIDENTS[i];
+        if ((r.name + " " + r.apartment + " " + r.residentId).toLowerCase().replace(/[\s-]/g, "").indexOf(search) >= 0) {
+            v.directory.push({ id: r.id, label: r.name + " / " + r.apartment });
+        }
+    }
+    let publicR = nwResident(nwDirectoryId) || NW_RESIDENTS[0];
+    v.directoryDetails = publicR.name + " · " + publicR.residentId + "\n" + publicR.occupation + " · " + publicR.apartment + "\nBorn " + publicR.dob + "\nRecorded eyes: " + publicR.eyes + ". " + publicR.feature + ".\n" + publicR.household + "\nUsual return: " + publicR.schedule + "\nPublicly filed information; not proof of current identity or location.";
+    for (let i = 0; i < NW_ENDING_DEFS.length; i++) {
+        let e = NW_ENDING_DEFS[i];
+        v.collection.push({ name: nwHas(nwMeta.endings, e.id) ? e.name : "UNRECORDED ENDING", type: e.subtitle, unlocked: nwHas(nwMeta.endings, e.id) });
+    }
+    if (nwSession) {
+        let s = nwSession, night = NW_NIGHTS[Math.min(6, s.night - 1)];
+        v.date = s.mode === "campaign" ? night.date : "OUTER QUEUE / SEED " + s.seed;
+        v.roster = s.mode === "campaign" ? "Queue roster " + s.seed + (s.seed === NW_AUTHORED_SEED ? " (the authored order)" : "") + ". The order of visitors is dealt fresh for every campaign; the first is always a genuine resident." : "";
+        v.shift = s.mode === "arcade" ? "ARCHIVE DRILL / SET " + s.night : "NIGHT " + s.night + " OF 7";
+        v.trust = "Community trust " + s.residents;
+        v.admin = "Administration " + s.authority;
+        v.status = v.trust + " · " + v.admin;
+        v.nightTitle = night.title;
+        v.brief = night.brief;
+        v.note = night.note;
+        v.incident = night.incident;
+        v.tools = night.unlock;
+        v.weather = night.weather;
+        v.efficiency = (s.investigations / Math.max(1, s.resolved)).toFixed(1);
+        v.holds = s.holds;
+        v.scans = s.scans;
+        v.score = s.score;
+        v.streak = s.streak;
+        v.arcade = s.mode === "arcade";
+        v.consequences = nwConsequences(s);
+        v.endingSummary = "Admissions verified " + s.correctAdmissions + " · Impersonators stopped " + s.correctDetections + " · Innocents quarantined " + s.falsePositives + " · Echoes admitted " + s.echoesAdmitted + " · Residents denied " + s.humansDenied + " · Investigations " + s.investigations + " · Best streak " + s.bestStreak;
+        let pages = Math.max(1, Math.ceil(s.journal.length / 8));
+        nwLogPage = nwClamp(nwLogPage, 0, pages - 1);
+        v.ledgerPage = nwLogPage + 1;
+        v.ledgerPages = pages;
+        let end = s.journal.length - nwLogPage * 8, start = Math.max(0, end - 8);
+        for (let i = end - 1; i >= start; i--) {
+            v.logs.push(s.journal[i]);
+        }
+        for (let i = 0; i < NW_RESIDENTS.length; i++) {
+            let r = NW_RESIDENTS[i];
+            if (s.presence[r.id] === "quarantine" && !nwHas(s.appealed, r.id)) {
+                v.appeals.push({ id: r.id, name: r.name, enabled: s.night >= 5 && s.mode === "campaign" });
+            }
+        }
+        v.night = s.night;
+        v.callUnlocked = s.night >= 2 || v.arcade;
+        v.archiveUnlocked = s.night >= 3 || v.arcade;
+        v.scanUnlocked = s.night >= 4 || v.arcade;
+        v.terminalQuery = nwPanel === "register" ? "READY" : nwPanel === "counterfoil" ? "MOVEMENT DESK / COUNTERFOIL" : nwPanel === "archive" ? "ARCHIVE / MICROFILM READER" : nwPanel === "directory" ? "DIRECTORY / PUBLIC INDEX" : nwPanel === "comms" ? "COMMS / LINE 04" : nwPanel === "reports" ? "REPORTS / SHIFT " + s.night : "NOTEBOOK / LOCAL COPY";
+        if (s.phase === "finale") {
+            v.routes = nwEndings(s);
+        }
+        if (s.phase === "ending" || s.phase === "credits") {
+            let def = nwEndingDef(s.finale), step = def.steps[s.endingStep];
+            v.scene = "assets/scenes/" + def.scene + ".svg";
+            v.endingTitle = step.title;
+            v.endingText = step.text;
+            v.endingAction = step.action;
+            v.circuit = s.finale === "truth" && s.endingStep === 1;
+            v.title = def.name;
+        }
+        if (s.turn) {
+            let c = nwCaseAt(s), r = nwResident(c.resident), d = nwDocuments(c, s.turn);
+            v.name = r.name;
+            v.occupation = r.occupation;
+            v.opening = c.opening;
+            v.reaction = s.turn.reaction;
+            v.queue = (v.arcade ? "DRILL " : (["22:49", "23:17", "00:06", "01:24", "02:33", "03:41", "04:58"][s.cursor % 7] + " / VISITOR ")) + (s.cursor + 1) + (v.arcade ? "" : " OF " + NW_CAMPAIGN.length);
+            v.title = c.title;
+            v.portrait = "assets/portraits/" + r.id + "/" + d.portraitVariant + ".svg";
+            v.referencePortrait = "assets/portraits/" + r.id + "/base.svg";
+            v.snapshotPortrait = v.portrait;
+            v.cards = nwMarkRows(nwRows(d, "card", ["name", "dob", "apartment", "residentId", "occupation", "clearance", "eyes", "feature", "blood", "issuer"]));
+            v.permit = nwMarkRows(nwRows(d, "permit", ["serial", "window", "validUntil", "issued", "authority", "signature", "route", "photoDate", "seal"]));
+            v.live = nwMarkRows(nwRows(d, "live", ["eyes", "feature", "hand", "pupils", "ears", "shadow", "reflection", "teeth", "temperature"]));
+            v.register = nwMarkRows(nwRows(d, "record", ["name", "dob", "apartment", "residentId", "occupation", "clearance", "eyes", "feature", "whereabouts", "lastEntry", "schedule"]));
+            v.original = nwMarkRows(nwRows(d, "original", ["name", "dob", "apartment", "residentId", "eyes", "feature"]));
+            v.statements = nwMarkRows(nwRows(d, "statement", ["knowledge", "household", "reply", "memory"]));
+            for (let i = 0; i < c.nodes.length; i++) {
+                if (nwQuestionVisible(s.turn, c.nodes[i])) {
+                    v.questions.push({ id: c.nodes[i].id, q: c.nodes[i].q, tone: c.nodes[i].tone || "" });
+                }
+            }
+            let lines = s.turn.transcript;
+            v.transcript = lines.slice(0);
+            if (lines.length) {
+                v.latestQ = lines[lines.length - 1].q;
+                v.latestA = lines[lines.length - 1].a;
+                v.mood = lines[lines.length - 1].mood;
+                if (d.portraitVariant === "base") {
+                    let expression = nwHas(["defensive", "angry", "hostile", "annoyed"], v.mood) ? "defensive" : nwHas(["open", "relieved", "amused", "warm"], v.mood) ? "open" : "anxious";
+                    v.portrait = "assets/portraits/" + r.id + "/" + expression + ".svg";
+                }
+            }
+            v.archive = c.archive;
+            v.counterfoil = s.night < 3 && !v.arcade ? c.archive : "The movement office can confirm the original die has SIXTEEN points and the entry window is 22:00–05:30. For amendments, location witnesses and historical records, request the independent ARCHIVE. Permit accuracy alone does not establish identity.";
+            v.commsNotice = d.comms.reply;
+            v.event = c.event;
+            v.blackout = c.event === "blackout" && !s.turn.lamp;
+            v.canLamp = c.event === "blackout";
+            v.rewritten = s.turn.rewritten;
+            v.camera = s.turn.camera;
+            v.canHold = !s.turn.held && s.holds > 0 && !s.turn.closed;
+            v.held = s.turn.held;
+            v.canCall = v.callUnlocked && !s.turn.call && !s.turn.closed;
+            v.canScan = v.scanUnlocked && !s.turn.scan && s.scans > 0 && !s.turn.closed;
+            v.canCamera = v.scanUnlocked && !s.turn.camera && !s.turn.closed;
+            v.comparison = nwComparison(s);
+            v.comparisonState = nwComparisonState(s);
+            v.result = s.turn.result;
+            v.choice = s.turn.choice.toUpperCase();
+            for (let i = 0; i < s.turn.selected.length; i++) {
+                let f = nwFact(c, s.turn, s.turn.selected[i]);
+                if (f) {
+                    v.selected.push(f);
+                }
+            }
+            v.recordId = r.residentId;
+            if (nwPanel === "register") {
+                v.terminalQuery = "QUERY RESIDENT " + r.residentId;
+            }
+            v.holdLabel = s.turn.held ? "Outer desk paper received" : s.holds > 0 ? "Ask the outer desk · " + s.holds + " left" : "No holding slots left tonight";
+            for (let i = 0; i < lines.length; i++) {
+                let q = lines[i].q;
+                if (q.indexOf("HOLD") === 0 || q.indexOf("INTERCOM") === 0 || q.indexOf("SIGNAL SCAN") === 0) {
+                    v.toolLog.push({ title: q, text: lines[i].a });
+                }
+            }
+            if (s.turn.camera) {
+                v.toolLog.push({ title: "CAMERA / still retained", text: "Tonight’s face is held beside the photograph on file. Open Observe to compare them." });
+            }
+            let anyActive = false;
+            for (let i = 0; i < NW_CHECKLIST.length; i++) {
+                let item = NW_CHECKLIST[i], row = { id: item.id, label: item.label, mark: s.turn.checklist[item.id] || "", pair: !!item.a, onPage: item.page === nwFormPage, active: false, aLabel: "", aValue: "", bLabel: "", bValue: "", state: "" };
+                if (item.a) {
+                    let fa = nwFact(c, s.turn, item.a), fb = nwFact(c, s.turn, item.b);
+                    if (fa && fb) {
+                        row.active = s.turn.selected.length === 2 && nwHas(s.turn.selected, item.a) && nwHas(s.turn.selected, item.b);
+                        if (row.active) {
+                            row.aLabel = fa.source + " / " + fa.label;
+                            row.aValue = fa.value;
+                            row.bLabel = fb.source + " / " + fb.label;
+                            row.bValue = fb.value;
+                            row.state = fa.value === fb.value ? "agree" : "disagree";
+                            anyActive = true;
+                        }
+                    }
+                }
+                v.checklist.push(row);
+            }
+            let auto = nwChecklistAuto(s.turn);
+            v.checklistAuto.push({ id: "asked", label: NW_CHECKLIST_AUTO[0].label, done: auto.asked });
+            v.checklistAuto.push({ id: "corroborated", label: NW_CHECKLIST_AUTO[1].label, done: auto.corroborated });
+            v.checklistReady = nwChecklistReady(s.turn);
+            v.checklistSent = s.turn.checklistSent;
+            v.checklistSummary = nwChecklistSummary(s.turn);
+            v.checklistProgress = s.turn.checklistSent ? "Filed · " + v.checklistSummary : nwChecklistMarked(s.turn) + " of " + NW_CHECKLIST.length + " rows marked";
+            for (let i = 0; i < NW_FORM_PAGES.length; i++) {
+                let pg = NW_FORM_PAGES[i], pc = nwChecklistPageCounts(s.turn, pg.n);
+                v.formPages.push({ n: pg.n, label: pg.short + (pc.marked === pc.total ? " ✓" : " · " + pc.marked + "/" + pc.total), title: pg.title, active: pg.n === nwFormPage, done: pc.marked === pc.total });
+            }
+            v.formPageDone = nwChecklistPageDone(s.turn, nwFormPage);
+            v.customPair = s.turn.selected.length > 0 && !anyActive;
+            v.stepPapers = nwHas(s.turn.seen, "card") || nwHas(s.turn.seen, "permit") || nwHas(s.turn.seen, "live") || s.turn.selected.length > 0;
+            v.stepCompare = s.turn.selected.length === 2 || s.turn.pins.length > 0;
+            v.stepChecklist = nwChecklistMarked(s.turn) > 0;
+            v.stepFile = s.turn.checklistSent;
+            v.stepAsk = s.turn.asked.length > 0;
+            v.stepDecide = s.turn.closed;
+            let tip = nwTipFor(c);
+            if (tip && !(nwTutorialOn && s.cursor === 0)) {
+                v.tipTitle = tip.title;
+                v.tipText = tip.text;
+            }
+            let step = nwTutorialCurrent();
+            if (step && s.mode === "campaign" && s.cursor === 0) {
+                v.tutorialActive = true;
+                v.tutorialStep = nwTutorialStep + 1;
+                v.tutorialTitle = step.title;
+                v.tutorialText = step.text;
+                v.tutorialNext = step.done === "next";
+                v.tutorialWhere = step.where;
+            }
+        }
+    }
+    if (nwConfirm) {
+        let whom = nwView.name || v.name;
+        if (nwConfirm === "new") {
+            v.confirmTitle = "Start a new seven-night campaign?";
+            v.confirmText = "The current campaign and its backup will be replaced. Endings, settings and the arcade record remain.";
+            v.confirmButton = "Start new campaign";
+        }
+        else if (nwConfirm === "reset") {
+            v.confirmTitle = "Erase all local game data?";
+            v.confirmText = "This removes the campaign, arcade run, backups, unlocked endings, high score and settings. This cannot be undone.";
+            v.confirmButton = "Erase all game data";
+        }
+        else if (nwConfirm === "arcade") {
+            v.confirmTitle = "Replace the current outer queue?";
+            v.confirmText = "A fresh seeded run will replace the saved arcade run. Your campaign and high score remain.";
+            v.confirmButton = "Start new outer queue";
+        }
+        else {
+            v.confirmTitle = nwConfirm.toUpperCase() + " / " + whom;
+            v.confirmText = nwConfirm === "admit" ? "Open the inner door. A hostile impersonator can harm residents; a verified visitor gains shelter. The signature is yours." : nwConfirm === "deny" ? "Return this visitor to the outer shelter, or reject an existing containment appeal. Exposure and delayed medical care can cause harm." : "Send this visitor to the containment ward. An innocent person will lose freedom and trust. No instrument has made this decision for you.";
+            v.confirmButton = "Sign and " + nwConfirm;
+        }
+    }
+    nwView = v;
+}

@@ -1,0 +1,29 @@
+{
+  "name": "softn-the-night-window",
+  "version": "1.0.0",
+  "private": true,
+  "description": "The Night Window: a fully voiced observation-horror game for SoftN. Seven graveyard shifts at Meridian-17.",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/f2i-com/softn-TheNightWindow.git"
+  },
+  "engines": {
+    "node": "^20.19.0 || >=22.12.0"
+  },
+  "scripts": {
+    "test": "node bundle/tests/run-tests.cjs",
+    "smoke": "node bundle/tests/smoke.cjs",
+    "bench": "node bundle/tests/bench.cjs",
+    "build": "node scripts/build.cjs",
+    "validate": "node tools/test-bundle.cjs dist/TheNightWindow.softn",
+    "release:check": "npm test && npm run build && npm run validate",
+    "voice": "node bundle/assets-src/make-voice.cjs",
+    "sfx": "node bundle/assets-src/make-sfx-eleven.cjs",
+    "install-into": "node scripts/install-into-softn.cjs",
+    "uninstall-from": "node scripts/uninstall-from-softn.cjs"
+  },
+  "devDependencies": {
+    "fflate": "^0.8.3"
+  }
+}

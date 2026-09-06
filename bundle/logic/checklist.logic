@@ -1,0 +1,88 @@
+// Head office form 17-B: what must be verified for every visitor before a signature.
+// Pure model. Marks live on the turn; filing is recorded in the journal. No host calls.
+// A pair row lays two facts side by side (the same selection mechanism as the notebook
+// comparison). A view row points the player at two panels and asks for their eyes.
+// The form is three short pages so that every row is in view without scrolling.
+let NW_FORM_PAGES = [
+  { n: 1, title: "Against the register", short: "1 Register" },
+  { n: 2, title: "The person at the window", short: "2 Person" },
+  { n: 3, title: "Papers and filing", short: "3 Papers & file" }
+];
+let NW_CHECKLIST = [
+  { id: "name", page: 1, short: "Name", label: "Full name on the card matches the register", a: "card:name", b: "record:name" },
+  { id: "dob", page: 1, short: "Date of birth", label: "Date of birth matches the register", a: "card:dob", b: "record:dob" },
+  { id: "apartment", page: 1, short: "Apartment", label: "Apartment matches the register", a: "card:apartment", b: "record:apartment" },
+  { id: "residentId", page: 1, short: "Resident ID", label: "Resident ID matches the register", a: "card:residentId", b: "record:residentId" },
+  { id: "feature", page: 2, short: "Feature", label: "Distinguishing feature matches what you observe", a: "card:feature", b: "live:feature" },
+  { id: "eyes", page: 2, short: "Eyes", label: "Eye colour matches what you observe", a: "card:eyes", b: "live:eyes" },
+  { id: "photo", page: 2, short: "Face", label: "Face at the window matches the photograph on file", view: "photo" },
+  { id: "permit", page: 3, short: "Return slip", label: "Return slip agrees with the movement desk counterfoil", view: "permit" }
+];
+function nwChecklistPageCounts(t, n) { let c = { marked: 0, total: 0 }; for (let i = 0; i < NW_CHECKLIST.length; i++) {
+    if (NW_CHECKLIST[i].page === n) {
+        c.total++;
+        if (nwHas(NW_CHECK_MARKS, t.checklist[NW_CHECKLIST[i].id])) {
+            c.marked++;
+        }
+    }
+} return c; }
+function nwChecklistPageDone(t, n) { let c = nwChecklistPageCounts(t, n); return c.total > 0 && c.marked === c.total; }
+let NW_CHECKLIST_AUTO = [
+  { id: "asked", label: "Asked the visitor at least one question" },
+  { id: "corroborated", label: "Story checked against an independent source (outer desk, intercom or archive)" }
+];
+let NW_CHECK_MARKS = ["match", "differs", "unclear"];
+let NW_OFFICE_LINES = [
+  "Form seventeen B received. Head office thanks you for your diligence.",
+  "Checklist logged. Head office reminds you that a form is not a decision.",
+  "Received and filed. The census will reconcile your entries at five seventeen."
+];
+function nwChecklistItem(id) { for (let i = 0; i < NW_CHECKLIST.length; i++) {
+    if (NW_CHECKLIST[i].id === id) {
+        return NW_CHECKLIST[i];
+    }
+} return null; }
+function nwChecklistMark(s, id, mark) {
+    if (s.phase !== "desk" || !s.turn || s.turn.closed || s.turn.checklistSent || !nwChecklistItem(id) || !nwHas(NW_CHECK_MARKS, mark)) {
+        return false;
+    }
+    // Marking the same box again clears it; the object is rebuilt so no key lingers.
+    let next = {}, ks = Object.keys(s.turn.checklist);
+    for (let i = 0; i < ks.length; i++) {
+        if (ks[i] !== id) {
+            next[ks[i]] = s.turn.checklist[ks[i]];
+        }
+    }
+    if (s.turn.checklist[id] !== mark) {
+        next[id] = mark;
+    }
+    s.turn.checklist = next;
+    return true;
+}
+function nwChecklistMarked(t) { let n = 0; for (let i = 0; i < NW_CHECKLIST.length; i++) {
+    if (nwHas(NW_CHECK_MARKS, t.checklist[NW_CHECKLIST[i].id])) {
+        n++;
+    }
+} return n; }
+function nwChecklistReady(t) { return nwChecklistMarked(t) === NW_CHECKLIST.length; }
+function nwChecklistAuto(t) { return { asked: t.asked.length > 0, corroborated: t.held || t.call || t.archive }; }
+function nwChecklistCounts(t) { let c = { match: 0, differs: 0, unclear: 0 }; for (let i = 0; i < NW_CHECKLIST.length; i++) {
+    let m = t.checklist[NW_CHECKLIST[i].id];
+    if (nwHas(NW_CHECK_MARKS, m)) {
+        c[m]++;
+    }
+} return c; }
+function nwChecklistSummary(t) { let c = nwChecklistCounts(t); return c.match + " match · " + c.differs + " differ · " + c.unclear + " unclear"; }
+function nwChecklistFile(s) {
+    if (s.phase !== "desk" || !s.turn || s.turn.closed || s.turn.checklistSent || !nwChecklistReady(s.turn)) {
+        return false;
+    }
+    s.turn.checklistSent = true;
+    let parts = [];
+    for (let i = 0; i < NW_CHECKLIST.length; i++) {
+        let m = s.turn.checklist[NW_CHECKLIST[i].id];
+        parts.push(NW_CHECKLIST[i].short + " " + (m === "match" ? "✓" : m === "differs" ? "✗" : "?"));
+    }
+    nwJournal(s, "FORM 17-B / " + nwResident(nwCaseAt(s).resident).name, "Filed with head office: " + nwChecklistSummary(s.turn) + ". " + parts.join(", ") + ".");
+    return true;
+}

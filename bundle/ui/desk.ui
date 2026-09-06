@@ -1,0 +1,234 @@
+<Box if={nwScreen === "desk" || nwScreen === "receipt"}>
+  <Box className="nw-campaign-banner">
+    <Text className="nw-kicker">{nwView.queue + " / " + nwView.title}</Text>
+    <Text className="nw-small">{nwView.arcade ? "SCORE " + nwView.score + " · STREAK " + nwView.streak + " · CHECKS/CASE " + nwView.efficiency : nwView.weather}</Text>
+  </Box>
+  <Box if={nwView.tutorialActive} className="nw-tutorial">
+    <Text className="nw-kicker">{"Guided first shift · step " + nwView.tutorialStep + " of " + nwView.tutorialTotal}</Text>
+    <Text className="nw-section-title">{nwView.tutorialTitle}</Text>
+    <Text className="nw-body">{nwView.tutorialText}</Text>
+    <Box className="nw-toolbar">
+      <Button if={nwView.tutorialNext} className="nw-primary" @click={nwTutorialNext}>Next</Button>
+      <Button className="nw-quiet" @click={nwReplay} disabled={!nwView.canReplay}>Hear it again</Button>
+      <Button className="nw-quiet" @click={nwTutorialSkip}>Skip the guided shift</Button>
+    </Box>
+  </Box>
+  <Box if={nwScreen === "desk" && nwView.tipTitle !== ""} className="nw-tip">
+    <Text className="nw-kicker">New this shift</Text>
+    <Text className="nw-section-title">{nwView.tipTitle}</Text>
+    <Text className="nw-body">{nwView.tipText}</Text>
+    <Box className="nw-toolbar"><Button className="nw-btn" @click={nwDismissTip}>Got it</Button></Box>
+  </Box>
+  <Box if={nwScreen === "desk"} className="nw-steps">
+    <Box className={nwView.stepPapers ? "nw-step nw-step-done" : "nw-step"}><Text>{(nwView.stepPapers ? "✓ " : "1 ") + "Look at the papers"}</Text></Box>
+    <Box className={nwView.stepChecklist ? "nw-step nw-step-done" : "nw-step"}><Text>{(nwView.stepChecklist ? "✓ " : "2 ") + "Work the checklist"}</Text></Box>
+    <Box className={nwView.stepAsk ? "nw-step nw-step-done" : "nw-step"}><Text>{(nwView.stepAsk ? "✓ " : "3 ") + "Ask a question"}</Text></Box>
+    <Box className={nwView.stepFile ? "nw-step nw-step-done" : "nw-step"}><Text>{(nwView.stepFile ? "✓ " : "4 ") + "File with head office"}</Text></Box>
+    <Box className={nwView.stepDecide ? "nw-step nw-step-done" : "nw-step"}><Text>{(nwView.stepDecide ? "✓ " : "5 ") + "Sign a decision"}</Text></Box>
+  </Box>
+  <Box className="nw-mobile-tabs nw-tabs">
+    <Button className={nwMobile === "window" ? "nw-active" : ""} @click={nwSetMobile("window")}>01 Window</Button>
+    <Button className={nwMobile === "papers" ? "nw-active" : ""} @click={nwSetMobile("papers")}>02 Papers</Button>
+    <Button className={nwMobile === "terminal" ? "nw-active" : ""} @click={nwSetMobile("terminal")}>03 Terminal</Button>
+  </Box>
+  <Box className="nw-desk-grid">
+    <Box className={nwMobile === "window" ? "nw-window-column" : "nw-window-column nw-mobile-hidden"}>
+      <Box>
+        <Box className={nwView.blackout ? "nw-window nw-blackout" : "nw-window"}>
+          <Box className="nw-window-label"><Text>OUTER CAMERA / 17</Text><Text>● LIVE</Text></Box>
+          <Image key={nwView.queue} src={asset(nwView.portrait)} alt={"Live visitor: " + nwView.name + ". Written visual details are under Observe."} className="nw-visitor" objectFit="contain" />
+          <Box className="nw-rain" />
+        </Box>
+        <Box className="nw-window-id"><Text className="nw-section-title">{nwView.name}</Text><Text className="nw-small">{nwView.occupation}</Text></Box>
+      </Box>
+      <Text className="nw-body">{nwView.opening}</Text>
+      <Box if={nwView.reaction !== ""} className="nw-warning"><Text className="nw-small">{nwView.reaction}</Text></Box>
+      <Box if={nwView.canLamp} className="nw-toolbar"><Button className="nw-primary" @click={nwDoLamp}>{nwView.blackout ? "Switch on battery lamp" : "Battery lamp on / switch off"}</Button></Box>
+      <Box if={nwView.commsNotice !== ""} className="nw-warning"><Text className="nw-small">{nwView.commsNotice}</Text></Box>
+      <Box if={nwScreen === "desk"} className="nw-tools">
+        <Text className="nw-kicker">Tools / check what they say</Text>
+        <Box className="nw-toolbar" style={{marginTop:"8px"}}>
+          <Button className="nw-btn" disabled={!nwView.canHold} title="Two per night, from night one. The outer desk sends an independent paper on this visitor. It never ends the encounter." @click={nwDoHold}>{nwView.holdLabel}</Button>
+          <Button if={!nwView.callUnlocked} className="nw-locked" title="Opens on night two" @click={nwToolLocked("call")}>Call apartment · night 2</Button>
+          <Button if={nwView.callUnlocked} className="nw-btn" disabled={!nwView.canCall} title="Ask a witness upstairs. A witness can be wrong." @click={nwDoCall}>{nwView.canCall ? "Call apartment" : "Apartment called"}</Button>
+          <Button if={!nwView.scanUnlocked} className="nw-locked" title="Opens on night four" @click={nwToolLocked("scan")}>Scanner · night 4</Button>
+          <Button if={nwView.scanUnlocked} className="nw-btn" disabled={!nwView.canScan} title="An uncertain reading, two cartridges per shift. Not an identity detector." @click={nwDoScan}>{nwView.canScan ? "Scan · " + nwView.scans + " left" : nwView.scans === 0 ? "No cartridges left" : "Scanned"}</Button>
+          <Button if={!nwView.scanUnlocked} className="nw-locked" title="Opens on night four" @click={nwToolLocked("camera")}>Camera · night 4</Button>
+          <Button if={nwView.scanUnlocked} className="nw-btn" disabled={!nwView.canCamera} title="Keep tonight’s face beside the photograph on file." @click={nwDoCamera}>{nwView.canCamera ? "Take still" : "Still taken"}</Button>
+        </Box>
+        <Text className="nw-hint" style={{marginTop:"8px"}}>{nwView.toolLog.length === 0 ? "Results appear here and in the interview transcript." : ""}</Text>
+        <Box if={nwView.toolLog.length > 0} className="nw-desklog">
+          <Text className="nw-kicker">Desk log / what the tools returned</Text>
+          #each (entry in nwView.toolLog)
+            <Box className="nw-desklog-entry"><Text className="nw-small nw-block">{entry.title}</Text><Text className="nw-body">{entry.text}</Text></Box>
+          #end
+        </Box>
+      </Box>
+    </Box>
+    <Box className={nwMobile === "papers" ? "nw-paper-column" : "nw-paper-column nw-mobile-hidden"}>
+      <Box className="nw-tabs">
+        <Button className={nwDoc === "card" ? "nw-active" : ""} @click={nwSetDoc("card")}>Resident card</Button>
+        <Button className={nwDoc === "permit" ? "nw-active" : ""} @click={nwSetDoc("permit")}>Return slip</Button>
+        <Button className={nwDoc === "live" ? "nw-active" : ""} @click={nwSetDoc("live")}>Observe</Button>
+      </Box>
+      <Text className="nw-hint">{nwView.docHint}</Text>
+      <Box if={nwDoc === "card"} className="nw-paper">
+        <Text className="nw-kicker">Meridian residential authority</Text>
+        <Box className="nw-card-top">
+          <Box className="nw-id-photo nw-id-none" title="The photograph on file is on the terminal record, not on the card"><Text className="nw-tiny">Photo</Text><Text className="nw-tiny">held on</Text><Text className="nw-tiny">terminal</Text><Text className="nw-tiny">record</Text></Box>
+          <Box><Text className="nw-section-title">RESIDENCY IDENTIFICATION</Text><Box className="nw-stamp"><Text>M17 / REGISTERED ORIGINAL INTAKE</Text></Box></Box>
+        </Box>
+        <Box className="nw-facts">
+          #each (row in nwView.cards)
+            <Button variant="ghost" className={row.selected ? "nw-fact nw-selected" : "nw-fact"} title="Select this fact for comparison" @click={nwPick(row.id)}><Text className="nw-fact-label">{(row.selected ? "● " : "") + row.label}</Text><Text className="nw-fact-value">{row.value}</Text></Button>
+          #end
+        </Box>
+        <Text className="nw-small nw-block" style={{marginTop:"12px"}}>This card establishes a record, not a right to unexamined entry.</Text>
+      </Box>
+      <Box if={nwDoc === "permit"} className="nw-paper">
+        <Text className="nw-kicker">Night movement office / counterfoil B</Text>
+        <Text className="nw-section-title" style={{marginTop:"12px",marginBottom:"16px"}}>RETURN AUTHORIZATION</Text>
+        <Box className="nw-facts">
+          #each (row in nwView.permit)
+            <Button variant="ghost" className={row.selected ? "nw-fact nw-selected" : "nw-fact"} title="Select this fact for comparison" @click={nwPick(row.id)}><Text className="nw-fact-label">{(row.selected ? "● " : "") + row.label}</Text><Text className="nw-fact-value">{row.value}</Text></Button>
+          #end
+        </Box>
+        <Box className="nw-stamp"><Text>KEEP BOTH COPIES DO NOT LAMINATE</Text></Box>
+      </Box>
+      <Box if={nwDoc === "live"} className="nw-paper">
+        <Text className="nw-kicker">Inspection sketch / subject’s left and right</Text>
+        <Box className="nw-card-top">
+          <Image key={nwView.queue} src={asset(nwView.portrait)} alt={"The visitor as seen through the glass now: " + nwView.name} className="nw-id-photo nw-id-live" />
+          <Box><Text className="nw-section-title">OBSERVATIONS</Text><Text className="nw-small">{nwView.camera ? "Camera still retained beside the photograph on file." : "Compare with the photograph on file (terminal, Register). All critical visual clues also appear in writing."}</Text></Box>
+        </Box>
+        <Box if={nwView.camera} className="nw-photo-pair">
+          <Box><Image src={asset(nwView.referencePortrait)} alt="Photograph on file, intake 1984" width="100%" height={180} objectFit="cover" objectPosition="top" /><Text className="nw-small nw-block">ON FILE / 1984</Text></Box>
+          <Box><Image src={asset(nwView.snapshotPortrait)} alt="Retained current visitor still" width="100%" height={180} objectFit="cover" objectPosition="top" /><Text className="nw-small nw-block">STILL / TONIGHT</Text></Box>
+        </Box>
+        <Box className="nw-facts">
+          #each (row in nwView.live)
+            <Button variant="ghost" className={row.selected ? "nw-fact nw-selected" : "nw-fact"} title="Select this observation for comparison" @click={nwPick(row.id)}><Text className="nw-fact-label">{(row.selected ? "● " : "") + row.label}</Text><Text className="nw-fact-value">{row.value}</Text></Button>
+          #end
+        </Box>
+        <Box if={nwView.statements.length > 0} style={{marginTop:"18px"}}>
+          <Text className="nw-kicker">Additional spoken observations</Text>
+          #each (row in nwView.statements)
+            <Button variant="ghost" className={row.selected ? "nw-fact nw-selected" : "nw-fact"} @click={nwPick(row.id)}><Text className="nw-fact-label">{row.label}</Text><Text className="nw-fact-value">{row.value}</Text></Button>
+          #end
+        </Box>
+      </Box>
+    </Box>
+    <Box className={nwMobile === "terminal" ? "nw-terminal-column" : "nw-terminal-column nw-mobile-hidden"}>
+      <TerminalPanel />
+    </Box>
+  </Box>
+  <Box if={nwScreen === "desk"} className="nw-form-stub">
+    <Box className="nw-comparison-head">
+      <Text className="nw-kicker">Head office form 17-B</Text>
+      <Box className={nwView.checklistSent ? "nw-badge nw-badge-agree" : "nw-badge"}><Text>{nwView.checklistProgress}</Text></Box>
+    </Box>
+    <Text className="nw-small">{nwView.formOpen ? "The form is open beside the desk. It stays in view while you switch papers and panels." : "The form is folded into a button at the edge of the screen."}</Text>
+    <Button if={!nwView.formOpen} className="nw-btn" @click={nwFormShow}>Open form 17-B</Button>
+  </Box>
+  <Box if={nwScreen === "desk" && nwView.formOpen} className="nw-form-pop" role="dialog" ariaLabel="Head office form 17-B">
+    <Box className="nw-form-head">
+      <Box className="nw-stack" style={{gap:"2px"}}>
+        <Text className="nw-kicker">Head office form 17-B</Text>
+        <Text className="nw-small">{nwView.checklistProgress}</Text>
+      </Box>
+      <Button className="nw-quiet" ariaLabel="Minimise the form" @click={nwFormToggle}>Minimise</Button>
+    </Box>
+    <Box className="nw-form-pages">
+      #each (pg in nwView.formPages)
+        <Button className={pg.active ? "nw-form-page nw-form-page-active" : pg.done ? "nw-form-page nw-form-page-done" : "nw-form-page"} title={pg.title} @click={nwFormPageSet(pg.n)}>{pg.label}</Button>
+      #end
+    </Box>
+    <Box className="nw-form-body">
+      <Text className="nw-kicker">{"Page " + nwView.formPage + " of " + nwView.formPageCount + " / " + nwView.formPageTitle}</Text>
+      <Text if={nwView.formFirst} className="nw-hint">Compare lays the two sources side by side and highlights both facts on the desk. Mark what you see. A finished page turns over by itself.</Text>
+    #each (row in nwView.checklist)
+      <Box if={row.onPage} className={(row.active ? "nw-check-row nw-check-active" : "nw-check-row") + (row.mark !== "" ? " nw-check-marked" : "")}>
+        <Box className="nw-check-main">
+          <Text className="nw-check-label">{(row.mark === "match" ? "✓ " : row.mark === "differs" ? "✗ " : row.mark === "unclear" ? "? " : "○ ") + row.label}</Text>
+          <Box className="nw-check-buttons">
+            <Button className="nw-quiet" title={row.pair ? "Lay the two entries side by side" : "Open the two panels to compare"} @click={nwCheckCompare(row.id)}>Compare</Button>
+            <Button className={row.mark === "match" ? "nw-check-mark nw-check-on-match" : "nw-check-mark"} disabled={nwView.checklistSent} @click={nwCheckMatch(row.id)}>Matches</Button>
+            <Button className={row.mark === "differs" ? "nw-check-mark nw-check-on-differs" : "nw-check-mark"} disabled={nwView.checklistSent} @click={nwCheckDiffers(row.id)}>Differs</Button>
+            <Button className={row.mark === "unclear" ? "nw-check-mark nw-check-on-unclear" : "nw-check-mark"} disabled={nwView.checklistSent} @click={nwCheckUnclear(row.id)}>Unclear</Button>
+          </Box>
+        </Box>
+        <Box if={row.active} className="nw-selected-pair">
+          <Box className="nw-compare-item"><Text className="nw-small nw-block">{row.aLabel}</Text><Text className="nw-block">{row.aValue}</Text></Box>
+          <Box className="nw-compare-item"><Text className="nw-small nw-block">{row.bLabel}</Text><Text className="nw-block">{row.bValue}</Text></Box>
+        </Box>
+        <Text if={row.active} className="nw-small">{row.state === "agree" ? "The entries agree. Shared records can repeat a mistake; look for independent corroboration." : "The entries disagree. Ask about the difference, then look for an independently kept source."}</Text>
+      </Box>
+    #end
+    #each (row in nwView.checklistAuto)
+      <Box if={nwView.formLast} className={row.done ? "nw-check-row nw-check-auto nw-check-marked" : "nw-check-row nw-check-auto"}>
+        <Box className="nw-check-main"><Text className="nw-check-label">{(row.done ? "✓ " : "○ ") + row.label}</Text><Text className="nw-small">{row.done ? "Recorded automatically" : "Recorded automatically when you do it"}</Text></Box>
+      </Box>
+    #end
+    <Box if={nwView.customPair} className="nw-check-row">
+      <Text className="nw-check-label">Your own comparison</Text>
+      <Box className="nw-selected-pair">
+        #each (fact in nwView.selected)
+          <Box className="nw-compare-item"><Text className="nw-small nw-block">{fact.source + " / " + fact.label}</Text><Text className="nw-block">{fact.value}</Text></Box>
+        #end
+      </Box>
+      <Text className="nw-small">{nwView.comparison}</Text>
+      <Button if={nwView.selected.length === 2} className="nw-btn" @click={nwKeepComparison}>Pin comparison to notebook</Button>
+    </Box>
+    <Box className="nw-form-fade" />
+    </Box>
+    <Box className="nw-form-foot">
+      <Button className="nw-quiet" disabled={nwView.formFirst} ariaLabel="Previous page of the form" @click={nwFormPagePrev}>◂ Previous</Button>
+      <Text className="nw-small">{"Page " + nwView.formPage + " of " + nwView.formPageCount}</Text>
+      <Button if={!nwView.formLast} className={nwView.formPageDone ? "nw-primary" : "nw-btn"} ariaLabel="Next page of the form" @click={nwFormPageNext}>Next page ▸</Button>
+      <Button if={nwView.formLast && !nwView.checklistSent} className={nwView.checklistReady ? "nw-primary" : "nw-btn"} @click={nwFileChecklist}>{nwView.checklistReady ? "Send form 17-B to head office" : "Send to head office · mark every row first"}</Button>
+      <Text if={nwView.formLast && nwView.checklistSent} className="nw-small">{"Filed: " + nwView.checklistSummary + ". The signatures are open."}</Text>
+    </Box>
+  </Box>
+  <Box if={nwScreen === "desk" && !nwView.formOpen} className="nw-form-pill">
+    <Button className="nw-primary" ariaLabel="Open head office form 17-B" @click={nwFormToggle}>{"Form 17-B · " + nwView.checklistProgress}</Button>
+  </Box>
+  <Box if={nwScreen === "desk"} className="nw-interview">
+    <Box className="nw-answer nw-stack">
+      <Text className="nw-kicker">Interview recorder / {nwView.mood}</Text>
+      <Text if={nwView.latestA === ""} className="nw-body">The recorder is running. Give the person a question worth answering.</Text>
+      <Text if={nwView.latestQ !== ""} className="nw-small">{nwView.latestQ}</Text>
+      <Text if={nwView.latestA !== ""} className="nw-body">{nwView.latestA}</Text>
+      <Box className="nw-toolbar">
+        <Button if={nwView.latestA !== ""} className="nw-quiet" disabled={!nwView.canReplay} @click={nwReplay}>Replay last line</Button>
+        <Button if={nwView.transcript.length > 0} className="nw-quiet" @click={nwTranscript}>{nwShowTranscript ? "Close transcript" : "Read full encounter transcript"}</Button>
+      </Box>
+      <Box if={nwShowTranscript} className="nw-transcript">
+        #each (line in nwView.transcript)
+          <Box className="nw-stack"><Text className="nw-small">{line.q}</Text><Text className="nw-body">{line.a}</Text></Box>
+        #end
+      </Box>
+    </Box>
+    <Box>
+      <Text className="nw-kicker">Ask a question</Text>
+      <Text className="nw-small">Green edge: a gentle approach. Amber edge: pressure. You may take only one approach per visitor; the other questions are always available.</Text>
+      <Box className="nw-question-list">
+        #each (question in nwView.questions)
+          <Button variant="ghost" className={question.tone === "gentle" ? "nw-question nw-gentle" : question.tone === "press" ? "nw-question nw-press" : "nw-question"} @click={nwQuestion(question.id)}>{question.q}</Button>
+        #end
+      </Box>
+      <Text if={nwView.questions.length === 0} className="nw-small">No further questions. Review the sources, then sign a disposition.</Text>
+    </Box>
+  </Box>
+  <Box if={nwScreen === "desk" && !nwView.checklistSent} className="nw-gate"><Text className="nw-small">Head office requires form 17-B before any signature.</Text><Button if={!nwView.formOpen} className="nw-quiet" @click={nwFormShow}>Open form 17-B</Button></Box>
+  <Box if={nwScreen === "desk"} className="nw-actions">
+    <Box className="nw-action"><Button variant="ghost" className="nw-admit" @click={nwRequestDecision("admit")}>↳ ADMIT</Button><Text className="nw-action-hint">Open the inner door</Text></Box>
+    <Box className="nw-action"><Button variant="ghost" className="nw-deny" @click={nwRequestDecision("deny")}>↲ DENY</Button><Text className="nw-action-hint">Send them back into the rain</Text></Box>
+    <Box className="nw-action"><Button variant="ghost" className="nw-contain" @click={nwRequestDecision("quarantine")}>⊠ QUARANTINE</Button><Text className="nw-action-hint">Send them to the containment ward</Text></Box>
+  </Box>
+  <Box if={nwScreen === "receipt"} className="nw-panel nw-stack" style={{marginTop:"20px"}}>
+    <Text className="nw-kicker">Signed disposition / {nwView.choice}</Text>
+    <Text className="nw-body">{nwView.result}</Text>
+    <Text className="nw-small">{"Form 17-B filed with head office: " + nwView.checklistSummary + "."}</Text>
+    <Button className="nw-primary" @click={nwNextVisitor}>Close ledger entry / next visitor</Button>
+  </Box>
+</Box>

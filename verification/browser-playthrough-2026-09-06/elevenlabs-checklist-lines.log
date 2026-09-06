@@ -1,0 +1,23 @@
+Sounds to generate: printer
+wrote printer.mp3 (18 KB)
+sfx exit 0
+Line ids: 511 · distinct clips: 446 · already recorded: 440
+  narrator   clips   51 chars  10514 · to record: 6 clips / 949 chars
+  marr       clips    7 chars    918 · to record: 0 clips / 0 chars
+  openings   clips   49 chars   6942 · to record: 0 clips / 0 chars
+  residents  clips  230 chars  29759 · to record: 0 clips / 0 chars
+  calls      clips   49 chars   5882 · to record: 0 clips / 0 chars
+  arcade     clips   60 chars   4723 · to record: 0 clips / 0 chars
+pruned narrator_04efef3f
+pruned narrator_bf211383
+pruned narrator_fa7ea879
+Selected for recording: 6 clips / 949 characters (eleven_multilingual_v2)
+[1/6] office_e6a60507 office/1 (72 chars, 39 KB)
+[2/6] office_4b8ba586 office/0 (69 chars, 39 KB)
+[3/6] office_812023cc office/2 (77 chars, 40 KB)
+[4/6] narrator_035b8bba tutorial/checklist (295 chars, 158 KB)
+[5/6] narrator_9ede7fcd tutorial/observe (246 chars, 119 KB)
+[6/6] narrator_88090039 tutorial/file (190 chars, 96 KB)
+
+Recorded 6 clips (0.5 MB) in 7s; failed 0. voice.logic now lists 511 voiced line ids.
+voice exit 0

@@ -1,0 +1,109 @@
+// Routes are explicit player actions with prerequisites and multi-step scenes.
+// A hidden score never silently substitutes one successful ending for another.
+let NW_ENDING_DEFS = [
+    { id: "survivor", name: "THE LOCKED DAWN", subtitle: "Survivor", scene: "sealed", steps: [
+            { title: "Close the census shutters", text: "You keep the outer gate open to a staffed shelter and close the inner census link. The building survives tonight. Behind you, seven days of questions remain unanswered.", action: "Post the shelter watch" },
+            { title: "A pencil across the ledger", text: "At dawn you write every unresolved name by hand. The terminal offers to tidy your notes. You decline. Outside, someone is still waiting, but the waiting is no longer invisible.", action: "Leave the pencil for the next guard" },
+            { title: "The locked dawn", text: "MERIDIAN-17 remains inhabited, imperfect and sealed. You protected a boundary. Whether it was the right boundary will be tomorrow’s question.", action: "Record this ending" }
+        ] },
+    { id: "purge", name: "THE QUIET BUILDING", subtitle: "Purge", scene: "ward", steps: [
+            { title: "Countersign the sweep", text: "Administration turns your containment reports into a building-wide sweep. White transport lights move across the ceiling. There are no screams in the summary, because the summary has no field for them.", action: "Enter the ward corridor" },
+            { title: "The names left out", text: "The beds are made with military precision. A bowl of soup cools on a windowsill. Ruth’s ledger records portions for people the census has already subtracted. Keeping everyone out did not keep everyone safe.", action: "Read the missing names aloud" },
+            { title: "The quiet building", text: "The loudspeaker congratulates you on a reduction in uncertainty. For the first time in seven nights you can hear every clock in the checkpoint. Nothing human interrupts them.", action: "Record this ending" }
+        ] },
+    { id: "breach", name: "EVERY WINDOW LIT", subtitle: "Breach", scene: "rain", steps: [
+            { title: "The queue turns inward", text: "A knock sounds at the inner door. Then the cupboards. Then the telephone, though nobody is calling. The arrivals no longer need the window. Some wear faces you admitted. Some have been waiting much longer.", action: "Take the handwritten ledger" },
+            { title: "Leave without a number", text: "You guide the people still willing to follow through a service hatch. Behind you the census announces that every resident is accounted for. It is announcing names in your voice.", action: "Open the unregistered hatch" },
+            { title: "Every window lit", text: "From the tram wall Meridian looks warm. Every apartment is occupied. At exactly 05:17 every curtain opens. You keep walking with the book beneath your coat.", action: "Record this ending" }
+        ] },
+    { id: "whistleblower", name: "THE OTHER FREQUENCY", subtitle: "Whistleblower", scene: "radio", steps: [
+            { title: "Make a copy that can leave", text: "Emil disconnects the census speaker and warms the independent transmitter. Your microfilm and carbon numbers become words, and then a signal. Dalia’s authorization is among them. You do not edit it out.", action: "Transmit the original dates" },
+            { title: "Ask them to repeat it", text: "For twelve seconds the eastern press gives no answer. Then a stranger repeats the names back, including yours. The warning has reached a place the terminal cannot amend.", action: "Demand public, named oversight" },
+            { title: "The other frequency", text: "Meridian’s gates stay shut pending a public inquiry, but the disappeared now have witnesses outside the walls. You have not explained the rain. You have made it harder to use the rain as an excuse.", action: "Record this ending" }
+        ] },
+    { id: "coexistence", name: "A CHAIR AT THE TABLE", subtitle: "Coexistence", scene: "garden", steps: [
+            { title: "Write a rule about conduct", text: "Orin signs with his own name. Ruth signs as his supervisor. The agreement forbids coercion and impersonation; it does not require a person to lie about their origin to receive shelter.", action: "Countersign the voluntary agreement" },
+            { title: "Keep a chair", text: "There are objections. There should be. You take names, record the risks and establish a right of appeal. Celia’s old phrase becomes a practice rather than a slogan. The first new rule is that nobody vanishes into a category.", action: "Open the supervised inner gate" },
+            { title: "A chair at the table", text: "At breakfast the oranges are sour. Someone complains. Orin laughs, and nobody agrees what that proves. For once the building permits a question to remain open.", action: "Record this ending" }
+        ] },
+    { id: "truth", name: "THE UNRECORDED MORNING", subtitle: "True ending", scene: "dawn", steps: [
+            { title: "The machine beneath the census", text: "Dalia places the manual key beside Anja’s unaltered wiring diagram. Tomas has locked the lifts clear. Film R-84/17 and Selene’s carbon show that the reference service trains its returns from coerced memories. Your own file bears the first surviving return date. You do not need to solve what you are before deciding what you will do.", action: "Go to the physical distribution board" },
+            { title: "Three feeds; one choice", text: "Anja’s witnessed diagram identifies A as ventilation, B as alarm and C as census reference. The terminal displays the reverse. There is no timer. Read the paper you protected; choose what you are willing to switch off.", action: "Choose a circuit" },
+            { title: "Let the silence stay empty", text: "Feeder C falls silent. Ventilation continues. People keep breathing. The returns outside stop answering in chorus. Inside, nobody disappears: the machine copied people; it did not own everything they became. Ada puts a penny under the desk’s short leg. At last, something useful that the record never knew.", action: "Record this ending" }
+        ] }
+];
+function nwEndingDef(id) { for (let i = 0; i < NW_ENDING_DEFS.length; i++) {
+    if (NW_ENDING_DEFS[i].id === id) {
+        return NW_ENDING_DEFS[i];
+    }
+} return NW_ENDING_DEFS[0]; }
+function nwEndings(s) {
+    let out = [], danger = s.breaches >= 5;
+    if (danger) {
+        return [{ id: "breach", name: "Evacuate through the service hatch", reason: "The accumulated breaches have made the checkpoint perimeter untenable.", enabled: true }];
+    }
+    out.push({ id: "survivor", name: "Keep the perimeter; protect the shelter", reason: "A staffed, accountable lockdown. The source of the rain remains unresolved.", enabled: true });
+    out.push({ id: "purge", name: "Countersign the administrative sweep", reason: "Authorizes forced removals throughout Meridian. Civilian harm will be severe.", enabled: true });
+    let radio = nwHas(s.evidence, "film") && nwHas(s.evidence, "carbon") && nwHas(s.evidence, "broadcast") && nwHas(s.flags, "radio-ready") && s.presence.emil === "inside";
+    out.push({ id: "whistleblower", name: "Send the evidence outside", reason: radio ? "Film, independent carbon and Emil’s protected transmitter are available." : "Needs the archive film, Selene’s carbon, radio evidence and Emil admitted/present.", enabled: radio });
+    let peace = nwHas(s.evidence, "consent") && nwHas(s.evidence, "garden") && nwHas(s.flags, "orin-final") && s.presence.orin === "inside" && s.residents >= 25;
+    out.push({ id: "coexistence", name: "Establish voluntary supervised entry", reason: peace ? "Consent, independent conduct records and community support are present." : "Needs Orin admitted on the final night, consent and garden records, and community confidence ≥25.", enabled: peace });
+    let truth = nwHas(s.evidence, "film") && nwHas(s.evidence, "carbon") && nwHas(s.evidence, "player") && nwHas(s.evidence, "self") && nwHas(s.evidence, "circuit") && nwHas(s.evidence, "consent") && nwHas(s.flags, "relay-ready") && nwHas(s.flags, "anja-ready") && nwHas(s.flags, "key-held") && s.presence.tomas === "inside" && s.presence.anja === "inside" && s.presence.dalia === "inside";
+    out.push({ id: "truth", name: "Disconnect the reference service", reason: truth ? "The independent chain is complete. Anja, Tomas and Dalia can reach the physical board." : "Needs film + carbon + your 1984 record + Dalia’s final disclosure + Anja’s circuit sheet + consent; protect/admit the engineer, electrician and scientist.", enabled: truth });
+    return out;
+}
+function nwChooseEnding(s, id) {
+    if (s.phase !== "finale") {
+        return false;
+    }
+    let choices = nwEndings(s), allowed = false;
+    for (let i = 0; i < choices.length; i++) {
+        if (choices[i].id === id && choices[i].enabled) {
+            allowed = true;
+        }
+    }
+    if (!allowed) {
+        return false;
+    }
+    s.finale = id;
+    s.endingStep = 0;
+    s.phase = "ending";
+    return true;
+}
+function nwEndingNext(s) {
+    if (s.phase !== "ending") {
+        return false;
+    }
+    if (s.finale === "truth" && s.endingStep === 1) {
+        return false;
+    }
+    if (s.endingStep < 2) {
+        s.endingStep++;
+    }
+    else {
+        s.ending = s.finale;
+        s.phase = "credits";
+        nwJournal(s, "ENDING / " + nwEndingDef(s.ending).name, "The ledger was retained. This ending is now in the permanent collection.");
+    }
+    return true;
+}
+function nwCircuit(s, feed) {
+    if (s.phase !== "ending" || s.finale !== "truth" || s.endingStep !== 1) {
+        return false;
+    }
+    if (feed === "C") {
+        s.endingStep = 2;
+        return true;
+    }
+    if (feed === "B") {
+        nwJournal(s, "ALARM DISCONNECTED", "Anja restores feed B. Muting an alarm does not stop what it warns about.");
+        return true;
+    }
+    if (feed === "A") {
+        s.finale = "breach";
+        s.endingStep = 0;
+        nwJournal(s, "VENTILATION LOST", "Anja restores airflow, but emergency door releases destroy the remaining perimeter. The crew orders evacuation.");
+        return true;
+    }
+    return false;
+}

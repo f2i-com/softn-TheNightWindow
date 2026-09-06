@@ -1,0 +1,66 @@
+// The Night Window — original authored content. See DATA_MODEL.md.
+let NW_NIGHTS = [
+  {
+    "title": "The names at the door",
+    "date": "01 NOV 1989",
+    "weather": "Steady rain. Outer temperature 6°C.",
+    "brief": "Your name is Ellis Flint. You have worked day security for eleven years. Tonight your predecessor left before you arrived. A pencil lies across the entry ledger. On the last page: DO NOT LET THE TERMINAL KEEP YOUR ONLY COPY.\n\nCompare the resident card with the register. Inspect the person, then ask questions. A difference is a reason to investigate, not a verdict. ADMIT opens the inner door; DENY sends someone into the rain; QUARANTINE takes them to a containment ward. HOLD buys an additional interview but uses one of two staffed holding slots. Nothing advances while you are simply reading.",
+    "note": "Guard S. Marr: the scanner is not on your desk yet, and good riddance. My uncle failed it after dental work. Ada knows the building better than the register.",
+    "incident": "A visitor last night knew the emergency-contact list by heart. Nobody asked whether she liked any of them.",
+    "unlock": "Card / permit / register / interview / comparison"
+  },
+  {
+    "title": "Someone will answer",
+    "date": "02 NOV 1989",
+    "weather": "Rain mixed with fine ash.",
+    "brief": "The apartment intercom has been reconnected. It lets you ask another person, not ask the truth. Someone upstairs can be wrong. Someone upstairs can be afraid.\n\nAt the foot of the shift notes is a list of five names. Four are crossed out. The fifth is yours, but it is written in a hand that looks unpleasantly familiar.",
+    "note": "Callers sometimes answer yes before you have asked anything. Ask an open question. We are short of movement permits; genuine residents may carry replacements.",
+    "incident": "A courier reports a second checkpoint beyond the tram wall. The tram map contains no such stop.",
+    "unlock": "Apartment intercom / permit counterfoils"
+  },
+  {
+    "title": "A correction in green",
+    "date": "03 NOV 1989",
+    "weather": "Rain audible in the dry archive.",
+    "brief": "A microfilm reader has arrived with no requisition number. Somebody wanted you to have it. Unlike the terminal, film cannot edit itself.\n\nCensus corrections are now automatic. Administration says this will reduce uncertainty. The terminal has begun replacing the word missing with returned.",
+    "note": "Marr: heard three bells at the archive. Micah says two are the alarm; the third is a pump. Wrote that down because I keep forgetting which sound is supposed to save us.",
+    "incident": "The board has lost a floor. F-wing still draws power, but the census calls it unoccupied.",
+    "unlock": "Historical archive / retained carbon evidence"
+  },
+  {
+    "title": "The inside of the rain",
+    "date": "04 NOV 1989",
+    "weather": "One of the drops is on your side of the glass.",
+    "brief": "At 22:41, the corridor speakers gave the evacuation tone backwards. Every lift opened on a different floor. Whether the breach began at your window or somewhere older is not yet clear.\n\nA signal scanner is available. You have two insulated cartridges per shift. Fever, metal and radio equipment can interfere. A low reading is not an acquittal; a high reading is not a sentence.",
+    "note": "Use the camera, not your memory of a reflection. The emergency lamp is battery powered. If the grid fails, switch it on; there is no hidden countdown.",
+    "incident": "An internal audit finds residents who entered before the construction of their apartments. One is listed as a founding tenant.",
+    "unlock": "Limited signal scanner / still camera"
+  },
+  {
+    "title": "Orders without signatures",
+    "date": "05 NOV 1989",
+    "weather": "Rain rises against the outside sill.",
+    "brief": "Administration has issued a directive: executive authorization supersedes conflicting evidence. No one will put the directive in writing.\n\nYou can now challenge previous quarantine orders through Communications. A successful appeal releases a living human, but it does not erase the harm already done. The clinic has sent you the names, not the totals.",
+    "note": "Marr: an instruction is not evidence. If someone asks you to burn a paper, make a second copy before asking why.",
+    "incident": "The census service has scheduled a complete synchronization for 05:17 on the seventh night. No technical description is attached.",
+    "unlock": "Containment appeals / executive directives"
+  },
+  {
+    "title": "A borrowed kindness",
+    "date": "06 NOV 1989",
+    "weather": "The rain keeps the rhythm of breathing.",
+    "brief": "You were hired to classify arrivals. Nobody told you that a classification could be an instruction to become something.\n\nThe residents have begun making their own records: who cooked, who listened, who came back for somebody else. These records disagree with the official distinction between human and Reproduction. Neither set is a guarantee of kindness.",
+    "note": "Marr: if an Echo tells you what it is, listen to the rest of the sentence. Then verify it. Compassion without attention is another kind of negligence.",
+    "incident": "The containment wing requests family photographs, not blood samples. The old transfer lists suddenly make sense.",
+    "unlock": "Voluntary supervised admission / census circuit evidence"
+  },
+  {
+    "title": "Keep a chair",
+    "date": "07 NOV 1989",
+    "weather": "05:17 is coming. The clocks agree for the first time.",
+    "brief": "Seven nights of names are in your ledger. The final synchronization will use every admission, every refusal and every blank file as training for a building that would rather have a perfect population than a living one.\n\nFinish the queue. Then decide what leaves Meridian: a warning, a purge order, a new agreement, or a silence the machine cannot fill. The people you protected, and the evidence you actually kept, determine what is possible.",
+    "note": "Marr: there is no last instruction. I was waiting for one too.",
+    "incident": "Your own file is in the outgoing tray. Under date of return: 17 OCT 1984. Under cause of death: blank.",
+    "unlock": "Final transmission / physical census disconnect"
+  }
+];
